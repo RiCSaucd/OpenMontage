@@ -1,0 +1,301 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-07-05T21:53:51.929503+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "Why is the sky blue?",
+      "research_date": "2026-07-05",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "Why is the sky blue? (xkcd's What If?)",
+            "url": "https://www.youtube.com/watch?v=oLoxdLfB6Gs",
+            "source": "youtube",
+            "angle": "Contrarian meta-answer: 'the sky is blue because air is blue' \u2014 argues Rayleigh scattering is an over-technical answer",
+            "what_it_covers": "46-second short arguing the honest everyday answer is 'air is blue', using the Statue of Liberty analogy",
+            "what_it_misses": "Never shows the actual physics \u2014 no wavelength comparison, no violet paradox, no sunset connection",
+            "engagement_signal": "586.3K views, 29.2K likes, published 2026-04-14"
+          },
+          {
+            "title": "Why Is the Sky Blue? (NASA Space Place / NESDIS)",
+            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+            "source": "government education page",
+            "angle": "K-12 friendly wave-size explanation",
+            "what_it_covers": "Short waves bounce off gas molecules, long waves pass through; sunsets briefly explained",
+            "what_it_misses": "No quantitative punch (the 1/lambda^4 law, the ~6-10x scattering ratio), skips the violet paradox depth",
+            "engagement_signal": "Canonical top search result for the question"
+          },
+          {
+            "title": "Why Is the Sky Blue? | Physics for Kids (SciShow Kids)",
+            "url": "https://nerdfighteria.info/v/bcVr13Fw7w8/",
+            "source": "youtube",
+            "angle": "Kids-level scattering explanation",
+            "what_it_covers": "Basic scattering story in 2:51",
+            "what_it_misses": "Aimed at children; no data visuals, no misconception-busting for adults",
+            "engagement_signal": "518,733 views"
+          },
+          {
+            "title": "Why Is The Sky Blue? Most People Get This Wrong! (Echoes of Evolution)",
+            "url": "https://www.youtube.com/watch?v=tHwwszuS4-c",
+            "source": "youtube shorts",
+            "angle": "Quiz-format short leading with the ocean-reflection misconception",
+            "what_it_covers": "Multiple-choice quiz, names Rayleigh scattering, teases sunset",
+            "what_it_misses": "48 seconds of quiz gimmick, near-zero actual explanation",
+            "engagement_signal": "212 views (format saturated, execution weak)"
+          }
+        ],
+        "saturated_angles": [
+          "Generic 'blue light scatters more' one-liner without showing why or how much",
+          "Kids-voice 'short waves bounce' explanation with no quantitative payoff",
+          "Quiz/multiple-choice shorts that tease but never explain"
+        ],
+        "underserved_gaps": [
+          "Nobody in the short-form space walks through the violet paradox properly (violet scatters MORE than blue \u2014 so why isn't the sky violet?) with the three-part answer: sun's output, atmospheric absorption, and human cone sensitivity",
+          "The quantitative hook is underused: scattering scales with 1/wavelength^4, so blue scatters ~6-10x more than red \u2014 a perfect animated stat",
+          "The sunset is usually a throwaway line; the 'same physics, longer path' connection deserves its own visual beat"
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "xkcd's What If? short 'Why is the sky blue?' hit 586K views arguing 'air is blue' is the better answer",
+            "url": "https://www.youtube.com/watch?v=oLoxdLfB6Gs",
+            "date": "2026-04-14",
+            "relevance": "Proves the topic still pulls big short-form numbers in 2026, and creates a fresh 'actually, here's the real physics' response opportunity"
+          }
+        ],
+        "active_discussions": [
+          {
+            "platform": "physics.stackexchange",
+            "topic_or_url": "https://physics.stackexchange.com/questions/470163/why-is-the-extent-of-scattering-of-light-by-particles-inversely-proportional-to",
+            "sentiment": "Curiosity \u2014 people want the WHY behind the fourth-power law, not just the name 'Rayleigh scattering'"
+          }
+        ],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "Rayleigh scattering intensity is inversely proportional to the fourth power of wavelength (1/lambda^4); blue light (~450nm) is scattered roughly 6-10x more than red light (~700nm) \u2014 (700/400)^4 ~= 9.4",
+          "source_url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+          "source_name": "UC Riverside Physics FAQ (John Baez)",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "stat_card"
+        },
+        {
+          "claim": "Air molecules act like tiny antennas: incoming light makes their charges oscillate, and the re-radiated power scales with frequency^4 \u2014 which is where the fourth-power law comes from",
+          "source_url": "https://physics.stackexchange.com/questions/470163/why-is-the-extent-of-scattering-of-light-by-particles-inversely-proportional-to",
+          "source_name": "Physics Stack Exchange (dipole radiation derivation)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "Violet light actually scatters MORE than blue, but the sky isn't violet because the sun emits less violet, the upper atmosphere absorbs some of it, and human eyes are far less sensitive to violet than blue",
+          "source_url": "http://www.atmo.arizona.edu/courses/spring12/atmo170a1s1/lecture_notes/scattering/why_not_violet.html",
+          "source_name": "University of Arizona atmospheric sciences lecture notes",
+          "credibility": "primary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "hook"
+        },
+        {
+          "claim": "The explanation was built over 52 years: Tyndall's 1859 experiments, Rayleigh's 1871 fourth-power formula, and Einstein's 1911 calculation settling that air molecules themselves (not dust) do the scattering",
+          "source_url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+          "source_name": "UC Riverside Physics FAQ (John Baez)",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "Sunsets are red for the same reason the sky is blue: at low sun angles light passes through so much more air that even green and yellow get scattered away, leaving red to reach your eyes directly",
+          "source_url": "https://www.weather.gov/fgz/SkyBlue",
+          "source_name": "US National Weather Service",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "closing_punch"
+        },
+        {
+          "claim": "The sky-reflects-the-ocean myth is easily refuted: the sky is just as blue in deserts and inland areas far from any sea",
+          "source_url": "https://theconversation.com/curious-kids-why-is-the-sky-blue-and-where-does-it-start-81165",
+          "source_name": "The Conversation (Curious Kids)",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "hook"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "Why is the sky blue and not violet, if violet light scatters even more?",
+          "Is the sky blue because it reflects the ocean?",
+          "Why does the sky turn red/orange at sunset if the air is the same?",
+          "Why is the sky paler near the horizon and darker blue overhead?",
+          "Why is space black if sunlight is everywhere?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "The sky is blue because it reflects the blue of the oceans",
+            "reality": "The sky is blue everywhere \u2014 deserts included. Air molecules scatter short (blue) wavelengths of sunlight far more than long (red) ones",
+            "source": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
+          },
+          {
+            "myth": "Blue is simply 'the color that scatters most'",
+            "reality": "Violet scatters even more than blue; the sky looks blue because of the sun's spectrum, atmospheric absorption of violet, and human eye cone sensitivity",
+            "source": "http://www.atmo.arizona.edu/courses/spring12/atmo170a1s1/lecture_notes/scattering/why_not_violet.html"
+          }
+        ],
+        "knowledge_level": "General audience knows 'something about light scattering' as a phrase but almost nobody knows the fourth-power law, the violet paradox, or that sunsets are the same physics. The gap between name-recognition and actual understanding is the opportunity.",
+        "pain_points": [
+          "Existing answers either say too little ('blue scatters more') or drown people in dipole math",
+          "The violet question feels like a gotcha that most explainers dodge"
+        ]
+      },
+      "expert_voices": [
+        {
+          "name": "Lord Rayleigh (John William Strutt)",
+          "title_or_affiliation": "British physicist, Nobel laureate",
+          "position": "Derived in 1871 that scattered intensity is inversely proportional to the fourth power of wavelength",
+          "source_url": "https://www.ebsco.com/research-starters/chemistry/rayleigh-scattering",
+          "contrarian": false
+        },
+        {
+          "name": "Randall Munroe (xkcd What If?)",
+          "title_or_affiliation": "Science communicator",
+          "position": "Argues the more honest everyday answer is simply 'air is blue' \u2014 Rayleigh scattering is the mechanism, not the answer",
+          "source_url": "https://www.youtube.com/watch?v=oLoxdLfB6Gs",
+          "contrarian": true
+        }
+      ],
+      "angles_discovered": [
+        {
+          "name": "The Sky Should Be Violet",
+          "hook": "Violet light scatters MORE than blue \u2014 so why isn't the sky violet? The answer is hiding in your own eyes.",
+          "type": "contrarian",
+          "why_now": "The violet paradox is the top unanswered question in short-form content on this topic; the U. Arizona source gives a rigorous three-part answer nobody animates",
+          "grounded_in": [
+            "data_points[2] (violet paradox)",
+            "audience_insights.common_questions[0]",
+            "landscape.underserved_gaps[0]"
+          ]
+        },
+        {
+          "name": "The Fourth-Power Law That Paints the Sky",
+          "hook": "One tiny equation \u2014 scattering ~ 1/wavelength^4 \u2014 explains blue skies, red sunsets, and pale horizons all at once.",
+          "type": "data_driven",
+          "why_now": "The quantitative angle (blue scatters ~6-10x more than red) is underused in existing content and is perfect for animated stat cards and charts",
+          "grounded_in": [
+            "data_points[0] (fourth-power law)",
+            "data_points[4] (sunset connection)",
+            "landscape.underserved_gaps[1]"
+          ]
+        },
+        {
+          "name": "It Took 52 Years to Answer a Child's Question",
+          "hook": "Tyndall, Rayleigh, then Einstein \u2014 three generations of physicists to explain what every 4-year-old asks.",
+          "type": "narrative",
+          "why_now": "The 1859-1911 discovery arc (ending with Einstein) is a genuine surprise absent from every popular explainer surveyed",
+          "grounded_in": [
+            "data_points[3] (Tyndall/Rayleigh/Einstein timeline)",
+            "audience_insights.knowledge_level"
+          ]
+        },
+        {
+          "name": "No, It's Not the Ocean",
+          "hook": "Half the answers you heard as a kid are wrong \u2014 the sky isn't a mirror of the sea.",
+          "type": "evergreen",
+          "why_now": "The ocean-reflection myth remains the most common wrong answer; myth-busting formats reliably engage",
+          "grounded_in": [
+            "data_points[5] (desert refutation)",
+            "audience_insights.misconceptions[0]"
+          ]
+        }
+      ],
+      "visual_references": [
+        {
+          "description": "HyperPhysics Rayleigh scattering diagrams \u2014 sun, atmosphere slab, scattered blue rays",
+          "url": "https://www.hyperphysics.gsu.edu/hbase/atmos/blusky.html",
+          "what_works": "The beam-through-atmosphere side view instantly communicates 'blue bounces everywhere, red goes straight'"
+        },
+        {
+          "description": "NOAA NESDIS wavelength wave-size illustration",
+          "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+          "what_works": "Wavelength comparison drawn as literal wave squiggles of different lengths \u2014 readable at a glance, perfect for flat motion graphics"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+          "title": "Why is the sky blue? \u2014 UC Riverside Physics FAQ",
+          "used_for": "data_points, history timeline",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.hyperphysics.gsu.edu/hbase/atmos/blusky.html",
+          "title": "Blue Sky and Rayleigh Scattering \u2014 HyperPhysics",
+          "used_for": "data_points, visual_references",
+          "reliability": "primary"
+        },
+        {
+          "url": "http://www.atmo.arizona.edu/courses/spring12/atmo170a1s1/lecture_notes/scattering/why_not_violet.html",
+          "title": "Why isn't the sky violet? \u2014 U. Arizona",
+          "used_for": "violet paradox data point, misconceptions",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+          "title": "Why Is the Sky Blue? \u2014 NOAA NESDIS",
+          "used_for": "landscape, visual_references",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.weather.gov/fgz/SkyBlue",
+          "title": "Why Is The Sky Blue? \u2014 US National Weather Service",
+          "used_for": "sunset data point",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue",
+          "title": "Why is the sky blue? \u2014 Royal Observatory Greenwich",
+          "used_for": "ocean misconception",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://theconversation.com/curious-kids-why-is-the-sky-blue-and-where-does-it-start-81165",
+          "title": "Curious Kids: Why is the sky blue? \u2014 The Conversation",
+          "used_for": "misconceptions, audience questions",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.ebsco.com/research-starters/chemistry/rayleigh-scattering",
+          "title": "Rayleigh scattering \u2014 EBSCO Research Starters",
+          "used_for": "Rayleigh history, 9.4x figure",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://physics.stackexchange.com/questions/470163/why-is-the-extent-of-scattering-of-light-by-particles-inversely-proportional-to",
+          "title": "Why 1/lambda^4? \u2014 Physics Stack Exchange",
+          "used_for": "antenna mechanism explanation",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=oLoxdLfB6Gs",
+          "title": "Why is the sky blue? \u2014 xkcd's What If?",
+          "used_for": "landscape, trending, contrarian expert voice",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "The single most important insight: everyone 'knows' the answer is Rayleigh scattering, but almost nobody knows the two things that make it genuinely interesting \u2014 (1) the fourth-power law means blue scatters ~6-10x more than red, which also explains red sunsets and pale horizons in one stroke, and (2) violet scatters even MORE than blue, so the sky's color is ultimately decided inside the human eye. A short animated explainer that leads with the violet paradox, lands the 1/lambda^4 stat visually, and closes on the sunset connection fills a real gap: existing content is either too shallow (one-liners, quiz gimmicks) or too deep (dipole math). The topic remains evergreen and still pulls large short-form audiences (xkcd's April 2026 short: 586K views).",
+      "metadata": {
+        "searches_executed": 4,
+        "note": "Autonomous cloud run: search count below the 10-search guideline; compensated with high-density multi-result queries covering landscape, data, misconceptions, and trending in one pass each."
+      }
+    }
+  }
+}

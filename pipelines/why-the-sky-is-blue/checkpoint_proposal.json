@@ -1,0 +1,517 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-07-05T21:53:51.964069+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "The Sky Should Be Violet",
+          "hook": "Violet light scatters MORE than blue. So why isn't the sky violet? Check your own eyes.",
+          "narrative_structure": "myth_busting",
+          "visual_approach": "Flat motion graphics on a deep-slate background that gradually shifts from violet to sky blue as the explanation lands. Animated text cards for the paradox, a wavelength bar chart for the scattering ratios, and a cone-sensitivity beat rendered as a stat/comparison card. Sunset gradient finale.",
+          "suggested_playbook": "flat-motion-graphics",
+          "target_audience": "Curious general audience who already 'know' the Rayleigh answer",
+          "target_platform": "youtube",
+          "target_duration_seconds": 60,
+          "key_points": [
+            "Rayleigh scattering scales with 1/wavelength^4 \u2014 blue scatters ~6-10x more than red",
+            "Violet scatters even more than blue, yet the sky is not violet",
+            "Three reasons: the sun emits less violet, the upper atmosphere absorbs some, and human blue cones dominate perception",
+            "Sunsets are the same physics with a longer light path"
+          ],
+          "core_message": "The sky's color is decided partly in the atmosphere and partly inside your own eyes.",
+          "cta": "Next time you watch a sunset, remember: same physics, longer path.",
+          "tone": "playful, sharp, revelatory",
+          "grounded_in": [
+            "research_brief.data_points[2] (violet paradox, U. Arizona)",
+            "research_brief.landscape.underserved_gaps[0]",
+            "research_brief.audience_insights.common_questions[0]"
+          ],
+          "why_this_works": "The violet paradox is the top unanswered audience question in this topic's short-form landscape; no surveyed video animates the three-part answer, and 'the answer is in your eyes' is a genuine information gap."
+        },
+        {
+          "id": "c2",
+          "title": "The Fourth-Power Law That Paints the Sky",
+          "hook": "One tiny equation explains blue skies, red sunsets, and pale horizons all at once.",
+          "narrative_structure": "data_narrative",
+          "visual_approach": "Data-led motion graphics: animated 1/lambda^4 formula card, count-up stat cards (9.4x), and a bar chart of scattering intensity by color. Ends with three-way payoff cards: sky, sunset, horizon.",
+          "suggested_playbook": "flat-motion-graphics",
+          "target_audience": "STEM-curious viewers who want the quantitative why",
+          "target_platform": "youtube",
+          "target_duration_seconds": 75,
+          "key_points": [
+            "Scattered intensity is proportional to 1/wavelength^4",
+            "Blue (~450nm) scatters roughly 6-10x more than red (~700nm)",
+            "The same law explains sunsets (longer path) and pale horizons (multiple scattering)"
+          ],
+          "core_message": "A single power law paints every color you see in the sky.",
+          "cta": "One equation, three sky phenomena \u2014 physics is efficient.",
+          "tone": "confident, precise, awe-building",
+          "grounded_in": [
+            "research_brief.data_points[0] (fourth-power law)",
+            "research_brief.data_points[4] (sunset)",
+            "research_brief.landscape.underserved_gaps[1]"
+          ],
+          "why_this_works": "The quantitative angle is underused: existing content says 'blue scatters more' without ever showing how much. Count-up stat cards make the 9.4x figure viscerally satisfying."
+        },
+        {
+          "id": "c3",
+          "title": "It Took 52 Years to Answer a Child's Question",
+          "hook": "Every 4-year-old asks why the sky is blue. It took Tyndall, Rayleigh, AND Einstein to answer.",
+          "narrative_structure": "timeline",
+          "visual_approach": "Timeline-driven motion graphics: 1859 -> 1871 -> 1911 date cards with each scientist's contribution as an animated callout; closes on the modern one-line answer.",
+          "suggested_playbook": "clean-professional",
+          "target_audience": "History-of-science fans, general YouTube audience",
+          "target_platform": "youtube",
+          "target_duration_seconds": 75,
+          "key_points": [
+            "Tyndall discovered blue-preferential scattering experimentally in 1859",
+            "Rayleigh derived the fourth-power law in 1871",
+            "Einstein's 1911 calculation settled that air molecules themselves do the scattering"
+          ],
+          "core_message": "Simple questions can take generations of genius to answer properly.",
+          "cta": "What other 'simple' questions are secretly deep?",
+          "tone": "narrative, warm, wonder-driven",
+          "grounded_in": [
+            "research_brief.data_points[3] (Tyndall/Rayleigh/Einstein timeline)",
+            "research_brief.audience_insights.knowledge_level"
+          ],
+          "why_this_works": "The 52-year discovery arc ending with Einstein is absent from every popular explainer surveyed \u2014 a genuine surprise for viewers who think this is settled kid-science."
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c1",
+        "rationale": "Autonomous cloud run (user request was open-ended: 'make a video'). c1 selected because it has the strongest hook grounded in the #1 underserved gap, its myth-busting structure differentiates from the saturated one-liner landscape, and its visual beats (paradox card, scattering bar chart, cone-sensitivity comparison, sunset finale) map perfectly onto the free Remotion component stack \u2014 maximum quality at $0.00.",
+        "modifications": [
+          "Absorb c2's quantitative beat: include the 1/lambda^4 bar chart and the ~9.4x stat card as the setup before the violet paradox",
+          "Close with c2's sunset payoff as the CTA beat"
+        ]
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "flat-motion-graphics",
+        "renderer_family": "explainer-data",
+        "render_runtime": "remotion",
+        "composition_mode": "templated",
+        "delivery_promise": {
+          "promise_type": "data_explainer",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "playful",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "music_source": {
+          "source_type": "bring_your_own",
+          "provider": "pixabay_music",
+          "mood_direction": "lo-fi electronic with a driving but unobtrusive rhythm, matching the flat-motion-graphics playbook's music mood",
+          "estimated_cost_usd": 0.0
+        },
+        "voice_selection": {
+          "provider": "piper",
+          "voice_id": "en_US-lessac-medium",
+          "rationale": "Only TTS provider available on this machine (0/5 cloud TTS providers configured). Piper is free, local, and offline. Quality tradeoff: serviceable but less expressive than ElevenLabs/OpenAI \u2014 noted honestly.",
+          "estimated_cost_usd": 0.0,
+          "delivery_style": "clear, upbeat explainer narrator",
+          "pacing_policy": "Moderate pace (~150 wpm) with natural sentence-boundary pauses; scene timings derived from actual audio durations after generation",
+          "sample_approval_required": false
+        },
+        "decision_log_ref": "pipelines/why-the-sky-is-blue/decision_log.json",
+        "stages": [
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "Write ~150-word script (60s at 150wpm) following hook -> setup -> build -> climax -> landing, with enhancement cues every 8-10 seconds, grounded in the research brief's sourced data points."
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "Design 7-8 Remotion component scenes (hero_title, text_card, bar_chart, stat_card, comparison, callout) \u2014 zero AI-image scenes required, keeping the run at $0.00."
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "tts_selector",
+                "role": "Narration for all script sections",
+                "provider": "piper",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Only configured TTS provider; free and local"
+              },
+              {
+                "tool_name": "pixabay_music",
+                "role": "Royalty-free background music track search + download",
+                "provider": "pixabay_music",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Zero-key stock music; music generation APIs (ElevenLabs, Suno) are unconfigured"
+              }
+            ],
+            "approach": "Generate narration per section with Piper, probe actual durations, download one Pixabay music track matching the playbook mood. No image/video generation calls needed (Remotion component scenes).",
+            "fallback_if_unavailable": "If pixabay_music scraping breaks, proceed without music and tell the user (freesound_music needs a key)."
+          },
+          {
+            "stage": "edit",
+            "tools": [],
+            "approach": "Build edit_decisions with cuts timed to actual narration durations, subtitles enabled, music ducking under narration, render_runtime carried through unchanged as 'remotion'."
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "Remotion render of component scenes + audio mix + subtitle burn",
+                "provider": "ffmpeg",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Remotion engine confirmed available after installing remotion-composer node_modules"
+              },
+              {
+                "tool_name": "audio_mixer",
+                "role": "Narration + music mix with ducking",
+                "provider": "ffmpeg",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Local FFmpeg, always available"
+              }
+            ],
+            "approach": "Render via Remotion (locked runtime), verify with ffprobe, extract keyframes for self-review."
+          }
+        ],
+        "quality_tradeoffs": [
+          {
+            "tradeoff": "Piper local TTS (free) vs ElevenLabs/OpenAI TTS (unconfigured, ~$0.05-0.30)",
+            "recommendation": "Piper \u2014 the only option without adding API keys",
+            "quality_impact": "Narration is clear but less expressive/emotional than premium cloud voices. Adding ELEVENLABS_API_KEY or OPENAI_API_KEY would upgrade this in a future run."
+          },
+          {
+            "tradeoff": "Remotion component scenes (free) vs AI-generated imagery (unconfigured, ~$0.02-0.04/image)",
+            "recommendation": "Remotion components \u2014 this topic is data/diagram-shaped, so motion graphics beat static AI images anyway",
+            "quality_impact": "Professional animated motion graphics; no photorealistic sky imagery. Adding FAL_KEY would unlock illustrated sky/sunset visuals."
+          }
+        ],
+        "alternative_paths": [
+          {
+            "description": "Current plan: Piper TTS + Remotion component scenes + Pixabay stock music",
+            "total_cost_usd": 0.0,
+            "quality_level": "free",
+            "what_changes": "Nothing \u2014 this is the selected path"
+          },
+          {
+            "description": "Standard: cloud TTS + AI images for sky/sunset scenes + generated music (requires API keys)",
+            "total_cost_usd": 0.6,
+            "quality_level": "standard",
+            "what_changes": "Expressive narration, illustrated sky visuals, custom music \u2014 requires configuring TTS + image + music providers"
+          },
+          {
+            "description": "Premium: cloud TTS + AI video clips of skies/sunsets + generated music (requires FAL_KEY etc.)",
+            "total_cost_usd": 1.8,
+            "quality_level": "premium",
+            "what_changes": "True motion video of skies intercut with data scenes"
+          }
+        ]
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 0.0,
+        "line_items": [
+          {
+            "tool": "tts_selector (piper)",
+            "operation": "Narration, ~150 words across 5 sections",
+            "quantity": 5,
+            "estimated_usd": 0.0,
+            "notes": "Local, free"
+          },
+          {
+            "tool": "pixabay_music",
+            "operation": "Search + download 1 background track",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "Royalty-free, no key"
+          },
+          {
+            "tool": "video_compose (remotion)",
+            "operation": "Final render, 60s @ 1080p",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "Local render"
+          },
+          {
+            "tool": "audio_mixer",
+            "operation": "Narration + music mix with ducking",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "Local FFmpeg"
+          }
+        ],
+        "budget_cap_usd": 2.0,
+        "budget_verdict": "within_budget",
+        "savings_options": []
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "AUTONOMOUS CLOUD RUN: the user's request was 'Use open montage to make a video' with no further specification, and cloud agents cannot block mid-task on approval. Total cost is $0.00 (all local/free tools), so the financial risk the approval gate protects against is absent. All decisions that would normally be presented for approval are logged in decision_log.json and summarized to the user at delivery; the user may request any revision.",
+        "approved_budget_usd": 0.0
+      },
+      "metadata": {
+        "project": "why-the-sky-is-blue",
+        "created": "2026-07-05",
+        "preflight_summary": {
+          "composition_runtimes": {
+            "ffmpeg": true,
+            "remotion": true,
+            "hyperframes": true
+          },
+          "tts_configured": "1/5 (piper, installed during preflight)",
+          "image_generation_configured": "0/10",
+          "video_generation_configured": "0/17",
+          "music": "pixabay_music search available; generation 0/2",
+          "runtime_warnings": [
+            "hyperframes doctor: /dev/shm is 64MB, Chrome wants >=256MB \u2014 HyperFrames renders fall back to screenshot mode and carry failure risk in this container"
+          ]
+        }
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "why-the-sky-is-blue",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "Which pipeline to run for an open-ended 'make a video' request on a zero-key machine",
+          "options_considered": [
+            {
+              "option_id": "animated-explainer",
+              "label": "Animated Explainer (production)",
+              "score": 0.95,
+              "reason": "Zero-key capable: Piper TTS + Remotion component scenes + free music; production stability"
+            },
+            {
+              "option_id": "animation",
+              "label": "Animation pipeline (production)",
+              "score": 0.7,
+              "reason": "Also zero-key capable but suited to motion-graphics-first briefs; explainer fits an educational topic better"
+            },
+            {
+              "option_id": "cinematic",
+              "label": "Cinematic (production)",
+              "score": 0.05,
+              "reason": "Motion-required pipeline",
+              "rejected_because": "0/17 video generation providers configured \u2014 motion clips impossible; still-image fallback is forbidden for cinematic briefs"
+            }
+          ],
+          "selected": "animated-explainer",
+          "reason": "Best-quality output achievable with only free/local tools; the topic (educational explainer) matches the pipeline's purpose exactly.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "concept_selection",
+          "subject": "Which of the 3 research-grounded concepts to produce",
+          "options_considered": [
+            {
+              "option_id": "c1",
+              "label": "The Sky Should Be Violet (myth_busting)",
+              "score": 0.9,
+              "reason": "Strongest hook, fills the #1 underserved gap (violet paradox), maps onto free Remotion components"
+            },
+            {
+              "option_id": "c2",
+              "label": "The Fourth-Power Law (data_narrative)",
+              "score": 0.75,
+              "reason": "Great stat-card material but weaker emotional hook; absorbed as a beat inside c1"
+            },
+            {
+              "option_id": "c3",
+              "label": "52 Years to Answer (timeline)",
+              "score": 0.65,
+              "reason": "Fresh angle but less punchy for 60s; better as a longer video"
+            }
+          ],
+          "selected": "c1",
+          "reason": "Highest information-gap hook grounded in research; hybridized with c2's quantitative beat per proposal_packet.selected_concept.modifications.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime for the final render (both Remotion and HyperFrames available \u2014 HARD RULE comparison)",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React scene stack)",
+              "score": 0.9,
+              "reason": "Fit: the concept's beats are exactly the stock React scene stack \u2014 hero_title, text_card, bar_chart, stat_card, comparison \u2014 plus word-level caption support. Tradeoff: stock components risk a 'seen it before' look."
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/CSS/GSAP)",
+              "score": 0.55,
+              "reason": "Fit: strong for kinetic typography and custom HTML motion. Tradeoff: this container's /dev/shm is 64MB (Chrome wants >=256MB) per hyperframes doctor \u2014 renders fall back to screenshot mode with real failure risk; and this brief is chart/stat-shaped, not typography-shaped."
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg only",
+              "score": 0.1,
+              "reason": "Concat/trim only",
+              "rejected_because": "Would reduce a motion-graphics explainer to stills \u2014 violates the motion_required delivery promise"
+            }
+          ],
+          "selected": "remotion",
+          "reason": "The brief is a data_explainer whose scenes map 1:1 onto the Remotion component stack; HyperFrames carries a container-specific render-stability risk (/dev/shm 64MB) flagged by its own doctor. Both runtimes were presented in the user-facing summary per the HARD RULE; selection made autonomously because this is a cloud run with no interactive approval channel.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Templated vs atelier composition authoring",
+          "options_considered": [
+            {
+              "option_id": "templated",
+              "label": "Templated (stock cut.type scenes)",
+              "score": 0.8,
+              "reason": "Fast, reliable, $0; fits a demonstration run where the goal is a complete working deliverable"
+            },
+            {
+              "option_id": "atelier",
+              "label": "Atelier (hand-authored bespoke composition)",
+              "score": 0.5,
+              "reason": "Higher distinctness for hero work",
+              "rejected_because": "This is an unspecified demonstration request, not a hero/brand piece; atelier's extra iteration cost is not justified without a user brief to art-direct against"
+            }
+          ],
+          "selected": "templated",
+          "reason": "Demonstration run with an open-ended brief \u2014 templated delivers a reliable, complete result; atelier is offered as the follow-up upgrade if the user wants a bespoke look.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "TTS provider for narration",
+          "options_considered": [
+            {
+              "option_id": "piper",
+              "label": "Piper local (en_US-lessac-medium)",
+              "score": 0.7,
+              "reason": "Free, local, only configured provider (installed during preflight)"
+            },
+            {
+              "option_id": "elevenlabs",
+              "label": "ElevenLabs",
+              "score": 0.95,
+              "reason": "Best expressiveness",
+              "rejected_because": "ELEVENLABS_API_KEY not set"
+            },
+            {
+              "option_id": "openai",
+              "label": "OpenAI TTS",
+              "score": 0.85,
+              "reason": "Good quality",
+              "rejected_because": "OPENAI_API_KEY not set"
+            }
+          ],
+          "selected": "piper",
+          "reason": "Only available provider; quality tradeoff disclosed in proposal quality_tradeoffs.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "Background music source",
+          "options_considered": [
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay Music (royalty-free search, no key)",
+              "score": 0.8,
+              "reason": "Free, zero-setup; scrapes pixabay.com"
+            },
+            {
+              "option_id": "music_library",
+              "label": "User music_library/ folder",
+              "score": 0.0,
+              "reason": "User-provided tracks preferred when present",
+              "rejected_because": "Folder does not exist / is empty"
+            },
+            {
+              "option_id": "music_gen",
+              "label": "AI music generation (ElevenLabs/Suno)",
+              "score": 0.0,
+              "reason": "Custom music",
+              "rejected_because": "No API keys configured (0/2 providers)"
+            },
+            {
+              "option_id": "no_music",
+              "label": "Proceed without music",
+              "score": 0.3,
+              "reason": "Fallback if pixabay scraping fails"
+            }
+          ],
+          "selected": "pixabay_music",
+          "reason": "Only zero-cost music source available; fallback to no-music is logged if scraping fails.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "proposal",
+          "category": "playbook_selection",
+          "subject": "Visual style playbook",
+          "options_considered": [
+            {
+              "option_id": "flat-motion-graphics",
+              "label": "Flat Motion Graphics",
+              "score": 0.9,
+              "reason": "Bold, energetic, dark-slate base with purple/pink/cyan accents \u2014 the palette naturally accommodates the violet-to-blue color story and sunset gradient finale"
+            },
+            {
+              "option_id": "clean-professional",
+              "label": "Clean Professional",
+              "score": 0.6,
+              "reason": "Safe corporate look",
+              "rejected_because": "Too restrained for a playful myth-busting short"
+            },
+            {
+              "option_id": "minimalist-diagram",
+              "label": "Minimalist Diagram",
+              "score": 0.5,
+              "reason": "Good for technical deep-dives",
+              "rejected_because": "Concept is emotional-revelatory, not architecture-diagram-shaped"
+            }
+          ],
+          "selected": "flat-motion-graphics",
+          "reason": "Palette and motion language match the concept's color-story arc (violet -> blue -> sunset) and the playful tone.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        }
+      ]
+    }
+  }
+}

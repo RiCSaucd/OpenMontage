@@ -1,0 +1,211 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-07-05T21:58:42.641774+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "flat-motion-graphics",
+      "scenes": [
+        {
+          "id": "scene-1",
+          "type": "text_card",
+          "description": "Hero title on a violet-washed dark-slate background: 'THE SKY SHOULD BE VIOLET' with subtitle 'a 60-second color mystery'. Renders as Remotion hero_title cut. Subject: the title itself (violet #7C3AED accent on VIOLET). Subject motion: spring scale-up entrance per playbook (0.8 -> 1.05 -> 1.0). Scene: dark slate #0F172A background with a violet radial tint; no overlays. Spatial framing: title centered, subtitle below; N/A depth. Camera: N/A \u2014 Remotion native scene, no virtual camera.",
+          "start_seconds": 0,
+          "end_seconds": 7,
+          "script_section_id": "s1",
+          "framing": "centered title block",
+          "movement": "spring scale-up entrance, subtle drift",
+          "transition_in": "cut",
+          "transition_out": "wipe-left",
+          "narrative_role": "introduce_subject",
+          "information_role": "Poses the paradox that the whole video promises to resolve",
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "hero_title cut: text='THE SKY SHOULD BE VIOLET', subtitle='a 60-second color mystery'",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-2",
+          "type": "text_card",
+          "description": "Myth-busting comparison card. Title 'Why is the sky blue?'. Left: 'MYTH \u2014 it reflects the ocean'. Right: 'FACT \u2014 blue over deserts too'. Renders as Remotion comparison cut. Subject: the two answer panels. Subject motion: left panel enters first, right panel answers it (animated dual reveal). Scene: dark slate background, no overlays. Spatial framing: two half-width panels with divider, N/A depth. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 7,
+          "end_seconds": 13,
+          "script_section_id": "s2",
+          "framing": "split comparison, centered divider",
+          "movement": "dual panel animated reveal",
+          "transition_in": "wipe-left",
+          "transition_out": "cut",
+          "narrative_role": "establish_context",
+          "information_role": "Clears the most common wrong answer so the real mechanism can land",
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "comparison cut: leftLabel='MYTH', leftValue='reflects the ocean', rightLabel='FACT', rightValue='blue over deserts too', title='Why is the sky blue?'",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-3",
+          "type": "animation",
+          "description": "Scattering setup callout. Info-type callout box titled 'What actually happens' with two bullet lines: 'Sunlight slams into air molecules' and 'It scatters \u2014 but not all colors equally'. Renders as Remotion callout cut. Subject: the callout box text (foregrounded data element). Subject motion: box springs in, bullets stagger. Scene: dark slate background; no overlays. Spatial framing: callout centered at ~70% width. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 13,
+          "end_seconds": 19,
+          "script_section_id": "s2",
+          "framing": "centered callout box",
+          "movement": "staggered bullet reveal",
+          "transition_in": "cut",
+          "transition_out": "zoom-in",
+          "narrative_role": "build_tension",
+          "information_role": "Introduces scattering as the real mechanism and plants 'not all colors equally'",
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "callout cut: callout_type='info', title='What actually happens', text bullets about sunlight scattering off air molecules",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-4",
+          "type": "text_card",
+          "description": "The fourth-power stat punch. Stat card: '9.4x' with subtitle 'blue scatters ~9x more than red \u2014 intensity ~ 1/wavelength^4'. Cyan accent #06B6D4. Renders as Remotion stat_card cut with count-up. Subject: the number 9.4x. Subject motion: count-up + scale pop per playbook stat rules. Scene: dark slate background; no overlays. Spatial framing: giant stat centered, subtitle beneath. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 19,
+          "end_seconds": 26,
+          "script_section_id": "s3",
+          "framing": "full-frame stat",
+          "movement": "count-up with pop",
+          "transition_in": "zoom-in",
+          "transition_out": "cut",
+          "narrative_role": "evidence",
+          "information_role": "Quantifies the scattering asymmetry \u2014 the video's central number",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "stat_card cut: stat='9.4x', subtitle='blue scatters ~9x more than red (intensity ~ 1/\u03bb\u2074)', accentColor='#06B6D4'",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-5",
+          "type": "diagram",
+          "description": "Scattering-by-color bar chart. Bars for Red 1.0, Orange 1.7, Green 3.1, Blue 5.9, Violet 9.4 (relative Rayleigh scattering intensity, normalized to red=1 using 1/\u03bb\u2074 at 700/620/530/450/400nm). Bars colored as their wavelength color; violet bar tallest \u2014 a visual spoiler for the climax. Renders as Remotion bar_chart cut with grow-up animation. Subject: the ascending bars, blue and violet foregrounded. Subject motion: bars grow up left-to-right in wavelength order. Scene: dark slate background, grid off; no overlays. Spatial framing: chart fills center 80%. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 26,
+          "end_seconds": 33,
+          "script_section_id": "s3",
+          "framing": "full-width chart",
+          "movement": "grow-up bars, left to right",
+          "transition_in": "cut",
+          "transition_out": "wipe-left",
+          "narrative_role": "evidence",
+          "information_role": "Shows the whole scattering hierarchy \u2014 and reveals violet on top, setting up the paradox",
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "bar_chart cut: chartData=[Red 1.0, Orange 1.7, Green 3.1, Blue 5.9, Violet 9.4], per-bar wavelength colors, grow animation, showValues",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-6",
+          "type": "animation",
+          "description": "The paradox head-on. Comparison card titled 'So why not violet?'. Left: 'VIOLET \u2014 scatters MOST'. Right: 'BLUE \u2014 what we see'. Violet side uses #7C3AED, blue side #06B6D4. Renders as Remotion comparison cut. Subject: the two color panels. Subject motion: dual reveal with the violet side landing first. Scene: dark slate; no overlays. Spatial framing: split panels. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 33,
+          "end_seconds": 40,
+          "script_section_id": "s4",
+          "framing": "split comparison",
+          "movement": "dual panel reveal, violet first",
+          "transition_in": "wipe-left",
+          "transition_out": "cut",
+          "narrative_role": "build_tension",
+          "information_role": "States the paradox at maximum sharpness right before resolution",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "comparison cut: title='So why not violet?', leftLabel='VIOLET', leftValue='scatters MOST', rightLabel='BLUE', rightValue='what we see'",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-7",
+          "type": "text_card",
+          "description": "The three-part resolution \u2014 the video's hero moment. Tip-type callout titled 'Three things save the blue' with three staggered bullets: '1. The sun emits less violet', '2. The upper atmosphere absorbs some', '3. Your eyes barely notice the rest \u2014 blue cones win'. Renders as Remotion callout cut. Subject: the three numbered reasons. Subject motion: bullets stagger in sync with narration list. Scene: dark slate background; no overlays. Spatial framing: callout centered, three rows. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 40,
+          "end_seconds": 48,
+          "script_section_id": "s4",
+          "framing": "centered callout, three rows",
+          "movement": "staggered three-item reveal",
+          "transition_in": "cut",
+          "transition_out": "morph",
+          "narrative_role": "deliver_payload",
+          "information_role": "Resolves the paradox with the sourced three-part answer",
+          "hero_moment": true,
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "callout cut: callout_type='tip', title='Three things save the blue', three numbered bullet lines",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-8",
+          "type": "text_card",
+          "description": "Sunset landing. Closing hero card: 'Same physics. Longer path.' with subtitle 'That's every sunset you've ever seen.' \u2014 the only allowed playbook deviation: background is a sunset gradient (deep slate blue at top through #EC4899 pink to warm orange at bottom) instead of flat dark slate, logged as playbook_override. Renders as Remotion hero_title cut. Subject: the closing line. Subject motion: gentle spring entrance, slow settle. Scene: sunset gradient background; no overlays. Spatial framing: text centered upper-middle. Camera: N/A \u2014 Remotion native scene.",
+          "start_seconds": 48,
+          "end_seconds": 60,
+          "script_section_id": "s5",
+          "framing": "centered closing statement",
+          "movement": "gentle spring entrance, long hold",
+          "transition_in": "morph",
+          "transition_out": "fade-to-black",
+          "narrative_role": "resolution",
+          "information_role": "Lands the core message and gifts the sunset connection as the takeaway",
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "hero_title cut: text='Same physics. Longer path.', subtitle=\"That's every sunset you've ever seen.\", sunset-gradient background treatment",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scene_count": 8,
+        "scene_types_used": [
+          "text_card",
+          "animation",
+          "diagram"
+        ],
+        "remotion_cut_types_used": [
+          "hero_title",
+          "comparison",
+          "callout",
+          "stat_card",
+          "bar_chart"
+        ],
+        "max_consecutive_same_type": 2,
+        "playbook_overrides": [
+          "scene-8 background: sunset gradient instead of flat dark slate \u2014 intentional finale deviation, within the 20% violation budget"
+        ],
+        "timing_note": "Scene timings are provisional at 150wpm; the edit stage re-times cuts against actual Piper narration durations.",
+        "bar_chart_data_provenance": "Relative intensities computed from (700/\u03bb)^4 normalized to red=1: 700nm=1.0, 620nm=1.63, 530nm=3.04, 450nm=5.85, 400nm=9.38 \u2014 consistent with research_brief.data_points[0]"
+      }
+    }
+  }
+}

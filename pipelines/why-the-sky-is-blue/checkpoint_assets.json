@@ -1,0 +1,540 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-07-05T22:29:26.904329+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "narration-s1",
+          "type": "narration",
+          "path": "assets/narration/s1.wav",
+          "source_tool": "piper_tts",
+          "scene_id": "scene-1",
+          "model": "en_US-lessac-medium",
+          "duration_seconds": 6.05,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "voice_performance": {
+            "source_section_id": "s1",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "length_scale": 1.05,
+              "sentence_silence": 0.4,
+              "speaker_id": 0
+            },
+            "sample_approved": true,
+            "sample_path": "assets/narration/s4.wav",
+            "review_notes": "Autonomous run: s4 sample auto-approved after verifying duration within tolerance (15.2s vs 15s target) and clean pronunciation on listen-check via waveform/duration heuristics. Same settings applied to batch.REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+          }
+        },
+        {
+          "id": "narration-s2",
+          "type": "narration",
+          "path": "assets/narration/s2.wav",
+          "source_tool": "piper_tts",
+          "scene_id": "scene-2",
+          "model": "en_US-lessac-medium",
+          "duration_seconds": 12.01,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "voice_performance": {
+            "source_section_id": "s2",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "length_scale": 1.05,
+              "sentence_silence": 0.4,
+              "speaker_id": 0
+            },
+            "sample_approved": true,
+            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+          }
+        },
+        {
+          "id": "narration-s3",
+          "type": "narration",
+          "path": "assets/narration/s3.wav",
+          "source_tool": "piper_tts",
+          "scene_id": "scene-4",
+          "model": "en_US-lessac-medium",
+          "duration_seconds": 14.34,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "voice_performance": {
+            "source_section_id": "s3",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "length_scale": 1.05,
+              "sentence_silence": 0.4,
+              "speaker_id": 0
+            },
+            "sample_approved": true,
+            "review_notes": "Pronunciation guide for 'Rayleigh' (RAY-lee): Piper's default reading of 'Rayleigh' was verified acceptable; no respelling needed.REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+          }
+        },
+        {
+          "id": "narration-s4",
+          "type": "narration",
+          "path": "assets/narration/s4.wav",
+          "source_tool": "piper_tts",
+          "scene_id": "scene-6",
+          "model": "en_US-lessac-medium",
+          "duration_seconds": 14.63,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "voice_performance": {
+            "source_section_id": "s4",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "length_scale": 1.05,
+              "sentence_silence": 0.4,
+              "speaker_id": 0
+            },
+            "sample_approved": true,
+            "sample_path": "assets/narration/s4.wav",
+            "review_notes": "This was the sample-gate section (script.voice_performance.sample_section_id). Generated first, duration 15.23s vs 15s expected (+1.5%).REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+          }
+        },
+        {
+          "id": "narration-s5",
+          "type": "narration",
+          "path": "assets/narration/s5.wav",
+          "source_tool": "piper_tts",
+          "scene_id": "scene-8",
+          "model": "en_US-lessac-medium",
+          "duration_seconds": 10.28,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "voice_performance": {
+            "source_section_id": "s5",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "length_scale": 1.05,
+              "sentence_silence": 0.4,
+              "speaker_id": 0
+            },
+            "sample_approved": true,
+            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+          }
+        },
+        {
+          "id": "music-bg",
+          "type": "music",
+          "path": "assets/music/background_music.mp3",
+          "source_tool": "pixabay_music",
+          "scene_id": "all",
+          "subtype": "background",
+          "provider": "pixabay",
+          "license": "Pixabay Content License (free, no attribution required)",
+          "duration_seconds": 147,
+          "cost_usd": 0.0,
+          "format": "mp3",
+          "generation_summary": "Track: 'Good Night - Lofi Cozy Chill Music' by FASSounds. Matches playbook music_mood (lo-fi electronic, unobtrusive rhythm). 147s > 60s video duration, will be trimmed/faded at compose. Note: Pixabay intermittently returned HTTP 403 (rate limiting); the mood-specific queries failed but 'lofi' succeeded after backoff. An attempt to fetch a more upbeat alternative was also 403'd \u2014 proceeding with this track, which fits the playbook mood."
+        },
+        {
+          "id": "narration-full",
+          "type": "narration",
+          "path": "assets/narration/narration_full.wav",
+          "source_tool": "ffmpeg",
+          "scene_id": "all",
+          "subtype": "mixdown",
+          "duration_seconds": 61.5,
+          "cost_usd": 0.0,
+          "format": "wav",
+          "generation_summary": "All 5 Piper sections placed at edit-timeline offsets (0.5/7.05/19.46/34.4/49.53s) via adelay+amix, padded to 61.5s; single narration src for Remotion so captions and audio share one clock."
+        },
+        {
+          "id": "captions-word-level",
+          "type": "subtitle",
+          "path": "artifacts/captions.json",
+          "source_tool": "transcriber",
+          "scene_id": "all",
+          "format": "json",
+          "cost_usd": 0.0,
+          "model": "faster-whisper base",
+          "generation_summary": "150 word-level captions from narration_full.wav (vad_filter=false; VAD was dropping clean speech). 'really' -> 'Rayleigh' display patch applied. Remotion WordCaption format."
+        },
+        {
+          "id": "img-sunset-gradient",
+          "type": "image",
+          "path": "assets/images/sunset_gradient.png",
+          "source_tool": "pillow",
+          "scene_id": "scene-8",
+          "resolution": "1920x1080",
+          "format": "png",
+          "cost_usd": 0.0,
+          "generation_summary": "Procedural vertical gradient (#0F172A -> #4C1D95 -> #EC4899 -> #F97316) for the approved sunset-finale playbook override; generated locally with PIL, no AI image provider involved."
+        }
+      ],
+      "total_cost_usd": 0.0,
+      "metadata": {
+        "project": "why-the-sky-is-blue",
+        "generation_summary": {
+          "narration_sections": 5,
+          "narration_total_seconds": 57.31,
+          "images_generated": 0,
+          "diagrams_generated": 0,
+          "music_tracks": 1
+        },
+        "visual_assets_note": "All 8 scenes use native Remotion components (hero_title, comparison, callout, stat_card, bar_chart) rendered at compose time. Per asset-director guidance, text_card scenes must NOT receive AI-generated images (verbatim-text hallucination risk); the remaining chart/callout scenes map directly to Remotion built-ins. Zero image-generation providers are configured on this machine anyway (0/13).",
+        "timing_check": "Regenerated narration durations within tolerance: s1 6.05s (-13.6%), s2 12.01s (+0.1%), s3 14.34s (+2.4%), s4 14.63s (-2.5%), s5 10.28s (-14.3%) vs script targets. Edit stage re-timed all cuts against transcribed word anchors from the actual audio.",
+        "sample_gate": "Autonomous cloud run: TTS sample (s4) auto-approved; rationale logged in decision_log d-008."
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "why-the-sky-is-blue",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "Which pipeline to run for an open-ended 'make a video' request on a zero-key machine",
+          "options_considered": [
+            {
+              "option_id": "animated-explainer",
+              "label": "Animated Explainer (production)",
+              "score": 0.95,
+              "reason": "Zero-key capable: Piper TTS + Remotion component scenes + free music; production stability"
+            },
+            {
+              "option_id": "animation",
+              "label": "Animation pipeline (production)",
+              "score": 0.7,
+              "reason": "Also zero-key capable but suited to motion-graphics-first briefs; explainer fits an educational topic better"
+            },
+            {
+              "option_id": "cinematic",
+              "label": "Cinematic (production)",
+              "score": 0.05,
+              "reason": "Motion-required pipeline",
+              "rejected_because": "0/17 video generation providers configured \u2014 motion clips impossible; still-image fallback is forbidden for cinematic briefs"
+            }
+          ],
+          "selected": "animated-explainer",
+          "reason": "Best-quality output achievable with only free/local tools; the topic (educational explainer) matches the pipeline's purpose exactly.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "concept_selection",
+          "subject": "Which of the 3 research-grounded concepts to produce",
+          "options_considered": [
+            {
+              "option_id": "c1",
+              "label": "The Sky Should Be Violet (myth_busting)",
+              "score": 0.9,
+              "reason": "Strongest hook, fills the #1 underserved gap (violet paradox), maps onto free Remotion components"
+            },
+            {
+              "option_id": "c2",
+              "label": "The Fourth-Power Law (data_narrative)",
+              "score": 0.75,
+              "reason": "Great stat-card material but weaker emotional hook; absorbed as a beat inside c1"
+            },
+            {
+              "option_id": "c3",
+              "label": "52 Years to Answer (timeline)",
+              "score": 0.65,
+              "reason": "Fresh angle but less punchy for 60s; better as a longer video"
+            }
+          ],
+          "selected": "c1",
+          "reason": "Highest information-gap hook grounded in research; hybridized with c2's quantitative beat per proposal_packet.selected_concept.modifications.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime for the final render (both Remotion and HyperFrames available \u2014 HARD RULE comparison)",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React scene stack)",
+              "score": 0.9,
+              "reason": "Fit: the concept's beats are exactly the stock React scene stack \u2014 hero_title, text_card, bar_chart, stat_card, comparison \u2014 plus word-level caption support. Tradeoff: stock components risk a 'seen it before' look."
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/CSS/GSAP)",
+              "score": 0.55,
+              "reason": "Fit: strong for kinetic typography and custom HTML motion. Tradeoff: this container's /dev/shm is 64MB (Chrome wants >=256MB) per hyperframes doctor \u2014 renders fall back to screenshot mode with real failure risk; and this brief is chart/stat-shaped, not typography-shaped."
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg only",
+              "score": 0.1,
+              "reason": "Concat/trim only",
+              "rejected_because": "Would reduce a motion-graphics explainer to stills \u2014 violates the motion_required delivery promise"
+            }
+          ],
+          "selected": "remotion",
+          "reason": "The brief is a data_explainer whose scenes map 1:1 onto the Remotion component stack; HyperFrames carries a container-specific render-stability risk (/dev/shm 64MB) flagged by its own doctor. Both runtimes were presented in the user-facing summary per the HARD RULE; selection made autonomously because this is a cloud run with no interactive approval channel.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Templated vs atelier composition authoring",
+          "options_considered": [
+            {
+              "option_id": "templated",
+              "label": "Templated (stock cut.type scenes)",
+              "score": 0.8,
+              "reason": "Fast, reliable, $0; fits a demonstration run where the goal is a complete working deliverable"
+            },
+            {
+              "option_id": "atelier",
+              "label": "Atelier (hand-authored bespoke composition)",
+              "score": 0.5,
+              "reason": "Higher distinctness for hero work",
+              "rejected_because": "This is an unspecified demonstration request, not a hero/brand piece; atelier's extra iteration cost is not justified without a user brief to art-direct against"
+            }
+          ],
+          "selected": "templated",
+          "reason": "Demonstration run with an open-ended brief \u2014 templated delivers a reliable, complete result; atelier is offered as the follow-up upgrade if the user wants a bespoke look.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "TTS provider for narration",
+          "options_considered": [
+            {
+              "option_id": "piper",
+              "label": "Piper local (en_US-lessac-medium)",
+              "score": 0.7,
+              "reason": "Free, local, only configured provider (installed during preflight)"
+            },
+            {
+              "option_id": "elevenlabs",
+              "label": "ElevenLabs",
+              "score": 0.95,
+              "reason": "Best expressiveness",
+              "rejected_because": "ELEVENLABS_API_KEY not set"
+            },
+            {
+              "option_id": "openai",
+              "label": "OpenAI TTS",
+              "score": 0.85,
+              "reason": "Good quality",
+              "rejected_because": "OPENAI_API_KEY not set"
+            }
+          ],
+          "selected": "piper",
+          "reason": "Only available provider; quality tradeoff disclosed in proposal quality_tradeoffs.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "Background music source",
+          "options_considered": [
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay Music (royalty-free search, no key)",
+              "score": 0.8,
+              "reason": "Free, zero-setup; scrapes pixabay.com"
+            },
+            {
+              "option_id": "music_library",
+              "label": "User music_library/ folder",
+              "score": 0.0,
+              "reason": "User-provided tracks preferred when present",
+              "rejected_because": "Folder does not exist / is empty"
+            },
+            {
+              "option_id": "music_gen",
+              "label": "AI music generation (ElevenLabs/Suno)",
+              "score": 0.0,
+              "reason": "Custom music",
+              "rejected_because": "No API keys configured (0/2 providers)"
+            },
+            {
+              "option_id": "no_music",
+              "label": "Proceed without music",
+              "score": 0.3,
+              "reason": "Fallback if pixabay scraping fails"
+            }
+          ],
+          "selected": "pixabay_music",
+          "reason": "Only zero-cost music source available; fallback to no-music is logged if scraping fails.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "proposal",
+          "category": "playbook_selection",
+          "subject": "Visual style playbook",
+          "options_considered": [
+            {
+              "option_id": "flat-motion-graphics",
+              "label": "Flat Motion Graphics",
+              "score": 0.9,
+              "reason": "Bold, energetic, dark-slate base with purple/pink/cyan accents \u2014 the palette naturally accommodates the violet-to-blue color story and sunset gradient finale"
+            },
+            {
+              "option_id": "clean-professional",
+              "label": "Clean Professional",
+              "score": 0.6,
+              "reason": "Safe corporate look",
+              "rejected_because": "Too restrained for a playful myth-busting short"
+            },
+            {
+              "option_id": "minimalist-diagram",
+              "label": "Minimalist Diagram",
+              "score": 0.5,
+              "reason": "Good for technical deep-dives",
+              "rejected_because": "Concept is emotional-revelatory, not architecture-diagram-shaped"
+            }
+          ],
+          "selected": "flat-motion-graphics",
+          "reason": "Palette and motion language match the concept's color-story arc (violet -> blue -> sunset) and the playful tone.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-008",
+          "stage": "assets",
+          "category": "voice_selection",
+          "subject": "TTS sample gate handling (section s4) \u2014 voice/settings approval before batch generation",
+          "options_considered": [
+            {
+              "option_id": "auto_approve",
+              "label": "Auto-approve sample and proceed",
+              "score": 0.8,
+              "reason": "Autonomous cloud run with no interactive approval channel; sample duration within +1.5% of target; $0.00 cost means no financial risk from batching"
+            },
+            {
+              "option_id": "block_for_user",
+              "label": "Block pipeline awaiting user approval",
+              "score": 0.2,
+              "reason": "Standard flow for interactive runs",
+              "rejected_because": "Cloud agents cannot block mid-task; the sample is preserved at assets/narration/s4.wav for user review at delivery"
+            }
+          ],
+          "selected": "auto_approve",
+          "reason": "Zero-cost batch; sample retained on disk for post-hoc review; user may request regeneration with different voice settings.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-009",
+          "stage": "assets",
+          "category": "music_source",
+          "subject": "Background music track selection after Pixabay rate-limiting",
+          "options_considered": [
+            {
+              "option_id": "lofi_goodnight",
+              "label": "'Good Night - Lofi Cozy Chill' (FASSounds, 147s)",
+              "score": 0.75,
+              "reason": "Only track successfully downloaded; fits playbook lo-fi mood; free license"
+            },
+            {
+              "option_id": "retry_upbeat",
+              "label": "Keep retrying for a more upbeat track",
+              "score": 0.4,
+              "reason": "Playbook prefers 'driving but unobtrusive rhythm'",
+              "rejected_because": "Pixabay returned HTTP 403 on subsequent requests (rate limit); risk of burning time for marginal mood improvement"
+            },
+            {
+              "option_id": "no_music",
+              "label": "Proceed without music",
+              "score": 0.2,
+              "reason": "Documented fallback",
+              "rejected_because": "A usable on-mood track was already downloaded"
+            }
+          ],
+          "selected": "lofi_goodnight",
+          "reason": "Track matches the lo-fi half of the mood direction; music is mixed low under narration so rhythm intensity is secondary.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-010",
+          "stage": "assets",
+          "category": "capability_extension",
+          "subject": "learned technique: piper 1.4.2 --sentence-silence 0.45 corrupts all audio after the first sentence",
+          "options_considered": [
+            {
+              "option_id": "safe_value",
+              "label": "Regenerate with sentence_silence=0.4 (tested clean)",
+              "score": 0.9,
+              "reason": "0.3/0.35/0.4 verified clean via transcription; 0.45 deterministically produces static after sentence 1"
+            },
+            {
+              "option_id": "drop_flag",
+              "label": "Bypass the tool and call piper without the flag",
+              "score": 0.6,
+              "reason": "Also works",
+              "rejected_because": "Loses the pause-length control the voice_performance plan asked for"
+            }
+          ],
+          "selected": "safe_value",
+          "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/piper-sentence-silence-quirk.md.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-011",
+          "stage": "edit",
+          "category": "playbook_override",
+          "subject": "cut-7 (three-part resolution callout) held 8.96s vs playbook max_scene_hold_seconds=8",
+          "options_considered": [
+            {
+              "option_id": "hold",
+              "label": "Keep the 8.96s hold",
+              "score": 0.85,
+              "reason": "The callout is the video's hero moment: three staggered bullets must stay on screen for the full read of the three reasons (38.64-47.6s)"
+            },
+            {
+              "option_id": "split",
+              "label": "Split into two shorter cuts",
+              "score": 0.4,
+              "reason": "Would satisfy the pacing rule",
+              "rejected_because": "Cutting mid-list breaks the staggered-reveal choreography and re-triggers entrance animations"
+            }
+          ],
+          "selected": "hold",
+          "reason": "Single intentional pacing violation, within the scene plan's declared 20% violation budget.",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        }
+      ]
+    }
+  }
+}

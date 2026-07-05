@@ -1,0 +1,198 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "script",
+  "status": "completed",
+  "timestamp": "2026-07-05T21:58:42.620978+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "script": {
+      "version": "1.0",
+      "title": "The Sky Should Be Violet",
+      "total_duration_seconds": 60,
+      "voice_performance": {
+        "performance_intent": "Bright, playful explainer narrator delivering a mystery-and-reveal arc \u2014 confident, never condescending.",
+        "pacing_profile": "conversational",
+        "energy_curve": "Punchy curious hook, steady build through the physics, a beat of drama at the violet reveal, warm settled close.",
+        "pause_policy": "Short pause after the hook question; pause before 'But violet waves are even shorter' (the reversal); pause before the final takeaway line.",
+        "sample_section_id": "s4",
+        "provider_notes": {
+          "piper": "Offline voice with no emotion controls \u2014 expressiveness comes from punctuation, short sentences, and per-section generation. Em-dashes and periods create natural pauses. Generate each section as a separate audio file."
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "label": "Hook",
+          "text": "Violet light scatters through our atmosphere even more than blue. So why isn't the sky violet?",
+          "start_seconds": 0,
+          "end_seconds": 7,
+          "speaker_directions": "Confident, intriguing. Land 'more than blue' cleanly, brief beat, then the question with rising curiosity.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "curious",
+            "emphasis_words": [
+              "violet",
+              "more"
+            ],
+            "pause_after_seconds": 0.5,
+            "delivery_note": "The question is the whole video's promise \u2014 let it hang.",
+            "provider_text": "Violet light scatters through our atmosphere even more than blue. So... why isn't the sky violet?"
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Hero title on violet-tinted background: 'THE SKY SHOULD BE VIOLET' with the word VIOLET in #7C3AED",
+              "timestamp_seconds": 0.5
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief.data_points[2] (U. Arizona violet paradox)"
+        },
+        {
+          "id": "s2",
+          "label": "Setup \u2014 kill the myth",
+          "text": "First, forget the ocean myth. The sky is just as blue over a desert. The real story starts when sunlight slams into air molecules and scatters. But not all colors scatter equally.",
+          "start_seconds": 7,
+          "end_seconds": 19,
+          "speaker_directions": "Brisk dismissal of the myth, then shift to storytelling mode on 'The real story starts'.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "playful",
+            "emphasis_words": [
+              "desert",
+              "equally"
+            ],
+            "pause_before_seconds": 0.2,
+            "delivery_note": "'But not all colors scatter equally' is the bridge \u2014 slow slightly.",
+            "provider_text": "First, forget the ocean myth. The sky is just as blue over a desert. The real story starts when sunlight slams into air molecules, and scatters. But not all colors scatter equally."
+          },
+          "enhancement_cues": [
+            {
+              "type": "overlay",
+              "description": "Myth-busting text card: 'MYTH: it reflects the ocean' struck through, 'blue over deserts too' beneath",
+              "timestamp_seconds": 7.5
+            },
+            {
+              "type": "animation",
+              "description": "Callout: sunlight beam hitting air molecules, colored rays scattering outward",
+              "timestamp_seconds": 13
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief.data_points[5], audience_insights.misconceptions[0]"
+        },
+        {
+          "id": "s3",
+          "label": "Build \u2014 the fourth-power law",
+          "text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly nine times more than long red ones. Blue bounces everywhere. Red flies straight through.",
+          "start_seconds": 19,
+          "end_seconds": 33,
+          "speaker_directions": "Precise and building. Punch 'fourth power' and 'nine times'. The last two short sentences should feel like a snap conclusion.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "building confidence",
+            "emphasis_words": [
+              "fourth",
+              "nine"
+            ],
+            "pause_after_seconds": 0.4,
+            "delivery_note": "Keep the two closing fragments crisp \u2014 they mirror the visual split.",
+            "provider_text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly nine times more than long red ones. Blue bounces everywhere. Red flies straight through."
+          },
+          "enhancement_cues": [
+            {
+              "type": "stat_card",
+              "description": "Count-up stat card: '9.4x' \u2014 'blue scatters ~9x more than red (1/wavelength^4)'",
+              "timestamp_seconds": 24
+            },
+            {
+              "type": "diagram",
+              "description": "Bar chart: relative scattering intensity by color \u2014 red, orange, green, blue, violet ascending",
+              "timestamp_seconds": 28
+            }
+          ],
+          "pronunciation_guides": [
+            {
+              "word": "Rayleigh",
+              "phonetic": "RAY-lee"
+            }
+          ],
+          "source_ref": "research_brief.data_points[0] (UC Riverside Physics FAQ)"
+        },
+        {
+          "id": "s4",
+          "label": "Climax \u2014 the violet paradox resolved",
+          "text": "But violet waves are even shorter. They scatter most of all. Three things save the blue. The sun emits less violet. The upper atmosphere absorbs some of it. And your eyes barely notice the rest. Blue cones win.",
+          "start_seconds": 33,
+          "end_seconds": 48,
+          "speaker_directions": "Dramatic beat before 'But'. Deliver the three reasons as a clean list with micro-pauses. 'Blue cones win' lands like a verdict.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "dramatic reveal settling into verdict",
+            "emphasis_words": [
+              "shorter",
+              "three",
+              "eyes"
+            ],
+            "pause_before_seconds": 0.5,
+            "pause_after_seconds": 0.4,
+            "delivery_note": "This is the aha section \u2014 the sample gate section. Each of the three reasons gets its own breath.",
+            "provider_text": "But violet waves are even shorter. They scatter most of all. Three things save the blue. The sun emits less violet. The upper atmosphere absorbs some of it. And your eyes barely notice the rest. Blue cones win."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Comparison card: violet vs blue \u2014 'scatters MORE' on violet side, question mark",
+              "timestamp_seconds": 33.5
+            },
+            {
+              "type": "overlay",
+              "description": "Three-item reveal: 1) Sun emits less violet 2) Atmosphere absorbs it 3) Your eyes prefer blue \u2014 staggered entrance",
+              "timestamp_seconds": 39
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief.data_points[2] (U. Arizona three-part answer)"
+        },
+        {
+          "id": "s5",
+          "label": "Landing \u2014 sunset payoff",
+          "text": "So the sky's color is decided partly in the air, and partly inside your head. And at sunset, the same physics over a longer path paints the whole sky red.",
+          "start_seconds": 48,
+          "end_seconds": 60,
+          "speaker_directions": "Warm and settled. Slow slightly on 'partly inside your head'. The sunset line is a gift, not a lecture.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "warm close",
+            "emphasis_words": [
+              "head",
+              "red"
+            ],
+            "pause_before_seconds": 0.4,
+            "delivery_note": "Final line should feel like the camera pulling back.",
+            "provider_text": "So the sky's color is decided partly in the air, and partly inside your head. And at sunset, the same physics, over a longer path, paints the whole sky red."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Closing text card over a sunset gradient (deep blue to orange-red): 'Same physics. Longer path.'",
+              "timestamp_seconds": 53
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief.data_points[4] (US National Weather Service sunset explanation)"
+        }
+      ],
+      "metadata": {
+        "word_count": 152,
+        "target_wpm": 152,
+        "narrative_arc": "hook -> setup(myth) -> build(law) -> climax(paradox) -> landing(sunset)",
+        "enhancement_cue_count": 8
+      }
+    }
+  }
+}
