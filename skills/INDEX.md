@@ -82,6 +82,7 @@ Key capability families to look for in the output:
 | Remotion | `core/remotion.md` | React-based composition, Phase 3+ | `remotion-best-practices`, `remotion` |
 | HyperFrames | `core/hyperframes.md` | HTML/CSS/GSAP composition runtime — kinetic typography, music-to-video, product promos, website capture. Vendored at v0.7.17 (2026-06-27). | `hyperframes` (router) → `hyperframes-core` (contract), `hyperframes-creative` (palette/type/narration), `hyperframes-media` (TTS/BGM/SFX/captions), `hyperframes-animation` (all motion), `hyperframes-cli`, `hyperframes-registry`, `media-use`, `motion-graphics`, `music-to-video` (beats-driven), `website-to-video`, `remotion-to-hyperframes` (migration), `gsap-core`, `gsap-timeline` |
 | WhisperX | `core/whisperx.md` | Transcription with word-level timestamps | `speech-to-text` |
+| Piper TTS Quirks | `core/piper-tts-quirks.md` | Known Piper CLI bugs — read before batch narration with `piper_tts` | `text-to-speech` |
 | Subtitle Sync | `core/subtitle-sync.md` | Subtitle timing and alignment | `remotion-best-practices` |
 | Color Grading | `core/color-grading.md` | FFmpeg color profiles, LUT workflow, accessibility | `ffmpeg` |
 

@@ -1,0 +1,1000 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "unknown",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-07-05T22:39:37.177917+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "composition": {
+      "version": "1.0",
+      "renderer_family": "explainer-data",
+      "render_runtime": "remotion",
+      "composition_mode": "templated",
+      "cuts": [
+        {
+          "id": "cut-1",
+          "source": "",
+          "in_seconds": 0.0,
+          "out_seconds": 7.05,
+          "type": "hero_title",
+          "text": "THE SKY SHOULD BE VIOLET",
+          "heroSubtitle": "a 60-second color mystery"
+        },
+        {
+          "id": "cut-2",
+          "source": "",
+          "in_seconds": 7.05,
+          "out_seconds": 11.8,
+          "type": "comparison",
+          "title": "Why is the sky blue?",
+          "leftLabel": "MYTH",
+          "leftValue": "it reflects the ocean",
+          "rightLabel": "FACT",
+          "rightValue": "blue over deserts too",
+          "leftColor": "#EC4899",
+          "rightColor": "#06B6D4"
+        },
+        {
+          "id": "cut-3",
+          "source": "",
+          "in_seconds": 11.8,
+          "out_seconds": 19.46,
+          "type": "callout",
+          "callout_type": "info",
+          "title": "What actually happens",
+          "text": "Sunlight slams into air molecules and scatters. But not all colors scatter equally."
+        },
+        {
+          "id": "cut-4",
+          "source": "",
+          "in_seconds": 19.46,
+          "out_seconds": 26.7,
+          "type": "stat_card",
+          "stat": "9.4x",
+          "subtitle": "blue scatters ~9x more than red \u2014 intensity grows as 1/\u03bb\u2074",
+          "accentColor": "#06B6D4"
+        },
+        {
+          "id": "cut-5",
+          "source": "",
+          "in_seconds": 26.7,
+          "out_seconds": 34.26,
+          "type": "bar_chart",
+          "title": "Relative scattering by color",
+          "chartData": [
+            {
+              "label": "Red",
+              "value": 1.0
+            },
+            {
+              "label": "Orange",
+              "value": 1.7
+            },
+            {
+              "label": "Green",
+              "value": 3.1
+            },
+            {
+              "label": "Blue",
+              "value": 5.9
+            },
+            {
+              "label": "Violet",
+              "value": 9.4
+            }
+          ],
+          "chartColors": [
+            "#EF4444",
+            "#F59E0B",
+            "#10B981",
+            "#3B82F6",
+            "#7C3AED"
+          ],
+          "chartAnimation": "grow-up",
+          "showValues": true,
+          "showGrid": true
+        },
+        {
+          "id": "cut-6",
+          "source": "",
+          "in_seconds": 34.26,
+          "out_seconds": 38.64,
+          "type": "comparison",
+          "title": "So why not violet?",
+          "leftLabel": "VIOLET",
+          "leftValue": "scatters MOST",
+          "rightLabel": "BLUE",
+          "rightValue": "what we see",
+          "leftColor": "#7C3AED",
+          "rightColor": "#3B82F6"
+        },
+        {
+          "id": "cut-7",
+          "source": "",
+          "in_seconds": 38.64,
+          "out_seconds": 47.6,
+          "type": "callout",
+          "callout_type": "tip",
+          "title": "Three things save the blue",
+          "text": "1. The sun emits less violet.  2. The upper atmosphere absorbs some.  3. Your eyes barely notice the rest."
+        },
+        {
+          "id": "cut-8",
+          "source": "",
+          "in_seconds": 47.6,
+          "out_seconds": 49.44,
+          "type": "text_card",
+          "text": "Blue cones win."
+        },
+        {
+          "id": "cut-9",
+          "source": "",
+          "in_seconds": 49.44,
+          "out_seconds": 53.94,
+          "type": "text_card",
+          "text": "Decided partly in the air \u2014 partly in your head."
+        },
+        {
+          "id": "cut-10",
+          "source": "",
+          "in_seconds": 53.94,
+          "out_seconds": 61.5,
+          "type": "hero_title",
+          "text": "Same physics. Longer path.",
+          "heroSubtitle": "That's every sunset you've ever seen.",
+          "backgroundImage": "projects/why-the-sky-is-blue/sunset_gradient.png",
+          "backgroundOverlay": 0.15
+        }
+      ],
+      "overlays": [
+        {
+          "type": "section_title",
+          "in_seconds": 7.3,
+          "out_seconds": 10.3,
+          "text": "THE MYTH",
+          "accentColor": "#EC4899"
+        },
+        {
+          "type": "section_title",
+          "in_seconds": 19.8,
+          "out_seconds": 22.8,
+          "text": "THE PHYSICS",
+          "accentColor": "#06B6D4"
+        },
+        {
+          "type": "stat_reveal",
+          "in_seconds": 28.5,
+          "out_seconds": 33.5,
+          "text": "1/\u03bb\u2074",
+          "subtitle": "Rayleigh's law",
+          "accentColor": "#06B6D4",
+          "position": "bottom-right"
+        },
+        {
+          "type": "section_title",
+          "in_seconds": 34.5,
+          "out_seconds": 37.5,
+          "text": "THE TWIST",
+          "accentColor": "#7C3AED"
+        }
+      ],
+      "captions": [
+        {
+          "word": "Violet",
+          "startMs": 0,
+          "endMs": 940
+        },
+        {
+          "word": "light",
+          "startMs": 940,
+          "endMs": 1120
+        },
+        {
+          "word": "scatters",
+          "startMs": 1120,
+          "endMs": 1780
+        },
+        {
+          "word": "through",
+          "startMs": 1780,
+          "endMs": 1960
+        },
+        {
+          "word": "our",
+          "startMs": 1960,
+          "endMs": 2180
+        },
+        {
+          "word": "atmosphere",
+          "startMs": 2180,
+          "endMs": 2700
+        },
+        {
+          "word": "even",
+          "startMs": 2700,
+          "endMs": 3060
+        },
+        {
+          "word": "more",
+          "startMs": 3060,
+          "endMs": 3360
+        },
+        {
+          "word": "than",
+          "startMs": 3360,
+          "endMs": 3600
+        },
+        {
+          "word": "blue.",
+          "startMs": 3600,
+          "endMs": 3860
+        },
+        {
+          "word": "So",
+          "startMs": 4420,
+          "endMs": 4720
+        },
+        {
+          "word": "why",
+          "startMs": 4720,
+          "endMs": 5080
+        },
+        {
+          "word": "isn't",
+          "startMs": 5080,
+          "endMs": 5440
+        },
+        {
+          "word": "the",
+          "startMs": 5440,
+          "endMs": 5540
+        },
+        {
+          "word": "sky",
+          "startMs": 5540,
+          "endMs": 5760
+        },
+        {
+          "word": "violet?",
+          "startMs": 5760,
+          "endMs": 6200
+        },
+        {
+          "word": "First,",
+          "startMs": 6940,
+          "endMs": 7340
+        },
+        {
+          "word": "forget",
+          "startMs": 7680,
+          "endMs": 7880
+        },
+        {
+          "word": "the",
+          "startMs": 7880,
+          "endMs": 8080
+        },
+        {
+          "word": "ocean",
+          "startMs": 8080,
+          "endMs": 8380
+        },
+        {
+          "word": "myth.",
+          "startMs": 8380,
+          "endMs": 8640
+        },
+        {
+          "word": "The",
+          "startMs": 9360,
+          "endMs": 9460
+        },
+        {
+          "word": "sky",
+          "startMs": 9460,
+          "endMs": 9740
+        },
+        {
+          "word": "is",
+          "startMs": 9740,
+          "endMs": 9920
+        },
+        {
+          "word": "just",
+          "startMs": 9920,
+          "endMs": 10080
+        },
+        {
+          "word": "as",
+          "startMs": 10080,
+          "endMs": 10300
+        },
+        {
+          "word": "blue",
+          "startMs": 10300,
+          "endMs": 10480
+        },
+        {
+          "word": "over",
+          "startMs": 10480,
+          "endMs": 10700
+        },
+        {
+          "word": "a",
+          "startMs": 10700,
+          "endMs": 10860
+        },
+        {
+          "word": "desert.",
+          "startMs": 10860,
+          "endMs": 11060
+        },
+        {
+          "word": "The",
+          "startMs": 11800,
+          "endMs": 11960
+        },
+        {
+          "word": "real",
+          "startMs": 11960,
+          "endMs": 12140
+        },
+        {
+          "word": "story",
+          "startMs": 12140,
+          "endMs": 12460
+        },
+        {
+          "word": "starts",
+          "startMs": 12460,
+          "endMs": 12920
+        },
+        {
+          "word": "when",
+          "startMs": 12920,
+          "endMs": 13200
+        },
+        {
+          "word": "sunlight",
+          "startMs": 13200,
+          "endMs": 13680
+        },
+        {
+          "word": "slams",
+          "startMs": 13680,
+          "endMs": 14200
+        },
+        {
+          "word": "into",
+          "startMs": 14200,
+          "endMs": 14480
+        },
+        {
+          "word": "air",
+          "startMs": 14480,
+          "endMs": 14680
+        },
+        {
+          "word": "molecules",
+          "startMs": 14680,
+          "endMs": 15120
+        },
+        {
+          "word": "and",
+          "startMs": 15120,
+          "endMs": 15740
+        },
+        {
+          "word": "scatters.",
+          "startMs": 15740,
+          "endMs": 16340
+        },
+        {
+          "word": "But",
+          "startMs": 16780,
+          "endMs": 17020
+        },
+        {
+          "word": "not",
+          "startMs": 17020,
+          "endMs": 17220
+        },
+        {
+          "word": "all",
+          "startMs": 17220,
+          "endMs": 17460
+        },
+        {
+          "word": "colors",
+          "startMs": 17460,
+          "endMs": 17780
+        },
+        {
+          "word": "scatter",
+          "startMs": 17780,
+          "endMs": 18140
+        },
+        {
+          "word": "equally.",
+          "startMs": 18140,
+          "endMs": 18660
+        },
+        {
+          "word": "Lord",
+          "startMs": 19460,
+          "endMs": 19740
+        },
+        {
+          "word": "Rayleigh",
+          "startMs": 19740,
+          "endMs": 20120
+        },
+        {
+          "word": "showed",
+          "startMs": 20120,
+          "endMs": 20480
+        },
+        {
+          "word": "that",
+          "startMs": 20480,
+          "endMs": 20660
+        },
+        {
+          "word": "scattering",
+          "startMs": 20660,
+          "endMs": 21100
+        },
+        {
+          "word": "explodes",
+          "startMs": 21100,
+          "endMs": 21660
+        },
+        {
+          "word": "as",
+          "startMs": 21660,
+          "endMs": 22040
+        },
+        {
+          "word": "wavelength",
+          "startMs": 22040,
+          "endMs": 22360
+        },
+        {
+          "word": "shrinks.",
+          "startMs": 22360,
+          "endMs": 22980
+        },
+        {
+          "word": "By",
+          "startMs": 23600,
+          "endMs": 23800
+        },
+        {
+          "word": "wavelength",
+          "startMs": 23800,
+          "endMs": 24200
+        },
+        {
+          "word": "to",
+          "startMs": 24200,
+          "endMs": 24500
+        },
+        {
+          "word": "the",
+          "startMs": 24500,
+          "endMs": 24600
+        },
+        {
+          "word": "fourth",
+          "startMs": 24600,
+          "endMs": 24820
+        },
+        {
+          "word": "power,",
+          "startMs": 24820,
+          "endMs": 25220
+        },
+        {
+          "word": "short",
+          "startMs": 25920,
+          "endMs": 26040
+        },
+        {
+          "word": "blue",
+          "startMs": 26040,
+          "endMs": 26320
+        },
+        {
+          "word": "waves",
+          "startMs": 26320,
+          "endMs": 26720
+        },
+        {
+          "word": "scatter",
+          "startMs": 26720,
+          "endMs": 27040
+        },
+        {
+          "word": "roughly",
+          "startMs": 27040,
+          "endMs": 27480
+        },
+        {
+          "word": "nine",
+          "startMs": 27480,
+          "endMs": 27720
+        },
+        {
+          "word": "times",
+          "startMs": 27720,
+          "endMs": 28160
+        },
+        {
+          "word": "more",
+          "startMs": 28160,
+          "endMs": 28440
+        },
+        {
+          "word": "than",
+          "startMs": 28440,
+          "endMs": 28600
+        },
+        {
+          "word": "long",
+          "startMs": 28600,
+          "endMs": 28780
+        },
+        {
+          "word": "red",
+          "startMs": 28780,
+          "endMs": 29120
+        },
+        {
+          "word": "ones.",
+          "startMs": 29120,
+          "endMs": 29500
+        },
+        {
+          "word": "Blue",
+          "startMs": 30220,
+          "endMs": 30380
+        },
+        {
+          "word": "bounces",
+          "startMs": 30380,
+          "endMs": 30740
+        },
+        {
+          "word": "everywhere.",
+          "startMs": 30740,
+          "endMs": 31200
+        },
+        {
+          "word": "Red",
+          "startMs": 32159,
+          "endMs": 32320
+        },
+        {
+          "word": "flies",
+          "startMs": 32320,
+          "endMs": 32659
+        },
+        {
+          "word": "straight",
+          "startMs": 32659,
+          "endMs": 33080
+        },
+        {
+          "word": "through.",
+          "startMs": 33080,
+          "endMs": 33520
+        },
+        {
+          "word": "But",
+          "startMs": 34260,
+          "endMs": 34560
+        },
+        {
+          "word": "violet",
+          "startMs": 34560,
+          "endMs": 34920
+        },
+        {
+          "word": "waves",
+          "startMs": 34920,
+          "endMs": 35260
+        },
+        {
+          "word": "are",
+          "startMs": 35260,
+          "endMs": 35600
+        },
+        {
+          "word": "even",
+          "startMs": 35600,
+          "endMs": 35820
+        },
+        {
+          "word": "shorter.",
+          "startMs": 35820,
+          "endMs": 36180
+        },
+        {
+          "word": "They",
+          "startMs": 36840,
+          "endMs": 36960
+        },
+        {
+          "word": "scatter",
+          "startMs": 36960,
+          "endMs": 37260
+        },
+        {
+          "word": "most",
+          "startMs": 37260,
+          "endMs": 37560
+        },
+        {
+          "word": "of",
+          "startMs": 37560,
+          "endMs": 37760
+        },
+        {
+          "word": "all.",
+          "startMs": 37760,
+          "endMs": 37980
+        },
+        {
+          "word": "Three",
+          "startMs": 38640,
+          "endMs": 38840
+        },
+        {
+          "word": "things",
+          "startMs": 38840,
+          "endMs": 39160
+        },
+        {
+          "word": "save",
+          "startMs": 39160,
+          "endMs": 39440
+        },
+        {
+          "word": "the",
+          "startMs": 39440,
+          "endMs": 39660
+        },
+        {
+          "word": "blue.",
+          "startMs": 39660,
+          "endMs": 39900
+        },
+        {
+          "word": "The",
+          "startMs": 40560,
+          "endMs": 40760
+        },
+        {
+          "word": "sun",
+          "startMs": 40760,
+          "endMs": 40920
+        },
+        {
+          "word": "emits",
+          "startMs": 40920,
+          "endMs": 41180
+        },
+        {
+          "word": "less",
+          "startMs": 41180,
+          "endMs": 41460
+        },
+        {
+          "word": "violet.",
+          "startMs": 41460,
+          "endMs": 41860
+        },
+        {
+          "word": "The",
+          "startMs": 42520,
+          "endMs": 42680
+        },
+        {
+          "word": "upper",
+          "startMs": 42680,
+          "endMs": 42920
+        },
+        {
+          "word": "atmosphere",
+          "startMs": 42920,
+          "endMs": 43460
+        },
+        {
+          "word": "absorbs",
+          "startMs": 43460,
+          "endMs": 43860
+        },
+        {
+          "word": "some",
+          "startMs": 43860,
+          "endMs": 44320
+        },
+        {
+          "word": "of",
+          "startMs": 44320,
+          "endMs": 44460
+        },
+        {
+          "word": "it.",
+          "startMs": 44460,
+          "endMs": 44640
+        },
+        {
+          "word": "And",
+          "startMs": 45280,
+          "endMs": 45420
+        },
+        {
+          "word": "your",
+          "startMs": 45420,
+          "endMs": 45560
+        },
+        {
+          "word": "eyes",
+          "startMs": 45560,
+          "endMs": 45760
+        },
+        {
+          "word": "barely",
+          "startMs": 45760,
+          "endMs": 46180
+        },
+        {
+          "word": "notice",
+          "startMs": 46180,
+          "endMs": 46480
+        },
+        {
+          "word": "the",
+          "startMs": 46480,
+          "endMs": 46760
+        },
+        {
+          "word": "rest.",
+          "startMs": 46760,
+          "endMs": 46980
+        },
+        {
+          "word": "Blue",
+          "startMs": 47840,
+          "endMs": 48040
+        },
+        {
+          "word": "cones",
+          "startMs": 48040,
+          "endMs": 48460
+        },
+        {
+          "word": "win.",
+          "startMs": 48460,
+          "endMs": 48740
+        },
+        {
+          "word": "So",
+          "startMs": 49440,
+          "endMs": 49640
+        },
+        {
+          "word": "the",
+          "startMs": 49640,
+          "endMs": 49740
+        },
+        {
+          "word": "sky's",
+          "startMs": 49740,
+          "endMs": 50160
+        },
+        {
+          "word": "color",
+          "startMs": 50160,
+          "endMs": 50420
+        },
+        {
+          "word": "is",
+          "startMs": 50420,
+          "endMs": 50600
+        },
+        {
+          "word": "decided",
+          "startMs": 50600,
+          "endMs": 50960
+        },
+        {
+          "word": "partly",
+          "startMs": 50960,
+          "endMs": 51360
+        },
+        {
+          "word": "in",
+          "startMs": 51360,
+          "endMs": 51640
+        },
+        {
+          "word": "the",
+          "startMs": 51640,
+          "endMs": 51740
+        },
+        {
+          "word": "air",
+          "startMs": 51740,
+          "endMs": 51960
+        },
+        {
+          "word": "and",
+          "startMs": 51960,
+          "endMs": 52580
+        },
+        {
+          "word": "partly",
+          "startMs": 52580,
+          "endMs": 52960
+        },
+        {
+          "word": "inside",
+          "startMs": 52960,
+          "endMs": 53300
+        },
+        {
+          "word": "your",
+          "startMs": 53300,
+          "endMs": 53600
+        },
+        {
+          "word": "head.",
+          "startMs": 53600,
+          "endMs": 53940
+        },
+        {
+          "word": "And",
+          "startMs": 53940,
+          "endMs": 54740
+        },
+        {
+          "word": "at",
+          "startMs": 54740,
+          "endMs": 54860
+        },
+        {
+          "word": "sunset,",
+          "startMs": 54860,
+          "endMs": 55280
+        },
+        {
+          "word": "the",
+          "startMs": 55840,
+          "endMs": 55900
+        },
+        {
+          "word": "same",
+          "startMs": 55900,
+          "endMs": 56160
+        },
+        {
+          "word": "physics,",
+          "startMs": 56160,
+          "endMs": 56640
+        },
+        {
+          "word": "over",
+          "startMs": 57000,
+          "endMs": 57260
+        },
+        {
+          "word": "a",
+          "startMs": 57260,
+          "endMs": 57380
+        },
+        {
+          "word": "longer",
+          "startMs": 57380,
+          "endMs": 57620
+        },
+        {
+          "word": "path,",
+          "startMs": 57620,
+          "endMs": 58080
+        },
+        {
+          "word": "paints",
+          "startMs": 58460,
+          "endMs": 58600
+        },
+        {
+          "word": "the",
+          "startMs": 58600,
+          "endMs": 58760
+        },
+        {
+          "word": "whole",
+          "startMs": 58760,
+          "endMs": 58960
+        },
+        {
+          "word": "sky",
+          "startMs": 58960,
+          "endMs": 59220
+        },
+        {
+          "word": "red.",
+          "startMs": 59220,
+          "endMs": 59540
+        }
+      ],
+      "audio": {
+        "narration": {
+          "src": "projects/why-the-sky-is-blue/narration_full.wav",
+          "volume": 1.0
+        },
+        "music": {
+          "src": "projects/why-the-sky-is-blue/background_music.mp3",
+          "volume": 0.12,
+          "fadeInSeconds": 1.5,
+          "fadeOutSeconds": 3.0,
+          "loop": false
+        }
+      },
+      "metadata": {
+        "project": "why-the-sky-is-blue",
+        "playbook": "flat-motion-graphics",
+        "delivery_promise": {
+          "promise_type": "data_explainer",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "playful",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "total_duration_seconds": 61.5,
+        "narration_strategy": "Five Piper sections pre-mixed into assets/narration/narration_full.wav at the exact segment offsets above (adelay+amix); Remotion receives ONE narration src so caption timings and audio placement share the same clock.",
+        "captions_strategy": "Word-level captions transcribed from narration_full.wav via faster-whisper (150 words, vad_filter=false \u2014 VAD dropped clean speech segments); 'really' misrecognition of 'Rayleigh' patched to display the correct spelling.",
+        "music_note": "Remotion applies static low music volume (0.12) + fades; dynamic ducking disabled because the Remotion audio path has no sidechain \u2014 volume chosen so narration stays dominant.",
+        "pacing_check": "Cut durations: 7.05/4.75/7.66/7.24/7.56/4.38/8.96/1.84/4.5/7.56. One intentional violation: cut-7 at 8.96s (max 8s) \u2014 logged decision d-011."
+      },
+      "slideshow_risk_score": {
+        "average": 2.0,
+        "verdict": "acceptable"
+      }
+    },
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/why-the-sky-is-blue/renders/the-sky-should-be-violet.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1920x1080",
+          "fps": 30,
+          "duration_seconds": 62.55,
+          "file_size_bytes": 11664955,
+          "platform_target": "youtube_landscape"
+        }
+      ],
+      "render_time_seconds": 240,
+      "warnings": [],
+      "verification_notes": [
+        "Composition validator: valid, zero warnings.",
+        "Automated final review: pass (visual spotcheck, audio spotcheck, promise preservation all clean).",
+        "Manual frame sampling at 2s/10s/22s/35s/48s/58s confirmed typography, animation, caption sync, sunset finale.",
+        "transcript_comparison skipped by reviewer; word-level captions generated separately via faster-whisper."
+      ],
+      "render_grammar": "explainer-data",
+      "decision_log_ref": "projects/why-the-sky-is-blue/artifacts/decision_log.json",
+      "final_review_ref": "projects/why-the-sky-is-blue/artifacts/final_review.json"
+    }
+  }
+}
