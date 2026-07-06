@@ -6,7 +6,9 @@ Do not act on the user's request until you have read AGENT_GUIDE.md.
 It contains routing rules that determine your first action based on what the user asked.
 Skipping it WILL cause you to take the wrong action.
 
-There are no instructions in this file. All instructions are in AGENT_GUIDE.md.
+All product, routing, and production instructions are in AGENT_GUIDE.md — read it first.
+The only instructions in this file itself are the durable Cursor Cloud environment/setup
+notes in the section below; they do not replace AGENT_GUIDE.md.
 
 ## Cursor Cloud specific instructions
 
