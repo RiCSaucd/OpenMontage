@@ -145,9 +145,11 @@ stages:
     optional_tools:
       - silence_cutter   # auto jump cuts on silent segments
       - video_trimmer    # speed control (0.5x–2x), cut, concat
+      - text_based_editor  # Descript-style transcript-driven cuts (CutScript OSS)
     tools_available:
       - silence_cutter
       - video_trimmer
+      - text_based_editor
     checkpoint_required: true
     human_approval_default: false
     review_focus:

@@ -10,6 +10,7 @@ where to cut, what to remove, how to pace, and how to structure the final edit.
 | Tool | Role |
 |------|------|
 | `transcriber` | Analyze speech for filler words, dead air, false starts |
+| `text_based_editor` | Descript-style cuts from word timestamps (CutScript OSS export) |
 | `video_trimmer` | Execute cuts and speed adjustments |
 | `frame_sampler` | Sample frames to evaluate visual quality at potential cut points |
 | `video_compose` | Assemble the final edit |
