@@ -105,6 +105,43 @@ Common variables for `-o` templates:
 - yt-dlp automatically handles rate limiting and retries.
 - The `--dump-json` output includes `title`, `duration`, `uploader`, `view_count`, `description`, `formats`, `subtitles`, and much more.
 
+## OpenMontage `video_downloader` tool
+
+Use the `video_downloader` tool (not raw shell) inside pipelines. Key parameters:
+
+| Parameter | Default | Purpose |
+|-----------|---------|---------|
+| `ingest_mode` | `reference` | `reference` = 720p / 10 min cap for analysis. `production` = 1080p / 60 min for clip-factory ingest. |
+| `allow_playlist` | `false` | When true, download multiple items from a playlist URL |
+| `max_playlist_items` | `5` | Cap playlist downloads (max 25) |
+| `format` | `video` | `video`, `audio_only`, `subtitles_only`, or `metadata_only` |
+
+**Reference analysis (default):**
+
+```python
+video_downloader.execute({
+    "url": "https://youtube.com/watch?v=...",
+    "output_dir": "projects/my-project/assets/reference",
+    "format": "video",
+    "ingest_mode": "reference",
+})
+```
+
+**Production ingest for clip-factory:**
+
+```python
+video_downloader.execute({
+    "url": "https://youtube.com/playlist?list=...",
+    "output_dir": "projects/my-project/assets/source",
+    "format": "video",
+    "ingest_mode": "production",
+    "allow_playlist": True,
+    "max_playlist_items": 10,
+})
+```
+
+Playlist responses include a `videos` array (per-item paths + metadata) and set `video_path` to the first item for backward compatibility.
+
 ## Troubleshooting
 
 - **"yt-dlp: command not found"**: Install it (`pip install yt-dlp`) and ensure your PATH includes pip's bin directory.

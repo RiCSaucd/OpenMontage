@@ -7,3 +7,4 @@ Pillow>=10.0
 numpy>=1.24
 requests>=2.31
 google-auth>=2.0       # service-account auth for Google TTS + Imagen (Vertex AI)
+yt-dlp>=2024.1         # URL video/audio ingest (video_downloader tool)
