@@ -1,0 +1,27 @@
+# Channel Trailer — Production Brief
+
+pipeline: cinematic
+project: gta-stream
+deliverable: channel-trailer.mp4
+duration_target_seconds: 75
+aspect_ratio: "16:9"
+render_runtime: hyperframes
+
+character: Vincenzo "Vince" Genovese
+channel: Bensonhurst to LS
+tagline: "Same rules. Different city."
+
+concept:
+  - Cold open — Bensonhurst stoop, 1980s, kid on errand
+  - Montage — smart hustle, kid runners
+  - Family weight — Genovese bloodline
+  - Gambino pressure — refused recruitment
+  - Present day — Los Santos skyline
+  - End card — live platforms
+
+voice: piper_tts (en_US-lessac-medium)
+visual_style: projects/gta-stream/visual-style.md
+
+outputs:
+  - projects/gta-stream/renders/channel-trailer.mp4
+  - projects/gta-stream/renders/channel-trailer-teaser-9x16.mp4
