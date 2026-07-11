@@ -78,10 +78,8 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
 
 ## 4. Platform Profiles
 
-### Twitch (primary live) — ✅ @theswampdon
-- **URL:** https://twitch.tv/theswampdon
+### Twitch (primary live)
 - **Display name:** Theswampdon
-- **Handle:** @theswampdon
 - **Title template:** `[RP] Vince Genovese — Genovese crew in LS | !lore !discord`
 - **Category:** Grand Theft Auto V / GTA Online (or specific RP server when applicable)
 - **Bio:**
@@ -96,23 +94,21 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
   ```
 - **Panels:** About Vince | Stream schedule | Clip channels (YT/TikTok) | Discord | Donation/support | RP disclaimer
 
-### Kick (primary live mirror) — ✅ @theswampdon
-- **URL:** https://kick.com/theswampdon
+### Kick (primary live mirror)
 - **Display name:** Theswampdon
-- **Handle:** @theswampdon
 - **Bio:** Match Twitch — emphasize **live GTA RP**, Brooklyn mafia character, Genovese loyalty arc
 - **Category:** GTA V / Roleplay
 
 ### YouTube (VOD + growth)
 - **Channel name:** Theswampdon | GTA Mafia RP
-- **Handle:** @theswampdon
+- **Handle:** @Theswampdon
 - **About:**
   ```
   Live Grand Theft Auto roleplay as Vincenzo "Vince" Genovese — a Bensonhurst kid with Genovese family roots, now operating in Los Santos.
 
   Full streams, highlight reels, and Bensonhurst lore drops. All content is fictional roleplay for entertainment.
 
-  🔴 Live on Twitch & Kick — twitch.tv/theswampdon
+  🔴 Live on Twitch & Kick
   📱 Shorts from the best RP moments
 
   Keywords: GTA RP, mafia RP, FiveM RP, Brooklyn, organized crime roleplay, Los Santos
@@ -125,7 +121,7 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
   ```
   GTA mafia RP — Theswampdon 🗽
   Genovese blood. Fiction/RP only.
-  Full streams on Twitch — twitch.tv/theswampdon 👇
+  Full streams on Twitch 👇
   ```
 - **Link:** Twitch or link-in-bio (Carrd) with YT/Twitch/Kick
 - **Hashtags (rotate):** `#GTARP #GTA5 #MafiaRP #FiveM #Roleplay #Brooklyn #GTAV #LosSantos #StreamClip`
@@ -193,9 +189,7 @@ Do **not** use Nexus crimson palette or "Nexus AI Media" watermark on RP streams
 
 ## 10. Launch Checklist
 
-- [x] Register Twitch — @theswampdon
-- [x] Register Kick — @theswampdon
-- [ ] Register YouTube + TikTok (@theswampdon)
+- [ ] Register handles (Twitch, Kick, YouTube, TikTok)
 - [ ] Upload banner + avatar from `assets/overlays/`
 - [ ] Paste platform bios from this doc
 - [ ] Pin channel trailer (after Phase 2 render)

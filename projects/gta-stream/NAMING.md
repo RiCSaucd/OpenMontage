@@ -11,21 +11,12 @@
 | **Primary live platforms** | Twitch + Kick | YouTube for VOD + long highlights; TikTok for vertical clips (clip-factory). |
 | **Cross-promo with Nexus** | Optional, off by default | Mention only when lore/history naturally overlaps; never merge channel identities on-platform. |
 
-## Platform registration
+## Handles to register (availability check manually)
 
-| Platform | Handle | Status | URL |
-|----------|--------|--------|-----|
-| **Twitch** | `@theswampdon` | ✅ Registered | https://twitch.tv/theswampdon |
-| **Kick** | `@theswampdon` | ✅ Registered | https://kick.com/theswampdon |
-| **YouTube** | `@theswampdon` (target) | Pending | — |
-| **TikTok** | `@theswampdon` (target) | Pending | — |
-
-Display name on Twitch/Kick: **Theswampdon** (capitalization is cosmetic; handles are lowercase).
-
-## Handles still to register
-
-- YouTube: **Theswampdon** | GTA Mafia RP — use `@theswampdon` if available
-- TikTok: `@theswampdon`
+- Twitch: `@Theswampdon`
+- Kick: `@Theswampdon`
+- YouTube: **Theswampdon** | GTA Mafia RP
+- TikTok: `@Theswampdon`
 
 ## Rename procedure
 
