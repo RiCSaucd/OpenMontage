@@ -1,5 +1,5 @@
 ---
-name: "Bensonhurst to LS"
+name: "Theswampdon"
 version: "1.0"
 tags:
   - streaming
@@ -16,7 +16,7 @@ style_prompt_short: >
   Film grain, condensed bold titles, clean sans body. Never glam gangster, never Nexus crimson.
 
 style_prompt_full: >
-  Visual identity for a GTA mafia roleplay live stream channel "Bensonhurst to LS".
+  Visual identity for a GTA mafia roleplay live stream channel "Theswampdon".
   Mood: late-1970s/1980s Brooklyn working-class Italian-American neighborhood at night —
   sodium-vapor streetlights (#E8A838 warm amber glow), wet asphalt reflections, brownstone
   stoops, social club doorways, muted winter coats. Transition aesthetic to modern Los Santos
@@ -31,7 +31,7 @@ style_prompt_full: >
   Stream overlay safe zones: 1920x1080 — top 120px for alerts, bottom 200px for captions/game
   HUD, right 380px optional chat dock. Webcam frame: thin gold (#C5A46E) 2px border, 8px
   radius, drop shadow. "LIVE" badge: burgundy pill, white text, subtle pulse. End cards: centered
-  wordmark "BENSONHURST → LS" with tagline "Same rules. Different city."
+  wordmark "THESWAMPDON" with tagline "Same rules. Different city."
 
 colors:
   primary:
@@ -155,7 +155,7 @@ x_figma:
 ## Clip Factory / Shorts
 
 - Captions: Off-White text, Deep Charcoal box at 85% opacity, Bebas Neue for hook words
-- Watermark: "BENSONHURST → LS" lower-left, 40% opacity, Aged Gold
+- Watermark: "THESWAMPDON" lower-left, 40% opacity, Aged Gold
 - 9:16 safe zone: keep text in center 80% width; hook in top third
 
 ## FLUX / B-Roll Prompt Base

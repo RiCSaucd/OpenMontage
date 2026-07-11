@@ -29,4 +29,4 @@ Twenty-twelve. Los Santos. New city.
 Same rules. Different city.
 
 [0:47][call to action]
-Live on Twitch. Kick. YouTube. Bensonhurst to LS.
+Live on Twitch. Kick. YouTube. Theswampdon.

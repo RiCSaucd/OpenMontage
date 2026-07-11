@@ -5,7 +5,7 @@
 | Decision | Choice | Notes |
 |----------|--------|-------|
 | **Channel brand model** | Dual identity | Stream persona is separate from Nexus AI Media documentary voice. Same creator (Eric Hatch / ElevatestAug), different tone and audience contract. |
-| **Stream channel name** | **Bensonhurst to LS** | Working title. Evokes migration arc without glam gangster branding. |
+| **Stream channel name** | **Theswampdon** | Primary brand across Twitch, Kick, YouTube, and TikTok. |
 | **Character name** | **Vincenzo "Vince" Genovese** | Working name — Italian-American, Genovese family tie obvious to lore without being a real historical figure. |
 | **GTA format** | Mixed | RP server when available; story mode / solo heist content otherwise. |
 | **Primary live platforms** | Twitch + Kick | YouTube for VOD + long highlights; TikTok for vertical clips (clip-factory). |
@@ -13,10 +13,10 @@
 
 ## Handles to register (availability check manually)
 
-- Twitch: `@BensonhurstToLS` or `@VinceGenoveseRP`
-- Kick: match Twitch handle
-- YouTube: **Bensonhurst to LS** | GTA Mafia RP
-- TikTok: `@bensonhursttols` or `@vincegenoveserp`
+- Twitch: `@Theswampdon`
+- Kick: `@Theswampdon`
+- YouTube: **Theswampdon** | GTA Mafia RP
+- TikTok: `@Theswampdon`
 
 ## Rename procedure
 

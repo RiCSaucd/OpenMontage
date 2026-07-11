@@ -1,4 +1,4 @@
-# Stream Ops Playbook — Bensonhurst to LS
+# Stream Ops Playbook — Theswampdon
 
 Practical go-live checklist for multistream GTA RP. OpenMontage does not configure these tools — follow on your streaming PC.
 
@@ -56,7 +56,7 @@ Practical go-live checklist for multistream GTA RP. OpenMontage does not configu
 
 ### YouTube Live notes
 - Enable stream in YouTube Studio → schedule or go live instant
-- Title template: `[GTA RP LIVE] Vince Genovese — Bensonhurst to LS`
+- Title template: `[GTA RP LIVE] Vince Genovese — Theswampdon`
 
 ### TikTok
 - **Primary path:** Upload vertical clips from `CLIP_WORKFLOW.md` (most reliable)

@@ -1,7 +1,7 @@
 # Character Bible — Vincenzo "Vince" Genovese
 
 **Version:** 1.0  
-**Channel:** Bensonhurst to LS  
+**Channel:** Theswampdon  
 **Game timeline:** GTA V / GTA Online (2013 Los Santos)  
 **Stream use:** In-character RP reference — one glance before going live
 

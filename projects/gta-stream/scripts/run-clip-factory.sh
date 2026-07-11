@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Clip-factory helper for Bensonhurst to LS stream VODs.
+# Clip-factory helper for Theswampdon stream VODs.
 # Usage: run-clip-factory.sh <source_video> [--smoke-test]
 set -euo pipefail
 
@@ -22,7 +22,7 @@ DATE_PREFIX="$(echo "$BASENAME" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}' || date
 OUT_DIR="$ROOT/renders/clips/$DATE_PREFIX"
 mkdir -p "$OUT_DIR"
 
-echo "==> Bensonhurst to LS clip-factory"
+echo "==> Theswampdon clip-factory"
 echo "    Source:  $SOURCE"
 echo "    Output:  $OUT_DIR"
 
@@ -141,13 +141,13 @@ Source: \`$BASENAME\`
 $(ls "$OUT_DIR"/*_shorts.mp4 2>/dev/null | while read f; do echo "- **$(basename "$f")** — TikTok / Shorts"; done)
 
 ## Suggested title
-Vince Genovese GTA RP highlight | Bensonhurst to LS
+Vince Genovese GTA RP highlight | Theswampdon
 
 ## Hashtags
 #GTARP #MafiaRP #GTA5 #Roleplay #Brooklyn #FiveM
 
 ## CTA
-Full RP live on Twitch & Kick @BensonhurstToLS
+Full RP live on Twitch & Kick @Theswampdon
 EOF
 
 echo "==> Done. Clips + publish-pack.md in $OUT_DIR"

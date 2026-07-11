@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1920, height=1080" />
-  <title>Bensonhurst to LS — Channel Trailer</title>
+  <title>Theswampdon — Channel Trailer</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
@@ -171,9 +171,7 @@
       <div class="scene-bg amber-glow"></div>
       <div class="grain"></div>
       <div class="end-logo">
-        <h1 id="end-title">BENSONHURST</h1>
-        <div class="arrow" id="end-arrow">→</div>
-        <h1 id="end-ls">LS</h1>
+        <h1 id="end-title">THESWAMPDON</h1>
         <p id="end-tag">Same rules. Different city.</p>
         <div class="platforms" id="end-platforms">LIVE · TWITCH · KICK · YOUTUBE</div>
       </div>
@@ -210,10 +208,8 @@
 
     // Scene 6
     tl.from('#end-title', { opacity: 0, y: 30, duration: 0.6 }, 28.2);
-    tl.from('#end-arrow', { opacity: 0, scale: 0.5, duration: 0.4 }, 28.6);
-    tl.from('#end-ls', { opacity: 0, y: 30, duration: 0.6 }, 28.8);
-    tl.from('#end-tag', { opacity: 0, duration: 0.5 }, 29.4);
-    tl.from('#end-platforms', { opacity: 0, duration: 0.5 }, 30.0);
+    tl.from('#end-tag', { opacity: 0, duration: 0.5 }, 28.8);
+    tl.from('#end-platforms', { opacity: 0, duration: 0.5 }, 29.4);
 
     window.__timelines['trailer'] = tl;
   </script>

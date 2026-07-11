@@ -1,4 +1,4 @@
-# Clip Factory Workflow — Bensonhurst to LS
+# Clip Factory Workflow — Theswampdon
 
 Turn stream VODs into TikTok, YouTube Shorts, and YouTube highlight clips using the OpenMontage **clip-factory** pipeline.
 
@@ -64,7 +64,7 @@ Prioritize moments that work **without** full stream context:
 
 From [`visual-style.md`](../visual-style.md):
 
-- **Watermark:** `BENSONHURST → LS` lower-left, 40% opacity, `#C5A46E`
+- **Watermark:** `THESWAMPDON` lower-left, 40% opacity, `#C5A46E`
 - **Captions:** Off-white on charcoal box, Bebas Neue for emphasis words
 - **End slate (optional):** "Full RP on Twitch" + handle
 
@@ -81,7 +81,7 @@ When the Genovese kid runs Los Santos streets #GTAV #FiveM
 
 ### YouTube highlight title
 ```
-[GTA RP] Vince Genovese — Monday Collections | Bensonhurst to LS
+[GTA RP] Vince Genovese — Monday Collections | Theswampdon
 ```
 
 ### Description block (paste all platforms)
@@ -89,7 +89,7 @@ When the Genovese kid runs Los Santos streets #GTAV #FiveM
 🎮 Live GTA mafia roleplay as Vincenzo "Vince" Genovese — Bensonhurst → Los Santos.
 Fiction/RP only. Not real crime.
 
-🔴 Live: Twitch & Kick @BensonhurstToLS
+🔴 Live: Twitch & Kick @Theswampdon
 📺 Full streams on YouTube
 
 #GTARP #MafiaRP #GTA5 #Roleplay #Brooklyn #FiveM

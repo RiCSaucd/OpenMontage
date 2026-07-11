@@ -1,4 +1,4 @@
-# Bensonhurst to LS — Channel Brand Profile
+# Theswampdon — Channel Brand Profile
 
 **Version:** 1.0  
 **Owner:** Eric Hatch (ElevatestAug)  
@@ -35,7 +35,7 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
 
 ### Taglines (test on platforms)
 1. **"Same rules. Different city."** (primary)
-2. "Bensonhurst to Los Santos — Genovese blood, GTA streets"
+2. "Theswampdon — Genovese blood, GTA streets"
 3. "The kid who ran errands. The man who stayed quiet."
 4. "Live mafia RP — Brooklyn roots, Los Santos heat"
 
@@ -79,7 +79,7 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
 ## 4. Platform Profiles
 
 ### Twitch (primary live)
-- **Display name:** Bensonhurst to LS
+- **Display name:** Theswampdon
 - **Title template:** `[RP] Vince Genovese — Genovese crew in LS | !lore !discord`
 - **Category:** Grand Theft Auto V / GTA Online (or specific RP server when applicable)
 - **Bio:**
@@ -95,13 +95,13 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
 - **Panels:** About Vince | Stream schedule | Clip channels (YT/TikTok) | Discord | Donation/support | RP disclaimer
 
 ### Kick (primary live mirror)
-- **Display name:** Bensonhurst to LS
+- **Display name:** Theswampdon
 - **Bio:** Match Twitch — emphasize **live GTA RP**, Brooklyn mafia character, Genovese loyalty arc
 - **Category:** GTA V / Roleplay
 
 ### YouTube (VOD + growth)
-- **Channel name:** Bensonhurst to LS | GTA Mafia RP
-- **Handle:** @BensonhurstToLS
+- **Channel name:** Theswampdon | GTA Mafia RP
+- **Handle:** @Theswampdon
 - **About:**
   ```
   Live Grand Theft Auto roleplay as Vincenzo "Vince" Genovese — a Bensonhurst kid with Genovese family roots, now operating in Los Santos.
@@ -116,10 +116,10 @@ Build a loyal RP audience that follows Vince's arc from Bensonhurst street kid t
 - **Playlists:** Full Streams | Best of Vince | Lore — Bensonhurst Flashbacks | Heists & Action
 
 ### TikTok (clip discovery)
-- **Display name:** Vince Genovese RP | GTA
+- **Display name:** Theswampdon | GTA RP
 - **Bio (150 chars):**
   ```
-  GTA mafia RP — Bensonhurst → Los Santos 🗽
+  GTA mafia RP — Theswampdon 🗽
   Genovese blood. Fiction/RP only.
   Full streams on Twitch 👇
   ```
@@ -134,7 +134,7 @@ See [`visual-style.md`](visual-style.md) for full spec.
 
 - **Palette:** Charcoal, sodium amber, aged gold, deep burgundy
 - **Mood:** 1980s Bensonhurst noir → modern LS night
-- **Logo:** "BENSONHURST → LS" wordmark, arrow or bridge motif, subtle film grain
+- **Logo:** "THESWAMPDON" wordmark, subtle film grain, aged gold accent
 
 ---
 
@@ -176,7 +176,7 @@ See [`visual-style.md`](visual-style.md) for full spec.
 
 ## 9. Nexus AI Media Cross-Reference
 
-| Nexus | Bensonhurst to LS |
+| Nexus | Theswampdon |
 |-------|-------------------|
 | Documentary historian tone | In-character RP entertainment |
 | Educational, respectful distance | Dramatic immersion |
