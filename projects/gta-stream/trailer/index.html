@@ -113,11 +113,11 @@
   </style>
 </head>
 <body>
-  <div id="root" data-composition-id="trailer" data-width="1920" data-height="1080" data-duration="36" data-start="0">
-    <audio id="trailer-narration" src="assets/narration.wav" data-start="0" data-duration="36"></audio>
+  <div id="root" data-composition-id="trailer" data-width="1920" data-height="1080" data-duration="50" data-start="0">
+    <audio id="trailer-narration" src="assets/narration.wav" data-start="0" data-duration="50"></audio>
 
-    <!-- Scene 1: Bensonhurst cold open 0-6 -->
-    <section id="scene-1" class="clip" data-start="0" data-duration="6" data-track-index="1">
+    <!-- Scene 1: Bensonhurst cold open 0-7 -->
+    <section id="scene-1" class="clip" data-start="0" data-duration="7" data-track-index="1">
       <div class="scene-bg amber-glow"></div>
       <div class="grain"></div>
       <span class="label">Bensonhurst · 1982</span>
@@ -126,8 +126,8 @@
       <p class="subline" id="s1">Errands for the wise guys on 18th Avenue</p>
     </section>
 
-    <!-- Scene 2: Hustle 6-12 -->
-    <section id="scene-2" class="clip" data-start="6" data-duration="6" data-track-index="1">
+    <!-- Scene 2: Hustle 7-14 -->
+    <section id="scene-2" class="clip" data-start="7" data-duration="7" data-track-index="1">
       <div class="scene-bg"></div>
       <div class="grain"></div>
       <span class="label">Age Sixteen</span>
@@ -136,8 +136,8 @@
       <p class="subline" id="s2">Younger kids ran the streets. He never touched the corners.</p>
     </section>
 
-    <!-- Scene 3: Genovese 12-18 -->
-    <section id="scene-3" class="clip" data-start="12" data-duration="6" data-track-index="1">
+    <!-- Scene 3: Genovese 14-21 -->
+    <section id="scene-3" class="clip" data-start="14" data-duration="7" data-track-index="1">
       <div class="scene-bg amber-glow"></div>
       <div class="grain"></div>
       <span class="label">Genovese Blood</span>
@@ -146,8 +146,8 @@
       <p class="subline" id="s3">Grandfather. Father. Family name meant nobody touched him.</p>
     </section>
 
-    <!-- Scene 4: Gambino 18-24 -->
-    <section id="scene-4" class="clip" data-start="18" data-duration="6" data-track-index="1">
+    <!-- Scene 4: Gambino 21-28 -->
+    <section id="scene-4" class="clip" data-start="21" data-duration="7" data-track-index="1">
       <div class="scene-bg"></div>
       <div class="grain"></div>
       <span class="label">86th Street</span>
@@ -156,8 +156,8 @@
       <p class="subline" id="s4">Gambino money. Genovese loyalty.</p>
     </section>
 
-    <!-- Scene 5: Los Santos 24-28 -->
-    <section id="scene-5" class="clip" data-start="24" data-duration="4" data-track-index="1">
+    <!-- Scene 5: Los Santos 28-35 -->
+    <section id="scene-5" class="clip" data-start="28" data-duration="7" data-track-index="1">
       <div class="scene-bg" style="background: linear-gradient(180deg, #1E2A32 0%, #1C1C1C 100%);"></div>
       <div class="grain"></div>
       <span class="label">Los Santos · 2012</span>
@@ -166,8 +166,8 @@
       <p class="subline" id="s5">Cooling off. Same rules.</p>
     </section>
 
-    <!-- Scene 6: Tagline + end 28-36 -->
-    <section id="scene-6" class="clip" data-start="28" data-duration="8" data-track-index="1">
+    <!-- Scene 6: Tagline + end 35-50 -->
+    <section id="scene-6" class="clip" data-start="35" data-duration="15" data-track-index="1">
       <div class="scene-bg amber-glow"></div>
       <div class="grain"></div>
       <div class="end-logo">
@@ -187,29 +187,29 @@
     tl.to('#line-1', { width: 320, duration: 0.6, ease: 'power2.out' }, 0.5);
 
     // Scene 2
-    tl.from('#h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 6.3);
-    tl.from('#s2', { opacity: 0, duration: 0.5 }, 6.8);
-    tl.to('#line-2', { width: 320, duration: 0.6, ease: 'power2.out' }, 6.5);
+    tl.from('#h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 7.3);
+    tl.from('#s2', { opacity: 0, duration: 0.5 }, 7.8);
+    tl.to('#line-2', { width: 320, duration: 0.6, ease: 'power2.out' }, 7.5);
 
     // Scene 3
-    tl.from('#h3', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 12.3);
-    tl.from('#s3', { opacity: 0, duration: 0.5 }, 12.8);
-    tl.to('#line-3', { width: 320, duration: 0.6, ease: 'power2.out' }, 12.5);
+    tl.from('#h3', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 14.3);
+    tl.from('#s3', { opacity: 0, duration: 0.5 }, 14.8);
+    tl.to('#line-3', { width: 320, duration: 0.6, ease: 'power2.out' }, 14.5);
 
     // Scene 4
-    tl.from('#h4', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 18.3);
-    tl.from('#s4', { opacity: 0, duration: 0.5 }, 18.8);
-    tl.to('#line-4', { width: 320, duration: 0.6, ease: 'power2.out' }, 18.5);
+    tl.from('#h4', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 21.3);
+    tl.from('#s4', { opacity: 0, duration: 0.5 }, 21.8);
+    tl.to('#line-4', { width: 320, duration: 0.6, ease: 'power2.out' }, 21.5);
 
     // Scene 5
-    tl.from('#h5', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 24.3);
-    tl.from('#s5', { opacity: 0, duration: 0.5 }, 24.8);
-    tl.to('#line-5', { width: 320, duration: 0.6, ease: 'power2.out' }, 24.5);
+    tl.from('#h5', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 28.3);
+    tl.from('#s5', { opacity: 0, duration: 0.5 }, 28.8);
+    tl.to('#line-5', { width: 320, duration: 0.6, ease: 'power2.out' }, 28.5);
 
     // Scene 6
-    tl.from('#end-title', { opacity: 0, y: 30, duration: 0.6 }, 28.2);
-    tl.from('#end-tag', { opacity: 0, duration: 0.5 }, 28.8);
-    tl.from('#end-platforms', { opacity: 0, duration: 0.5 }, 29.4);
+    tl.from('#end-title', { opacity: 0, y: 30, duration: 0.6 }, 35.2);
+    tl.from('#end-tag', { opacity: 0, duration: 0.5 }, 35.8);
+    tl.from('#end-platforms', { opacity: 0, duration: 0.5 }, 36.4);
 
     window.__timelines['trailer'] = tl;
   </script>

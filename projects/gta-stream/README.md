@@ -19,7 +19,7 @@ Launch package for **Vincenzo "Vince" Genovese** — Genovese-family GTA rolepla
 
 ## Renders
 
-- **16:9 trailer:** `renders/channel-trailer.mp4` (~36s, with narration)
+- **16:9 trailer:** `renders/channel-trailer.mp4` (~50s, with narration)
 - **9:16 teaser:** `renders/channel-trailer-teaser-9x16.mp4`
 
 Re-render trailer:

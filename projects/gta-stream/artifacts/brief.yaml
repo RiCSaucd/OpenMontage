@@ -3,7 +3,7 @@
 pipeline: cinematic
 project: gta-stream
 deliverable: channel-trailer.mp4
-duration_target_seconds: 75
+duration_target_seconds: 50
 aspect_ratio: "16:9"
 render_runtime: hyperframes
 
