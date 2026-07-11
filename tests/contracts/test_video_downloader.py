@@ -39,9 +39,11 @@ class TestVideoDownloaderContract:
         assert "max_playlist_items" in props
 
     def test_registry_discovers_tool(self):
+        import tools.analysis.video_downloader as vd_module
+
         reg = ToolRegistry()
-        reg.discover()
-        assert "video_downloader" in reg._tools
+        reg.register_module(vd_module)
+        assert reg.get("video_downloader") is not None
 
     def test_resolve_reference_defaults(self):
         tool = VideoDownloader()
@@ -72,19 +74,29 @@ class TestVideoDownloaderContract:
         assert settings["allow_playlist"] is True
         assert settings["max_playlist_items"] == 25
 
-    def test_metadata_only_skips_download(self):
+    def test_rejects_invalid_max_playlist_items(self):
+        tool = VideoDownloader()
+        result = tool.execute({
+            "url": "https://example.com/watch?v=abc",
+            "output_dir": "/unused",
+            "max_playlist_items": "not-a-number",
+        })
+        assert result.success is False
+        assert "max_playlist_items must be an integer" in (result.error or "")
+
+    def test_metadata_only_skips_download(self, tmp_path):
         tool = VideoDownloader()
         with patch.object(tool, "_extract_metadata", return_value={"title": "T", "duration": 30}):
             result = tool.execute({
                 "url": "https://example.com/watch?v=abc",
-                "output_dir": "/tmp/test_dl",
+                "output_dir": str(tmp_path),
                 "format": "metadata_only",
             })
         assert result.success is True
         assert result.data["video_path"] is None
         assert result.data["ingest_mode"] == "reference"
 
-    def test_rejects_overlong_video(self):
+    def test_rejects_overlong_video(self, tmp_path):
         tool = VideoDownloader()
         with patch.object(
             tool,
@@ -93,14 +105,33 @@ class TestVideoDownloaderContract:
         ):
             result = tool.execute({
                 "url": "https://example.com/watch?v=abc",
-                "output_dir": "/tmp/test_dl",
+                "output_dir": str(tmp_path),
                 "format": "video",
                 "ingest_mode": "reference",
             })
         assert result.success is False
         assert "exceeds max_duration_seconds" in (result.error or "")
+        assert "ingest_mode=production" in (result.error or "")
 
-    def test_playlist_mode_requires_video_format(self):
+    def test_rejects_overlong_video_in_production_mode(self, tmp_path):
+        tool = VideoDownloader()
+        with patch.object(
+            tool,
+            "_extract_metadata",
+            return_value={"title": "Long", "duration": 9999},
+        ):
+            result = tool.execute({
+                "url": "https://example.com/watch?v=abc",
+                "output_dir": str(tmp_path),
+                "format": "video",
+                "ingest_mode": "production",
+            })
+        assert result.success is False
+        assert "exceeds max_duration_seconds" in (result.error or "")
+        assert "Increase max_duration_seconds to allow longer videos" in (result.error or "")
+        assert "switch to ingest_mode=production" not in (result.error or "")
+
+    def test_playlist_mode_requires_video_format(self, tmp_path):
         tool = VideoDownloader()
         with patch.object(
             tool,
@@ -109,7 +140,7 @@ class TestVideoDownloaderContract:
         ):
             result = tool.execute({
                 "url": "https://example.com/playlist?list=xyz",
-                "output_dir": "/tmp/test_dl",
+                "output_dir": str(tmp_path),
                 "format": "audio_only",
                 "allow_playlist": True,
             })
@@ -137,15 +168,17 @@ class TestVideoDownloaderContract:
                 "playlist_index": 2,
             },
         ]
-        with patch.object(tool, "_extract_metadata", return_value=playlist_meta):
-            with patch.object(tool, "_download_playlist_videos", return_value=fake_entries):
-                result = tool.execute({
-                    "url": "https://example.com/playlist?list=xyz",
-                    "output_dir": str(tmp_path),
-                    "format": "video",
-                    "allow_playlist": True,
-                    "max_playlist_items": 2,
-                })
+        with (
+            patch.object(tool, "_extract_metadata", return_value=playlist_meta),
+            patch.object(tool, "_download_playlist_videos", return_value=fake_entries),
+        ):
+            result = tool.execute({
+                "url": "https://example.com/playlist?list=xyz",
+                "output_dir": str(tmp_path),
+                "format": "video",
+                "allow_playlist": True,
+                "max_playlist_items": 2,
+            })
         assert result.success is True
         assert result.data["playlist_count"] == 2
         assert len(result.data["videos"]) == 2

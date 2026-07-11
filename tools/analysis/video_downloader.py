@@ -8,6 +8,7 @@ download for clip-factory workflows.
 
 from __future__ import annotations
 
+import logging
 import time
 from pathlib import Path
 from typing import Any
@@ -22,6 +23,9 @@ from tools.base_tool import (
     ToolTier,
     ToolRuntime,
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 class VideoDownloader(BaseTool):
@@ -157,7 +161,15 @@ class VideoDownloader(BaseTool):
         cpu_cores=1, ram_mb=512, vram_mb=0, disk_mb=2000,
         network_required=True,
     )
-    idempotency_key_fields = ["url", "format", "max_resolution", "ingest_mode", "allow_playlist"]
+    idempotency_key_fields = [
+        "url",
+        "format",
+        "max_resolution",
+        "ingest_mode",
+        "allow_playlist",
+        "max_playlist_items",
+        "max_duration_seconds",
+    ]
     side_effects = ["downloads media files to output_dir"]
     resume_support_value = "from_start"
     user_visible_verification = [
@@ -177,6 +189,28 @@ class VideoDownloader(BaseTool):
         "production": {"max_resolution": "1080p", "max_duration_seconds": 3600},
     }
 
+    def _parse_bounded_int(
+        self,
+        value: Any,
+        *,
+        field: str,
+        default: int,
+        minimum: int = 1,
+        maximum: int | None = None,
+    ) -> int:
+        if value is None:
+            parsed = default
+        else:
+            try:
+                parsed = int(value)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"{field} must be an integer") from exc
+        if parsed < minimum:
+            raise ValueError(f"{field} must be >= {minimum}")
+        if maximum is not None:
+            return min(parsed, maximum)
+        return parsed
+
     def _resolve_ingest_settings(self, inputs: dict[str, Any]) -> dict[str, Any]:
         """Apply ingest_mode defaults with explicit overrides."""
         mode = inputs.get("ingest_mode", "reference")
@@ -186,14 +220,43 @@ class VideoDownloader(BaseTool):
         return {
             "ingest_mode": mode,
             "max_resolution": inputs.get("max_resolution") or defaults["max_resolution"],
-            "max_duration_seconds": inputs.get(
-                "max_duration_seconds", defaults["max_duration_seconds"]
+            "max_duration_seconds": self._parse_bounded_int(
+                inputs.get("max_duration_seconds", defaults["max_duration_seconds"]),
+                field="max_duration_seconds",
+                default=defaults["max_duration_seconds"],
             ),
             "allow_playlist": bool(inputs.get("allow_playlist", False)),
-            "max_playlist_items": min(
-                max(int(inputs.get("max_playlist_items", 5)), 1), 25
+            "max_playlist_items": self._parse_bounded_int(
+                inputs.get("max_playlist_items", 5),
+                field="max_playlist_items",
+                default=5,
+                maximum=25,
             ),
         }
+
+    def _duration_limit_hint(self, ingest_mode: str) -> str:
+        if ingest_mode == "production":
+            return "Increase max_duration_seconds to allow longer videos."
+        return "Increase max_duration_seconds or switch to ingest_mode=production."
+
+    def _extract_audio(self, video_path: str, audio_out: Path) -> str | None:
+        """Extract mono 16 kHz WAV audio for transcription workflows."""
+        try:
+            audio_cmd = [
+                "ffmpeg", "-y",
+                "-i", video_path,
+                "-vn",
+                "-acodec", "pcm_s16le",
+                "-ar", "16000",
+                "-ac", "1",
+                str(audio_out),
+            ]
+            self.run_command(audio_cmd, timeout=120)
+            if audio_out.exists():
+                return str(audio_out)
+        except Exception as exc:
+            logger.warning("Audio extraction failed for %s: %s", video_path, exc)
+        return None
 
     def _detect_platform(self, url: str) -> str:
         """Detect platform from URL."""
@@ -229,7 +292,13 @@ class VideoDownloader(BaseTool):
             "id": info.get("id", ""),
         }
 
-    def _extract_metadata(self, url: str, *, allow_playlist: bool = False) -> dict:
+    def _extract_metadata(
+        self,
+        url: str,
+        *,
+        allow_playlist: bool = False,
+        max_playlist_items: int = 5,
+    ) -> dict:
         """Extract metadata without downloading."""
         import yt_dlp
 
@@ -240,6 +309,8 @@ class VideoDownloader(BaseTool):
             "noplaylist": not allow_playlist,
             "extract_flat": allow_playlist,
         }
+        if allow_playlist:
+            ydl_opts["playlistend"] = max_playlist_items
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
@@ -268,7 +339,11 @@ class VideoDownloader(BaseTool):
         url = inputs["url"]
         output_dir = Path(inputs["output_dir"])
         dl_format = inputs.get("format", "video")
-        settings = self._resolve_ingest_settings(inputs)
+        try:
+            settings = self._resolve_ingest_settings(inputs)
+        except ValueError as exc:
+            return ToolResult(success=False, error=str(exc))
+
         max_res = settings["max_resolution"]
         max_duration = settings["max_duration_seconds"]
         allow_playlist = settings["allow_playlist"]
@@ -278,7 +353,11 @@ class VideoDownloader(BaseTool):
         platform = self._detect_platform(url)
         start = time.time()
 
-        metadata = self._extract_metadata(url, allow_playlist=allow_playlist)
+        metadata = self._extract_metadata(
+            url,
+            allow_playlist=allow_playlist,
+            max_playlist_items=max_playlist_items,
+        )
 
         if allow_playlist and metadata.get("is_playlist"):
             return self._execute_playlist(
@@ -301,7 +380,7 @@ class VideoDownloader(BaseTool):
                 error=(
                     f"Video is {duration}s, exceeds max_duration_seconds={max_duration} "
                     f"for ingest_mode={settings['ingest_mode']}. "
-                    f"Increase the limit or use production ingest_mode."
+                    f"{self._duration_limit_hint(settings['ingest_mode'])}"
                 ),
                 data={
                     "metadata": metadata,
@@ -488,22 +567,7 @@ class VideoDownloader(BaseTool):
 
         audio_path = None
         if video_path:
-            audio_out = output_dir / f"{out_prefix}_audio.wav"
-            try:
-                audio_cmd = [
-                    "ffmpeg", "-y",
-                    "-i", video_path,
-                    "-vn",
-                    "-acodec", "pcm_s16le",
-                    "-ar", "16000",
-                    "-ac", "1",
-                    str(audio_out),
-                ]
-                self.run_command(audio_cmd, timeout=120)
-                if audio_out.exists():
-                    audio_path = str(audio_out)
-            except Exception:
-                pass
+            audio_path = self._extract_audio(video_path, output_dir / f"{out_prefix}_audio.wav")
 
         return video_path, audio_path
 
@@ -553,22 +617,10 @@ class VideoDownloader(BaseTool):
 
                 audio_path = None
                 if video_path:
-                    audio_out = playlist_dir / f"{prefix}_audio.wav"
-                    try:
-                        audio_cmd = [
-                            "ffmpeg", "-y",
-                            "-i", video_path,
-                            "-vn",
-                            "-acodec", "pcm_s16le",
-                            "-ar", "16000",
-                            "-ac", "1",
-                            str(audio_out),
-                        ]
-                        self.run_command(audio_cmd, timeout=120)
-                        if audio_out.exists():
-                            audio_path = str(audio_out)
-                    except Exception:
-                        pass
+                    audio_path = self._extract_audio(
+                        video_path,
+                        playlist_dir / f"{prefix}_audio.wav",
+                    )
 
                 entries.append({
                     "video_path": video_path,
