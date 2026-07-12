@@ -89,7 +89,7 @@ When the Genovese kid runs Los Santos streets #GTAV #FiveM
 🎮 Live GTA mafia roleplay as Vincenzo "Vince" Genovese — Bensonhurst → Los Santos.
 Fiction/RP only. Not real crime.
 
-🔴 Live: Twitch & Kick @Theswampdon
+🔴 Live: Twitch & Kick @theswampdon — twitch.tv/theswampdon
 📺 Full streams on YouTube
 
 #GTARP #MafiaRP #GTA5 #Roleplay #Brooklyn #FiveM

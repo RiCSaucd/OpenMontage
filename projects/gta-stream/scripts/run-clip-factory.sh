@@ -147,7 +147,7 @@ Vince Genovese GTA RP highlight | Theswampdon
 #GTARP #MafiaRP #GTA5 #Roleplay #Brooklyn #FiveM
 
 ## CTA
-Full RP live on Twitch & Kick @Theswampdon
+Full RP live on Twitch & Kick @theswampdon — twitch.tv/theswampdon
 EOF
 
 echo "==> Done. Clips + publish-pack.md in $OUT_DIR"
