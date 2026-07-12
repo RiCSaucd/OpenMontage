@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080" />
+  <title>Theswampdon — Channel Trailer</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #000; }
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: Inter, system-ui, sans-serif;
+      color: #F2EDE4;
+    }
+    .scene-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #1C1C1C 0%, #2A2A2E 40%, #1E2A32 100%);
+    }
+    .scene-bg.amber-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 30% 80%, rgba(232,168,56,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .clip { position: absolute; inset: 0; }
+    .label {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      font-size: 22px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #C5A46E;
+      font-weight: 600;
+    }
+    .headline {
+      position: absolute;
+      left: 80px;
+      right: 80px;
+      bottom: 180px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .subline {
+      position: absolute;
+      left: 80px;
+      right: 200px;
+      bottom: 100px;
+      font-size: 32px;
+      color: #8A8580;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .gold-line {
+      position: absolute;
+      left: 80px;
+      bottom: 160px;
+      width: 0;
+      height: 3px;
+      background: #C5A46E;
+    }
+    .end-logo {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .end-logo h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 140px;
+      letter-spacing: 0.12em;
+      margin: 0 0 16px;
+      color: #F2EDE4;
+    }
+    .end-logo .arrow { color: #E8A838; font-size: 100px; line-height: 0.5; }
+    .end-logo p {
+      font-size: 36px;
+      color: #C5A46E;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 24px 0 0;
+    }
+    .end-logo .platforms {
+      margin-top: 48px;
+      font-size: 24px;
+      color: #8A8580;
+      letter-spacing: 0.15em;
+    }
+    .burgundy-accent {
+      color: #6B1D2A;
+    }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="trailer" data-width="1920" data-height="1080" data-duration="50" data-start="0">
+    <audio id="trailer-narration" src="assets/narration.wav" data-start="0" data-duration="50"></audio>
+
+    <!-- Scene 1: Bensonhurst cold open 0-7 -->
+    <section id="scene-1" class="clip" data-start="0" data-duration="7" data-track-index="1">
+      <div class="scene-bg amber-glow"></div>
+      <div class="grain"></div>
+      <span class="label">Bensonhurst · 1982</span>
+      <div class="gold-line" id="line-1"></div>
+      <h2 class="headline" id="h1">THE KID WHO<br>DIDN'T TALK</h2>
+      <p class="subline" id="s1">Errands for the wise guys on 18th Avenue</p>
+    </section>
+
+    <!-- Scene 2: Hustle 7-14 -->
+    <section id="scene-2" class="clip" data-start="7" data-duration="7" data-track-index="1">
+      <div class="scene-bg"></div>
+      <div class="grain"></div>
+      <span class="label">Age Sixteen</span>
+      <div class="gold-line" id="line-2"></div>
+      <h2 class="headline" id="h2">SMART<br>HUSTLE</h2>
+      <p class="subline" id="s2">Younger kids ran the streets. He never touched the corners.</p>
+    </section>
+
+    <!-- Scene 3: Genovese 14-21 -->
+    <section id="scene-3" class="clip" data-start="14" data-duration="7" data-track-index="1">
+      <div class="scene-bg amber-glow"></div>
+      <div class="grain"></div>
+      <span class="label">Genovese Blood</span>
+      <div class="gold-line" id="line-3"></div>
+      <h2 class="headline" id="h3">SAL &amp; TONY<br>MADE MEN</h2>
+      <p class="subline" id="s3">Grandfather. Father. Family name meant nobody touched him.</p>
+    </section>
+
+    <!-- Scene 4: Gambino 21-28 -->
+    <section id="scene-4" class="clip" data-start="21" data-duration="7" data-track-index="1">
+      <div class="scene-bg"></div>
+      <div class="grain"></div>
+      <span class="label">86th Street</span>
+      <div class="gold-line" id="line-4"></div>
+      <h2 class="headline" id="h4">THEY WANTED HIM.<br>HE SAID NO.</h2>
+      <p class="subline" id="s4">Gambino money. Genovese loyalty.</p>
+    </section>
+
+    <!-- Scene 5: Los Santos 28-35 -->
+    <section id="scene-5" class="clip" data-start="28" data-duration="7" data-track-index="1">
+      <div class="scene-bg" style="background: linear-gradient(180deg, #1E2A32 0%, #1C1C1C 100%);"></div>
+      <div class="grain"></div>
+      <span class="label">Los Santos · 2012</span>
+      <div class="gold-line" id="line-5"></div>
+      <h2 class="headline" id="h5">NEW CITY</h2>
+      <p class="subline" id="s5">Cooling off. Same rules.</p>
+    </section>
+
+    <!-- Scene 6: Tagline + end 35-50 -->
+    <section id="scene-6" class="clip" data-start="35" data-duration="15" data-track-index="1">
+      <div class="scene-bg amber-glow"></div>
+      <div class="grain"></div>
+      <div class="end-logo">
+        <h1 id="end-title">THESWAMPDON</h1>
+        <p id="end-tag">Same rules. Different city.</p>
+        <div class="platforms" id="end-platforms">LIVE · TWITCH · KICK · YOUTUBE</div>
+      </div>
+    </section>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    // Scene 1
+    tl.from('#h1', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 0.3);
+    tl.from('#s1', { opacity: 0, duration: 0.5 }, 0.8);
+    tl.to('#line-1', { width: 320, duration: 0.6, ease: 'power2.out' }, 0.5);
+
+    // Scene 2
+    tl.from('#h2', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 7.3);
+    tl.from('#s2', { opacity: 0, duration: 0.5 }, 7.8);
+    tl.to('#line-2', { width: 320, duration: 0.6, ease: 'power2.out' }, 7.5);
+
+    // Scene 3
+    tl.from('#h3', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 14.3);
+    tl.from('#s3', { opacity: 0, duration: 0.5 }, 14.8);
+    tl.to('#line-3', { width: 320, duration: 0.6, ease: 'power2.out' }, 14.5);
+
+    // Scene 4
+    tl.from('#h4', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 21.3);
+    tl.from('#s4', { opacity: 0, duration: 0.5 }, 21.8);
+    tl.to('#line-4', { width: 320, duration: 0.6, ease: 'power2.out' }, 21.5);
+
+    // Scene 5
+    tl.from('#h5', { y: 60, opacity: 0, duration: 0.7, ease: 'power3.out' }, 28.3);
+    tl.from('#s5', { opacity: 0, duration: 0.5 }, 28.8);
+    tl.to('#line-5', { width: 320, duration: 0.6, ease: 'power2.out' }, 28.5);
+
+    // Scene 6
+    tl.from('#end-title', { opacity: 0, y: 30, duration: 0.6 }, 35.2);
+    tl.from('#end-tag', { opacity: 0, duration: 0.5 }, 35.8);
+    tl.from('#end-platforms', { opacity: 0, duration: 0.5 }, 36.4);
+
+    window.__timelines['trailer'] = tl;
+  </script>
+</body>
+</html>

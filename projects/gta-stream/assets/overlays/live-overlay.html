@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: transparent;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    .frame {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+    }
+    /* Webcam frame area hint — bottom right */
+    .webcam-zone {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: 400px;
+      height: 225px;
+      border: 2px solid #C5A46E;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(180deg, rgba(28,28,28,0.85) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      justify-content: space-between;
+    }
+    .channel-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.15em;
+      color: #F2EDE4;
+    }
+    .live-badge {
+      background: #6B1D2A;
+      color: #F2EDE4;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      padding: 8px 20px;
+      border-radius: 4px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.75; }
+    }
+    .character-plate {
+      position: absolute;
+      left: 32px;
+      bottom: 32px;
+      background: rgba(28,28,28,0.88);
+      border-left: 4px solid #C5A46E;
+      padding: 16px 24px;
+    }
+    .character-plate .name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 0.08em;
+      color: #F2EDE4;
+    }
+    .character-plate .title {
+      font-size: 16px;
+      color: #8A8580;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .tagline {
+      position: absolute;
+      right: 440px;
+      bottom: 40px;
+      font-size: 14px;
+      color: rgba(197,164,110,0.6);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top-bar">
+      <span class="channel-name">THESWAMPDON</span>
+      <span class="live-badge">● LIVE</span>
+    </div>
+    <div class="character-plate">
+      <div class="name">VINCE GENOVESE</div>
+      <div class="title">Vince Genovese · Genovese crew · Los Santos</div>
+    </div>
+    <span class="tagline">Same rules. Different city.</span>
+    <div class="webcam-zone"></div>
+  </div>
+</body>
+</html>
