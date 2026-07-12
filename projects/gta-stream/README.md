@@ -30,12 +30,13 @@ cd trailer && npx hyperframes lint && npx hyperframes render --quality high \
 
 ## Quick launch checklist
 
-1. Read `character-bible.md` quick reference card
-2. Paste platform bios from `channel-brand-profile.md`
-3. Import overlays from `assets/overlays/` into OBS (1920×1080 browser sources)
-4. Configure multistream per `stream-ops-playbook.md`
-5. Upload `renders/channel-trailer.mp4` as YouTube channel trailer
-6. Go live — then run `scripts/run-clip-factory.sh` on the VOD within 24h
+1. ~~Register Twitch + Kick~~ — **done** (@theswampdon)
+2. Paste bios on Twitch/Kick from `channel-brand-profile.md`
+3. Read `character-bible.md` quick reference card
+4. Import overlays from `assets/overlays/` into OBS (1920×1080 browser sources)
+5. Configure multistream per `stream-ops-playbook.md` (Twitch + Kick already registered)
+6. Register YouTube + TikTok when ready; upload `renders/channel-trailer.mp4` to YouTube
+7. Go live — then run `scripts/run-clip-factory.sh` on the VOD within 24h
 
 ## Character at a glance
 

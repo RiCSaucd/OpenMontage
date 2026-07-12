@@ -44,7 +44,7 @@ Practical go-live checklist for multistream GTA RP. OpenMontage does not configu
 ## 3. Multistream Setup
 
 ### Option A — Restream (recommended for simplicity)
-1. Connect Twitch, Kick, YouTube accounts in Restream dashboard
+1. Connect **Twitch** (`theswampdon`) and **Kick** (`theswampdon`) in Restream dashboard
 2. OBS → Settings → Stream → Service: **Restream.io** → paste stream key
 3. Set output: **1080p30** or **720p60** based on upload (see §5)
 4. Test stream to all platforms 5 min before going live
