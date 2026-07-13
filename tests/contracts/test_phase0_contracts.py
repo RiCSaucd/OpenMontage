@@ -471,6 +471,27 @@ class TestToolRegistry:
         assert reg.get("discovered") is not None
         assert reg.find_by_capability("discover")[0].name == "discovered"
 
+    def test_provider_menu_reuses_status_from_get_info(self):
+        class StatusProbeTool(DummyTool):
+            name = "status_probe"
+
+            def __init__(self):
+                super().__init__()
+                self.status_calls = 0
+
+            def get_status(self):
+                self.status_calls += 1
+                return ToolStatus.AVAILABLE
+
+        reg = ToolRegistry()
+        probe = StatusProbeTool()
+        reg.register(probe)
+
+        menu = reg.provider_menu()
+
+        assert menu["generic"]["available"][0]["name"] == "status_probe"
+        assert probe.status_calls == 1
+
 
 # ---- CostTracker ----
 
