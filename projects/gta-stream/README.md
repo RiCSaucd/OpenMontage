@@ -11,10 +11,11 @@ Launch package for **Vincenzo "Vince" Genovese** — Genovese-family GTA rolepla
 | [`channel-brand-profile.md`](channel-brand-profile.md) | Platform bios, monetization, content pillars |
 | [`visual-style.md`](visual-style.md) | Colors, typography, overlay specs |
 | [`stream-ops-playbook.md`](stream-ops-playbook.md) | OBS, multistream, audio, weekly rhythm |
-| [`CLIP_WORKFLOW.md`](CLIP_WORKFLOW.md) | VOD → TikTok/Shorts pipeline |
+| [`CLIP_WORKFLOW.md`](CLIP_WORKFLOW.md) | VOD → TikTok/Shorts pipeline (quick start below) |
+| [`source/`](source/) | Drop stream VODs here for clip-factory |
 | [`assets/overlays/`](assets/overlays/) | OBS browser-source HTML overlays |
 | [`trailer/`](trailer/) | HyperFrames channel trailer source |
-| [`renders/`](renders/) | Rendered MP4 outputs |
+| [`renders/`](renders/) | Trailer + clip MP4 outputs |
 | [`scripts/run-clip-factory.sh`](scripts/run-clip-factory.sh) | Clip batch automation |
 | [`go-live/`](go-live/) | Paste-ready bios, panels, chat commands, first-stream runbook |
 | [`MULTI_AGENT_HANDOFF.md`](MULTI_AGENT_HANDOFF.md) | How Cursor + Claude + ChatGPT share this folder |
@@ -39,7 +40,7 @@ cd trailer && npx hyperframes lint && npx hyperframes render --quality high \
 4. Import overlays from `assets/overlays/` into OBS (1920×1080 browser sources)
 5. Configure multistream per `stream-ops-playbook.md`
 6. Register YouTube + TikTok when ready; upload `renders/channel-trailer.mp4` to YouTube
-7. Go live — then run `scripts/run-clip-factory.sh` on the VOD within 24h
+7. Go live — then follow [`CLIP_WORKFLOW.md`](CLIP_WORKFLOW.md) (drop VOD in `source/`, run clip script within 24h)
 
 ## Working with Claude / ChatGPT
 
