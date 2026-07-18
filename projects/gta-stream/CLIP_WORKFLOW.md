@@ -6,23 +6,40 @@ Turn stream VODs into TikTok, YouTube Shorts, and YouTube highlight clips using 
 
 ## Quick Start
 
+From the **repo root** (`OpenMontage/`):
+
 ```bash
-# 1. Place your stream recording in source/
+# 1. Drop the VOD into source/ (dated filename helps clip folders)
 cp ~/Videos/2026-07-15_twitch_monday-collections-rp.mkv \
    projects/gta-stream/source/
 
-# 2. Run the clip batch script
+# 2. Run clip-factory (transcribe → scenes → 9:16 + 16:9 exports)
 ./projects/gta-stream/scripts/run-clip-factory.sh \
   projects/gta-stream/source/2026-07-15_twitch_monday-collections-rp.mkv
 
-# 3. Outputs land in projects/gta-stream/renders/clips/<date>/
+# 3. Clips + publish-pack.md land here:
+#    projects/gta-stream/renders/clips/<YYYY-MM-DD>/
 ```
+
+**Naming tip:** `YYYY-MM-DD_<platform>_<slug>.mkv`  
+Example: `2026-07-17_twitch_first-night-ls-rp.mkv`
+
+**No VOD yet?** Smoke-test the tooling with the channel trailer:
+
+```bash
+./projects/gta-stream/scripts/run-clip-factory.sh \
+  projects/gta-stream/renders/channel-trailer.mp4 \
+  --smoke-test
+```
+
+After clips export, paste titles/hashtags from the generated `publish-pack.md` (or templates below). Full post-stream SLA is at the bottom of this doc.
 
 ---
 
 ## Pipeline
 
-**Manifest:** [`pipeline_defs/clip-factory.yaml`](../../pipeline_defs/clip-factory.yaml)
+**Manifest:** [`pipeline_defs/clip-factory.yaml`](../../pipeline_defs/clip-factory.yaml)  
+**Helper script:** [`scripts/run-clip-factory.sh`](scripts/run-clip-factory.sh) (fast path; agent can also run full stage directors per Rule Zero)
 
 | Stage | Output | What happens |
 |-------|--------|--------------|
