@@ -1,0 +1,20 @@
+# Coverage configuration for OpenMontage.
+# Scope is set on the pytest command line (--cov=tools --cov=lib --cov=backlot);
+# this file tunes reporting. There is no --cov-fail-under gate yet — coverage is
+# reported to establish a baseline first, then a floor can be added and ratcheted.
+[run]
+branch = True
+relative_files = True
+omit =
+    */tests/*
+    */__init__.py
+
+[report]
+show_missing = True
+skip_covered = False
+# Lines that never need coverage.
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    if TYPE_CHECKING:

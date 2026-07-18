@@ -6,7 +6,7 @@ PIP = $(RUN_PYTHON) -m pip
 
 .DEFAULT_GOAL := setup
 
-.PHONY: setup install install-dev install-gpu test test-contracts lint clean preflight demo demo-list hyperframes-doctor hyperframes-warm venv ensure-venv
+.PHONY: setup install install-dev install-gpu test test-cov test-contracts lint clean preflight demo demo-list hyperframes-doctor hyperframes-warm venv ensure-venv
 
 # ---- Virtual environment ----
 
@@ -92,6 +92,14 @@ install-gpu: ensure-venv
 test: ensure-venv
 	$(RUN_PYTHON) -m pytest tests/ -v
 
+# Run the suite with coverage over the Python source packages. Non-blocking:
+# no --cov-fail-under gate yet, so a low number reports but never fails CI.
+# Once the baseline is known, add e.g. `--cov-fail-under=NN` here to ratchet.
+test-cov: ensure-venv
+	$(RUN_PYTHON) -m pytest tests/ \
+		--cov=tools --cov=lib --cov=backlot \
+		--cov-report=term-missing --cov-report=xml
+
 test-contracts: ensure-venv
 	$(RUN_PYTHON) -m pytest tests/contracts/ -v
 
@@ -119,11 +127,11 @@ demo: ensure-venv
 demo-list: ensure-venv
 	$(RUN_PYTHON) render_demo.py --list
 
+# Byte-compile every first-party Python package as a fast syntax smoke check.
+# compileall parses (does not import) each module, so it needs no runtime deps
+# and catches syntax errors anywhere in the source tree — not just 4 files.
 lint: ensure-venv
-	$(RUN_PYTHON) -m py_compile tools/base_tool.py
-	$(RUN_PYTHON) -m py_compile tools/tool_registry.py
-	$(RUN_PYTHON) -m py_compile tools/cost_tracker.py
-	$(RUN_PYTHON) -m py_compile tools/analysis/composition_validator.py
+	$(RUN_PYTHON) -m compileall -q tools lib backlot schemas tests
 
 clean:
 	$(BASE_PYTHON) -c "import pathlib, shutil; excluded=[pathlib.Path('$(VENV_DIR)'), pathlib.Path('venv')]; skip=lambda p: any(p == root or root in p.parents for root in excluded); roots=[p for p in pathlib.Path('.').rglob('__pycache__') if not skip(p)]; [shutil.rmtree(p) for p in roots]; files=[p for p in pathlib.Path('.').rglob('*.pyc') if not skip(p)]; [p.unlink() for p in files]"
