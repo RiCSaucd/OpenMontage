@@ -4,6 +4,12 @@ Append-only. Newest entries at the top.
 
 ---
 
+### 2026-07-21 — Cursor Cloud
+
+- Re-verified full launch plan artifacts under `projects/gta-stream/`.
+- Re-rendered channel trailer locally (~50s 16:9 + 9:16 teaser); MP4s remain gitignored.
+- Plan todos confirmed complete (naming Theswampdon / Vince Genovese; Phases 1–4).
+
 ### 2026-07-16 — Cursor Cloud
 
 - Confirmed launch plan artifacts present under `projects/gta-stream/`.
