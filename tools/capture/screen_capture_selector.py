@@ -134,7 +134,10 @@ class ScreenCaptureSelector(BaseTool):
 
     @property
     def fallback_tools(self) -> list[str]:
-        return list(self._providers().keys())
+        # Return the discovered providers' registered tool NAMES (e.g.
+        # "screen_recorder", "cap_recorder") — not their provider keys — so
+        # registry.find_fallback() can resolve them to real tools.
+        return [t.name for t in self._providers().values()]
 
     def get_status(self) -> ToolStatus:
         providers = self._providers()

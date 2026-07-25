@@ -34,12 +34,6 @@ _registry = ToolRegistry()
 _registry.discover()
 _TOOL_NAMES = sorted(_registry.list_all())
 
-# Fallback targets that are intentionally not tool names — screen_capture_selector
-# falls back to binary/capability handles ("cap" recorder, "ffmpeg") rather than
-# registered BaseTool instances. Documented here so the resolvable-fallback
-# invariant still guards every other tool.
-_KNOWN_NON_TOOL_FALLBACKS = {"cap", "ffmpeg"}
-
 _VALID = {
     "status": {s.value for s in ToolStatus},
     "tier": {s.value for s in ToolTier},
@@ -114,8 +108,6 @@ class TestToolContract:
             candidates.append(tool.fallback)
         for fb in candidates:
             assert isinstance(fb, str) and fb, f"{tool_name}: bad fallback {fb!r}"
-            if fb in _KNOWN_NON_TOOL_FALLBACKS:
-                continue
             assert _registry.get(fb) is not None, (
                 f"{tool_name} declares fallback {fb!r} but no such tool is registered"
             )
