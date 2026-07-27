@@ -43,7 +43,7 @@
           "title": "The Fourth-Power Law That Paints the Sky",
           "hook": "One tiny equation explains blue skies, red sunsets, and pale horizons all at once.",
           "narrative_structure": "data_narrative",
-          "visual_approach": "Data-led motion graphics: animated 1/lambda^4 formula card, count-up stat cards (9.4x), and a bar chart of scattering intensity by color. Ends with three-way payoff cards: sky, sunset, horizon.",
+          "visual_approach": "Data-led motion graphics: animated 1/lambda^4 formula card, count-up stat cards (5.9x blue vs red), and a bar chart of scattering intensity by color. Ends with three-way payoff cards: sky, sunset, horizon.",
           "suggested_playbook": "flat-motion-graphics",
           "target_audience": "STEM-curious viewers who want the quantitative why",
           "target_platform": "youtube",
@@ -61,7 +61,7 @@
             "research_brief.data_points[4] (sunset)",
             "research_brief.landscape.underserved_gaps[1]"
           ],
-          "why_this_works": "The quantitative angle is underused: existing content says 'blue scatters more' without ever showing how much. Count-up stat cards make the 9.4x figure viscerally satisfying."
+          "why_this_works": "The quantitative angle is underused: existing content says 'blue scatters more' without ever showing how much. Count-up stat cards make the ~6x blue-vs-red figure viscerally satisfying."
         },
         {
           "id": "c3",
@@ -92,7 +92,7 @@
         "concept_id": "c1",
         "rationale": "Autonomous cloud run (user request was open-ended: 'make a video'). c1 selected because it has the strongest hook grounded in the #1 underserved gap, its myth-busting structure differentiates from the saturated one-liner landscape, and its visual beats (paradox card, scattering bar chart, cone-sensitivity comparison, sunset finale) map perfectly onto the free Remotion component stack \u2014 maximum quality at $0.00.",
         "modifications": [
-          "Absorb c2's quantitative beat: include the 1/lambda^4 bar chart and the ~9.4x stat card as the setup before the violet paradox",
+          "Absorb c2's quantitative beat: include the 1/lambda^4 bar chart and the ~5.9x stat card (blue vs red) as the setup before the violet paradox",
           "Close with c2's sunset payoff as the CTA beat"
         ]
       },

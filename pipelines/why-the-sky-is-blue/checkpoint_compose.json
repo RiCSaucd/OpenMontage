@@ -524,7 +524,7 @@
           "endMs": 27480
         },
         {
-          "word": "nine",
+          "word": "six",
           "startMs": 27480,
           "endMs": 27720
         },
@@ -960,7 +960,7 @@
         },
         "total_duration_seconds": 62.55,
         "narration_strategy": "Five Piper sections pre-mixed into assets/narration/narration_full.wav at the exact segment offsets above (adelay+amix); Remotion receives ONE narration src so caption timings and audio placement share the same clock.",
-        "captions_strategy": "Word-level captions transcribed from narration_full.wav via faster-whisper (150 words, vad_filter=false \u2014 VAD dropped clean speech segments); 'really' misrecognition of 'Rayleigh' patched to display the correct spelling.",
+        "captions_strategy": "Word-level captions transcribed from narration_full.wav via faster-whisper (150 words, vad_filter=false \u2014 VAD dropped clean speech segments); 'really'\u2192'Rayleigh' and 'nine'\u2192'six' patched to match provider_text after script stat correction (5.9x blue vs red).",
         "music_note": "Remotion applies static low music volume (0.12) + fades; dynamic ducking disabled because the Remotion audio path has no sidechain \u2014 volume chosen so narration stays dominant.",
         "pacing_check": "Cut durations: 7.05/4.75/7.66/7.24/7.56/4.38/8.96/1.84/4.5/7.56. One intentional violation: cut-7 at 8.96s (max 8s) \u2014 logged decision d-011. Edit timeline sums to 61.5s; Remotion renders 62.55s at 30fps due to frame rounding and composition tail padding."
       },
