@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "project_id": "why-the-sky-is-blue",
-  "pipeline_type": "unknown",
+  "pipeline_type": "animated-explainer",
   "stage": "proposal",
   "status": "completed",
   "timestamp": "2026-07-05T21:53:51.964069+00:00",

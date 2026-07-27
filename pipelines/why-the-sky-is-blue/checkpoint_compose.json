@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "project_id": "why-the-sky-is-blue",
-  "pipeline_type": "unknown",
+  "pipeline_type": "animated-explainer",
   "stage": "compose",
   "status": "completed",
   "timestamp": "2026-07-05T22:39:37.177917+00:00",
@@ -958,11 +958,11 @@
           "quality_floor": "presentable",
           "approved_fallback": null
         },
-        "total_duration_seconds": 61.5,
+        "total_duration_seconds": 62.55,
         "narration_strategy": "Five Piper sections pre-mixed into assets/narration/narration_full.wav at the exact segment offsets above (adelay+amix); Remotion receives ONE narration src so caption timings and audio placement share the same clock.",
         "captions_strategy": "Word-level captions transcribed from narration_full.wav via faster-whisper (150 words, vad_filter=false \u2014 VAD dropped clean speech segments); 'really' misrecognition of 'Rayleigh' patched to display the correct spelling.",
         "music_note": "Remotion applies static low music volume (0.12) + fades; dynamic ducking disabled because the Remotion audio path has no sidechain \u2014 volume chosen so narration stays dominant.",
-        "pacing_check": "Cut durations: 7.05/4.75/7.66/7.24/7.56/4.38/8.96/1.84/4.5/7.56. One intentional violation: cut-7 at 8.96s (max 8s) \u2014 logged decision d-011."
+        "pacing_check": "Cut durations: 7.05/4.75/7.66/7.24/7.56/4.38/8.96/1.84/4.5/7.56. One intentional violation: cut-7 at 8.96s (max 8s) \u2014 logged decision d-011. Edit timeline sums to 61.5s; Remotion renders 62.55s at 30fps due to frame rounding and composition tail padding."
       },
       "slideshow_risk_score": {
         "average": 2.0,
@@ -993,8 +993,71 @@
         "transcript_comparison skipped by reviewer; word-level captions generated separately via faster-whisper."
       ],
       "render_grammar": "explainer-data",
-      "decision_log_ref": "projects/why-the-sky-is-blue/artifacts/decision_log.json",
-      "final_review_ref": "projects/why-the-sky-is-blue/artifacts/final_review.json"
+      "decision_log_ref": "pipelines/why-the-sky-is-blue/decision_log.json",
+      "final_review_ref": "embedded in checkpoint_compose.json artifacts.final_review"
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "projects/why-the-sky-is-blue/renders/the-sky-should-be-violet.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 62.55,
+          "resolution": "1920x1080",
+          "fps": 30,
+          "has_audio": true,
+          "codec": "h264",
+          "file_size_bytes": 11664955,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 6,
+          "frame_paths": [],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": true,
+          "music_present": true,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": true,
+          "issues": []
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "silent_downgrade_detected": false,
+          "runtime_swap_detected": false,
+          "issues": [],
+          "renderer_family_used": "explainer-data",
+          "render_runtime_used": "remotion",
+          "runtime_swap_check": "ok \u2014 proposal and edit agree (proposal_packet.production_plan.render_runtime)",
+          "motion_ratio_actual": 0.0
+        },
+        "subtitle_check": {
+          "subtitles_expected": false,
+          "subtitles_present": false,
+          "issues": []
+        },
+        "transcript_comparison": {
+          "transcript_matches_script": false,
+          "word_accuracy": null,
+          "script_word_count": 0,
+          "transcript_word_count": 0,
+          "spurious_punctuation_words": [],
+          "issues": [
+            "transcript_comparison skipped: narration_transcript not provided"
+          ]
+        }
+      },
+      "issues_found": [
+        "transcript_comparison skipped: narration_transcript not provided"
+      ],
+      "recommended_action": "present_to_user"
     }
   }
 }

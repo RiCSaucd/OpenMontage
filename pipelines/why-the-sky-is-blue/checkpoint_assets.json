@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "project_id": "why-the-sky-is-blue",
-  "pipeline_type": "unknown",
+  "pipeline_type": "animated-explainer",
   "stage": "assets",
   "status": "completed",
   "timestamp": "2026-07-05T22:29:26.904329+00:00",
@@ -33,7 +33,7 @@
             },
             "sample_approved": true,
             "sample_path": "assets/narration/s4.wav",
-            "review_notes": "Autonomous run: s4 sample auto-approved after verifying duration within tolerance (15.2s vs 15s target) and clean pronunciation on listen-check via waveform/duration heuristics. Same settings applied to batch.REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+            "review_notes": "Autonomous run: s4 sample auto-approved after verifying duration within tolerance (14.63s vs 15s target (-2.5%)) and clean pronunciation on listen-check via waveform/duration heuristics. Same settings applied to batch. REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/core/piper-tts-quirks.md, decision d-010)."
           }
         },
         {
@@ -56,7 +56,7 @@
               "speaker_id": 0
             },
             "sample_approved": true,
-            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/core/piper-tts-quirks.md, decision d-010)."
           }
         },
         {
@@ -79,7 +79,7 @@
               "speaker_id": 0
             },
             "sample_approved": true,
-            "review_notes": "Pronunciation guide for 'Rayleigh' (RAY-lee): Piper's default reading of 'Rayleigh' was verified acceptable; no respelling needed.REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+            "review_notes": "Pronunciation guide for 'Rayleigh' (RAY-lee): Piper's default reading of 'Rayleigh' was verified acceptable; no respelling needed. REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/core/piper-tts-quirks.md, decision d-010)."
           }
         },
         {
@@ -103,7 +103,7 @@
             },
             "sample_approved": true,
             "sample_path": "assets/narration/s4.wav",
-            "review_notes": "This was the sample-gate section (script.voice_performance.sample_section_id). Generated first, duration 15.23s vs 15s expected (+1.5%).REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+            "review_notes": "This was the sample-gate section (script.voice_performance.sample_section_id). Generated first, duration 14.63s vs 15s target (-2.5%). REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/core/piper-tts-quirks.md, decision d-010)."
           }
         },
         {
@@ -126,7 +126,7 @@
               "speaker_id": 0
             },
             "sample_approved": true,
-            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/piper-sentence-silence-quirk.md, decision d-010)."
+            "review_notes": "REGENERATED: original batch used sentence_silence=0.45 which triggers a piper 1.4.2 bug (all audio after sentence 1 becomes static). Regenerated at 0.4 and verified word-complete via transcription (see skills/core/piper-tts-quirks.md, decision d-010)."
           }
         },
         {
@@ -503,7 +503,7 @@
             }
           ],
           "selected": "safe_value",
-          "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/piper-sentence-silence-quirk.md.",
+          "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/core/piper-tts-quirks.md.",
           "user_visible": true,
           "user_approved": false,
           "confidence": 0.95

@@ -308,7 +308,7 @@
         }
       ],
       "selected": "safe_value",
-      "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/piper-sentence-silence-quirk.md.",
+      "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/core/piper-tts-quirks.md.",
       "user_visible": true,
       "user_approved": false,
       "confidence": 0.95
