@@ -238,7 +238,7 @@
           "option_id": "auto_approve",
           "label": "Auto-approve sample and proceed",
           "score": 0.8,
-          "reason": "Autonomous cloud run with no interactive approval channel; sample duration within +1.5% of target; $0.00 cost means no financial risk from batching"
+          "reason": "Autonomous cloud run with no interactive approval channel; sample duration 14.63s vs 15s target (-2.5%, within tolerance); $0.00 cost means no financial risk from batching"
         },
         {
           "option_id": "block_for_user",
@@ -249,7 +249,7 @@
         }
       ],
       "selected": "auto_approve",
-      "reason": "Zero-cost batch; sample retained on disk for post-hoc review; user may request regeneration with different voice settings.",
+      "reason": "Zero-cost batch; s4 sample 14.63s vs 15s target (-2.5%); sample retained at assets/narration/s4.wav for post-hoc review; user may request regeneration with different voice settings.",
       "user_visible": true,
       "user_approved": false,
       "confidence": 0.85
@@ -308,7 +308,7 @@
         }
       ],
       "selected": "safe_value",
-      "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in projects/why-the-sky-is-blue/skills/core/piper-tts-quirks.md.",
+      "reason": "All 5 sections regenerated at sentence_silence=0.4 and verified word-complete by transcription (150/150 script words present). Documented in skills/core/piper-tts-quirks.md.",
       "user_visible": true,
       "user_approved": false,
       "confidence": 0.95

@@ -990,7 +990,7 @@
         "Composition validator: valid, zero warnings.",
         "Automated final review: pass (visual spotcheck, audio spotcheck, promise preservation all clean).",
         "Manual frame sampling at 2s/10s/22s/35s/48s/58s confirmed typography, animation, caption sync, sunset finale.",
-        "transcript_comparison skipped by reviewer; word-level captions generated separately via faster-whisper."
+        "Transcript comparison: 150/150 script words matched captions from narration_full.wav (word_accuracy=1.0)."
       ],
       "render_grammar": "explainer-data",
       "decision_log_ref": "pipelines/why-the-sky-is-blue/decision_log.json",
@@ -1035,7 +1035,7 @@
           "issues": [],
           "renderer_family_used": "explainer-data",
           "render_runtime_used": "remotion",
-          "runtime_swap_check": "ok \u2014 proposal and edit agree (proposal_packet.production_plan.render_runtime)",
+          "runtime_swap_check": "ok \u2014 data_explainer min_motion_ratio=0.0; 0/10 real-motion cuts (8 slide-grammar, 2 still) satisfies promise per lib/delivery_promise.py",
           "motion_ratio_actual": 0.0
         },
         "subtitle_check": {
@@ -1044,19 +1044,15 @@
           "issues": []
         },
         "transcript_comparison": {
-          "transcript_matches_script": false,
-          "word_accuracy": null,
-          "script_word_count": 0,
-          "transcript_word_count": 0,
+          "transcript_matches_script": true,
+          "word_accuracy": 1.0,
+          "script_word_count": 150,
+          "transcript_word_count": 150,
           "spurious_punctuation_words": [],
-          "issues": [
-            "transcript_comparison skipped: narration_transcript not provided"
-          ]
+          "issues": []
         }
       },
-      "issues_found": [
-        "transcript_comparison skipped: narration_transcript not provided"
-      ],
+      "issues_found": [],
       "recommended_action": "present_to_user"
     }
   }
