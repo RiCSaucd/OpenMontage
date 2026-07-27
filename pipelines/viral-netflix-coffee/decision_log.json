@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "project_id": "viral-netflix-coffee",
+  "entries": [
+    {
+      "id": "d-001",
+      "timestamp": "2026-07-27T21:45:00+00:00",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Video concept",
+      "selected": "Netflix Documentary parody — Chapter One: The Pour (morning coffee ritual)",
+      "rationale": "July 2026 TikTok/Reels trend: mundane activities with cinematic documentary narration. Strong hook, zero API cost, maps to vertical motion-graphics cuts.",
+      "options_considered": [
+        {"option_id": "netflix-documentary-coffee", "label": "Coffee ritual documentary parody"},
+        {"option_id": "freaked-out-reveal", "label": "FREAKED OUT beat-drop format"},
+        {"option_id": "data-explainer", "label": "Trending topic explainer"}
+      ]
+    },
+    {
+      "id": "d-002",
+      "timestamp": "2026-07-27T21:45:00+00:00",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "selected": "remotion",
+      "rationale": "Remotion available; templated explainer-data cuts (hero_title, text_card, stat_card, callout) proven on prior production. HyperFrames available but Remotion is faster for this brief.",
+      "options_considered": [
+        {"option_id": "remotion", "label": "Remotion templated explainer"},
+        {"option_id": "hyperframes", "label": "HyperFrames GSAP composition", "rejected_because": "Not needed for 5-cut motion-graphics brief"}
+      ]
+    },
+    {
+      "id": "d-003",
+      "timestamp": "2026-07-27T21:45:00+00:00",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "selected": "piper / en_US-lessac-medium",
+      "rationale": "Free offline TTS; documentary pacing via length_scale 1.08 and sentence_silence 0.4 (piper 1.4.2+ quirk: never exceed 0.4).",
+      "options_considered": [
+        {"option_id": "piper", "label": "Piper local TTS ($0)"},
+        {"option_id": "openai_tts", "label": "OpenAI TTS", "rejected_because": "No API key required for this run"}
+      ]
+    },
+    {
+      "id": "d-004",
+      "timestamp": "2026-07-27T21:45:00+00:00",
+      "stage": "proposal",
+      "category": "output_profile",
+      "subject": "Target platform",
+      "selected": "tiktok (1080x1920 vertical)",
+      "rationale": "User requested viral 30s vertical content for TikTok/Reels trend.",
+      "options_considered": [
+        {"option_id": "tiktok", "label": "1080x1920 9:16"},
+        {"option_id": "youtube_landscape", "label": "1920x1080", "rejected_because": "Trend format is vertical"}
+      ]
+    }
+  ]
+}

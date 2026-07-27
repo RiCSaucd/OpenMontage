@@ -1,0 +1,229 @@
+{
+  "version": "1.0",
+  "project_id": "viral-netflix-coffee",
+  "pipeline_type": "animated-explainer",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-07-27T21:45:50.656249+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "composition": {
+      "version": "1.0",
+      "renderer_family": "explainer-data",
+      "render_runtime": "remotion",
+      "composition_mode": "templated",
+      "cuts": [
+        {
+          "id": "cut-1",
+          "source": "",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "type": "hero_title",
+          "text": "CHAPTER ONE",
+          "heroSubtitle": "The Ritual"
+        },
+        {
+          "id": "cut-2",
+          "source": "",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "type": "text_card",
+          "text": "The beans are chosen like evidence.",
+          "subtitle": "Dark roast \u00b7 Fair trade \u00b7 Destiny in a bag"
+        },
+        {
+          "id": "cut-3",
+          "source": "",
+          "in_seconds": 6.0,
+          "out_seconds": 8.0,
+          "type": "stat_card",
+          "stat": "12 sec",
+          "subtitle": "The water must wait. Steam rises like testimony.",
+          "accentColor": "#E50914"
+        },
+        {
+          "id": "cut-4",
+          "source": "",
+          "in_seconds": 8.0,
+          "out_seconds": 10.0,
+          "type": "callout",
+          "callout_type": "info",
+          "title": "The first sip",
+          "text": "A moment historians will never record. But you will."
+        },
+        {
+          "id": "cut-5",
+          "source": "",
+          "in_seconds": 10.0,
+          "out_seconds": 28.938458,
+          "type": "hero_title",
+          "text": "THIS IS COFFEE",
+          "heroSubtitle": "A Netflix Original"
+        }
+      ],
+      "audio": {
+        "narration": {
+          "src": "projects/viral-netflix-coffee/narration_full.wav",
+          "volume": 1.0
+        },
+        "music": {
+          "src": "projects/viral-netflix-coffee/background_music.mp3",
+          "volume": 0.18,
+          "fadeInSeconds": 1.0,
+          "fadeOutSeconds": 2.0,
+          "loop": false
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "word-by-word",
+        "source": "projects/viral-netflix-coffee/artifacts/captions.json",
+        "font": "Inter",
+        "font_size": 42,
+        "color": "#F5F5F5",
+        "background": "#000000BF",
+        "position": "bottom-center",
+        "max_words_per_line": 6
+      },
+      "metadata": {
+        "project": "viral-netflix-coffee",
+        "playbook": "flat-motion-graphics",
+        "total_duration_seconds": 28.938458,
+        "remotion": {
+          "cut_props": {
+            "cut-1": {
+              "type": "hero_title",
+              "text": "CHAPTER ONE",
+              "heroSubtitle": "The Ritual"
+            },
+            "cut-2": {
+              "type": "text_card",
+              "text": "The beans are chosen like evidence.",
+              "subtitle": "Dark roast \u00b7 Fair trade \u00b7 Destiny in a bag"
+            },
+            "cut-3": {
+              "type": "stat_card",
+              "stat": "12 sec",
+              "subtitle": "The water must wait. Steam rises like testimony.",
+              "accentColor": "#E50914"
+            },
+            "cut-4": {
+              "type": "callout",
+              "callout_type": "info",
+              "title": "The first sip",
+              "text": "A moment historians will never record. But you will."
+            },
+            "cut-5": {
+              "type": "hero_title",
+              "text": "THIS IS COFFEE",
+              "heroSubtitle": "A Netflix Original"
+            }
+          }
+        },
+        "platform": "tiktok"
+      },
+      "captions": [],
+      "themeConfig": {
+        "primaryColor": "#E50914",
+        "accentColor": "#E50914",
+        "backgroundColor": "#0B0B0B",
+        "textColor": "#F5F5F5",
+        "fontFamily": "Inter",
+        "captionHighlightColor": "#E50914",
+        "captionBackgroundColor": "#000000BF",
+        "springConfig": {
+          "damping": 20,
+          "stiffness": 120,
+          "mass": 1
+        },
+        "transitionDuration": 0.45
+      }
+    },
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/viral-netflix-coffee/renders/chapter-one-the-pour.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "resolution": "1080x1920",
+          "fps": 30,
+          "duration_seconds": 28.938458,
+          "platform_target": "tiktok"
+        }
+      ],
+      "render_time_seconds": 123.76,
+      "warnings": []
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "/workspace/projects/viral-netflix-coffee/renders/chapter-one-the-pour.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 30.02,
+          "resolution": "1080x1920",
+          "fps": 30.0,
+          "has_audio": true,
+          "codec": "h264",
+          "file_size_bytes": 3644655,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 4,
+          "frame_paths": [
+            "/workspace/projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_0.png",
+            "/workspace/projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_1.png",
+            "/workspace/projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_2.png",
+            "/workspace/projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_3.png"
+          ],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": true,
+          "music_present": true,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": true,
+          "issues": []
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "silent_downgrade_detected": false,
+          "runtime_swap_detected": false,
+          "issues": [],
+          "renderer_family_used": "explainer-data",
+          "render_runtime_used": "remotion",
+          "runtime_swap_check": "skipped \u2014 no proposal_packet or proposal_render_runtime metadata provided. Reviewer skill does cross-artifact comparison separately."
+        },
+        "subtitle_check": {
+          "subtitles_expected": true,
+          "subtitles_present": true,
+          "issues": [],
+          "coverage_ratio": 1.0
+        },
+        "transcript_comparison": {
+          "transcript_matches_script": false,
+          "word_accuracy": null,
+          "script_word_count": 56,
+          "transcript_word_count": 0,
+          "spurious_punctuation_words": [],
+          "issues": [
+            "transcript_comparison: empty token set (script=56, transcript=0)"
+          ]
+        }
+      },
+      "issues_found": [
+        "transcript_comparison: empty token set (script=56, transcript=0)"
+      ],
+      "recommended_action": "present_to_user"
+    }
+  }
+}
