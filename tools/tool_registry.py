@@ -276,7 +276,11 @@ class ToolRegistry:
                 menu[cap] = {"available": [], "unavailable": [], "total": 0, "configured": 0}
 
             info = tool.get_info()
-            status = tool.get_status()
+            status_value = info.get("status")
+            try:
+                status = ToolStatus(status_value)
+            except ValueError:
+                status = tool.get_status()
             entry = {
                 "name": tool.name,
                 "provider": tool.provider,

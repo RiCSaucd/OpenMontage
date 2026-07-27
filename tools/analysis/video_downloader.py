@@ -1,14 +1,14 @@
 """Video downloader tool wrapping yt-dlp.
 
 Downloads video, audio, or subtitles from YouTube, Shorts, Instagram Reels,
-TikTok, and 1000+ other sites. Designed for reference video analysis — downloads
-at analysis quality (720p), not production quality.
+TikTok, and 1000+ other sites. Supports reference analysis (720p default)
+and production ingest (1080p, longer duration). Optional limited playlist
+download for clip-factory workflows.
 """
 
 from __future__ import annotations
 
-import json
-import re
+import logging
 import time
 from pathlib import Path
 from typing import Any
@@ -20,15 +20,17 @@ from tools.base_tool import (
     ResourceProfile,
     ToolResult,
     ToolStability,
-    ToolStatus,
     ToolTier,
     ToolRuntime,
 )
 
 
+logger = logging.getLogger(__name__)
+
+
 class VideoDownloader(BaseTool):
     name = "video_downloader"
-    version = "0.1.0"
+    version = "0.2.0"
     tier = ToolTier.SOURCE
     capability = "source_ingest"
     provider = "yt-dlp"
@@ -51,17 +53,20 @@ class VideoDownloader(BaseTool):
         "download_audio",
         "download_subtitles",
         "extract_metadata",
+        "download_playlist",
     ]
 
     best_for = [
         "downloading reference video from URL",
+        "production-quality source ingest for clip-factory",
+        "downloading a limited number of playlist items",
         "extracting audio from online video",
         "downloading subtitles from YouTube",
         "getting video metadata without downloading",
     ]
 
     not_good_for = [
-        "downloading entire playlists",
+        "downloading very large playlists (use max_playlist_items cap)",
         "downloading DRM-protected content",
     ]
 
@@ -69,7 +74,7 @@ class VideoDownloader(BaseTool):
         "type": "object",
         "required": ["url", "output_dir"],
         "properties": {
-            "url": {"type": "string", "description": "Video URL to download"},
+            "url": {"type": "string", "description": "Video or playlist URL to download"},
             "output_dir": {"type": "string", "description": "Directory for downloaded files"},
             "format": {
                 "type": "string",
@@ -77,16 +82,41 @@ class VideoDownloader(BaseTool):
                 "default": "video",
                 "description": "What to download",
             },
+            "ingest_mode": {
+                "type": "string",
+                "enum": ["reference", "production"],
+                "default": "reference",
+                "description": (
+                    "reference: 720p cap, 10 min duration limit (analysis). "
+                    "production: 1080p cap, 60 min duration limit (clip-factory ingest)."
+                ),
+            },
             "max_resolution": {
                 "type": "string",
                 "enum": ["360p", "480p", "720p", "1080p"],
-                "default": "720p",
-                "description": "Maximum video resolution (for analysis, 720p is sufficient)",
+                "description": (
+                    "Override max resolution. Defaults to 720p for reference mode "
+                    "and 1080p for production mode."
+                ),
             },
             "max_duration_seconds": {
                 "type": "integer",
-                "default": 600,
-                "description": "Reject videos longer than this (safety limit)",
+                "description": (
+                    "Reject videos longer than this. Defaults to 600 (reference) "
+                    "or 3600 (production)."
+                ),
+            },
+            "allow_playlist": {
+                "type": "boolean",
+                "default": False,
+                "description": "When true, download multiple items from a playlist URL",
+            },
+            "max_playlist_items": {
+                "type": "integer",
+                "default": 5,
+                "minimum": 1,
+                "maximum": 25,
+                "description": "Maximum playlist entries to download when allow_playlist is true",
             },
         },
     }
@@ -97,6 +127,19 @@ class VideoDownloader(BaseTool):
             "video_path": {"type": ["string", "null"]},
             "audio_path": {"type": ["string", "null"]},
             "subtitle_path": {"type": ["string", "null"]},
+            "videos": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "video_path": {"type": ["string", "null"]},
+                        "audio_path": {"type": ["string", "null"]},
+                        "metadata": {"type": "object"},
+                        "playlist_index": {"type": "integer"},
+                    },
+                },
+            },
+            "playlist_count": {"type": "integer"},
             "metadata": {
                 "type": "object",
                 "properties": {
@@ -110,6 +153,7 @@ class VideoDownloader(BaseTool):
                 },
             },
             "platform": {"type": "string"},
+            "ingest_mode": {"type": "string"},
         },
     }
 
@@ -117,7 +161,15 @@ class VideoDownloader(BaseTool):
         cpu_cores=1, ram_mb=512, vram_mb=0, disk_mb=2000,
         network_required=True,
     )
-    idempotency_key_fields = ["url", "format", "max_resolution"]
+    idempotency_key_fields = [
+        "url",
+        "format",
+        "max_resolution",
+        "ingest_mode",
+        "allow_playlist",
+        "max_playlist_items",
+        "max_duration_seconds",
+    ]
     side_effects = ["downloads media files to output_dir"]
     resume_support_value = "from_start"
     user_visible_verification = [
@@ -125,13 +177,86 @@ class VideoDownloader(BaseTool):
         "Verify resolution matches requested max",
     ]
 
-    # --- Resolution mapping ---
     _RES_MAP = {
         "360p": 360,
         "480p": 480,
         "720p": 720,
         "1080p": 1080,
     }
+
+    _MODE_DEFAULTS = {
+        "reference": {"max_resolution": "720p", "max_duration_seconds": 600},
+        "production": {"max_resolution": "1080p", "max_duration_seconds": 3600},
+    }
+
+    def _parse_bounded_int(
+        self,
+        value: Any,
+        *,
+        field: str,
+        default: int,
+        minimum: int = 1,
+        maximum: int | None = None,
+    ) -> int:
+        if value is None:
+            parsed = default
+        else:
+            try:
+                parsed = int(value)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"{field} must be an integer") from exc
+        if parsed < minimum:
+            raise ValueError(f"{field} must be >= {minimum}")
+        if maximum is not None:
+            return min(parsed, maximum)
+        return parsed
+
+    def _resolve_ingest_settings(self, inputs: dict[str, Any]) -> dict[str, Any]:
+        """Apply ingest_mode defaults with explicit overrides."""
+        mode = inputs.get("ingest_mode", "reference")
+        if mode not in self._MODE_DEFAULTS:
+            mode = "reference"
+        defaults = self._MODE_DEFAULTS[mode]
+        return {
+            "ingest_mode": mode,
+            "max_resolution": inputs.get("max_resolution") or defaults["max_resolution"],
+            "max_duration_seconds": self._parse_bounded_int(
+                inputs.get("max_duration_seconds", defaults["max_duration_seconds"]),
+                field="max_duration_seconds",
+                default=defaults["max_duration_seconds"],
+            ),
+            "allow_playlist": bool(inputs.get("allow_playlist", False)),
+            "max_playlist_items": self._parse_bounded_int(
+                inputs.get("max_playlist_items", 5),
+                field="max_playlist_items",
+                default=5,
+                maximum=25,
+            ),
+        }
+
+    def _duration_limit_hint(self, ingest_mode: str) -> str:
+        if ingest_mode == "production":
+            return "Increase max_duration_seconds to allow longer videos."
+        return "Increase max_duration_seconds or switch to ingest_mode=production."
+
+    def _extract_audio(self, video_path: str, audio_out: Path) -> str | None:
+        """Extract mono 16 kHz WAV audio for transcription workflows."""
+        try:
+            audio_cmd = [
+                "ffmpeg", "-y",
+                "-i", video_path,
+                "-vn",
+                "-acodec", "pcm_s16le",
+                "-ar", "16000",
+                "-ac", "1",
+                str(audio_out),
+            ]
+            self.run_command(audio_cmd, timeout=120)
+            if audio_out.exists():
+                return str(audio_out)
+        except Exception as exc:
+            logger.warning("Audio extraction failed for %s: %s", video_path, exc)
+        return None
 
     def _detect_platform(self, url: str) -> str:
         """Detect platform from URL."""
@@ -150,7 +275,30 @@ class VideoDownloader(BaseTool):
             return "twitter"
         return "other_url"
 
-    def _extract_metadata(self, url: str) -> dict:
+    def _normalize_metadata(self, info: dict | None) -> dict:
+        if info is None:
+            return {"error": "No info extracted", "title": "", "duration": 0}
+        return {
+            "title": info.get("title", ""),
+            "duration": info.get("duration", 0),
+            "uploader": info.get("uploader", info.get("channel", "")),
+            "upload_date": info.get("upload_date", ""),
+            "description": (info.get("description", "") or "")[:500],
+            "view_count": info.get("view_count", 0),
+            "like_count": info.get("like_count", 0),
+            "resolution": f"{info.get('width', 0)}x{info.get('height', 0)}",
+            "fps": info.get("fps", 0),
+            "playlist_index": info.get("playlist_index"),
+            "id": info.get("id", ""),
+        }
+
+    def _extract_metadata(
+        self,
+        url: str,
+        *,
+        allow_playlist: bool = False,
+        max_playlist_items: int = 5,
+    ) -> dict:
         """Extract metadata without downloading."""
         import yt_dlp
 
@@ -158,23 +306,32 @@ class VideoDownloader(BaseTool):
             "quiet": True,
             "no_warnings": True,
             "skip_download": True,
+            "noplaylist": not allow_playlist,
+            "extract_flat": allow_playlist,
         }
+        if allow_playlist:
+            ydl_opts["playlistend"] = max_playlist_items
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
                 if info is None:
                     return {"error": "No info extracted", "title": "", "duration": 0}
-                return {
-                    "title": info.get("title", ""),
-                    "duration": info.get("duration", 0),
-                    "uploader": info.get("uploader", info.get("channel", "")),
-                    "upload_date": info.get("upload_date", ""),
-                    "description": (info.get("description", "") or "")[:500],
-                    "view_count": info.get("view_count", 0),
-                    "like_count": info.get("like_count", 0),
-                    "resolution": f"{info.get('width', 0)}x{info.get('height', 0)}",
-                    "fps": info.get("fps", 0),
-                }
+
+                if allow_playlist and info.get("_type") == "playlist":
+                    entries = info.get("entries") or []
+                    return {
+                        "title": info.get("title", ""),
+                        "duration": info.get("duration", 0),
+                        "uploader": info.get("uploader", info.get("channel", "")),
+                        "upload_date": info.get("upload_date", ""),
+                        "description": (info.get("description", "") or "")[:500],
+                        "view_count": info.get("view_count", 0),
+                        "like_count": info.get("like_count", 0),
+                        "playlist_count": len(entries),
+                        "is_playlist": True,
+                    }
+
+                return self._normalize_metadata(info)
         except Exception as e:
             return {"error": str(e), "title": "", "duration": 0}
 
@@ -182,26 +339,54 @@ class VideoDownloader(BaseTool):
         url = inputs["url"]
         output_dir = Path(inputs["output_dir"])
         dl_format = inputs.get("format", "video")
-        max_res = inputs.get("max_resolution", "720p")
-        max_duration = inputs.get("max_duration_seconds", 600)
+        try:
+            settings = self._resolve_ingest_settings(inputs)
+        except ValueError as exc:
+            return ToolResult(success=False, error=str(exc))
+
+        max_res = settings["max_resolution"]
+        max_duration = settings["max_duration_seconds"]
+        allow_playlist = settings["allow_playlist"]
+        max_playlist_items = settings["max_playlist_items"]
 
         output_dir.mkdir(parents=True, exist_ok=True)
         platform = self._detect_platform(url)
         start = time.time()
 
-        # Step 1: Always get metadata first
-        metadata = self._extract_metadata(url)
+        metadata = self._extract_metadata(
+            url,
+            allow_playlist=allow_playlist,
+            max_playlist_items=max_playlist_items,
+        )
 
-        # Check duration limit
+        if allow_playlist and metadata.get("is_playlist"):
+            return self._execute_playlist(
+                url=url,
+                output_dir=output_dir,
+                dl_format=dl_format,
+                max_res=max_res,
+                max_duration=max_duration,
+                max_playlist_items=max_playlist_items,
+                metadata=metadata,
+                platform=platform,
+                ingest_mode=settings["ingest_mode"],
+                start=start,
+            )
+
         duration = metadata.get("duration", 0)
         if duration and duration > max_duration:
             return ToolResult(
                 success=False,
                 error=(
-                    f"Video is {duration}s, exceeds max_duration_seconds={max_duration}. "
-                    f"Increase the limit or use a shorter video."
+                    f"Video is {duration}s, exceeds max_duration_seconds={max_duration} "
+                    f"for ingest_mode={settings['ingest_mode']}. "
+                    f"{self._duration_limit_hint(settings['ingest_mode'])}"
                 ),
-                data={"metadata": metadata, "platform": platform},
+                data={
+                    "metadata": metadata,
+                    "platform": platform,
+                    "ingest_mode": settings["ingest_mode"],
+                },
             )
 
         if dl_format == "metadata_only":
@@ -211,8 +396,11 @@ class VideoDownloader(BaseTool):
                     "video_path": None,
                     "audio_path": None,
                     "subtitle_path": None,
+                    "videos": [],
+                    "playlist_count": 0,
                     "metadata": metadata,
                     "platform": platform,
+                    "ingest_mode": settings["ingest_mode"],
                 },
                 duration_seconds=round(time.time() - start, 2),
             )
@@ -224,7 +412,7 @@ class VideoDownloader(BaseTool):
         try:
             if dl_format == "video":
                 video_path, audio_path = self._download_video(
-                    url, output_dir, max_res
+                    url, output_dir, max_res, allow_playlist=False
                 )
             elif dl_format == "audio_only":
                 audio_path = self._download_audio(url, output_dir)
@@ -235,7 +423,11 @@ class VideoDownloader(BaseTool):
             return ToolResult(
                 success=False,
                 error=f"Download failed: {e}",
-                data={"metadata": metadata, "platform": platform},
+                data={
+                    "metadata": metadata,
+                    "platform": platform,
+                    "ingest_mode": settings["ingest_mode"],
+                },
                 duration_seconds=round(elapsed, 2),
             )
 
@@ -248,57 +440,196 @@ class VideoDownloader(BaseTool):
                 "video_path": video_path,
                 "audio_path": audio_path,
                 "subtitle_path": subtitle_path,
+                "videos": [],
+                "playlist_count": 0,
                 "metadata": metadata,
                 "platform": platform,
+                "ingest_mode": settings["ingest_mode"],
             },
             artifacts=artifacts,
             duration_seconds=round(elapsed, 2),
         )
 
+    def _execute_playlist(
+        self,
+        *,
+        url: str,
+        output_dir: Path,
+        dl_format: str,
+        max_res: str,
+        max_duration: int,
+        max_playlist_items: int,
+        metadata: dict,
+        platform: str,
+        ingest_mode: str,
+        start: float,
+    ) -> ToolResult:
+        if dl_format != "video":
+            return ToolResult(
+                success=False,
+                error="Playlist download supports format=video only.",
+                data={
+                    "metadata": metadata,
+                    "platform": platform,
+                    "ingest_mode": ingest_mode,
+                },
+            )
+
+        try:
+            downloaded = self._download_playlist_videos(
+                url, output_dir, max_res, max_playlist_items
+            )
+        except Exception as e:
+            return ToolResult(
+                success=False,
+                error=f"Playlist download failed: {e}",
+                data={
+                    "metadata": metadata,
+                    "platform": platform,
+                    "ingest_mode": ingest_mode,
+                },
+                duration_seconds=round(time.time() - start, 2),
+            )
+
+        videos: list[dict[str, Any]] = []
+        artifacts: list[str] = []
+        for item in downloaded:
+            item_duration = item.get("metadata", {}).get("duration", 0)
+            if item_duration and item_duration > max_duration:
+                continue
+            videos.append(item)
+            if item.get("video_path"):
+                artifacts.append(item["video_path"])
+            if item.get("audio_path"):
+                artifacts.append(item["audio_path"])
+
+        if not videos:
+            return ToolResult(
+                success=False,
+                error=(
+                    "No playlist items downloaded within duration limits. "
+                    f"max_duration_seconds={max_duration}, ingest_mode={ingest_mode}."
+                ),
+                data={
+                    "metadata": metadata,
+                    "platform": platform,
+                    "ingest_mode": ingest_mode,
+                    "videos": [],
+                    "playlist_count": 0,
+                },
+                duration_seconds=round(time.time() - start, 2),
+            )
+
+        first = videos[0]
+        return ToolResult(
+            success=True,
+            data={
+                "video_path": first.get("video_path"),
+                "audio_path": first.get("audio_path"),
+                "subtitle_path": None,
+                "videos": videos,
+                "playlist_count": len(videos),
+                "metadata": metadata,
+                "platform": platform,
+                "ingest_mode": ingest_mode,
+            },
+            artifacts=artifacts,
+            duration_seconds=round(time.time() - start, 2),
+        )
+
     def _download_video(
-        self, url: str, output_dir: Path, max_res: str
+        self,
+        url: str,
+        output_dir: Path,
+        max_res: str,
+        *,
+        allow_playlist: bool,
+        out_prefix: str = "reference_video",
     ) -> tuple[str | None, str | None]:
         """Download video + extract audio track."""
         import yt_dlp
 
         height = self._RES_MAP.get(max_res, 720)
-        video_out = str(output_dir / "reference_video.%(ext)s")
+        video_out = str(output_dir / f"{out_prefix}.%(ext)s")
 
         ydl_opts = {
             "format": f"bestvideo[height<={height}]+bestaudio/best[height<={height}]/best",
             "merge_output_format": "mp4",
             "outtmpl": video_out,
-            "noplaylist": True,
+            "noplaylist": not allow_playlist,
             "quiet": True,
             "no_warnings": True,
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
 
-        # Find the downloaded video file
-        video_path = self._find_downloaded(output_dir, "reference_video", ["mp4", "mkv", "webm"])
+        video_path = self._find_downloaded(output_dir, out_prefix, ["mp4", "mkv", "webm"])
 
-        # Extract audio separately for transcription
         audio_path = None
         if video_path:
-            audio_out = output_dir / "reference_audio.wav"
-            try:
-                audio_cmd = [
-                    "ffmpeg", "-y",
-                    "-i", video_path,
-                    "-vn",
-                    "-acodec", "pcm_s16le",
-                    "-ar", "16000",
-                    "-ac", "1",
-                    str(audio_out),
-                ]
-                self.run_command(audio_cmd, timeout=120)
-                if audio_out.exists():
-                    audio_path = str(audio_out)
-            except Exception:
-                pass  # Audio extraction is optional
+            audio_path = self._extract_audio(video_path, output_dir / f"{out_prefix}_audio.wav")
 
         return video_path, audio_path
+
+    def _download_playlist_videos(
+        self,
+        url: str,
+        output_dir: Path,
+        max_res: str,
+        max_playlist_items: int,
+    ) -> list[dict[str, Any]]:
+        """Download up to max_playlist_items videos from a playlist."""
+        import yt_dlp
+
+        playlist_dir = output_dir / "playlist"
+        playlist_dir.mkdir(parents=True, exist_ok=True)
+        height = self._RES_MAP.get(max_res, 720)
+
+        ydl_opts = {
+            "format": f"bestvideo[height<={height}]+bestaudio/best[height<={height}]/best",
+            "merge_output_format": "mp4",
+            "outtmpl": str(playlist_dir / "%(playlist_index)03d_%(id)s.%(ext)s"),
+            "noplaylist": False,
+            "playlistend": max_playlist_items,
+            "quiet": True,
+            "no_warnings": True,
+        }
+
+        entries: list[dict[str, Any]] = []
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=True)
+            if info is None:
+                return []
+            raw_entries = info.get("entries") or [info]
+            for entry in raw_entries:
+                if entry is None:
+                    continue
+                normalized = self._normalize_metadata(entry)
+                video_id = normalized.get("id") or "unknown"
+                playlist_index = normalized.get("playlist_index") or len(entries) + 1
+                prefix = f"{int(playlist_index):03d}_{video_id}"
+                video_path = self._find_downloaded(
+                    playlist_dir, prefix, ["mp4", "mkv", "webm"]
+                )
+                if not video_path:
+                    candidates = sorted(playlist_dir.glob(f"{prefix}*"))
+                    video_path = str(candidates[0]) if candidates else None
+
+                audio_path = None
+                if video_path:
+                    audio_path = self._extract_audio(
+                        video_path,
+                        playlist_dir / f"{prefix}_audio.wav",
+                    )
+
+                entries.append({
+                    "video_path": video_path,
+                    "audio_path": audio_path,
+                    "metadata": normalized,
+                    "playlist_index": playlist_index,
+                })
+
+        return entries
 
     def _download_audio(self, url: str, output_dir: Path) -> str | None:
         """Download audio only."""
