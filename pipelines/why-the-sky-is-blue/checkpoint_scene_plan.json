@@ -79,7 +79,7 @@
         {
           "id": "scene-4",
           "type": "text_card",
-          "description": "The fourth-power stat punch. Stat card: '9.4x' with subtitle 'blue scatters ~9x more than red \u2014 intensity ~ 1/wavelength^4'. Cyan accent #06B6D4. Renders as Remotion stat_card cut with count-up. Subject: the number 9.4x. Subject motion: count-up + scale pop per playbook stat rules. Scene: dark slate background; no overlays. Spatial framing: giant stat centered, subtitle beneath. Camera: N/A \u2014 Remotion native scene.",
+          "description": "The fourth-power stat punch. Stat card: '5.9x' with subtitle 'blue scatters ~6x more than red \u2014 intensity ~ 1/wavelength^4'. Cyan accent #06B6D4. Renders as Remotion stat_card cut with count-up. Subject: the number 5.9x. Subject motion: count-up + scale pop per playbook stat rules. Scene: dark slate background; no overlays. Spatial framing: giant stat centered, subtitle beneath. Camera: N/A \u2014 Remotion native scene.",
           "start_seconds": 19,
           "end_seconds": 26,
           "script_section_id": "s3",
@@ -93,7 +93,7 @@
           "required_assets": [
             {
               "type": "remotion_component",
-              "description": "stat_card cut: stat='9.4x', subtitle='blue scatters ~9x more than red (intensity ~ 1/\u03bb\u2074)', accentColor='#06B6D4'",
+              "description": "stat_card cut: stat='5.9x', subtitle='blue scatters ~6x more than red (intensity ~ 1/\u03bb\u2074)', accentColor='#06B6D4'",
               "source": "generate"
             }
           ]
