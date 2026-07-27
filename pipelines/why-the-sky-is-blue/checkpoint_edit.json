@@ -45,7 +45,7 @@
           "in_seconds": 19.46,
           "out_seconds": 26.7,
           "layer": "primary",
-          "reason": "9.4x stat punch during Rayleigh + fourth-power lines; ends as 'Short blue waves' finishes (26.72s transcribed)."
+          "reason": "5.9x stat punch (blue vs red, 450nm/700nm) during Rayleigh + fourth-power lines; ends as 'Short blue waves' finishes (26.72s transcribed)."
         },
         {
           "id": "cut-5",
@@ -53,7 +53,7 @@
           "in_seconds": 26.7,
           "out_seconds": 34.26,
           "layer": "primary",
-          "reason": "Scattering bar chart while 'nine times more... blue bounces everywhere, red flies straight through' plays; ends at transcribed 'But violet waves' (34.26s)."
+          "reason": "Scattering bar chart while 'six times more... blue bounces everywhere, red flies straight through' plays; ends at transcribed 'But violet waves' (34.26s)."
         },
         {
           "id": "cut-6",
@@ -194,8 +194,8 @@
             },
             "cut-4": {
               "type": "stat_card",
-              "stat": "9.4x",
-              "subtitle": "blue scatters ~9x more than red \u2014 intensity grows as 1/\u03bb\u2074",
+              "stat": "5.9x",
+              "subtitle": "blue scatters ~6x more than red \u2014 intensity grows as 1/\u03bb\u2074",
               "accentColor": "#06B6D4"
             },
             "cut-5": {

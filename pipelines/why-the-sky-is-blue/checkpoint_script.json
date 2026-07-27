@@ -88,25 +88,25 @@
         {
           "id": "s3",
           "label": "Build \u2014 the fourth-power law",
-          "text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly nine times more than long red ones. Blue bounces everywhere. Red flies straight through.",
+          "text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly six times more than long red ones. Blue bounces everywhere. Red flies straight through.",
           "start_seconds": 19,
           "end_seconds": 33,
-          "speaker_directions": "Precise and building. Punch 'fourth power' and 'nine times'. The last two short sentences should feel like a snap conclusion.",
+          "speaker_directions": "Precise and building. Punch 'fourth power' and 'six times'. The last two short sentences should feel like a snap conclusion.",
           "delivery_cues": {
             "pace": "conversational",
             "energy": "building confidence",
             "emphasis_words": [
               "fourth",
-              "nine"
+              "six"
             ],
             "pause_after_seconds": 0.4,
             "delivery_note": "Keep the two closing fragments crisp \u2014 they mirror the visual split.",
-            "provider_text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly nine times more than long red ones. Blue bounces everywhere. Red flies straight through."
+            "provider_text": "Lord Rayleigh showed that scattering explodes as wavelength shrinks. By wavelength to the fourth power. Short blue waves scatter roughly six times more than long red ones. Blue bounces everywhere. Red flies straight through."
           },
           "enhancement_cues": [
             {
               "type": "stat_card",
-              "description": "Count-up stat card: '9.4x' \u2014 'blue scatters ~9x more than red (1/wavelength^4)'",
+              "description": "Count-up stat card: '5.9x' \u2014 'blue scatters ~6x more than red (1/wavelength^4)'",
               "timestamp_seconds": 24
             },
             {

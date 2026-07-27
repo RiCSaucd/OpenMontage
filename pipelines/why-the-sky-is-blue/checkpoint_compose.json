@@ -54,8 +54,8 @@
           "in_seconds": 19.46,
           "out_seconds": 26.7,
           "type": "stat_card",
-          "stat": "9.4x",
-          "subtitle": "blue scatters ~9x more than red \u2014 intensity grows as 1/\u03bb\u2074",
+          "stat": "5.9x",
+          "subtitle": "blue scatters ~6x more than red \u2014 intensity grows as 1/\u03bb\u2074",
           "accentColor": "#06B6D4"
         },
         {
@@ -146,7 +146,7 @@
           "type": "hero_title",
           "text": "Same physics. Longer path.",
           "heroSubtitle": "That's every sunset you've ever seen.",
-          "backgroundImage": "projects/why-the-sky-is-blue/sunset_gradient.png",
+          "backgroundImage": "projects/why-the-sky-is-blue/assets/images/sunset_gradient.png",
           "backgroundOverlay": 0.15
         }
       ],
@@ -936,11 +936,11 @@
       ],
       "audio": {
         "narration": {
-          "src": "projects/why-the-sky-is-blue/narration_full.wav",
+          "src": "projects/why-the-sky-is-blue/assets/narration/narration_full.wav",
           "volume": 1.0
         },
         "music": {
-          "src": "projects/why-the-sky-is-blue/background_music.mp3",
+          "src": "projects/why-the-sky-is-blue/assets/music/background_music.mp3",
           "volume": 0.12,
           "fadeInSeconds": 1.5,
           "fadeOutSeconds": 3.0,
@@ -1039,9 +1039,10 @@
           "motion_ratio_actual": 0.0
         },
         "subtitle_check": {
-          "subtitles_expected": false,
-          "subtitles_present": false,
-          "issues": []
+          "subtitles_expected": true,
+          "subtitles_present": true,
+          "issues": [],
+          "coverage_ratio": 1.0
         },
         "transcript_comparison": {
           "transcript_matches_script": true,
