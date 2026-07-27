@@ -599,6 +599,9 @@ def main() -> None:
         f"Edit timeline sums to {edit_duration:.2f}s; Remotion encodes {rendered_duration:.2f}s "
         f"at 30fps due to frame rounding and composition tail padding."
     )
+    # Checkpoint audit trail uses canonical assets/ paths (render staging may flatten under public/)
+    composition["audio"]["narration"]["src"] = f"projects/{PROJECT}/assets/narration/narration_full.wav"
+    composition["audio"]["music"]["src"] = f"projects/{PROJECT}/assets/music/background_music.mp3"
     checkpoint = {
         "version": "1.0",
         "project_id": PROJECT,

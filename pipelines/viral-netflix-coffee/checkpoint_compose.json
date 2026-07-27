@@ -65,11 +65,11 @@
       ],
       "audio": {
         "narration": {
-          "src": "projects/viral-netflix-coffee/narration_full.wav",
+          "src": "projects/viral-netflix-coffee/assets/narration/narration_full.wav",
           "volume": 1.0
         },
         "music": {
-          "src": "projects/viral-netflix-coffee/background_music.mp3",
+          "src": "projects/viral-netflix-coffee/assets/music/background_music.mp3",
           "volume": 0.18,
           "fadeInSeconds": 1.0,
           "fadeOutSeconds": 2.0,
