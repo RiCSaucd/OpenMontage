@@ -251,6 +251,7 @@ If the folder has tracks, the proposal and asset stages should present them as o
 | `clip-factory` | Many clips from one long source | beta |
 | `podcast-repurpose` | Podcast highlights and derivatives | beta |
 | `cinematic` | Trailer, teaser, and mood-led edits | production |
+| `cinematic-intro` | ~30s AI-filmed channel intro (Seedance 2.0, character sheet, beat map) | beta |
 | `animation` | Motion-graphics and animation-first videos | production |
 | `character-animation` | Local rigged cartoon characters and reusable character acting | beta |
 | `hybrid` | Source footage plus support visuals | production |
@@ -686,6 +687,7 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 **When in doubt, read the category's meta routing file first:**
 - Picking an animation runtime? → `skills/meta/animation-runtime-selector.md` routes between Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.
 - Picking a screen-recording mode (real capture vs synthetic terminal)? → `pipeline_defs/screen-demo.yaml` + `skills/pipelines/screen-demo/idea-director.md`.
+- Building a **~30s hyper-real channel intro** with likeness photos, beat-mapped Seedance footage, board approval, and separate VO? → `pipeline_defs/cinematic-intro.yaml` + `skills/creative/cinematic-intro-engine.md` (not `cinematic` — that pipeline is source-footage / mood-led montage).
 
 ## Quick Lookup
 

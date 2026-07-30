@@ -1,0 +1,225 @@
+name: cinematic-intro
+version: "1.0"
+description: >
+  Hyper-realistic ~30s cinematic intro films for creator channels — the
+  "Cinematic Intro Engine" workflow. Turns a script, transcript, or topic into
+  a line sheet, character reference sheet, beat map, storyboard, board approval
+  gate, Seedance 2.0 test renders, and stitched 1080p finals with separate VO
+  layover. Footage is AI-generated (Higgsfield / Seedance 2.0), not Remotion
+  templated motion graphics.
+category: cinematic
+stability: beta
+default_checkpoint_policy: guided
+
+reference_input:
+  supported: true
+  analysis_depth: standard
+  analysis_tools:
+    - video_analyzer
+    - transcript_fetcher
+    - video_downloader
+    - scene_detect
+    - frame_sampler
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/cinematic-intro/executive-producer
+  - pipelines/cinematic-intro/proposal-director
+  - pipelines/cinematic-intro/script-director
+  - pipelines/cinematic-intro/scene-director
+  - pipelines/cinematic-intro/edit-director
+  - pipelines/cinematic-intro/asset-director
+  - pipelines/cinematic-intro/compose-director
+  - pipelines/cinematic-intro/publish-director
+  - creative/cinematic-intro-engine
+  - meta/reviewer
+  - meta/checkpoint-protocol
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/cinematic-intro/executive-producer
+  budget_default_usd: 5.00
+  max_revisions_per_stage: 3
+  max_send_backs: 3
+  max_wall_time_minutes: 45
+
+compatible_playbooks:
+  recommended:
+    - flat-motion-graphics
+  also_works:
+    - clean-professional
+  custom_allowed: true
+
+stages:
+  - name: proposal
+    skill: pipelines/cinematic-intro/proposal-director
+    produces:
+      - proposal_packet
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Input mode is explicit (finished script, transcript, or bare topic)
+      - Target length (~30s default) and platform (16:9 intro) are locked
+      - Brand graphic language and wardrobe are captured for downstream prompts
+      - Likeness photo requirement for character sheet is stated
+      - Cost envelope for Seedance test + final renders is honest
+      - render_runtime N/A is logged (AI video generation, not Remotion/HyperFrames)
+    success_criteria:
+      - Schema-valid proposal_packet with selected concept
+      - decision_log records input_mode, brand, wardrobe, and generation provider plan
+
+  - name: script
+    skill: pipelines/cinematic-intro/script-director
+    required_artifacts_in:
+      - proposal_packet
+    produces:
+      - script
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Line sheet has 6-9 numbered filmable thoughts
+      - Finished-script wording is verbatim when input was a script
+      - Abstract lines are flagged for rewrite before beat map
+      - Word budget fits target duration for separate VO recording
+    success_criteria:
+      - Schema-valid script artifact tagged as line_sheet in metadata
+      - Human approval before beat map (checkpoint zero for downstream stages)
+
+  - name: scene_plan
+    skill: pipelines/cinematic-intro/scene-director
+    required_artifacts_in:
+      - script
+      - proposal_packet
+    produces:
+      - scene_plan
+    optional_tools:
+      - image_selector
+      - higgsfield_video
+    tools_available:
+      - image_selector
+      - higgsfield_video
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Character reference sheet exists or is planned before beat map uses @hero
+      - Beat map WORLD/LIGHT/PALETTE block is subject-derived, not default cinematic grade
+      - Treatment table covers every line with one of six treatments
+      - Mute test passes — key nouns visible with sound off
+      - Graphic candidates pass the delete test
+    success_criteria:
+      - Schema-valid scene_plan with beat_map and treatment table embedded
+      - "'@hero' reference handle documented in required_assets"
+
+  - name: edit
+    skill: pipelines/cinematic-intro/edit-director
+    required_artifacts_in:
+      - scene_plan
+      - script
+    optional_artifacts_in:
+      - proposal_packet
+    produces:
+      - edit_decisions
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Storyboard merges beats into timed multishot generations (typically 2x15s)
+      - Generation seam pairs are explicitly designed (match cut or continuous vector)
+      - Every shot prompt is sealed standalone per Seedance block order
+      - Graphics handoff table lists G1..Gn with verbatim on-screen words (max 4 each)
+      - Continuity ledger covers recurring assets
+    success_criteria:
+      - Schema-valid edit_decisions with generation_plan and graphics_handoff
+
+  - name: assets
+    skill: pipelines/cinematic-intro/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - edit_decisions
+    optional_artifacts_in:
+      - proposal_packet
+    produces:
+      - asset_manifest
+    required_tools:
+      - image_selector
+    optional_tools:
+      - higgsfield_video
+    tools_available:
+      - image_selector
+      - higgsfield_video
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Character sheet is 3-panel 16:9 reference on neutral grey cyclorama
+      - Storyboard board renders exist per 15s generation and pass spelling check
+      - Board seam pair mirrors across gen1/gen2 before any paid video render
+      - All reference media_ids or paths recorded for compose stage
+    success_criteria:
+      - Schema-valid asset_manifest with character_sheet and storyboard_board assets
+      - Human approval on boards before 480p test renders
+
+  - name: compose
+    skill: pipelines/cinematic-intro/compose-director
+    required_artifacts_in:
+      - edit_decisions
+      - asset_manifest
+    optional_artifacts_in:
+      - scene_plan
+      - proposal_packet
+    produces:
+      - render_report
+      - final_review
+    required_tools:
+      - higgsfield_video
+      - video_stitch
+    optional_tools:
+      - video_trimmer
+      - audio_mixer
+    tools_available:
+      - higgsfield_video
+      - video_selector
+      - video_stitch
+      - video_trimmer
+      - audio_mixer
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - 480p fast test renders run before any 1080p std spend
+      - Stitched test cut judged for motion, story logic, and seam — not skin fidelity at 480p
+      - Final renders reuse approved test prompts verbatim (resolution/mode only change)
+      - render_runtime N/A — HyperFrames/Remotion not used; Seedance is the render path
+      - VO is NOT baked into AI renders; diegetic SFX only in generate_audio
+    success_criteria:
+      - Schema-valid render_report with test and final output paths
+      - Stitched ~30s MP4 passes ffprobe validation
+      - final_review includes transcript_comparison skipped note (VO recorded separately)
+
+  - name: publish
+    skill: pipelines/cinematic-intro/publish-director
+    required_artifacts_in:
+      - render_report
+      - final_review
+    optional_artifacts_in:
+      - script
+      - proposal_packet
+    produces:
+      - publish_log
+    tools_available:
+      - export_bundle
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Delivery package includes stitched film, generation halves, boards, character sheet
+      - VO layover instructions reference line sheet verbatim
+      - Platform export metadata matches 16:9 intro use case
+    success_criteria:
+      - Schema-valid publish_log
+      - Export directory lists all reference artifacts for reproducibility

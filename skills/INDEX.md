@@ -131,6 +131,7 @@ Pipeline type skills provide production guidance for specific video formats, ind
 | Animation Pipeline | `creative/animation-pipeline.md` | Motion graphics, easing, transitions, composition |
 | Character Animation Pipeline | `pipelines/character-animation/` | Rigged local cartoon characters, pose libraries, action timelines, SVG/Canvas/Remotion/HyperFrames rendering |
 | Cinematic | `creative/cinematic.md` | Letterbox, film pacing, layered audio, color grading |
+| **Cinematic Intro Engine** | `creative/cinematic-intro-engine.md` | ~30s AI-filmed channel intro via Seedance 2.0 (line sheet → beat map → board gate → stitch) |
 
 ## Pipeline Stage Director Skills
 
@@ -215,6 +216,21 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Edit Director | `pipelines/cinematic/edit-director.md` | `edit` | Emotion-first pacing, reveal timing, audio-driven rhythm |
 | Compose Director | `pipelines/cinematic/compose-director.md` | `compose` | Grade and mix finishing, frame-treatment judgment |
 | Publish Director | `pipelines/cinematic/publish-director.md` | `publish` | Hero vs teaser packaging, poster-frame concepts |
+
+### Cinematic Intro Pipeline (`pipelines/cinematic-intro/`) — v1.0
+
+Seedance 2.0 / Higgsfield workflow for hyper-real ~30s channel intros. Prompt library: `creative/cinematic-intro-engine.md` + `creative/cinematic-intro-prompts.html`.
+
+| Skill | File | Stage | Key Capabilities |
+|-------|------|-------|-----------------|
+| **Executive Producer** | `pipelines/cinematic-intro/executive-producer.md` | `all` | Line sheet / board / 480p test gates, Seedance budget discipline |
+| **Proposal Director** | `pipelines/cinematic-intro/proposal-director.md` | `proposal` | Input mode, brand/wardrobe, likeness plan, seedance runtime logging |
+| Script Director | `pipelines/cinematic-intro/script-director.md` | `script` | Line sheet (checkpoint zero), abstract-line flags |
+| Scene Director | `pipelines/cinematic-intro/scene-director.md` | `scene_plan` | Character sheet + beat map, treatment table, mute/delete tests |
+| Edit Director | `pipelines/cinematic-intro/edit-director.md` | `edit` | Timed multishot storyboard, graphics handoff, seam pairs |
+| Asset Director | `pipelines/cinematic-intro/asset-director.md` | `assets` | Character sheet + storyboard board approval gate |
+| Compose Director | `pipelines/cinematic-intro/compose-director.md` | `compose` | 480p test → 1080p finals → stitch (not Remotion/HyperFrames) |
+| Publish Director | `pipelines/cinematic-intro/publish-director.md` | `publish` | VO layover package, reference artifact bundle |
 
 ### Animation Pipeline (`pipelines/animation/`) — v2.0
 
