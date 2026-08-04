@@ -2,4 +2,6 @@
 -r requirements.txt
 pytest>=8.0
 pytest-asyncio>=0.23
-httpx2>=2.0
+httpx>=2.0
+# Optional: MCP stdio mode for servers/nexus_openmontage.py
+# mcp[cli]>=1.0
