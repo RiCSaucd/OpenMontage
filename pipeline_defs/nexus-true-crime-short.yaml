@@ -1,0 +1,211 @@
+name: nexus-true-crime-short
+version: "1.0"
+description: >
+  Brand-compliant Mafia / organized-crime true-crime Shorts for the Nexus AI Media
+  channel. Research-first, respected-historian tone, archival-preferring B-roll,
+  user-recorded final VO, sparse non-triumphant music. Designed for 15–90s vertical
+  (9:16) delivery with human approval gates at proposal and other creative stages.
+  Orchestration may be kicked off via the Nexus FastAPI/MCP server
+  (`servers/nexus_openmontage.py`), which writes AGENT_INSTRUCTION.md for an
+  OpenMontage agent to execute.
+category: custom
+stability: beta
+default_checkpoint_policy: guided
+
+reference_input:
+  supported: true
+  analysis_depth: standard
+  analysis_tools:
+    - video_analyzer
+    - transcript_fetcher
+    - video_downloader
+    - scene_detect
+    - frame_sampler
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/nexus-true-crime-short/executive-producer
+  budget_default_usd: 1.50
+  max_revisions_per_stage: 3
+  max_send_backs: 2
+  max_wall_time_minutes: 45
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/nexus-true-crime-short/executive-producer
+  - pipelines/nexus-true-crime-short/research-director
+  - pipelines/nexus-true-crime-short/proposal-director
+  - pipelines/nexus-true-crime-short/script-director
+  - pipelines/nexus-true-crime-short/scene-director
+  - pipelines/nexus-true-crime-short/asset-director
+  - pipelines/nexus-true-crime-short/edit-director
+  - pipelines/nexus-true-crime-short/compose-director
+  - brand/respected-historian-tone
+  - brand/mafia-true-crime-guidelines
+  - meta/reviewer
+  - meta/checkpoint-protocol
+
+compatible_playbooks:
+  recommended:
+    - clean-professional
+  also_works:
+    - minimalist-diagram
+  custom_allowed: true
+
+stages:
+  - name: research
+    skill: pipelines/nexus-true-crime-short/research-director
+    produces:
+      - research_brief
+    tools_available:
+      - web_search
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Documented record is separated from popular myth
+      - Sources are cited (primary or high-quality secondary)
+      - At least one human-cost / historical-context beat is present
+      - Brand skills were applied (no lifestyle glorification)
+    success_criteria:
+      - Schema-valid research_brief artifact
+      - Fact/myth separation table present in metadata or body
+      - Brand skills listed in checkpoint notes
+
+  - name: proposal
+    skill: pipelines/nexus-true-crime-short/proposal-director
+    required_artifacts_in:
+      - research_brief
+    optional_artifacts_in:
+      - source_media_review
+      - video_analysis_brief
+    produces:
+      - proposal_packet
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - 2–3 concept options all obey respected-historian tone
+      - Aspect (default 9:16) and runtime locked
+      - User VO plan is explicit (timing cues only; no final TTS as master)
+      - Music plan is sparse / non-triumphant
+      - Budget and provider plan honest
+    success_criteria:
+      - Schema-valid proposal_packet with selected concept
+      - decision_log records tone, VO plan, music plan, provider preferences
+
+  - name: script
+    skill: pipelines/nexus-true-crime-short/script-director
+    required_artifacts_in:
+      - proposal_packet
+      - research_brief
+    produces:
+      - script
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Measured language; no glorification of violence or lifestyle
+      - Claims map back to research citations
+      - Timing cues suitable for user-recorded VO
+      - Hook without sensationalized blood / hero-weapon framing
+    success_criteria:
+      - Schema-valid script artifact
+      - Word count / duration fits target runtime
+
+  - name: scene_plan
+    skill: pipelines/nexus-true-crime-short/scene-director
+    required_artifacts_in:
+      - script
+      - proposal_packet
+    produces:
+      - scene_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Archival / period-appropriate visual slots preferred
+      - No cinematic blood or hero-weapon framing in shot list
+      - VO timing cues mapped to scenes
+    success_criteria:
+      - Schema-valid scene_plan artifact
+      - Slot count matches script beats
+
+  - name: assets
+    skill: pipelines/nexus-true-crime-short/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - script
+    produces:
+      - asset_manifest
+    optional_tools:
+      - image_selector
+      - video_selector
+      - music_gen
+      - tts_selector
+    tools_available:
+      - image_selector
+      - video_selector
+      - music_gen
+      - tts_selector
+      - web_search
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Archival / stock preferred over lifestyle-glamor AI generations
+      - TTS used only for scratch/timing preview if needed
+      - Music is sparse and non-triumphant
+      - Provenance noted for archival/stock assets
+    success_criteria:
+      - Schema-valid asset_manifest
+      - Every scene slot has a visual path or explicit gap note
+
+  - name: edit
+    skill: pipelines/nexus-true-crime-short/edit-director
+    required_artifacts_in:
+      - asset_manifest
+      - scene_plan
+      - script
+    produces:
+      - edit_decisions
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Pacing serves comprehension, not hype
+      - Captions / lower-thirds restrained
+      - VO layover windows marked clearly
+    success_criteria:
+      - Schema-valid edit_decisions artifact
+
+  - name: compose
+    skill: pipelines/nexus-true-crime-short/compose-director
+    required_artifacts_in:
+      - edit_decisions
+      - asset_manifest
+    produces:
+      - render_report
+    required_tools:
+      - video_compose
+    optional_tools:
+      - video_stitch
+      - ffmpeg_toolkit
+    tools_available:
+      - video_compose
+      - video_stitch
+      - ffmpeg_toolkit
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Final render at projects/<id>/renders/final.mp4
+      - Aspect and runtime match proposal lock
+      - Brand tone survives the cut
+      - Distribution-ready (CapCut / Drive hand-off optional)
+    success_criteria:
+      - Schema-valid render_report
+      - final.mp4 exists under projects/<project_id>/renders/
