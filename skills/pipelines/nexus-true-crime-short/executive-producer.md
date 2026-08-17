@@ -29,6 +29,7 @@ Hard stop for human approval at stages with `human_approval_default: true` (prop
 5. Prefer archival / stock over lifestyle AI video. Cap spend at project `budget_usd` (default $1.50).
 6. User records final VO — never ship TTS as the master without explicit override.
 7. On compose approval, write `distribution/distribution_manifest.json` when the Nexus server (or this EP) prepares CapCut / Drive hand-off.
+8. Before CapCut/Drive hand-off, run vidIQ Shorts packaging when the Cursor MCP server `vidIQ` (`https://mcp.vidiq.com/mcp`, `VIDIQ_API_KEY`) is connected: keyword/title/competitor scan for the locked thesis, then write `distribution/vidiq_packaging.json` + `distribution/publish_copy.md` and append `decision_log` for title and thumbnail text. If MCP is disconnected, still write those files with `mcp_status: unavailable` and brand-safe fallback copy — do not invent vidIQ scores. Never commit API keys. vidIQ is packaging only; it does not replace archival stills or user VO.
 
 ## Escalate when
 

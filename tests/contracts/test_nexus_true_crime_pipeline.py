@@ -47,6 +47,41 @@ def test_nexus_true_crime_manifest_contract():
     assert server.is_file()
 
 
+def test_nexus_vidiq_packaging_docs():
+    """vidIQ is packaging-only; docs must not commit keys or invent a live-score path."""
+    compose = (
+        PROJECT_ROOT
+        / "skills"
+        / "pipelines"
+        / "nexus-true-crime-short"
+        / "compose-director.md"
+    ).read_text(encoding="utf-8")
+    assert "vidIQ" in compose
+    assert "mcp_status" in compose
+
+    ep = (
+        PROJECT_ROOT
+        / "skills"
+        / "pipelines"
+        / "nexus-true-crime-short"
+        / "executive-producer.md"
+    ).read_text(encoding="utf-8")
+    assert "vidIQ" in ep
+    assert "mcp_status: unavailable" in ep
+
+    readme = (PROJECT_ROOT / "servers" / "README.md").read_text(encoding="utf-8")
+    assert "VIDIQ_API_KEY" in readme
+    assert "mcp.vidiq.com" in readme
+
+    example = PROJECT_ROOT / ".cursor" / "mcp.json.example"
+    assert example.is_file()
+    example_text = example.read_text(encoding="utf-8")
+    assert "mcp.vidiq.com" in example_text
+    assert "${env:VIDIQ_API_KEY}" in example_text
+    assert "YOUR_REAL" not in example_text
+    assert "YOUR_API_KEY" not in example_text
+
+
 def test_nexus_server_create_project(tmp_path):
     import servers.nexus_openmontage as nexus
 

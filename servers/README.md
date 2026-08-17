@@ -29,8 +29,30 @@ Uses `pipeline_defs/nexus-true-crime-short.yaml` with brand skills:
 | `OPENMONTAGE_PROJECTS_DIR` | Projects directory (default: `projects/`) |
 | `CAPCUT_DRAFTS_PATH` | Optional CapCut drafts folder hint |
 | `NEXUS_DRIVE_FOLDER_ID` | Optional Google Drive folder for distribution |
+| `VIDIQ_API_KEY` | Optional. Bearer token for the **vidIQ** Cursor MCP server (YouTube/Shorts packaging). Never commit the real key. |
 
 MCP tools need the optional SDK: `pip install 'mcp[cli]'`.
+
+### vidIQ packaging (YouTube / Shorts)
+
+vidIQ does **not** make footage more realistic. When the MCP server is connected, run keyword / title / competitor packaging **before** CapCut or Drive hand-off (`compose-director` writes `distribution/vidiq_packaging.json` + `distribution/publish_copy.md`).
+
+Cloud agents cannot register desktop MCP servers. On your machine, in **Cursor Settings → MCP**, add (use env interpolation — do not paste the key into git):
+
+```json
+{
+  "mcpServers": {
+    "vidIQ": {
+      "url": "https://mcp.vidiq.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:VIDIQ_API_KEY}"
+      }
+    }
+  }
+}
+```
+
+Repo template: `.cursor/mcp.json.example`. Set `VIDIQ_API_KEY` in gitignored `.env`. If MCP is disconnected, still write the packaging files with `mcp_status: unavailable` and brand-safe fallback copy — do not invent vidIQ scores.
 
 ### HTTP endpoints
 

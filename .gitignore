@@ -61,6 +61,7 @@ internal/
 # Local agent config (user-specific)
 .claude/memory/
 .claude/settings.local.json
+.cursor/mcp.json
 
 # Agent skills lock (local install tracking)
 skills-lock.json
