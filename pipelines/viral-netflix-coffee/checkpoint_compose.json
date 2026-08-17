@@ -1,0 +1,527 @@
+{
+  "version": "1.0",
+  "project_id": "viral-netflix-coffee",
+  "pipeline_type": "animated-explainer",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-07-27T21:52:36.948558+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "composition": {
+      "version": "1.0",
+      "renderer_family": "explainer-data",
+      "render_runtime": "remotion",
+      "composition_mode": "templated",
+      "cuts": [
+        {
+          "id": "cut-1",
+          "source": "",
+          "in_seconds": 0.0,
+          "out_seconds": 6.67542,
+          "type": "hero_title",
+          "text": "CHAPTER ONE",
+          "heroSubtitle": "The Ritual"
+        },
+        {
+          "id": "cut-2",
+          "source": "",
+          "in_seconds": 7.0254199999999996,
+          "out_seconds": 13.705328999999999,
+          "type": "text_card",
+          "text": "The beans are chosen like evidence.",
+          "subtitle": "Dark roast \u00b7 Fair trade \u00b7 Destiny in a bag"
+        },
+        {
+          "id": "cut-3",
+          "source": "",
+          "in_seconds": 14.055328999999999,
+          "out_seconds": 19.127800999999998,
+          "type": "stat_card",
+          "stat": "12 sec",
+          "subtitle": "The water must wait. Steam rises like testimony.",
+          "accentColor": "#E50914"
+        },
+        {
+          "id": "cut-4",
+          "source": "",
+          "in_seconds": 19.477801,
+          "out_seconds": 24.480612999999998,
+          "type": "callout",
+          "callout_type": "info",
+          "title": "The first sip",
+          "text": "A moment historians will never record. But you will."
+        },
+        {
+          "id": "cut-5",
+          "source": "",
+          "in_seconds": 24.830613,
+          "out_seconds": 28.984807999999997,
+          "type": "hero_title",
+          "text": "THIS IS COFFEE",
+          "heroSubtitle": "A Netflix Original"
+        }
+      ],
+      "audio": {
+        "narration": {
+          "src": "projects/viral-netflix-coffee/assets/narration/narration_full.wav",
+          "volume": 1.0
+        },
+        "music": {
+          "src": "projects/viral-netflix-coffee/assets/music/background_music.mp3",
+          "volume": 0.18,
+          "fadeInSeconds": 1.0,
+          "fadeOutSeconds": 2.0,
+          "loop": false
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "word-by-word",
+        "source": "projects/viral-netflix-coffee/artifacts/captions.json",
+        "font": "Inter",
+        "font_size": 42,
+        "color": "#F5F5F5",
+        "background": "#000000BF",
+        "position": "bottom-center",
+        "max_words_per_line": 6
+      },
+      "metadata": {
+        "project": "viral-netflix-coffee",
+        "playbook": "flat-motion-graphics",
+        "total_duration_seconds": 30.058667,
+        "delivery_promise": {
+          "promise_type": "data_explainer",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "cinematic",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "remotion": {
+          "cut_props": {
+            "cut-1": {
+              "type": "hero_title",
+              "text": "CHAPTER ONE",
+              "heroSubtitle": "The Ritual"
+            },
+            "cut-2": {
+              "type": "text_card",
+              "text": "The beans are chosen like evidence.",
+              "subtitle": "Dark roast \u00b7 Fair trade \u00b7 Destiny in a bag"
+            },
+            "cut-3": {
+              "type": "stat_card",
+              "stat": "12 sec",
+              "subtitle": "The water must wait. Steam rises like testimony.",
+              "accentColor": "#E50914"
+            },
+            "cut-4": {
+              "type": "callout",
+              "callout_type": "info",
+              "title": "The first sip",
+              "text": "A moment historians will never record. But you will."
+            },
+            "cut-5": {
+              "type": "hero_title",
+              "text": "THIS IS COFFEE",
+              "heroSubtitle": "A Netflix Original"
+            }
+          }
+        },
+        "platform": "tiktok",
+        "narration_strategy": "Five Piper sections concatenated (0.5s lead + 0.35s gaps) into assets/narration/narration_full.wav; Remotion receives one narration src.",
+        "captions_strategy": "Word-level captions from narration_full.wav via faster-whisper (vad_filter=false \u2014 default VAD drops Piper speech).",
+        "pacing_check": "Edit timeline sums to 28.98s; Remotion encodes 30.06s at 30fps due to frame rounding and composition tail padding."
+      },
+      "captions": [
+        {
+          "word": " In",
+          "startMs": 0,
+          "endMs": 700
+        },
+        {
+          "word": " kitchens",
+          "startMs": 700,
+          "endMs": 1060
+        },
+        {
+          "word": " everywhere",
+          "startMs": 1060,
+          "endMs": 1660
+        },
+        {
+          "word": " a",
+          "startMs": 1660,
+          "endMs": 1840
+        },
+        {
+          "word": " ritual",
+          "startMs": 1840,
+          "endMs": 2080
+        },
+        {
+          "word": " begins,",
+          "startMs": 2080,
+          "endMs": 2740
+        },
+        {
+          "word": " not",
+          "startMs": 3060,
+          "endMs": 3640
+        },
+        {
+          "word": " with",
+          "startMs": 3640,
+          "endMs": 3860
+        },
+        {
+          "word": " fanfare,",
+          "startMs": 3860,
+          "endMs": 4320
+        },
+        {
+          "word": " with",
+          "startMs": 4980,
+          "endMs": 5240
+        },
+        {
+          "word": " one",
+          "startMs": 5240,
+          "endMs": 5440
+        },
+        {
+          "word": " deliberate",
+          "startMs": 5440,
+          "endMs": 5820
+        },
+        {
+          "word": " motion.",
+          "startMs": 5820,
+          "endMs": 6300
+        },
+        {
+          "word": " The",
+          "startMs": 7100,
+          "endMs": 7160
+        },
+        {
+          "word": " beings",
+          "startMs": 7160,
+          "endMs": 7400
+        },
+        {
+          "word": " are",
+          "startMs": 7400,
+          "endMs": 7580
+        },
+        {
+          "word": " chosen",
+          "startMs": 7580,
+          "endMs": 7920
+        },
+        {
+          "word": " like",
+          "startMs": 7920,
+          "endMs": 8140
+        },
+        {
+          "word": " evidence,",
+          "startMs": 8140,
+          "endMs": 8460
+        },
+        {
+          "word": " dark",
+          "startMs": 9260,
+          "endMs": 9520
+        },
+        {
+          "word": " roast,",
+          "startMs": 9520,
+          "endMs": 9840
+        },
+        {
+          "word": " fair",
+          "startMs": 10660,
+          "endMs": 10960
+        },
+        {
+          "word": " trade,",
+          "startMs": 10960,
+          "endMs": 11380
+        },
+        {
+          "word": " destined",
+          "startMs": 12340,
+          "endMs": 12340
+        },
+        {
+          "word": " sealed",
+          "startMs": 12340,
+          "endMs": 12800
+        },
+        {
+          "word": " in",
+          "startMs": 12800,
+          "endMs": 12980
+        },
+        {
+          "word": " a",
+          "startMs": 12980,
+          "endMs": 13060
+        },
+        {
+          "word": " bag,",
+          "startMs": 13060,
+          "endMs": 13300
+        },
+        {
+          "word": " twelve",
+          "startMs": 14060,
+          "endMs": 14240
+        },
+        {
+          "word": " seconds,",
+          "startMs": 14240,
+          "endMs": 14680
+        },
+        {
+          "word": " the",
+          "startMs": 15460,
+          "endMs": 15580
+        },
+        {
+          "word": " water",
+          "startMs": 15580,
+          "endMs": 15820
+        },
+        {
+          "word": " must",
+          "startMs": 15820,
+          "endMs": 16020
+        },
+        {
+          "word": " wait,",
+          "startMs": 16020,
+          "endMs": 16360
+        },
+        {
+          "word": " steam",
+          "startMs": 17420,
+          "endMs": 17500
+        },
+        {
+          "word": " rises",
+          "startMs": 17500,
+          "endMs": 17840
+        },
+        {
+          "word": " like",
+          "startMs": 17840,
+          "endMs": 18200
+        },
+        {
+          "word": " testimony.",
+          "startMs": 18200,
+          "endMs": 18700
+        },
+        {
+          "word": " The",
+          "startMs": 19520,
+          "endMs": 19620
+        },
+        {
+          "word": " first",
+          "startMs": 19620,
+          "endMs": 19900
+        },
+        {
+          "word": " sip,",
+          "startMs": 19900,
+          "endMs": 20220
+        },
+        {
+          "word": " historians",
+          "startMs": 21080,
+          "endMs": 21560
+        },
+        {
+          "word": " will",
+          "startMs": 21560,
+          "endMs": 21840
+        },
+        {
+          "word": " never",
+          "startMs": 21840,
+          "endMs": 22060
+        },
+        {
+          "word": " record",
+          "startMs": 22060,
+          "endMs": 22400
+        },
+        {
+          "word": " this",
+          "startMs": 22400,
+          "endMs": 22660
+        },
+        {
+          "word": " moment,",
+          "startMs": 22660,
+          "endMs": 22960
+        },
+        {
+          "word": " but",
+          "startMs": 23580,
+          "endMs": 23740
+        },
+        {
+          "word": " you",
+          "startMs": 23740,
+          "endMs": 23940
+        },
+        {
+          "word": " will.",
+          "startMs": 23940,
+          "endMs": 24120
+        },
+        {
+          "word": " This",
+          "startMs": 24120,
+          "endMs": 25120
+        },
+        {
+          "word": " is",
+          "startMs": 25120,
+          "endMs": 25260
+        },
+        {
+          "word": " coffee,",
+          "startMs": 25260,
+          "endMs": 25660
+        },
+        {
+          "word": " Annette",
+          "startMs": 26080,
+          "endMs": 26740
+        },
+        {
+          "word": " Flick's",
+          "startMs": 26740,
+          "endMs": 27100
+        },
+        {
+          "word": " original.",
+          "startMs": 27100,
+          "endMs": 27420
+        }
+      ],
+      "themeConfig": {
+        "primaryColor": "#E50914",
+        "accentColor": "#E50914",
+        "backgroundColor": "#0B0B0B",
+        "textColor": "#F5F5F5",
+        "fontFamily": "Inter",
+        "captionHighlightColor": "#E50914",
+        "captionBackgroundColor": "#000000BF",
+        "springConfig": {
+          "damping": 20,
+          "stiffness": 120,
+          "mass": 1
+        },
+        "transitionDuration": 0.45
+      }
+    },
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/viral-netflix-coffee/renders/chapter-one-the-pour.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1080x1920",
+          "fps": 30,
+          "duration_seconds": 30.058667,
+          "file_size_bytes": 3556296,
+          "platform_target": "tiktok"
+        }
+      ],
+      "render_time_seconds": 126.05,
+      "warnings": [],
+      "verification_notes": [
+        "Automated final review: pass (narration, music, captions present).",
+        "Transcript comparison: 56 caption tokens from narration_full.wav."
+      ],
+      "render_grammar": "explainer-data",
+      "decision_log_ref": "pipelines/viral-netflix-coffee/decision_log.json",
+      "final_review_ref": "embedded in checkpoint_compose.json artifacts.final_review"
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "projects/viral-netflix-coffee/renders/chapter-one-the-pour.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 30.06,
+          "resolution": "1080x1920",
+          "fps": 30.0,
+          "has_audio": true,
+          "codec": "h264",
+          "file_size_bytes": 3556296,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 4,
+          "frame_paths": [
+            "projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_0.png",
+            "projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_1.png",
+            "projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_2.png",
+            "projects/viral-netflix-coffee/renders/.final_review_frames/review_frame_3.png"
+          ],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": true,
+          "music_present": true,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": true,
+          "issues": []
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "silent_downgrade_detected": false,
+          "runtime_swap_detected": false,
+          "issues": [],
+          "renderer_family_used": "explainer-data",
+          "render_runtime_used": "remotion",
+          "runtime_swap_check": "skipped \u2014 no proposal_packet or proposal_render_runtime metadata provided. Reviewer skill does cross-artifact comparison separately.",
+          "motion_ratio_actual": 0.0
+        },
+        "subtitle_check": {
+          "subtitles_expected": true,
+          "subtitles_present": true,
+          "issues": [],
+          "coverage_ratio": 1.0
+        },
+        "transcript_comparison": {
+          "transcript_matches_script": true,
+          "word_accuracy": 0.946,
+          "script_word_count": 56,
+          "transcript_word_count": 56,
+          "spurious_punctuation_words": [],
+          "issues": []
+        }
+      },
+      "issues_found": [],
+      "recommended_action": "present_to_user"
+    }
+  }
+}

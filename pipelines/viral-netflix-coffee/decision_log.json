@@ -1,0 +1,117 @@
+{
+  "version": "1.0",
+  "project_id": "viral-netflix-coffee",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Video concept for viral 30s vertical brief",
+      "options_considered": [
+        {
+          "option_id": "netflix-documentary-coffee",
+          "label": "Netflix Documentary parody — Chapter One: The Pour",
+          "score": 0.92,
+          "reason": "Matches July 2026 TikTok/Reels trend; strong hook; zero-cost motion-graphics cuts"
+        },
+        {
+          "option_id": "freaked-out-reveal",
+          "label": "FREAKED OUT beat-drop format",
+          "score": 0.55,
+          "reason": "Trending but needs stronger source footage or generated clips",
+          "rejected_because": "No video generation keys; still-led beat-drop weaker than documentary narration parody"
+        },
+        {
+          "option_id": "data-explainer",
+          "label": "Trending topic explainer",
+          "score": 0.4,
+          "reason": "Reliable format but not the requested viral trend",
+          "rejected_because": "User asked for trending viral format, not educational explainer"
+        }
+      ],
+      "selected": "netflix-documentary-coffee",
+      "reason": "Best fit for viral vertical brief: cinematic narration over mundane coffee ritual, maps cleanly to hero_title/text_card/stat_card/callout at $0.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion templated explainer-data",
+          "score": 0.9,
+          "reason": "Proven path; 5-cut vertical motion graphics; word-level captions"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames GSAP composition",
+          "score": 0.6,
+          "reason": "Available locally",
+          "rejected_because": "Extra iteration cost not justified for 5 templated cuts"
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Fastest reliable render for templated vertical explainer cuts on a zero-key machine.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper en_US-lessac-medium (local)",
+          "score": 0.85,
+          "reason": "Free, offline, acceptable documentary pacing with length_scale 1.08"
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI TTS",
+          "score": 0.7,
+          "reason": "Higher expressiveness",
+          "rejected_because": "No API key required for this run"
+        }
+      ],
+      "selected": "piper",
+      "reason": "Zero-cost run; sentence_silence capped at 0.4 per skills/core/piper-tts-quirks.md.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Target output profile",
+      "options_considered": [
+        {
+          "option_id": "tiktok",
+          "label": "1080x1920 vertical (TikTok/Reels)",
+          "score": 0.95,
+          "reason": "User requested viral vertical trend format"
+        },
+        {
+          "option_id": "youtube_landscape",
+          "label": "1920x1080 landscape",
+          "score": 0.2,
+          "reason": "Standard YouTube",
+          "rejected_because": "Trend delivery is vertical-first"
+        }
+      ],
+      "selected": "tiktok",
+      "reason": "Viral Netflix Documentary trend is consumed on vertical short-form platforms.",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.95
+    }
+  ]
+}

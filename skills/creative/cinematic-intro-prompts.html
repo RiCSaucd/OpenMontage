@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinematic Intro Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink-orange: #E96A3C;
+      --ink-paper: #E8DCC4;
+      --ink-charcoal: #1C1B17;
+      --ink-bone: #F2E9D6;
+      --font-display: 'Anton', 'Impact', sans-serif;
+      --font-meta: 'JetBrains Mono', monospace;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    html { background: var(--ink-charcoal); }
+    body {
+      background: var(--ink-charcoal);
+      color: var(--ink-paper);
+      font-family: var(--font-body);
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      opacity: 0.1;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 9998;
+    }
+    .col { max-width: 860px; width: 100%; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2; }
+
+    .page-header {
+      padding: 64px 0 48px;
+      border-bottom: 2px solid rgba(232,220,196,0.12);
+      margin-bottom: 56px;
+    }
+    .page-eyebrow {
+      font-family: var(--font-meta);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-orange);
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: var(--ink-paper);
+    }
+
+    .prompt-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-bottom: 80px;
+    }
+    .prompt-card {
+      background: var(--ink-bone);
+      border: 2px solid rgba(232,220,196,0.15);
+      padding: 36px 40px;
+      position: relative;
+    }
+    .prompt-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+      background: var(--ink-orange);
+    }
+    .prompt-card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .prompt-card-num {
+      font-family: var(--font-meta);
+      font-size: 10px;
+      color: var(--ink-orange);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    .prompt-card-filename {
+      font-family: var(--font-display);
+      font-size: 28px;
+      text-transform: uppercase;
+      color: var(--ink-charcoal);
+      line-height: 1;
+    }
+    .prompt-card-desc {
+      font-family: var(--font-meta);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-charcoal);
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+    .prompt-box {
+      background: var(--ink-charcoal);
+      color: var(--ink-paper);
+      font-family: var(--font-meta);
+      font-size: 13px;
+      line-height: 1.7;
+      padding: 24px 28px;
+      border: none;
+      width: 100%;
+      resize: none;
+      outline: none;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .prompt-box::selection { background: var(--ink-paper); color: var(--ink-charcoal); }
+    .prompt-watch {
+      font-family: var(--font-meta);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-orange);
+      margin-bottom: 14px;
+    }
+    .copy-btn {
+      background: var(--ink-orange);
+      color: var(--ink-charcoal);
+      font-family: var(--font-meta);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      padding: 13px 28px;
+      cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+    }
+    .copy-btn:hover { background: var(--ink-charcoal); color: var(--ink-paper); border: 2px solid var(--ink-paper); }
+    .copy-btn.copied { background: var(--ink-charcoal); color: var(--ink-paper); }
+    @media (max-width: 600px) {
+      .prompt-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="col">
+    <div class="page-header">
+      <div class="page-eyebrow">Higgsfield // Seedance 2.0 // Footage + Graphics // 2026</div>
+      <div class="page-title">Cinematic Intro Engine</div>
+    </div>
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">00</span>
+          <span class="prompt-card-filename">Line Sheet</span>
+        </div>
+        <div class="prompt-card-desc">Claude · the front door · paste [INPUT: script, transcript, or topic] + [LENGTH: ~30s]</div>
+        <textarea class="prompt-box" id="p0" rows="24" readonly>Produce the LINE SHEET for a cinematic intro of about [LENGTH: 30 seconds] - the numbered voiceover lines every later stage consumes. Detect which of three inputs you were given and act accordingly:
+
+1. A FINISHED INTRO SCRIPT (the words the creator will record): keep the wording VERBATIM - never rewrite recorded words. Only break it into lines: one filmable thought per line, splitting compound sentences at natural breath points.
+2. A FULL VIDEO TRANSCRIPT: either distill the video's own opening into intro lines, or write a fresh intro from the video's strongest content using the 5-beat structure (Hook / Payoff / Proof / Reframe / Re-hook) - about 80-95 words, in the creator's plain direct voice, with a loop opened in line 1 that closes by the final line.
+3. A BARE TOPIC OR IDEA: write the intro script first (same 5-beat structure, same word budget, same voice), then break it into lines.
+
+INPUT:
+[INPUT - paste the script, transcript, or topic]
+
+Output ONLY the numbered line sheet: 6-9 lines, each one complete filmable thought. After it, flag any line whose meaning is abstract with no concrete noun or number - those lines will be hardest to literalize and may deserve a rewrite before the beat map runs. This line sheet is checkpoint zero: it gets approved before anything else is built, because every line becomes 1-2 shots and the VO is recorded from it word for word.</textarea>
+        <div class="prompt-watch">Watch: one thought per line is what makes every downstream stage work - a compound line produces a mushy beat. Script wording is sacred; transcript and topic modes draft for approval.</div>
+        <button class="copy-btn" onclick="copyPrompt('p0', this)">Copy Prompt</button>
+      </div>
+
+<div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">01</span>
+          <span class="prompt-card-filename">Character Sheet</span>
+        </div>
+        <div class="prompt-card-desc">Higgsfield MCP · media_upload_widget first, then GPT Image 2 · fill [WARDROBE] + [BUILD + AGE NOTES]</div>
+        <textarea class="prompt-box" id="p1" rows="21" readonly>Character reference sheet, one single image, three panels side by side on a seamless neutral grey studio cyclorama (#7f7f7f), floor and wall blending with no visible seam.
+Identity: the SAME ONE PERSON appears in all attached photos - attach 3-6 solo photos with varied angles, lighting and distances (multi-reference beats a single photo decisively for likeness). Study every photo and lock the true likeness: exact facial structure, nose, jawline, eye shape and color, hairline and hair texture, ear shape, the way the smile sits. Keep natural asymmetry, pore-level skin detail, vellus hair. Name the grooming state explicitly (e.g. short neatly trimmed beard, not the full one) if photos vary.
+Physique and age notes: [BUILD + AGE NOTES - optional flattering adjustments, e.g. "athletic lean build - broad shoulders, trim waist; smooth healthy skin with expression lines softened, reads mid-to-late 30s; flattering but still clearly the same person" - or "match the photo exactly, no beautification"].
+PANEL LEFT: full-body front view, standing relaxed, weight on one leg, arms loose - head turned slightly down and away so the face is NOT readable (the close-up headshot panel must be the only readable face on the sheet; video models lock onto one face, and a second readable face causes identity drift by shot five).
+PANEL CENTER: full-body back view, same stance.
+PANEL RIGHT: tight close-up headshot, neutral-calm expression, eyes to camera, visible catch-lights - this panel is the sheet's single identity anchor.
+Wardrobe in all three panels: [WARDROBE - exact garments, cut and material].
+Identical wardrobe, hair, and grooming across panels.
+Lighting: soft even studio softbox light, 5500K neutral white balance, no harsh face shadows, no hair glare, gentle contact shadows under feet.
+Photographic realism - this is a studio photo, not an illustration or 3D render.
+No text, no labels, no grid lines, no watermark.
+
+RUN (Higgsfield MCP): STEP 1 - call media_upload_widget so the user uploads 3-6 solo likeness photos (varied angles, lighting, distances) and collect the returned media_ids. STEP 2 - call generate_image with model gpt_image_2, this prompt, aspect_ratio 16:9, resolution 2k, quality high, and medias = every uploaded media_id with role image.</textarea>
+        <div class="prompt-watch">Watch: name exact garments - "charcoal crewneck" alone becomes a t-shirt. Grey beats white or black backdrops.</div>
+        <button class="copy-btn" onclick="copyPrompt('p1', this)">Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">02</span>
+          <span class="prompt-card-filename">Beat Map</span>
+        </div>
+        <div class="prompt-card-desc">Claude · fill [SCRIPT TEXT] + [CHARACTER] + [BRAND] · picks world + one of six treatments per line</div>
+        <textarea class="prompt-box" id="p3" rows="92" readonly>You are the director of a hyper-realistic cinematic intro film of about 30 seconds. Read the intro script line by line and decide what the camera sees during every line - and which of six treatments each line gets. The finished film plays UNDER the narrator's voice - the on-screen character never lip-syncs; they live inside a visual world that makes the words land harder. Graphics are a scalpel: they literalize a line's noun or number; they never decorate.
+
+SCRIPT:
+[SCRIPT TEXT - the intro voiceover, one thought per line]
+
+CHARACTER:
+[CHARACTER - who appears on screen + their reference sheet asset name, e.g. "@hero"]
+
+BRAND GRAPHIC LANGUAGE (all flat graphics obey this):
+[BRAND - palette + type + motion rules, e.g. "ink-orange #E96A3C / charcoal #1C1B17 / bone #F2E9D6; Anton display, JetBrains Mono meta; RISO print texture; spring/physics motion only, no fades"]
+
+STEP 1 - READ FOR SUBTEXT (before any shot decisions):
+a. State the script's core promise in one sentence.
+b. Name its emotional temperature: urgent / calm-confident / confessional / triumphant / ominous / playful.
+c. List every concrete noun and strong verb (tools, money, places, actions).
+d. Flag every NUMBER and every punch phrase of 4 words or fewer as a graphic CANDIDATE - a candidate, not a requirement. A candidate becomes a graphic only if it passes the "is it the point" test below; otherwise it stays in the voiceover over bare film.
+
+STEP 2 - CHOOSE THE WORLD(S):
+First decide the register: GROUNDED (a real filmable place), FANTASTICAL (impossible, surreal, mythic - rendered photoreal), or GROUNDED LUMINOUS (real underexposed rooms where luminous information physically inhabits the air - glowing words, charts, frames and threads acting as the scene's only light sources; the graphics are the protagonist and the realism stack still governs the room). Luminous is the strongest register when the script is ABOUT information, tools or ideas. Photorealistic never means real-world; a man walking across a void while mountains build themselves around his stride is fair game. Pick whichever serves the concept best - but the WOW FACTOR is non-negotiable either way: every single shot needs one element that would stop a scroll (impossible scale, a light event, a transformation, physics that should not work). If a beat's image would not make someone stop, re-imagine the beat.
+THE LOOK - DECLARED, NEVER INHERITED: before any beats, state the film's look in one line - key color family, accent color, brightness key (low-key or high-key), saturation level - all DERIVED FROM THE SUBJECT. The subject is the color authority: a candy film is graded like candy (bright, saturated, sugar-pink and lemon and sky-blue); a quantum film can be cold cyan on black; an ocean film breathes teal and foam-white. The model's default cinematic grade is amber-tungsten-in-a-dark-room and it will swallow EVERY topic unless you choose against it deliberately. Underexposed low-key is a choice, not a law - realism comes from motivated light sources and honest materials at any brightness; a high-key, colorful film can be exactly as photoreal as a moody one. Guard: if your look could be swapped onto a different topic's film without anyone noticing, it is the default grade, not a decision - go again.
+In FANTASTICAL register, each shot may take its own stylistic world as long as the story threads them - thread with the constant hero, one recurring visual motif that travels shot to shot, and one family of light. In GROUNDED register, follow these rules:
+- The world must literalize the script's central metaphor, not its literal topic. A script about escaping a 9-5 wants a commuter train at dawn or an empty office at night - not a stock desk-with-laptop.
+- Derive it from Step 1c: pick the noun with the most cinematic gravity, then place the world ONE step away from the literal hero-object - not the screen itself but the room, the hour, and the life around it. If the top noun is a screen, monitor, or app, the WORLD must be defined by a non-screen element and must never be a monitor-lit room. A screen may still appear as a single background prop - out of focus, never the light source, never the setting - and only on the PROOF beat. Never let two different scripts resolve to "a person lit by a monitor."
+- Map temperature to light: urgent = hard directional light, deep shadows; calm-confident = soft window daylight with haze; confessional = single warm practical source in darkness; triumphant = golden-hour backlight; ominous = cold overcast or sodium-vapor night; playful = bright clean daylight, saturated accents. When the world's own practical sources conflict with this map, the WORLD's practicals win the exposure and the temperature sets the accent and mood - blend them, and state the blend in the LIGHT sentence.
+- The world must have depth (foreground/midground/background) and at least one motivated practical source (window, lamp, sky).
+- ONE visual world, not necessarily one location. The world is the LOOK - one light philosophy, one palette, one grade, one wardrobe - and it may span 1-3 locations when a line's literalization demands a different place (the workshop, the street outside it, the empty office the script escaped from). Within any location, define stations - distinct zones with different surfaces, objects and depths - and never shoot two consecutive beats at the same station with similar framing. Every location change must be earned by a specific line; jumps for variety's own sake read as teleporting.
+- DOCUMENTARY REALISM STACK (grounded register): real means restrained. Underexpose - one practical source, backgrounds falling toward black, nothing evenly lit; shoot THROUGH things - a doorway, a shelf edge, foliage, 20-30% of frame as dark out-of-focus foreground occlusion on at least one shot; mundane blocking - slouched, ordinary, never posed; lived-in specific clutter (a candle, a throw, a book stack, a dying plant); muted tungsten grade with lifted blacks, never golden glow. Beautiful-but-lit-everywhere is the tell of a generated shot.
+- BRIEFS CONSTRAIN THE WHERE, NEVER THE WHAT: when the user specifies locations, palettes or styles, those shape the world - but every beat must still literalize its line. A beautiful shot in the requested place that does not say the words is a failed beat.
+- MUTE TEST: every beat's "what the camera sees" must contain the line's key noun or verb made physically visible - if a viewer watched with the sound off, the image sequence should still tell the same sentences. "Talked with thousands of builders" is not a man near drawers; it is a counter spiked with hundreds of handwritten order slips.
+Output this block:
+WORLD: (one sentence)
+LIGHT: (one sentence - includes time of day and the blend above)
+PALETTE: three named colors with rough weights (dominant / secondary / accent), written as words
+POSE VOCABULARY: 4-6 physical actions. Derive from the script's verbs where those verbs are physical; where they are abstract (told, became, learned), derive from the WORLD's objects instead. Every action must be shootable.
+
+STEP 3 - TREATMENT MAP. Every beat is five components: HERO (who/how they appear), SETTING (which station or location), SUPPORT (the graphic, abstract, text or icon element - or none), ACTION (what physically happens), CAMERA (frame + move). Output a markdown table with EXACTLY these 9 columns, one row per script line:
+| # | Line | Beat job | Treatment | Setting/station | Hero + action | Support element (words verbatim, max 4) | Camera (frame + move) | Why it sells the line |
+
+Treatment - pick ONE per line using this logic, in priority order:
+1. TYPE CARD - full-frame typography as its own beat, 1-2.5s, styled to FIT THE FILM: set the words in the world's materials and palette (letterpress on aged card stock, stamped brass plate, paint on glass, light through haze) or on a graded field pulled from the film's colors - never a default flat brand card. Take it when the number or 4-words-or-fewer phrase is the POINT of the line (delete it and the line collapses). If the number is incidental to an emotional or narrative line (the line survives without it), skip TYPE CARD and treat the line as FILM.
+2. GFX CANVAS - full-frame motion-graphic scene (evidence-card collage, diagram, map with callout bubbles). Take it when the line needs receipts (a screenshot, a comment, a stat cluster) or shows a relationship between things.
+3. SCREEN PROOF - real screen capture with a live cursor. Take it when a claim needs a verifiable source. Real UI only - never generated, never faked.
+4. FILM+GFX - cinematic footage plus ONE in-world graphic that literalizes the line's noun, RENDERED INSIDE the AI shot (not composited): a floating swarm, glowing glyph stream, particles, or a physical prop, described in the render prompt with depth language so it inherits the scene's lens and light. Wordless only - abstract glyphs and symbols, never readable words or numbers. Take it when the line names something invisible or uncountable (questions, views, ideas, noise, options).
+5. CHARACTER+ACCENT - the character shot plus one EMBEDDED text or icon support. Embedded means it belongs to the scene's physics, in priority order: (a) DIEGETIC - the words exist as a physical object (label card, ledger entry, stencil, signage, tag, chalk, etched glass) placed where the line needs them; (b) LIGHT-ANCHORED - projected, reflected, glowing through haze, cast as shadow; (c) floating graphic text only as a last resort, and then it must interact with the scene - matched perspective, partial occlusion behind a foreground object, light wrap from the scene's key, a soft cast shadow. A crisp flat overlay in empty negative space reads stamped-on; if it could be removed without disturbing any light or object in the frame, it is not embedded enough.
+6. FILM - pure cinematic footage, no graphics. The default. Take it whenever the image alone is strong enough - stakes, emotion, atmosphere, the direct-to-camera close.
+Graphic layer column: for treatments 1-5 name the exact graphic and the words on it verbatim (max 4 words of on-screen text per graphic element); for FILM write "none".
+
+RHYTHM RULES:
+- At most one graphic layer on screen at any moment. It enters ON its spoken word and exits before the next beat begins.
+- Never two TYPE CARDs back to back.
+- INTRO DENSITY: for a 30-second hook intro, MOST beats carry a support layer - an in-world abstract element (glow, swarm, glint, diegetic label), a flat keyword or icon accent, or a full graphic beat. Reserve pure FILM for one or two emotional anchors only (usually the hook image and the final direct-to-camera). For longer, slower films flip back toward a film-dominant spine.
+- TYPE CARDs and flat accents INHERIT THE WORLD, not the personal brand: set the words in the film's palette and material language (letterpress on aged card stock, stamped brass plate, painted signage, chalk on slate) so the card feels like a frame OF the film. Use the personal brand system only when [BRAND] explicitly demands it.
+- COLD OPEN option: if the hook is claim + number, open with a 3-5s motion-graphics volley (evidence card, then kinetic number, then question callout) BEFORE the first film shot, then smash-cut to the boldest film image. Otherwise open on film.
+- Numbers never render inside AI footage - they live only in TYPE CARDs, GFX CANVAS, or flat accents added in post.
+- In-world graphics (FILM+GFX) are baked into the AI render and must interact with the scene: their glow lights the subject's face and reflects in glasses, nearest elements large and softly out of focus, farthest small and sharp. Flat accents and TYPE CARDs stay graphic overlays - big clean display type, per-word spring stagger, soft drop shadow, one accent-color word.
+- THE DELETE TEST governs every support element: remove the graphic - if the line becomes unfilmable, the graphic was narrative-driving and stays; if nothing changes, it was decoration and gets cut. The graphic IS the sentence made physical (floating questions = 'hundreds of questions'; a neon word dying = 'killed'; a chart swatted to dust = 'not covering benchmarks').
+- MOTION CONTRACT: the hero's locomotion stays simple and physical - stand, turn, one walk direction, one gesture. Never stack walking + pointing + a tracking camera in one beat (compound direction causes walking-in-place artifacts). The CAMERA carries the drama.
+- SEAMLESS TRANSITIONS (fantastical register default): scenes connect by flying THROUGH something - a portal, a light bloom, a ribbon loop, cloud, the gap between objects - one continuous oner per generation with phases instead of hard cuts ("one continuous shot, the camera does not cut"); the boundary between generations hides inside a light bloom or whiteout so the edit splice is invisible. Hard cuts remain the tool for the grounded register and deliberate punctuation.
+- THE CAMERA IS A CHARACTER, AND THE SYSTEM CASTS IT: choose a camera STYLE from the concept the way you choose the world - a fantastical journey wants FPV-drone sweeps and fly-throughs; a confessional wants slow handheld breath; a proof piece wants locked formal frames; an energy piece wants whips and speed ramps. State the chosen style once, then give every beat a deliberate, motivated move within it - track, crane, push, pull, orbit, dive, whip, speed ramp - named with start and end framing. Motion escalates with the story: establishing moves early, the boldest move at the peak, a settling push for the direct-to-camera close. Locked-off frames are punctuation, used once if at all. A beat whose camera merely observes is a failed beat.
+- DENSITY RELEASE VALVE: these spine rules assume some lines carry no graphic candidate. If a script is so number-dense that honoring them means suppressing a graphic the line's power demands, prioritize in this order: (1) never two identical full-frame treatments back to back; (2) at least one bare-FILM breather in the first 4 beats; (3) the half-spine target becomes a goal, not a hard floor. State in the output which rule you relaxed and why.
+Output only: STEP 1 answers, the STEP 2 block, and the treatment table.</textarea>
+        <div class="prompt-watch">Watch: a number-heavy script should go graphic-dense, a story script nearly all film. If every script comes back the same mix, something is wrong.</div>
+        <button class="copy-btn" onclick="copyPrompt('p3', this)">Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">03</span>
+          <span class="prompt-card-filename">Storyboard</span>
+        </div>
+        <div class="prompt-card-desc">Claude · fill [STAGE 2 OUTPUT] + [PROP LIST] + [MAX_SECONDS]</div>
+        <textarea class="prompt-box" id="p4" rows="52" readonly>Convert this treatment map into a production shot list for an AI video model (Seedance 2.0 / Higgsfield Cinema Studio). The shot list is one connected document.
+
+BEAT MAP:
+[STAGE 2 OUTPUT]
+
+ASSETS (named exactly as saved in Higgsfield elements / local files):
+@hero (character sheet), @world (the one location still), plus one @handle per recurring prop the world implies: [PROP LIST - e.g. @lamp, @dog, @laptop]
+
+BUILD:
+1. STYLE - distributed, never a prefix (per Higgsfield's own installed prompt skill): there is NO style block at the top of a shot prompt. Each aspect lives in its home block - light in LIGHTING, palette in COLOR GRADE (or folded into LOCATION MAP when naturalistic), lens character in OPTICS, skin and acting in PERFORMANCE, weight in PHYSICS, resolution/grain in a short STYLE + OUTPUT SETTINGS suffix just before POSITIVE LOCKS. The beat map's WORLD, LIGHT and PALETTE sentences feed those blocks identically on every shot so the film stays one film. Color is always material + light beam + role ("amber lamp glow pooling on the oak desk"), never a flat list.
+2. Merge beats into GENERATIONS, not single shots. Default: pack the film beats into one or two 15-second TIMED MULTISHOT generations - each beat is a bracket-timestamped segment ([00:00-00:03], [00:03-00:06]...) with an explicit HARD CUT at each boundary and the lock "cuts only at the specified points, the camera does not cut on its own." Segment durations are SCRIPT-DRIVEN, not a fixed grid - and DENSE: target 6-8 shots per 15-second generation (about 2-3s per shot; establishing beats breathe at 3-4s, punch beats hit at 1.5-2s). A line MAY span two shots of the same scene and action - the wide-then-punch-in pair (WS establishing the action, then a hard punch to CU/ECU on its key detail) is the core rhythm device and should appear several times across a 30-second intro. Never let one static composition sit through a whole line when a punch-in would sharpen it. GENERATION SEAMS ARE DESIGNED, NEVER DEFAULT: the LAST shot of every 15-second generation and the FIRST shot of the next are built as one moment - either a match cut (the same composition and subject across the splice, e.g. a hand gripping the same object) or a continuous camera vector (the outgoing camera move continuing into the incoming shot at the same speed and direction). The storyboards must draw the seam pair explicitly - outgoing panel and incoming panel mirroring each other - so the edit splice disappears inside the continuity. A 30-second intro usually lands at 2 generations. Give every segment its own FOV from the anchor table plus "no drift mid-segment"; hold character set, geometry, screen direction, light and wardrobe across the internal cuts. TYPE CARD and GFX CANVAS beats stay out of the generations - plan the timestamp map so the edit can drop them between segments. Extreme FOVs (8, 107) inside a multishot need the 4-mechanism consistency stack from the installed skill.
+3. Name every shot 1A, 1B, 2A so any prompt can be edited later without touching the rest.
+4. Per shot, write a SEALED standalone prompt - no scene numbers, no "as above", no @tags for things not in this shot - in the installed skill's block order: SCENE CONTEXT (1-2 sentences) / ACTIVE REFERENCES (@tag + minimal anchor + "100% matches the reference" - long character descriptions fight the image) / LOCATION MAP (foreground, midground, background; where the camera and the light sit) / FIRST FRAME BLOCKING (who is where, facing where; shot 1A locks positions wide - if the hook's boldest image is tight, open 1-1.5s wide then cut to the tight hook inside 1A) / FORMAT MODE (oner, CUT 1-2-3, or timed HARD CUTs, plus "the camera does not cut on its own") / OPTICS (shot size + FOV in degrees from the anchor table: 84 establish, 63 observational, 47 neutral, 29 portrait, 18 close-portrait, 12 detail; "no drift mid-segment" on multishots) / CAMERA (operator behavior, camera on the shadow side) / ACTION (camera motion and subject motion stated separately; move-by-move, never "he reacts"; speeds in km/h) / PERFORMANCE (muscle-level emotion, precise eye-line, catch-lights, visible breath, pore-level skin) / PHYSICS (mass, inertia, contact shadows) / LIGHTING (source, direction, exposure, white balance in Kelvin, haze in percent and meters) / COLOR GRADE when stylized / WARDROBE when it matters (material + condition) / AUDIO / STYLE suffix (8K photoreal, fine film grain - no director names, no equipment names) / OUTPUT SETTINGS / POSITIVE LOCKS (short positive fixers; continuity lives here).
+5. State emotion as visible behavior - never negation ("jaw set", not "not nervous") and never un-photographable abstraction ("the room feels lighter") - every clause must name something a lens can record.
+6. Numbers and brands from the script never appear as rendered text - object, reaction, or scale cue instead.
+7. End with a CONTINUITY LEDGER: one line per recurring asset stating what must match across every shot that uses it.
+8. EVERYTHING IS GENERATED - nothing is added in post or in the edit. Every support element renders inside its shot: in-world graphics (glyph streams, swarms, light events) described with depth-of-field and light-interaction language; text as DIEGETIC objects (labels, slates, signage, embossing, ledger ink) or light-anchored forms, written into the render prompt in quotes and kept short (2-4 words - AI text degrades past that; verify spelling in the output and regenerate if it drifts). TYPE CARD and GFX CANVAS beats are their own GENERATED frames (image generation, then animated or held) in the film's or their own deliberate style - never built in an editor. The only non-generated element ever allowed is a real screen capture on a SCREEN PROOF beat.
+9. End with a GRAPHICS HANDOFF table: one row per graphic - G1, G2... | beat # | type (type-card / canvas / composite-prop / flat-accent) | on-screen words verbatim | anchor position | in/out timing. A multi-element cold-open volley is itemized as G1a, G1b, G1c - one row each, one element each, never a single row. The 4-word copy cap applies per element/row.
+Output only the shot list document.</textarea>
+        <div class="prompt-watch">Watch: style prefix 90-130 words of prose; max one internal cut per shot; every graphic-hosting shot names its reserved negative space.</div>
+        <button class="copy-btn" onclick="copyPrompt('p4', this)">Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">04</span>
+          <span class="prompt-card-filename">Board Render</span>
+        </div>
+        <div class="prompt-card-desc">Higgsfield MCP · gpt_image_2 at 2k/high · attach the character sheet · one board per 15s generation</div>
+        <textarea class="prompt-box" id="p35" rows="30" readonly>Professional film production storyboard sheet, one single composite image on a dark charcoal production board background, [N] numbered panels in a clean [COLS]x[ROWS] grid ([8 shots = 4x2, 6 shots = 3x2]), each panel a photoreal cinematic film still with a thin caption strip beneath it showing panel number, timecode, shot type and an ACTION + GFX note in clean white typography.
+Sheet header top-left reads: [PROJECT NAME] - [GEN 1 or GEN 2] - [TIME RANGE, e.g. 00:00-00:15].
+The SAME PERSON appears throughout - they match the attached character reference sheet 100%: [IDENTITY SUMMARY - build, grooming, glasses, exact wardrobe].
+REGISTER: [paste the beat map's register block - the realism stack for grounded, the thread + light family for fantastical, the luminous rules for grounded luminous].
+PANEL 1 - [shot id] / [timecode] / [shot type] / ACTION: [what physically happens and moves, the camera move with start and end framing, and the support element - any rendered words in quotes, 2-4 words max].
+PANEL 2 - [...same structure for every shot in this generation...]
+Photoreal cinematic quality, professional storyboard presentation, clean typography, no watermark.
+
+RUN (Higgsfield MCP): generate_image, model gpt_image_2, aspect_ratio 16:9, resolution 2k, quality high, medias = the approved character sheet media/job id with role image. One call per generation; both boards form the approval gate.
+
+RULES: the seam pair mirrors across the two boards (gen 1's final panel and gen 2's first panel are one moment). Every diegetic word is written in quotes in its panel description. Iterate at board level until approved - boards cost pennies, renders don't. Verify spelling of every rendered word before approving.</textarea>
+        <div class="prompt-watch">Watch: this board is the render's composition reference AND the approval gate - a wrong panel here becomes a wrong shot at 135 credits. Fix boards, not renders.</div>
+        <button class="copy-btn" onclick="copyPrompt('p35', this)">Copy Prompt</button>
+      </div>
+
+
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">05</span>
+          <span class="prompt-card-filename">Cinematic Render</span>
+        </div>
+        <div class="prompt-card-desc">Seedance 2.0 via Higgsfield MCP · graphics render IN-FRAME · write prompts, run the 480p test gate</div>
+        <textarea class="prompt-box" id="p6" rows="37" readonly>Each generation prompt follows the installed higgsfield-seedance-prompt skill's sealed block structure (say "write a Seedance prompt" and Claude loads it):
+
+SCENE CONTEXT / ACTIVE REFERENCES (@hero + "100% matches the reference") / LOCATION MAP / FIRST FRAME BLOCKING / FORMAT MODE / OPTICS (FOV in degrees) / CAMERA (shadow side) / TIMED ACTION / PERFORMANCE / PHYSICS / LIGHTING (Kelvin, haze %) / AUDIO / STYLE suffix (8K photoreal, fine grain) / POSITIVE LOCKS.
+
+TIMED ACTION - one 15-second generation, bracket-timestamped from the storyboard (6-8 shots per generation):
+[00:00-00:02] SHOT 1: ...
+[00:02-00:05] SHOT 2: ...
+FORMAT MODE states the cut behavior explicitly: grounded register = "timed multishot - HARD CUT at each timestamp; cuts happen ONLY at the specified points, the camera does not cut on its own"; fantastical/luminous oners = "one continuous shot - the camera passes through each phase with no cuts anywhere."
+Rules that make or break it: positive phrasing only; write the visible, never mood words; each generation prompt is a blank slate (no memory of the other).
+
+GRAPHICS RENDER IN THIS PASS - NOTHING IN POST:
+- In-world graphics (glowing wordmarks, charts, glyph swarms, luminous props) are described inside their ACTION segment + LIGHTING with depth and light-interaction language - "nearest large and soft, farthest small and sharp; its glow casts light on his face and reflects in his glasses."
+- Standalone TYPE CARD / GFX CANVAS beats are just shots inside the generation: the card is built from the FILM's materials and palette (letterpress, stamped brass, light through haze, a graded field from the film's colors) - never a default flat brand card.
+- Every rendered word in quotes, 2-4 words max, entering ON its spoken beat as a physical event (ignites, assembles, is switched on) - springs and physics, no fades.
+- The only non-generated element ever allowed: a real screen capture on a SCREEN PROOF beat.
+
+REFERENCES: attach the character sheet FIRST, then that generation's approved STORYBOARD SHEET (whole board, uncropped) with: "match the attached storyboard's panel compositions per timed segment; its captions, borders and grid are reference only, never rendered."
+
+AUDIO: generate_audio true on every render, tests included. AUDIO block locked to diegetic SFX only - one named sound per graphic entrance (glass chime, neon buzz, paper snap) - no music, no dialogue, no subtitles. The voiceover is ALWAYS recorded separately by the creator and laid over the edit; script words never enter any render.
+
+RUN THE 480p TEST (Higgsfield MCP): generate_video, model seedance_2_0, duration 15, aspect_ratio 16:9, resolution 480p, mode fast, generate_audio true, medias = [character sheet, storyboard sheet] role image - both generations in parallel. A preset_recommendation reply is not a job - retry with declined_preset_id.
+
+JUDGE THE TEST: stitch the two tests together first (ffmpeg concat, video + audio) and judge motion, story logic and the seam in the STITCHED cut, never the halves. NEVER judge realism or text fidelity at 480p fast - it is a distilled model that cannot hold skin pores or fabric weave. Composition wrong = fix the board; motion wrong = fix the prompt. This test is the final gate before spending real credits - iterate here until the stitched cut plays right.</textarea>
+        <div class="prompt-watch">Watch: never judge realism below 1080p std. If a clean scene returns nsfw it is the FILTER, not the scene - soften performance verbs (charged/locks eyes/one breath fail; calm confident gaze/natural breathing pass) and avoid skin/burst/spray wording in pink-lit scenes, then rerun unchanged.</div>
+        <button class="copy-btn" onclick="copyPrompt('p6', this)">Copy Prompt</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-accent"></div>
+        <div class="prompt-card-header">
+          <span class="prompt-card-num">06</span>
+          <span class="prompt-card-filename">Final Cut</span>
+        </div>
+        <div class="prompt-card-desc">Approved test → 1080p finals → verified → auto-stitched into one film</div>
+        <textarea class="prompt-box" id="p7" rows="20" readonly>Once the stitched 480p test is approved, ship the film in one action:
+
+1. RENDER FINALS (Higgsfield MCP): the SAME two approved prompts, SAME references (character sheet + that generation's storyboard sheet) - change nothing but the spec: generate_video, model seedance_2_0, duration 15, aspect_ratio 16:9, resolution 1080p, mode std, bitrate_mode high, generate_audio true. Run both generations in parallel; std mode takes ~7 minutes per 15s - poll patiently. Step to 4k std only for hero deliveries.
+
+2. VERIFY: check every rendered word's spelling and one frame per generation for identity + board adherence. On drift, use their 4-takes rule: rerun that generation, tell the model exactly what is wrong, cut the best take - never accept a wrong word or a wrong face at final quality.
+
+3. STITCH: concatenate the two finals into the full film immediately -
+ffmpeg -i gen1.mp4 -i gen2.mp4 -filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -c:v libx264 -crf 18 -pix_fmt yuv420p [PROJECT]_FINAL_30s.mp4
+Judge the seam in the stitched cut. Deliver the stitched film + both halves + boards + sheet together.
+
+4. VO: the film ships with its diegetic sound bed only. Record the voiceover separately from the line sheet and lay it over the edit - the film plays UNDER the voice, no lip-sync.</textarea>
+        <div class="prompt-watch">Watch: finals reuse the approved test prompts VERBATIM - rewriting a prompt at this stage silently un-approves the storyboard. If a final drifts from its 480p test, the fix is a rerun, not a rewrite.</div>
+        <button class="copy-btn" onclick="copyPrompt('p7', this)">Copy Prompt</button>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Prompt';
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    }
+  </script>
+</body>
+</html>
