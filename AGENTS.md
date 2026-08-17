@@ -31,5 +31,11 @@ the `Makefile` and `README.md` — use those rather than reinventing them.
 - **API keys are optional.** `.env` (copied from `.env.example`) drives which cloud providers
   are configured; with no keys the registry still reports FFmpeg/Remotion/HyperFrames + Piper
   as available. Add keys to `.env` to unlock more tools — never hardcode them.
+- **Outbound HTTPS is allowlisted.** This Cloud Agent environment currently reaches
+  `github.com` and `api.github.com` only. TLS to Cloudflare and most provider APIs
+  (`api.x.ai`, fal.ai, HeyGen, OpenAI, PyPI, npm) is reset at handshake. Keys in `.env`
+  do not unlock Grok/FLUX/HeyGen generation here until those hosts are allowlisted.
+  Run paid provider tools on a machine that can reach them, or add the hosts to the
+  environment allowlist.
 - **HyperFrames** is consumed on demand via `npx hyperframes` (no repo checkout); the first
   render fetches it if the npx cache is cold. `make hyperframes-doctor` validates the runtime.
