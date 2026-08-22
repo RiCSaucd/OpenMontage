@@ -13,7 +13,7 @@ Render the approved edit to `projects/<project_id>/renders/final.mp4`.
 ## Process
 
 1. Confirm aspect / runtime locks from proposal.
-2. Present Remotion vs HyperFrames when both are available and composition inserts need a runtime (AGENT_GUIDE hard rule); for simple FFmpeg archival assemblies, say so and log `render_runtime_selection`.
+2. Route by `render_runtime` from the proposal lock. Present Remotion vs hyperframes (HyperFrames) when both engines are available and composition inserts need a runtime (AGENT_GUIDE hard rule); for simple ffmpeg archival assemblies, say so and log `render_runtime_selection`. Do not silently default to Remotion.
 3. Render to `projects/<id>/renders/final.mp4` with explicit `output_path`.
 4. Leave headroom for user VO if mix is scratch-only.
 5. Write `render_report` + optional `distribution/distribution_manifest.json` (CapCut draft notes + Drive upload list).

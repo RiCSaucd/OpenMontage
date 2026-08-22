@@ -47,6 +47,21 @@ def test_nexus_true_crime_manifest_contract():
     assert server.is_file()
 
 
+def test_nexus_planning_skill_runtime_contract():
+    """Tripwire: planning skill must satisfy test_runtime_presentation_contract tokens."""
+    body = (
+        PROJECT_ROOT
+        / "skills"
+        / "pipelines"
+        / "nexus-true-crime-short"
+        / "proposal-director.md"
+    ).read_text(encoding="utf-8")
+    assert "render_runtime" in body
+    assert "hyperframes" in body
+    assert "render_runtime_selection" in body
+    assert "present both" in body
+
+
 def test_nexus_vidiq_packaging_docs():
     """vidIQ is packaging-only; docs must not commit keys or invent a live-score path."""
     compose = (

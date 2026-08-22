@@ -518,7 +518,9 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    # Starlette rejects allow_origins=["*"] combined with allow_credentials=True.
+    # Auth is via X-API-Key header, not cookies.
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
