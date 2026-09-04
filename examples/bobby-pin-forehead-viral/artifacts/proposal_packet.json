@@ -1,0 +1,286 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "It's oil, not a chakra",
+      "hook": "Stick this on your forehead. It stays. Not your third eye.",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "Cream/brass/navy kinetic cards: bobby pin hero, crossed-out glue, eye+magnet X, mint oil drop, physicist card. Mute-first slam type. No faces.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "TikTok/YouTube Shorts viewers who already saw the stitch and want the one-line why",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "A bobby pin (or paperclip, or fork) stays on the flat center of the forehead with no glue or tape.",
+        "The trick is not a magnetic third eye — brain EMF is far too weak to hold metal.",
+        "Dr Sara Webb (Swinburne astrophysicist) told news.com.au the hold is surface tension from sebum; the flatter center beats the temples."
+      ],
+      "core_message": "Your forehead is just sticky. Sebum plus surface tension, not a chakra.",
+      "cta": "Try it dead center, then stitch the science.",
+      "tone": "curious, punchy, science-first",
+      "grounded_in": [
+        "Khaleej Times Sep 2 2026 recap + Sara Webb quote",
+        "Times Now: brain EMF too weak; sebum + micro-texture + friction"
+      ],
+      "why_this_works": "This week's stitchable experiment has a named physicist and a one-line bust. Works as stills plus slam captions. Distinct from last week's ghost-creators news short."
+    },
+    {
+      "id": "c2",
+      "title": "A trailer you can fight",
+      "hook": "YouTube shipped a movie trailer you play like Street Fighter.",
+      "narrative_structure": "timeline",
+      "visual_approach": "Would need licensed World Warrior Tour / Playables footage of Hadoken inputs over the trailer.",
+      "suggested_playbook": "cinematic-social",
+      "target_audience": "Fighting-game and movie-trailer YouTube viewers",
+      "target_platform": "youtube",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "Paramount/Legendary launched a YouTube Playables Combo Challenge with the Street Fighter trailer around Sep 1 2026.",
+        "Studios call it the first full-length movie trailer made playable through YouTube Playables.",
+        "Film lands Oct 16 2026; World Warrior Tour Tokyo was Sep 1–2."
+      ],
+      "core_message": "The trailer is now a combo trial.",
+      "cta": "Open the Playables challenge before Oct 16.",
+      "tone": "hype, platform-news",
+      "grounded_in": [
+        "ComingSoon Sep 2 playable-trailer recap",
+        "Nerdtropolis World Warrior Tour corroboration"
+      ],
+      "why_this_works": "Real same-week YouTube product news, but this machine cannot use licensed trailer footage and unverified view counts stay out."
+    },
+    {
+      "id": "c3",
+      "title": "Say gnocchi",
+      "hook": "TikTok is grading boyfriends on gnocchi and epitome.",
+      "narrative_structure": "story",
+      "visual_approach": "Caption cards of SAT-hard words over dating-discourse clips we do not have rights to restage.",
+      "suggested_playbook": "talking-head-social",
+      "target_audience": "Dating-discourse TikTok",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "News Dive Sep 3 recapped the Illiterate Boyfriend pronunciation challenge.",
+        "Couples test words like gnocchi, epitome, fuchsia; one clip was cited at 8.8M views."
+      ],
+      "core_message": "Pronunciation is the new compatibility test.",
+      "cta": "Don't film your partner without consent.",
+      "tone": "snarky, punching-down risk",
+      "grounded_in": ["News Dive Sep 3 Illiterate Boyfriend recap"],
+      "why_this_works": "Viral this week, but the format is gender-war bait and we will not produce it."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Cloud production request for another YouTube/TikTok trending short. c1 is stitching this week, has a named physicist, and renders as mute-first stills. c2 needs licensed trailer footage. c3 is punching-down dating discourse.",
+    "modifications": [
+      "Cloud production request = implicit approval; $0 path; captions are the voice.",
+      "Do not remake ghost-creators or BDH-CQ. New cream/brass/navy palette."
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "flat-motion-graphics",
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [
+          {
+            "tool_name": "web_search",
+            "role": "Find this week's YouTube/TikTok news, not last week's shorts",
+            "provider": "web",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Live search; Exa MCP was rate-limited"
+          }
+        ],
+        "approach": "Lock a NEW A-story dated Sep 2–4 2026. Reject Street Fighter (needs licensed footage) and Illiterate Boyfriend (punching down).",
+        "fallback_if_unavailable": "Use only URLs that can be cited from titles/snippets already retrieved."
+      },
+      {
+        "stage": "proposal",
+        "tools": [
+          {
+            "tool_name": "artifact_writer",
+            "role": "Write proposal_packet + decision_log locks",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Present remotion, hyperframes, and ffmpeg. Lock ffmpeg because the other two runtimes are missing. Lock templated + explainer-data.",
+        "fallback_if_unavailable": "Still write the packet; do not silently swap runtime."
+      },
+      {
+        "stage": "script",
+        "tools": [
+          {
+            "tool_name": "artifact_writer",
+            "role": "30s mute-first slam script; captions = voice",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Five beats: stick / stays / not third eye / sebum / physicist said so.",
+        "fallback_if_unavailable": "Keep captions-only; do not invent a TTS track."
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [
+          {
+            "tool_name": "artifact_writer",
+            "role": "Map beats to 9:16 stills + Ken Burns",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Five text_card / diagram scenes inside 900x1400 safe zone; caption rail y=1480.",
+        "fallback_if_unavailable": "Fewer stills, same duration."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "numpy_stills",
+            "role": "Procedural cream/brass stills — no cloud image API",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "FLUX/Grok hosts are not reachable here"
+          },
+          {
+            "tool_name": "procedural_music",
+            "role": "100 BPM curious tick bed from frame 0",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Five numpy stills + ASS captions + generated WAV. No Piper, no stock hosts.",
+        "fallback_if_unavailable": "Silent video is not allowed — generate the bed locally."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "ffmpeg",
+            "role": "Ken Burns concat, ASS burn-in, AAC mux",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "ffmpeg 6.1.1 is present; Remotion and HyperFrames are not"
+          }
+        ],
+        "approach": "1080x1920 / 30 fps / 30.00s H.264 High + AAC 192k.",
+        "fallback_if_unavailable": "There is no approved fallback runtime on this machine."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "HyperFrames kinetic type vs ffmpeg Ken Burns + ASS",
+        "recommendation": "Lock ffmpeg. Do not pretend HyperFrames ran.",
+        "quality_impact": "Less per-glyph motion; captions still slam on every beat."
+      },
+      {
+        "tradeoff": "Piper / ElevenLabs voice vs captions-only",
+        "recommendation": "Captions are the voice. 85% of Shorts watch muted.",
+        "quality_impact": "No spoken VO; bed + burned-in type carry the line."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Re-author on a machine with HyperFrames + Piper for kinetic type and VO",
+        "total_cost_usd": 0,
+        "quality_level": "standard",
+        "what_changes": "Same script and palette; GSAP type + local TTS"
+      },
+      {
+        "description": "Paid Seedance clips of a real pin-on-skin close-up (needs allowlisted hosts)",
+        "total_cost_usd": 2.5,
+        "quality_level": "premium",
+        "what_changes": "Live-action insert; still no third-eye wellness restage"
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": false,
+      "source_required": false,
+      "tone_mode": "playful",
+      "quality_floor": "presentable",
+      "approved_fallback": "still_led"
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "ffmpeg",
+    "composition_mode": "templated",
+    "taste_profile": {
+      "design_read": "Curious science card, not news-red and not lab-cyan. Cream paper, brass pin, navy closer, mint oil, coral X.",
+      "visual_variance": 6,
+      "motion_intensity": 5,
+      "information_density": 6,
+      "palette_discipline": "cream #FAEDDB / brass #D69E29 / navy #172138 / mint #2E8C7A / coral #E5564D — do not reuse ghost-creators red/ink or BDH cyan",
+      "layout_variation": "Centered slam type; caption rail locked at y=1480; nothing critical below y=1600",
+      "reference_strategy": "Graphic metaphor (pin, X, droplet) — never a filmed face",
+      "anti_patterns": [
+        "Third-eye ASMR restage",
+        "Invented view counts",
+        "Red/ink ghost-creators palette",
+        "Cyan BDH lab look"
+      ],
+      "quality_gates": [
+        "30.00s 1080x1920 h264+aac",
+        "Captions readable in safe zone",
+        "runtime_swap_detected false"
+      ]
+    },
+    "music_source": {
+      "source_type": "ai_generated",
+      "track_path": "assets/bed.wav",
+      "provider": "procedural_numpy",
+      "mood_direction": "100 BPM curious tick — lighter than the 108 BPM ghost-creators news bed",
+      "estimated_cost_usd": 0
+    },
+    "voice_selection": {
+      "provider": "captions_only",
+      "voice_id": "none",
+      "rationale": "Piper is not installed. Mute-first Shorts; burned-in captions are the voice.",
+      "estimated_cost_usd": 0,
+      "delivery_style": "Slam captions, not a narrator",
+      "pacing_policy": "One punch per scene; hold the closer",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "examples/bobby-pin-forehead-viral/artifacts/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0,
+    "line_items": [
+      {
+        "tool": "ffmpeg",
+        "operation": "Ken Burns concat + ASS + AAC mux",
+        "quantity": 1,
+        "estimated_usd": 0,
+        "notes": "Local ffmpeg 6.1.1"
+      },
+      {
+        "tool": "numpy",
+        "operation": "Five stills + 100 BPM bed",
+        "quantity": 6,
+        "estimated_usd": 0,
+        "notes": "No cloud image or music API"
+      }
+    ],
+    "budget_cap_usd": 0,
+    "budget_verdict": "within_budget",
+    "savings_options": ["Already $0"]
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Cloud production request for another trending YouTube/TikTok short. Implicit approval logged. Do not remake prior shorts.",
+    "approved_budget_usd": 0
+  },
+  "metadata": {
+    "project_id": "bobby-pin-forehead-viral-2026-09-04",
+    "observed_at": "2026-09-04"
+  }
+}

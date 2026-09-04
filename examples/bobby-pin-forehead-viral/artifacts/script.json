@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "title": "It's oil, not a chakra",
+  "total_duration_seconds": 30,
+  "voice_performance": {
+    "performance_intent": "Captions are the voice. Slam, then land the science closer.",
+    "pacing_profile": "energetic",
+    "energy_curve": "Hook shout → stay wonder → myth slap → oil reveal → physicist closer",
+    "pause_policy": "Hard cuts on scene boundaries. No VO pauses because there is no VO.",
+    "sample_section_id": "s1",
+    "provider_notes": {
+      "captions_only": "Piper unavailable. ASS burned in at y=1480."
+    }
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "Hook — stick this",
+      "text": "A bobby pin. Dead center.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "speaker_directions": "Mute-first. On-screen: STICK THIS / ON YOUR FOREHEAD / TRY IT.",
+      "delivery_cues": {
+        "pace": "fast",
+        "energy": "dare",
+        "emphasis_words": ["bobby pin", "Dead center"],
+        "pause_before_seconds": 0,
+        "pause_after_seconds": 0,
+        "delivery_note": "Challenge, not ASMR.",
+        "provider_text": "A bobby pin. Dead center."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "STICK THIS / ON YOUR FOREHEAD / TRY IT",
+          "timestamp_seconds": 0
+        }
+      ],
+      "source_ref": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend"
+    },
+    {
+      "id": "s2",
+      "label": "It stays",
+      "text": "People are using forks next.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "speaker_directions": "On-screen: IT STAYS / NO GLUE / NO TAPE.",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "proof",
+        "emphasis_words": ["forks"],
+        "pause_before_seconds": 0,
+        "pause_after_seconds": 0,
+        "delivery_note": "Escalate the object, not the mysticism.",
+        "provider_text": "People are using forks next."
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "Crossed-out glue/tape cards",
+          "timestamp_seconds": 4
+        }
+      ],
+      "source_ref": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend"
+    },
+    {
+      "id": "s3",
+      "label": "Not your third eye",
+      "text": "Your brain field is way too weak.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "speaker_directions": "On-screen: NOT YOUR / THIRD EYE / NOT A MAGNET.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "bust",
+        "emphasis_words": ["too weak"],
+        "pause_before_seconds": 0,
+        "pause_after_seconds": 0,
+        "delivery_note": "Kill the wellness caption.",
+        "provider_text": "Your brain field is way too weak."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Eye + magnet with coral X",
+          "timestamp_seconds": 10
+        }
+      ],
+      "source_ref": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798"
+    },
+    {
+      "id": "s4",
+      "label": "It's oil",
+      "text": "The flat center of your forehead wins.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "speaker_directions": "On-screen: IT'S OIL / SEBUM / PLUS SURFACE TENSION.",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "reveal",
+        "emphasis_words": ["SEBUM", "SURFACE TENSION"],
+        "pause_before_seconds": 0,
+        "pause_after_seconds": 0,
+        "delivery_note": "Teach the word sebum without sounding like a textbook.",
+        "provider_text": "The flat center of your forehead wins."
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Mint oil drop + brass film ring",
+          "timestamp_seconds": 18
+        }
+      ],
+      "source_ref": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend"
+    },
+    {
+      "id": "s5",
+      "label": "A physicist said so",
+      "text": "Your forehead is just sticky.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "speaker_directions": "On-screen: A PHYSICIST / SAID SO / SEPT 2026.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "closer",
+        "emphasis_words": ["sticky"],
+        "pause_before_seconds": 0,
+        "pause_after_seconds": 0,
+        "delivery_note": "Land the named-scientist beat without showing a face.",
+        "provider_text": "Your forehead is just sticky."
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "Navy card, cream panel, brass badge",
+          "timestamp_seconds": 24
+        }
+      ],
+      "source_ref": "https://theconversation.com/profiles/sara-webb-984920"
+    }
+  ],
+  "metadata": {
+    "captions_are_voice": true,
+    "ass_path": "examples/bobby-pin-forehead-viral/artifacts/captions.ass"
+  }
+}

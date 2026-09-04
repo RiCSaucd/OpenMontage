@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "local_export",
+      "status": "exported",
+      "export_path": "examples/bobby-pin-forehead-viral/artifacts/bobby_pin_forehead_viral_short.mp4",
+      "timestamp": "2026-09-04T21:23:00Z",
+      "visibility": "unlisted",
+      "metadata_used": {
+        "title": "It's oil, not a chakra — bobby pin forehead (Sep 2026)",
+        "description": "This week's TikTok/YouTube challenge: a bobby pin sticks to your forehead. Not a third eye. Not a magnet. Sebum + surface tension. Dr Sara Webb via Khaleej Times / news.com.au, Sep 2 2026.",
+        "hashtags": [
+          "bobbypin",
+          "tiktoktrend",
+          "youtubeshorts",
+          "sebum",
+          "surfacetension"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "not_uploaded": true,
+    "reason": "Local export only — no YouTube/TikTok publish credentials in this environment"
+  }
+}

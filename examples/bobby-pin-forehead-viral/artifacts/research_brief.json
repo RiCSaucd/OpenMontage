@@ -1,0 +1,273 @@
+{
+  "version": "1.0",
+  "topic": "Another trending topic on YouTube and TikTok right now",
+  "research_date": "2026-09-04",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Bobby pin on your forehead? Here's the science behind TikTok’s viral trend",
+        "url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+        "source": "khaleej_times",
+        "angle": "News recap + physicist quote — sebum / surface tension, not magnetism",
+        "what_it_covers": "Sep 2 2026: pins, paperclips, even forks stuck to the forehead. Dr Sara Webb (Swinburne) told news.com.au the cause is surface tension from natural skin oils. Center of the forehead is flatter than the temples.",
+        "what_it_misses": "Not packaged as a mute-first 30s Short.",
+        "engagement_signal": "Published Sep 2, 2026 — this week's challenge cycle"
+      },
+      {
+        "title": "Is Your Third Eye Really 'Magnetic'?",
+        "url": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798",
+        "source": "times_now",
+        "angle": "Spiritual wellness framing of the same trick",
+        "what_it_covers": "People treat the stick as proof of a magnetic third eye. Science section: brain EMF is far too weak; sebum + micro-texture + friction hold a light flat object.",
+        "what_it_misses": "Leans into the mystic beat after stating the science.",
+        "engagement_signal": "Live wellness discourse around the same challenge"
+      },
+      {
+        "title": "Street Fighter playable YouTube trailer",
+        "url": "https://www.comingsoon.net/movies/trailers/2185073-street-fighter-playable-youtube-trailer",
+        "source": "comingsoon",
+        "angle": "This week's YouTube platform news — first playable full-length movie trailer",
+        "what_it_covers": "Paramount/Legendary launched a YouTube Playables Combo Challenge with the Street Fighter trailer during the Sep 1 Tokyo World Warrior Tour. Film lands Oct 16 2026.",
+        "what_it_misses": "Needs licensed trailer footage we cannot use here.",
+        "engagement_signal": "Sep 1–2 2026 YouTube product story"
+      },
+      {
+        "title": "Illiterate Boyfriend pronunciation challenge",
+        "url": "https://newsdive.net/2026/09/03/women-challenge-partners-with-the-illiterate-boyfriend-test-try-to-pronounce-these-words/",
+        "source": "news_dive",
+        "angle": "TikTok dating-discourse trend",
+        "what_it_covers": "Couples test SAT-hard words (gnocchi, epitome, fuchsia). One clip cited at 8.8M views.",
+        "what_it_misses": "Punching-down gender-war bait, not a science or platform story.",
+        "engagement_signal": "Sep 3 2026 recap"
+      }
+    ],
+    "saturated_angles": [
+      "Third-eye / psychic-medium caption slop",
+      "ASMR close-up with no explanation",
+      "Restaging the Street Fighter trailer without the playable mechanic"
+    ],
+    "underserved_gaps": [
+      "The one-line bust: it is oil, not a chakra",
+      "Why the CENTER of the forehead works (flat + sebum)",
+      "A physicist said this this week — not a wellness creator"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Khaleej Times: bobby-pin forehead trick, surface tension not magnetism",
+        "url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+        "date": "2026-09-02",
+        "relevance": "This week's TikTok experiment with a named scientist."
+      },
+      {
+        "headline": "Street Fighter playable movie trailer on YouTube Playables",
+        "url": "https://www.comingsoon.net/movies/trailers/2185073-street-fighter-playable-youtube-trailer",
+        "date": "2026-09-02",
+        "relevance": "Same-week YouTube virality, worse as a stills-only short."
+      },
+      {
+        "headline": "Karol G / Bruno Mars 'Still' climbing YouTube Trending US",
+        "url": "https://top10grid.com/youtube-trending-us-2026-09-03",
+        "date": "2026-09-03",
+        "relevance": "Music drop — fandom, not an explainer."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "tiktok",
+        "topic_or_url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+        "sentiment": "Mind-blown duets; third-eye captions vs 'it's just oily' comments",
+        "key_quotes": [
+          "TRY IT NOW and tell me if it works for you — @gracekirk_"
+        ]
+      },
+      {
+        "platform": "youtube",
+        "topic_or_url": "https://www.comingsoon.net/movies/trailers/2185073-street-fighter-playable-youtube-trailer",
+        "sentiment": "Excitement about a trailer you can fight through",
+        "key_quotes": [
+          "Studios call it the first full-length movie trailer made playable through YouTube Playables."
+        ]
+      }
+    ],
+    "timeliness_window": "days"
+  },
+  "data_points": [
+    {
+      "claim": "TikTok users are sticking bobby pins — and sometimes paperclips or forks — to the center of the forehead and watching them stay.",
+      "source_url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+      "source_name": "Khaleej Times, Sep 2 2026",
+      "credibility": "secondary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Dr Sara Webb, astrophysicist and Associate Dean at Swinburne, told news.com.au the effect is surface tension from natural skin oils (sebum).",
+      "source_url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+      "source_name": "Khaleej Times quoting news.com.au / Sara Webb",
+      "credibility": "secondary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "closing_punch"
+    },
+    {
+      "claim": "The center of the forehead works better because it is flatter than the temples, so the pin can lie flat.",
+      "source_url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+      "source_name": "Sara Webb via Khaleej Times",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "The trick is not magnetism or a 'third eye.' The brain's electromagnetic field is far too weak to hold metal.",
+      "source_url": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798",
+      "source_name": "Times Now science section",
+      "credibility": "secondary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Sebum plus skin micro-texture create enough adhesion/friction to balance a light, flat metal object.",
+      "source_url": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798",
+      "source_name": "Times Now",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Paramount and Legendary launched what they call the first playable full-length movie trailer on YouTube Playables (Street Fighter Combo Challenge) around Sep 1 2026.",
+      "source_url": "https://www.comingsoon.net/movies/trailers/2185073-street-fighter-playable-youtube-trailer",
+      "source_name": "ComingSoon, Sep 2 2026",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Why does a bobby pin stick to my forehead?",
+      "Is my third eye magnetic?",
+      "Does this work with coins and forks?",
+      "Is it static electricity?",
+      "Why the middle of the forehead and not the side?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "If it sticks, your third eye is open / you are psychic.",
+        "reality": "A light flat object sticks on oily, relatively flat skin. Wellness captions are optional fanfic.",
+        "source": "Khaleej Times / Times Now"
+      },
+      {
+        "myth": "The forehead is magnetically attracting metal.",
+        "reality": "Brain EMF is orders of magnitude too weak. The bond is sebum + surface tension + friction.",
+        "source": "Times Now; Sara Webb via Khaleej Times"
+      },
+      {
+        "myth": "It only works on special people.",
+        "reality": "Placement (flat center) and skin oil explain most of the variance.",
+        "source": "Sara Webb via Khaleej Times"
+      }
+    ],
+    "knowledge_level": "Viewers have seen the stitch. They have not heard a named physicist or the word sebum.",
+    "pain_points": [
+      "Wellness captions outrun the physics",
+      "Try-it videos never explain why",
+      "Static-electricity guesswork in comments"
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "Dr Sara Webb",
+      "title_or_affiliation": "Astrophysicist, Associate Dean, Swinburne University",
+      "position": "Surface tension from natural oils; flatter center of the forehead; not magnetism or a third eye.",
+      "source_url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+      "contrarian": false
+    },
+    {
+      "name": "Times Now science desk",
+      "title_or_affiliation": "Times Now",
+      "position": "Brain EMF cannot hold a bobby pin; sebum + micro-texture + friction can.",
+      "source_url": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798",
+      "contrarian": false
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "It's oil, not a chakra",
+      "hook": "Stick this on your forehead. It stays. Not your third eye — sebum.",
+      "type": "trending",
+      "why_now": "Khaleej Times published the Webb quote on Sep 2; the challenge is still stitching.",
+      "grounded_in": ["bobby pin stays", "sebum / surface tension", "not third eye"]
+    },
+    {
+      "name": "A trailer you can fight",
+      "hook": "YouTube shipped a movie trailer you play like Street Fighter.",
+      "type": "data_driven",
+      "why_now": "Playable trailer launched with the World Warrior Tour Sep 1–2.",
+      "grounded_in": ["YouTube Playables Combo Challenge"]
+    },
+    {
+      "name": "Say gnocchi",
+      "hook": "TikTok is grading boyfriends on 'gnocchi' and 'epitome.'",
+      "type": "narrative",
+      "why_now": "Sep 3 recap of the Illiterate Boyfriend challenge.",
+      "grounded_in": ["News Dive Sep 3"]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Close-up pin on skin, myth X over an eye/magnet, mint oil drop — cream/brass, not news-red",
+      "what_works": "Shows the experiment without restaging wellness ASMR or a movie trailer."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.khaleejtimes.com/world/bobby-pin-on-your-forehead-heres-the-science-behind-tiktoks-viral-trend",
+      "title": "Khaleej Times: bobby pin forehead science",
+      "used_for": "Primary recap, Webb quote, forks/paperclips, Sep 2 date",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.timesnownews.com/spiritual/is-your-third-eye-really-magnetic-the-strange-trend-taking-over-spiritual-wellness-article-155978798",
+      "title": "Times Now: magnetic third eye myth",
+      "used_for": "EMF weakness, sebum/friction wording, myth landscape",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://theconversation.com/profiles/sara-webb-984920",
+      "title": "Sara Webb — The Conversation profile",
+      "used_for": "Confirm title: Associate Dean, Swinburne astrophysicist",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.comingsoon.net/movies/trailers/2185073-street-fighter-playable-youtube-trailer",
+      "title": "ComingSoon: playable Street Fighter trailer",
+      "used_for": "Rejected YouTube A-story",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://nerdtropolis.com/street-fighter-movie-playable-trailer-world-warrior-tour/",
+      "title": "Nerdtropolis: World Warrior Tour / playable debut",
+      "used_for": "Sep 1 Tokyo launch corroboration",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://top10grid.com/youtube-trending-us-2026-09-03",
+      "title": "YouTube Trending US Sep 3 2026 snapshot",
+      "used_for": "Same-week music/trailer chart context",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://newsdive.net/2026/09/03/women-challenge-partners-with-the-illiterate-boyfriend-test-try-to-pronounce-these-words/",
+      "title": "Illiterate Boyfriend challenge recap",
+      "used_for": "Rejected TikTok dating-discourse alt",
+      "reliability": "anecdotal"
+    }
+  ],
+  "research_summary": "This week's stitchable TikTok/YouTube trend is a bobby pin that sticks to your forehead. Wellness captions call it a magnetic third eye. A Swinburne astrophysicist told Australian press it is sebum and surface tension, and the flat center of the forehead is why it works. That is the 30-second short.",
+  "metadata": {
+    "observed_at": "2026-09-04",
+    "pipeline": "animated-explainer",
+    "rejected_same_week_alts": "Street Fighter playable trailer; Karol G/Bruno Mars Still; Illiterate Boyfriend challenge"
+  }
+}

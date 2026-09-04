@@ -1,0 +1,142 @@
+{
+  "version": "1.0",
+  "cuts": [
+    {
+      "id": "cut-1",
+      "source": "img-pin",
+      "in_seconds": 0,
+      "out_seconds": 4,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Hook still — pin on forehead"
+    },
+    {
+      "id": "cut-2",
+      "source": "img-stick",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "No-glue / no-tape proof"
+    },
+    {
+      "id": "cut-3",
+      "source": "img-myth",
+      "in_seconds": 0,
+      "out_seconds": 8,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Third-eye / magnet bust"
+    },
+    {
+      "id": "cut-4",
+      "source": "img-oil",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Sebum + surface tension reveal"
+    },
+    {
+      "id": "cut-5",
+      "source": "img-phys",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Physicist closer, Sept 2026"
+    }
+  ],
+  "overlays": [
+    {
+      "asset_id": "sub-ass",
+      "start_seconds": 0,
+      "end_seconds": 30,
+      "position": {"x": 540, "y": 1480},
+      "animation": "ass-slam",
+      "opacity": 1
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": []
+    },
+    "music": {
+      "asset_id": "mus-bed",
+      "volume": 0.82,
+      "fade_in_seconds": 0,
+      "fade_out_seconds": 0.5,
+      "ducking": false
+    },
+    "sfx": []
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "sentence",
+    "source": "artifacts/captions.ass",
+    "font": "Inter",
+    "font_size": 36,
+    "color": "#FFFFFF",
+    "outline_color": "#1C2117",
+    "background": "#00000078",
+    "position": "bottom-center",
+    "max_words_per_line": 8
+  },
+  "transitions": [
+    {"type": "cut", "at_seconds": 4, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 10, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 18, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 24, "duration_seconds": 0}
+  ],
+  "renderer_family": "explainer-data",
+  "render_runtime": "ffmpeg",
+  "composition_mode": "templated",
+  "slideshow_risk_score": {
+    "average": 0.42,
+    "verdict": "acceptable"
+  },
+  "metadata": {
+    "ken_burns": true,
+    "captions_are_voice": true
+  }
+}

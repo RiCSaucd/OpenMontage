@@ -1,0 +1,39 @@
+[Script Info]
+Title: Bobby pin forehead viral short
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Hook,Inter,80,&H00FFFFFF,&H000000FF,&HAA1C2117,&H64000000,1,0,0,0,100,100,-1,0,1,5,0,5,90,90,0,1
+Style: Giant,Inter,108,&H00FFFFFF,&H000000FF,&HAA1C2117,&H64000000,1,0,0,0,100,100,-2,0,1,6,0,5,90,90,0,1
+Style: Brass,Inter,48,&H002EA4D1,&H000000FF,&HAA1C2117,&H64000000,1,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: Mint,Inter,48,&H007A8C2E,&H000000FF,&HAA1C2117,&H64000000,1,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: Coral,Inter,48,&H00525CE8,&H000000FF,&HAA1C2117,&H64000000,1,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: Cap,Inter,36,&H00FFFFFF,&H000000FF,&HAA1C2117,&H78000000,1,0,0,0,100,100,0.4,0,1,3,0,2,90,90,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:04.00,Giant,,0,0,0,,{\pos(540,600)\fad(70,120)\t(0,200,\fscx108\fscy108)}STICK THIS
+Dialogue: 0,0:00:00.70,0:00:04.00,Hook,,0,0,0,,{\pos(540,760)\fad(80,120)}ON YOUR FOREHEAD
+Dialogue: 0,0:00:02.00,0:00:04.00,Brass,,0,0,0,,{\pos(540,920)\fad(80,120)}TRY IT
+Dialogue: 0,0:00:00.00,0:00:04.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}A bobby pin. Dead center.
+Dialogue: 0,0:00:04.00,0:00:10.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}IT STAYS
+Dialogue: 0,0:00:05.00,0:00:10.00,Giant,,0,0,0,,{\pos(540,720)\fad(80,120)}NO GLUE
+Dialogue: 0,0:00:07.00,0:00:10.00,Mint,,0,0,0,,{\pos(540,900)\fad(80,120)}NO TAPE
+Dialogue: 0,0:00:04.00,0:00:10.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}People are using forks next.
+Dialogue: 0,0:00:10.00,0:00:18.00,Hook,,0,0,0,,{\pos(540,540)\fad(60,120)}NOT YOUR
+Dialogue: 0,0:00:11.00,0:00:18.00,Giant,,0,0,0,,{\pos(540,700)\fad(80,120)}THIRD EYE
+Dialogue: 0,0:00:13.40,0:00:18.00,Coral,,0,0,0,,{\pos(540,880)\fad(80,120)}NOT A MAGNET
+Dialogue: 0,0:00:10.00,0:00:18.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}Your brain field is way too weak.
+Dialogue: 0,0:00:18.00,0:00:24.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}IT'S OIL
+Dialogue: 0,0:00:19.40,0:00:24.00,Giant,,0,0,0,,{\pos(540,740)\fad(80,120)}SEBUM
+Dialogue: 0,0:00:21.20,0:00:24.00,Mint,,0,0,0,,{\pos(540,920)\fad(80,80)}PLUS SURFACE TENSION
+Dialogue: 0,0:00:18.00,0:00:24.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}The flat center of your forehead wins.
+Dialogue: 0,0:00:24.00,0:00:30.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}A PHYSICIST
+Dialogue: 0,0:00:25.20,0:00:30.00,Giant,,0,0,0,,{\pos(540,720)\fad(80,120)}SAID SO
+Dialogue: 0,0:00:27.00,0:00:30.00,Brass,,0,0,0,,{\pos(540,900)\fad(80,80)}SEPT 2026
+Dialogue: 0,0:00:24.00,0:00:30.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}Your forehead is just sticky.

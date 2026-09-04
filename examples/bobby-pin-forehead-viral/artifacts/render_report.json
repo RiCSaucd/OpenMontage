@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "examples/bobby-pin-forehead-viral/artifacts/bobby_pin_forehead_viral_short.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 30.0,
+      "file_size_bytes": 37745116,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_time_seconds": 41,
+  "warnings": [
+    "Remotion and HyperFrames were evaluated and are not installed; ffmpeg Ken Burns + ASS is the locked runtime.",
+    "Piper is not installed; captions are the voice.",
+    "image2 single-frame extract warns about sequence patterns; frames still wrote."
+  ],
+  "verification_notes": [
+    "ffprobe: 30.000s, 1080x1920, 30 fps, 900 video frames, h264 High + aac LC 44100 stereo",
+    "Sampled frames at 0.4s, 7.0s, 14.5s, 26.5s — slam type readable, caption rail at y=1480",
+    "Stick scene X marks are coral and readable after the second still pass"
+  ],
+  "render_grammar": "explainer-data",
+  "slideshow_risk_score": {
+    "average": 0.42,
+    "verdict": "acceptable"
+  },
+  "decision_log_ref": "examples/bobby-pin-forehead-viral/artifacts/decision_log.json",
+  "final_review_ref": "examples/bobby-pin-forehead-viral/artifacts/final_review.json",
+  "metadata": {
+    "render_runtime_used": "ffmpeg",
+    "composition_mode": "templated"
+  }
+}
