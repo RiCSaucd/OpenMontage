@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "examples/ghost-creators-viral/artifacts/ghost_creators_viral_short.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 30.0,
+      "file_size_bytes": 38779251,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_time_seconds": 44,
+  "warnings": [
+    "Remotion and HyperFrames were not installed; ffmpeg Ken Burns is the locked runtime, not a silent swap.",
+    "No TTS. Captions are the voice.",
+    "libass logged errors opening .ttf.hash sidecar files; Inter-Bold still resolved via fontconfig."
+  ],
+  "verification_notes": [
+    "ffprobe: 30.000s, 1080x1920, h264 High, aac 44100 stereo, 30 fps",
+    "Sampled frames at 0.4s, 7.0s, 14.5s, 26.5s — type readable in the 900x1400 safe zone",
+    "Caption rail at y=1480; no payload below y=1600",
+    "H.264 High Profile Level 4.2, ~10 Mbps VBR, +faststart"
+  ],
+  "render_grammar": "explainer-data",
+  "slideshow_risk_score": {
+    "average": 0.42,
+    "verdict": "acceptable"
+  },
+  "decision_log_ref": "examples/ghost-creators-viral/artifacts/decision_log.json",
+  "final_review_ref": "examples/ghost-creators-viral/artifacts/final_review.json",
+  "metadata": {
+    "script": "examples/ghost-creators-viral/scripts/render_short.py"
+  }
+}

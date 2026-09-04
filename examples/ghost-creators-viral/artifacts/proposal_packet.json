@@ -1,0 +1,269 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "The $26 loophole",
+      "hook": "Twenty-six dollars a video. That's the gig rate.",
+      "narrative_structure": "data_narrative",
+      "visual_approach": "Mute-first 9:16 news slam: red/amber/ink kinetic type, stacked-bill hook, view cards, camera-lens detector, X'd channel grid, phone stack. Captions are the voice. No restaging of the political attack videos.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "Shorts viewers who have seen talking-head 'news' clips and do not know the $26 rate or the spam-not-lies takedown",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "A Backstage/Virelox-linked listing paid about $26 per video for real hosts",
+        "Riddance tracked 45 million-plus YouTube views and millions more on TikTok",
+        "Real faces beat synthetic-media detectors built to catch fake ones",
+        "YouTube terminated 20 channels for spam, not a public falsehood finding",
+        "Source-channel takedowns do not clear recirculated TikTok clips"
+      ],
+      "core_message": "The detector loophole was a person, not a fake face.",
+      "cta": "Read Semafor Sep 2–3 and TNW Sep 4 before sharing the next talking-head clip.",
+      "tone": "raw, investigative, mute-first",
+      "grounded_in": [
+        "research_brief.data_points[0] ($26 rate)",
+        "research_brief.data_points[1] (45M views)",
+        "research_brief.data_points[2] (20 channels)",
+        "research_brief.data_points[3] (real-face detector bypass)",
+        "research_brief.angles_discovered[0]"
+      ],
+      "why_this_works": "It is this week's news ABOUT YouTube and TikTok virality — $26, 45M, 20 channels, TikTok leftover — without amplifying the underlying political attack titles."
+    },
+    {
+      "id": "c2",
+      "title": "Jisoo CLICK same-day MV",
+      "hook": "Jisoo dropped CLICK. 1.7 million views in four hours.",
+      "narrative_structure": "timeline",
+      "visual_approach": "Fandom kinetic type and MV stills. Chart climb, not a platform-policy story.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "K-pop For You page",
+      "target_platform": "youtube",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "Jisoo CLICK hit about 1.7 million views in four hours on Sep 4, 2026",
+        "HRS Skibidi topped Korea YouTube trending music the same day"
+      ],
+      "core_message": "A drop can own a Thursday without being news about the platforms.",
+      "cta": "Watch the official MV.",
+      "tone": "high-energy fandom",
+      "grounded_in": [
+        "research_brief.landscape.existing_content[3]",
+        "research_brief.sources[4]"
+      ],
+      "why_this_works": "It is actually going viral today — but it is a fandom drop, not news about YouTube/TikTok mechanics."
+    },
+    {
+      "id": "c3",
+      "title": "Spam, not lies",
+      "hook": "YouTube killed twenty channels. For spam. Not for being false.",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "Slower civic cut: YouTube quote card, policy vs truth distinction, leftover TikTok beat.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "Civic-tech and journalism viewers",
+      "target_platform": "linkedin",
+      "target_duration_seconds": 60,
+      "key_points": [
+        "YouTube's cited violation was spam and deceptive practices",
+        "That is not a public finding that each political claim was false",
+        "TikTok recirculation survived the YouTube takedown"
+      ],
+      "core_message": "Enforcement for spam is not the same as a truth ruling.",
+      "cta": "Read the YouTube statement in Semafor Sep 3.",
+      "tone": "civic, precise",
+      "grounded_in": [
+        "research_brief.data_points[4]",
+        "research_brief.angles_discovered[1]"
+      ],
+      "why_this_works": "Sharper civic frame, but a 60s cut misses the 30s viral brief."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "Cloud production request is implicit approval. c1 is the only concept that is both in the news this week and about YouTube/TikTok virality. c2 is a same-day entertainment chart. c3 is the civic 60s cut.",
+    "modifications": [
+      "Keep the spam-not-lies line as a 6-second beat, not the whole short",
+      "Do not restage or quote the political attack video titles"
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "flat-motion-graphics",
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [],
+        "approach": "Lock a live Sep 4 2026 YouTube/TikTok news story from Semafor + TNW. Reject same-day entertainment chart-climbers as the A-story."
+      },
+      {
+        "stage": "proposal",
+        "tools": [],
+        "approach": "Present remotion, hyperframes, and ffmpeg. Lock ffmpeg because the JS runtimes are missing. Captions-as-voice. $0."
+      },
+      {
+        "stage": "script",
+        "tools": [],
+        "approach": "Mute-first 30s slam: $26 / 45M / detector / 20 channels / still on TikTok. Every claim sourced."
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [],
+        "approach": "Five text-card stills with Ken Burns. Safe type in the 900x1400 zone. Caption rail at y=1480."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "procedural_stills",
+            "role": "NumPy stills (cash, views, lens, takedown, phones)",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "No image APIs reachable; palette must not reuse the cyan BDH-CQ look"
+          },
+          {
+            "tool_name": "procedural_music",
+            "role": "108 BPM dark news bed",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "Stock hosts not reachable; bed must start at frame 0"
+          }
+        ],
+        "approach": "Generate stills + ASS + wav locally. No paid providers.",
+        "fallback_if_unavailable": "Already the fallback. No further path without ffmpeg."
+      },
+      {
+        "stage": "edit",
+        "tools": [],
+        "approach": "Hard cuts on the five stills. ASS burned. render_runtime stays ffmpeg."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "ffmpeg",
+            "role": "Ken Burns, concat, loudnorm, ASS burn, H.264 High 4.2",
+            "provider": "ffmpeg",
+            "available": true,
+            "estimated_cost_usd": 0.0,
+            "why_this_provider": "ffmpeg 6.1.1 is the only composition runtime on this machine"
+          }
+        ],
+        "approach": "examples/ghost-creators-viral/scripts/render_short.py → 1080x1920 / 30s / AAC.",
+        "fallback_if_unavailable": "Block. Do not silently invent a Remotion path."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "HyperFrames kinetic type vs ffmpeg Ken Burns",
+        "recommendation": "ffmpeg — HyperFrames is not installed",
+        "quality_impact": "Type still slams; motion is zoom/pan on stills, not GSAP."
+      },
+      {
+        "tradeoff": "Piper/ElevenLabs VO vs captions-only",
+        "recommendation": "captions-only — no TTS on this machine; 85% watch muted",
+        "quality_impact": "No spoken VO. Captions carry the script."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Same script on HyperFrames if Node 22 + npx hyperframes are installed",
+        "total_cost_usd": 0.0,
+        "quality_level": "standard",
+        "what_changes": "GSAP type instead of Ken Burns stills"
+      },
+      {
+        "description": "Add ElevenLabs VO when the host can reach the API",
+        "total_cost_usd": 0.3,
+        "quality_level": "premium",
+        "what_changes": "Spoken track under captions; duck the bed"
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "raw",
+      "quality_floor": "presentable",
+      "approved_fallback": "still_led"
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "ffmpeg",
+    "composition_mode": "templated",
+    "taste_profile": {
+      "design_read": "Late-night news interrupt: ink grain, amber money, red enforcement. Not cyan lab-poster. Not a restaged attack video.",
+      "visual_variance": 5,
+      "motion_intensity": 6,
+      "information_density": 7,
+      "palette_discipline": "Red #FF2E29, amber #FFC729, ink #0A080A, white type only",
+      "layout_variation": "Center stack per beat; caption rail locked at y=1480",
+      "reference_strategy": "News slam, not stock explainer cyan",
+      "anti_patterns": [
+        "Reuse the BDH-CQ cyan/teal look",
+        "Quote or restage the political attack titles",
+        "Put payload type below y=1600"
+      ],
+      "quality_gates": [
+        "1080x1920 H.264 + AAC, exactly 30s",
+        "Readable captions in the 900x1400 safe zone",
+        "Every on-screen number sourced"
+      ]
+    },
+    "music_source": {
+      "source_type": "ai_generated",
+      "track_path": "examples/ghost-creators-viral/assets/bed.wav",
+      "provider": "procedural_numpy",
+      "mood_direction": "108 BPM dark news pulse, slams on cuts, starts at frame 0",
+      "estimated_cost_usd": 0.0
+    },
+    "voice_selection": {
+      "provider": "captions_only",
+      "voice_id": "ass_inter",
+      "rationale": "Piper and cloud TTS unavailable. Short-form.md: 85% watch muted; captions are the voice.",
+      "estimated_cost_usd": 0.0,
+      "delivery_style": "Punchy on-screen type, one claim per beat",
+      "pacing_policy": "Hard cuts every 4–8s; hook number on screen at 0:00",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "examples/ghost-creators-viral/artifacts/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0.0,
+    "line_items": [
+      {
+        "tool": "ffmpeg",
+        "operation": "Ken Burns concat + ASS burn + AAC mix",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Local ffmpeg 6.1.1"
+      },
+      {
+        "tool": "procedural_stills",
+        "operation": "Five NumPy stills",
+        "quantity": 5,
+        "estimated_usd": 0.0,
+        "notes": "No image API"
+      },
+      {
+        "tool": "procedural_music",
+        "operation": "108 BPM bed + loudnorm",
+        "quantity": 1,
+        "estimated_usd": 0.0,
+        "notes": "Generated WAV"
+      }
+    ],
+    "budget_cap_usd": 0.0,
+    "budget_verdict": "within_budget",
+    "savings_options": ["Already $0"]
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Cloud production request is implicit approval. User asked for a 30s viral video about news or YouTube/TikTok virality.",
+    "approved_budget_usd": 0.0
+  },
+  "metadata": {
+    "project_id": "ghost-creators-viral-2026-09-04",
+    "observed_at": "2026-09-04"
+  }
+}

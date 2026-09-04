@@ -1,0 +1,268 @@
+{
+  "version": "1.0",
+  "topic": "Something in the news / going viral on YouTube and TikTok right now",
+  "research_date": "2026-09-04",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "How ‘ghost creators’ cashed in on America’s divided politics",
+        "url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+        "source": "semafor",
+        "angle": "Investigation — paid actors + AI scripts as a YouTube/TikTok business",
+        "what_it_covers": "Semafor + Riddance AI traced a network of 'ghost creator' channels: real on-camera hosts reading formulaic, LLM-aided scripts. 45M+ YouTube views, 90k comments, millions more on TikTok.",
+        "what_it_misses": "Not packaged as a mute-first 30s Short. Dense news feature.",
+        "engagement_signal": "Published Sep 2, 2026; triggered YouTube enforcement the next day"
+      },
+      {
+        "title": "YouTube cracks down on ‘ghost creators’",
+        "url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+        "source": "semafor",
+        "angle": "Enforcement follow — 20 channels terminated for spam",
+        "what_it_covers": "YouTube told Semafor it terminated 20 channels (13 named + 7 related) for spam and deceptive practices, not a public finding of falsehood.",
+        "what_it_misses": "Does not show that clips keep circulating on TikTok.",
+        "engagement_signal": "Sep 3, 2026 exclusive"
+      },
+      {
+        "title": "A political video network hired real actors to read its AI scripts. That was enough to beat YouTube’s detectors.",
+        "url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+        "source": "thenextweb",
+        "angle": "The $26 loophole — real faces beat synthetic-media detectors",
+        "what_it_covers": "TNW Sep 4 recap: $26/video casting rate, 45M views, enforcement only after journalism, not classifiers.",
+        "what_it_misses": "No short-form visual interrupt.",
+        "engagement_signal": "Dated September 4, 2026 — today's news cycle"
+      },
+      {
+        "title": "Jisoo ‘CLICK’ MV / HRS ‘Skibidi’ YouTube charts",
+        "url": "https://www.starnewskorea.com/en/music/2026/09/04/2026090417534616074",
+        "source": "entertainment_news",
+        "angle": "Same-day entertainment virality",
+        "what_it_covers": "Jisoo CLICK hit 1.7M views in four hours; HRS Skibidi topped Korea YouTube trending music.",
+        "what_it_misses": "A drop is a fandom story, not a news-about-the-platforms story.",
+        "engagement_signal": "Same calendar day, different job"
+      }
+    ],
+    "saturated_angles": [
+      "Partisan recap of the videos' political claims",
+      "Generic 'AI slop is everywhere' without the $26 / 45M / 20-channel numbers",
+      "Treating a K-pop drop as the only thing going viral today"
+    ],
+    "underserved_gaps": [
+      "The detector-loophole in one line: fake-face classifiers lose to a $26 actor",
+      "YouTube killed channels for spam, not for being false — and TikTok still has the clips",
+      "This is news ABOUT YouTube and TikTok virality, not a remix of the rage-bait itself"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Semafor investigation: ghost-creator network hit 45M YouTube views",
+        "url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+        "date": "2026-09-02",
+        "relevance": "The source investigation. Live this week."
+      },
+      {
+        "headline": "YouTube terminates 20 ghost-creator channels",
+        "url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+        "date": "2026-09-03",
+        "relevance": "The punchline beat: 20 channels gone, cited as spam."
+      },
+      {
+        "headline": "TNW: real actors at $26/video beat YouTube’s AI detectors",
+        "url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+        "date": "2026-09-04",
+        "relevance": "Today's recap that names the rate and the loophole."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "youtube",
+        "topic_or_url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+        "sentiment": "Enforcement after journalism; some channels already scrubbed by owners.",
+        "key_quotes": [
+          "After a review, we terminated 20 channels — including all 13 referenced in this article and seven related channels — for violating our spam policies."
+        ]
+      },
+      {
+        "platform": "tiktok",
+        "topic_or_url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+        "sentiment": "Clips recirculate; killing source channels does not clear the shorts.",
+        "key_quotes": [
+          "Terminating the source channels does not clear the clips. Riddance documented dozens of TikTok accounts recirculating moments from the long-form videos."
+        ]
+      }
+    ],
+    "timeliness_window": "days"
+  },
+  "data_points": [
+    {
+      "claim": "A Backstage / Virelox-linked listing offered about $26 per video, 24-hour turnaround, actor supplies camera and lights.",
+      "source_url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+      "source_name": "Semafor investigation (Sep 2, 2026)",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Riddance AI tracked the network to more than 45 million YouTube views and 90,000+ comments, plus millions of TikTok plays.",
+      "source_url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+      "source_name": "Semafor / Riddance AI",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "YouTube told Semafor it terminated 20 channels (13 named + 7 related) for spam and deceptive practices.",
+      "source_url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+      "source_name": "Semafor exclusive Sep 3, 2026 / YouTube statement",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "closing_punch"
+    },
+    {
+      "claim": "Putting a real face in front of an AI script defeats synthetic-media detectors built to catch fake faces.",
+      "source_url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+      "source_name": "The Next Web, Sep 4, 2026",
+      "credibility": "secondary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "The cited violation was spam, not a public determination that each political claim was false.",
+      "source_url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+      "source_name": "TNW summarizing YouTube's statement",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Terminating source YouTube channels does not clear recirculated clips on TikTok.",
+      "source_url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+      "source_name": "TNW citing Riddance",
+      "credibility": "secondary_source",
+      "surprise_factor": "expected",
+      "usable_as": "closing_punch"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "If the face is real, how is it AI content?",
+      "Did YouTube take them down for lying or for spam?",
+      "Are the TikTok versions still up?",
+      "Who paid the actors?",
+      "Is this foreign influence or just ad-revenue farming?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "YouTube already catches AI video because of synthetic-media labels.",
+        "reality": "The network used real hired hosts. Detectors looking for fake faces missed them.",
+        "source": "TNW / Semafor / Riddance"
+      },
+      {
+        "myth": "Taking down the YouTube channels deletes the campaign.",
+        "reality": "Riddance documented TikTok accounts recirculating the same moments.",
+        "source": "TNW Sep 4"
+      },
+      {
+        "myth": "This is a campaign op or a foreign intel op.",
+        "reality": "Semafor describes engagement-for-ads growth hackers; Chan denied political clients. The videos still targeted Democratic figures.",
+        "source": "Semafor Sep 2"
+      }
+    ],
+    "knowledge_level": "Shorts viewers have seen talking-head 'news' clips. They have not heard the $26 rate or that takedown was for spam.",
+    "pain_points": [
+      "Rage-bait talking heads all look the same",
+      "Platforms promise AI labels that a kitchen-table actor bypasses",
+      "News features are too long for the For You page"
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "YouTube (statement to Semafor)",
+      "title_or_affiliation": "Platform enforcement",
+      "position": "Terminated 20 channels for spam and deceptive practices.",
+      "source_url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+      "contrarian": false
+    },
+    {
+      "name": "Max Tani / Graph Massara",
+      "title_or_affiliation": "Semafor",
+      "position": "Ghost creators are paid spokespeople posed as independent commentators to juice engagement and ads.",
+      "source_url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+      "contrarian": false
+    },
+    {
+      "name": "Caleb Chan / Virelox (statement)",
+      "title_or_affiliation": "Company named in the reporting",
+      "position": "Denied political clients and synthetic anchors; site later came down after reporter contact.",
+      "source_url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+      "contrarian": true
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "The $26 loophole",
+      "hook": "Twenty-six dollars a video. That's the gig rate.",
+      "type": "trending",
+      "why_now": "TNW published the $26/detector frame today (Sep 4) on top of this week's Semafor + YouTube takedown.",
+      "grounded_in": ["$26 rate", "real-face detector bypass", "45M views"]
+    },
+    {
+      "name": "Spam, not lies",
+      "hook": "YouTube killed twenty channels. For spam. Not for being false.",
+      "type": "contrarian",
+      "why_now": "The official violation is spam/deceptive practices — the sharper civic point.",
+      "grounded_in": ["20 channels", "spam not falsehood"]
+    },
+    {
+      "name": "Still on TikTok",
+      "hook": "The YouTube channels are gone. The clips are still on TikTok.",
+      "type": "data_driven",
+      "why_now": "Riddance documented recirculation; platform-hopping is the unfinished ending.",
+      "grounded_in": ["TikTok recirculation", "45M YouTube views"]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Mute-first red/black news slams, kitchen-table camera vs detector, dead-channel grid",
+      "what_works": "Does not restage the political attack videos; talks about the machine that made them."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.semafor.com/article/09/02/2026/paid-actors-ai-writing-how-a-new-kind-of-video-business-cashed-in-on-americas-divided-politics",
+      "title": "Semafor: How ghost creators cashed in",
+      "used_for": "45M views, $26 listing, Virelox/Chan, method",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.semafor.com/article/09/03/2026/youtube-cracks-down-on-ghost-creators",
+      "title": "Semafor: YouTube cracks down",
+      "used_for": "20-channel termination, YouTube quote",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://thenextweb.com/news/youtube-ghost-creators-paid-actors-ai-detection-loophole",
+      "title": "TNW: actors beat YouTube detectors",
+      "used_for": "Sep 4 recap, detector loophole, TikTok leftover clips",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.latintimes.com/secret-ai-political-army-how-fake-youtube-ghost-creators-are-paid-26-attack-democrats-598980",
+      "title": "Latin Times syndicated recap",
+      "used_for": "corroborating $26, 45M, named hosts",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.starnewskorea.com/en/music/2026/09/04/2026090417534616074",
+      "title": "Jisoo CLICK same-day viral MV",
+      "used_for": "alternate viral candidate considered and rejected as A-story",
+      "reliability": "secondary"
+    }
+  ],
+  "research_summary": "This week's actual YouTube/TikTok news is not a dance trend — it is a ghost-creator network that bought 45 million views with $26 actors reading AI scripts, beat fake-face detectors, then lost 20 YouTube channels after Semafor published. The clips are still hopping to TikTok. That is the 30-second short.",
+  "metadata": {
+    "observed_at": "2026-09-04",
+    "pipeline": "animated-explainer",
+    "rejected_same_day_alt": "Jisoo CLICK / HRS Skibidi (entertainment charts, not a news-about-platforms story)"
+  }
+}

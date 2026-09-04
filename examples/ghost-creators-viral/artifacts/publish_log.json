@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "local_export",
+      "status": "exported",
+      "visibility": "unlisted",
+      "export_path": "examples/ghost-creators-viral/artifacts/ghost_creators_viral_short.mp4",
+      "timestamp": "2026-09-04T20:52:00Z",
+      "metadata_used": {
+        "title": "The $26 loophole — YouTube ghost creators, Sep 2026",
+        "description": "Paid actors. AI scripts. 45 million YouTube views. YouTube terminated 20 channels for spam after Semafor published. Clips still recirculate on TikTok. Sourced: Semafor Sep 2–3, TNW Sep 4, 2026. Does not restage the political attack videos.",
+        "hashtags": ["shorts", "youtube", "tiktok", "ghostcreators", "newsthisweek"]
+      }
+    }
+  ],
+  "metadata": {
+    "not_uploaded": true,
+    "reason": "No YouTube/TikTok publish credentials in this environment"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "version": "1.0",
+  "title": "The $26 loophole",
+  "total_duration_seconds": 30,
+  "voice_performance": {
+    "performance_intent": "Captions are the voice. Punchy, mute-first, one claim per cut.",
+    "pacing_profile": "energetic",
+    "energy_curve": "Hook slam → view stack → detector reveal → takedown → leftover TikTok sting",
+    "pause_policy": "Hard cut between beats. No VO pauses.",
+    "sample_section_id": "s1"
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "Hook — $26",
+      "text": "Twenty-six dollars a video. That's the gig rate.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "speaker_directions": "On-screen: $26 / A VIDEO / THAT'S THE GIG RATE",
+      "delivery_cues": {
+        "pace": "fast",
+        "energy": "interrupt",
+        "emphasis_words": ["Twenty-six", "dollars"],
+        "delivery_note": "Number on screen at 0:00"
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "Giant $26 over stacked-bill still",
+          "timestamp_seconds": 0
+        }
+      ],
+      "source_ref": "research_brief.data_points[0] Semafor Sep 2 — ~$26/video listing"
+    },
+    {
+      "id": "s2",
+      "label": "Machine — actors + scripts + views",
+      "text": "Real actors. AI scripts. Forty-five million YouTube views. Plus millions more on TikTok.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "speaker_directions": "On-screen: REAL ACTORS / AI SCRIPTS / 45 MILLION / YOUTUBE VIEWS",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "stacking",
+        "emphasis_words": ["Forty-five", "million"]
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "View-card stack; 45 MILLION is the glow card",
+          "timestamp_seconds": 6.2
+        }
+      ],
+      "source_ref": "research_brief.data_points[1] Semafor / Riddance — 45M+ YouTube views"
+    },
+    {
+      "id": "s3",
+      "label": "Loophole — real faces",
+      "text": "The detector hunts fake faces. So they hired real ones. A real face beats every AI label.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "speaker_directions": "On-screen: THE DETECTOR / HUNTS FAKE FACES / SO THEY HIRED / REAL ONES",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "reveal",
+        "emphasis_words": ["real"]
+      },
+      "enhancement_cues": [
+        {
+          "type": "diagram",
+          "description": "Camera-lens / detector eye",
+          "timestamp_seconds": 10
+        }
+      ],
+      "source_ref": "research_brief.data_points[3] TNW Sep 4 — real face beats synthetic-media detectors"
+    },
+    {
+      "id": "s4",
+      "label": "Takedown — spam not lies",
+      "text": "Semafor published. Twenty channels gone. For spam. Not lies. YouTube took them down this week.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "speaker_directions": "On-screen: SEMAFOR PUBLISHED / 20 CHANNELS / GONE / FOR SPAM. NOT LIES.",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "enforcement",
+        "emphasis_words": ["spam", "Not"]
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "4×5 X'd channel grid",
+          "timestamp_seconds": 18
+        }
+      ],
+      "source_ref": "research_brief.data_points[2] Semafor Sep 3 — YouTube terminated 20 channels for spam"
+    },
+    {
+      "id": "s5",
+      "label": "Sting — still on TikTok",
+      "text": "The clips still live on TikTok. September 2026. The loophole was a person.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "speaker_directions": "On-screen: THE CLIPS / STILL LIVE / ON TIKTOK / SEPT 2026",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "sting",
+        "emphasis_words": ["still", "person"]
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "Phone stack; end card line",
+          "timestamp_seconds": 24
+        }
+      ],
+      "source_ref": "research_brief.data_points[5] TNW / Riddance — TikTok recirculation after YouTube takedown"
+    }
+  ],
+  "metadata": {
+    "pipeline": "animated-explainer",
+    "captions_are_voice": true
+  }
+}
