@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "output_path": "examples/bdh-cq-viral/artifacts/bdh_cq_last30days_short.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 30,
+      "resolution": "1080x1920",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 37565044,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 4,
+      "frame_paths": [
+        "examples/bdh-cq-viral/artifacts/frame_hook.png",
+        "examples/bdh-cq-viral/artifacts/frame_stat.png",
+        "examples/bdh-cq-viral/artifacts/frame_latent.png",
+        "examples/bdh-cq-viral/artifacts/frame_end.png"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": [
+        "Hook sample at 0.3s shows 150 MILLION before PARAMETERS fades in at 0.7s — intended slam stagger, not a miss."
+      ]
+    },
+    "audio_spotcheck": {
+      "narration_present": false,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": [
+        "No spoken VO by design (captions_only). Music bed + cut slams present for the full 30s."
+      ]
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "explainer-data",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "runtime_swap_check": "ok — proposal_packet.production_plan.render_runtime is ffmpeg; compose used ffmpeg. Remotion and HyperFrames were logged as unavailable, not silently attempted.",
+      "motion_ratio_actual": 1,
+      "silent_downgrade_detected": false,
+      "issues": [
+        "Stills are Ken-Burns motion, not GSAP/Remotion character motion. Approved fallback was animatic/presentable; quality_floor presentable is met."
+      ]
+    },
+    "subtitle_check": {
+      "subtitles_expected": true,
+      "subtitles_present": true,
+      "coverage_ratio": 1,
+      "timing_drift_detected": false,
+      "issues": []
+    },
+    "transcript_comparison": {
+      "transcript_matches_script": null,
+      "word_accuracy": null,
+      "issues": ["No Whisper available; caption ASS was authored from the script, not ASR'd back."]
+    }
+  },
+  "issues_found": [
+    "No spoken narration (captions-only, logged).",
+    "Procedural stills instead of Z-Image files (download blocked, logged fallback)."
+  ],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "reviewer": "compose-director self-review",
+    "reviewed_at": "2026-09-04T12:23:00Z"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "version": "1.0",
+  "project_id": "bdh-cq-viral-2026-09-04",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "research",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline for a last-30-days viral short",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "animated-explainer",
+          "score": 0.92,
+          "reason": "Generated explainer from a researched topic; research → proposal → script → 9:16 kinetic compose."
+        },
+        {
+          "option_id": "cinematic",
+          "label": "cinematic",
+          "score": 0.4,
+          "reason": "Wrong grammar for a 30s mute-first stat slam.",
+          "rejected_because": "Needs footage-led cinematic motion, not a trending-paper Short."
+        },
+        {
+          "option_id": "nexus-true-crime-short",
+          "label": "nexus-true-crime-short",
+          "score": 0.2,
+          "reason": "Brand pipeline for historical crime, not AI research.",
+          "rejected_because": "Topic mismatch."
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "User asked to create a viral video about something trending now. animated-explainer is the generated-explainer path; short-form.md supplies 9:16 / 30s / mute-caption rules.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Which researched angle becomes the A-story",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "The 150M underdog (30s 9:16)",
+          "score": 0.95,
+          "reason": "Frame-1 number + last-30-days paper rank + cost slam. Built for mute."
+        },
+        {
+          "option_id": "c2",
+          "label": "Reasoning without a diary (60s 16:9)",
+          "score": 0.62,
+          "reason": "Strong mechanism story, slower hook.",
+          "rejected_because": "User asked for viral; 60s 16:9 loses the 1-second interrupt."
+        },
+        {
+          "option_id": "c3",
+          "label": "Qwen vs the 150M paper (45s)",
+          "score": 0.7,
+          "reason": "likes30d contrast is real, but it makes Qwen the star.",
+          "rejected_because": "A-story should be the #1 paper, not the likes chart."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Production request is a viral short about what is trending now. c1 front-loads the 150M hook and uses Hub papers/trending as the why-now.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.88
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime for the 9:16 short",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React scene stack)",
+          "score": 0.55,
+          "reason": "Best at word-level captions and Explainer scene-types — but Explainer is 1920x1080, remotion-composer/node_modules is empty, and npm/PyPI TLS is blocked in this environment.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/CSS/GSAP)",
+          "score": 0.6,
+          "reason": "Best at kinetic typography and 9:16 motion-graphics for this brief. npx hyperframes cannot fetch in this allowlisted environment.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg (Ken Burns + ASS captions + generated bed)",
+          "score": 0.84,
+          "reason": "ffmpeg 6.1.1 is present. Can deliver 1080x1920, H.264 High, burned captions in the 900x1400 safe zone, and a 30s music bed with no cloud keys."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Both Remotion and HyperFrames were evaluated for this brief. Remotion would own karaoke captions if Node deps were installed; HyperFrames would own kinetic type if npx could reach the registry. Neither runtime is available here, so ffmpeg is locked — not silently swapped later.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.93
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Templated vs atelier authoring",
+      "options_considered": [
+        {
+          "option_id": "templated",
+          "label": "Templated ffmpeg kinetic type",
+          "score": 0.8,
+          "reason": "Locked ffmpeg runtime: Ken Burns stills + ASS slams is a template grammar, not a Remotion atelier project."
+        },
+        {
+          "option_id": "atelier",
+          "label": "Hand-authored Remotion/HyperFrames composition",
+          "score": 0.35,
+          "reason": "Right for a hero explainer if a JS runtime were available.",
+          "rejected_because": "No Remotion/HyperFrames runtime on this machine; atelier entry would not render."
+        }
+      ],
+      "selected": "templated",
+      "reason": "Runtime is ffmpeg. Atelier is a Remotion/HyperFrames authoring mode and cannot be honored without those engines.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "renderer_family_selection",
+      "subject": "Creative grammar",
+      "options_considered": [
+        {
+          "option_id": "explainer-data",
+          "label": "explainer-data",
+          "score": 0.9,
+          "reason": "The video is two numbers and a contrast, not a teacher at a whiteboard."
+        },
+        {
+          "option_id": "explainer-teacher",
+          "label": "explainer-teacher",
+          "score": 0.35,
+          "reason": "No presenter, no chalkboard.",
+          "rejected_because": "Wrong grammar for mute-first Shorts."
+        }
+      ],
+      "selected": "explainer-data",
+      "reason": "Stat slams + mechanism line. Matches delivery_promise data_explainer.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.86
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper (local, free)",
+          "score": 0.4,
+          "reason": "Documented zero-key TTS for this repo.",
+          "rejected_because": "Piper binary not installed on this machine."
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI TTS",
+          "score": 0.2,
+          "reason": "Would match an energetic explainer voice.",
+          "rejected_because": "No reachable TTS API (allowlist + no key path that works here)."
+        },
+        {
+          "option_id": "captions_only",
+          "label": "Captions + music bed (no VO)",
+          "score": 0.78,
+          "reason": "85% of short-form is watched muted; kinetic type is the primary track. Honest given TTS absence."
+        }
+      ],
+      "selected": "captions_only",
+      "reason": "No local or cloud TTS is available. Short-form.md already requires burned captions; the VO track is the caption track.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.8
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pixabay",
+          "label": "Pixabay stock bed",
+          "score": 0.3,
+          "reason": "Usual zero-key music source.",
+          "rejected_because": "Outbound HTTPS to stock hosts is blocked here."
+        },
+        {
+          "option_id": "procedural",
+          "label": "Generated 100 BPM dark bed (ffmpeg/numpy)",
+          "score": 0.82,
+          "reason": "Starts at frame 0, slams on scene cuts, loudnorm to Shorts levels, no license fetch."
+        },
+        {
+          "option_id": "none",
+          "label": "Silence",
+          "score": 0.1,
+          "reason": "Would feel unfinished on sound-on autoplay.",
+          "rejected_because": "short-form.md: music starts immediately."
+        }
+      ],
+      "selected": "procedural",
+      "reason": "Need an immediate bed; cannot download stock. Procedural 100 BPM drone with cut slams.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Style playbook",
+      "options_considered": [
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "Flat Motion Graphics (adapted dark cyan/amber)",
+          "score": 0.88,
+          "reason": "Recommended for TikTok/Reels explainers; we keep the bold type and swap the purple pack for cyan/amber so it does not look like every other startup pitch."
+        },
+        {
+          "option_id": "clean-professional",
+          "label": "Clean Professional",
+          "score": 0.45,
+          "reason": "Too corporate for a 1-second interrupt.",
+          "rejected_because": "Low motion intensity for viral Shorts."
+        }
+      ],
+      "selected": "flat-motion-graphics",
+      "reason": "Pipeline recommended playbook for social explainers, with a documented palette override (cyan #00E5FF / amber #FFB020 / navy #05080F).",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.8
+    },
+    {
+      "decision_id": "d-009",
+      "stage": "assets",
+      "category": "fallback_decision",
+      "subject": "Still generation after Z-Image download blocked",
+      "options_considered": [
+        {
+          "option_id": "z-image",
+          "label": "Hugging Face Z-Image Turbo 9:16 stills",
+          "score": 0.7,
+          "reason": "Five 720x1280 stills generated successfully via gr1_z_image_turbo_generate.",
+          "rejected_because": "TLS to mcp-tools-z-image-turbo.hf.space reset; files never landed on disk."
+        },
+        {
+          "option_id": "numpy_stills",
+          "label": "Procedural 1080x1920 stills (numpy + ffmpeg)",
+          "score": 0.86,
+          "reason": "Same five-scene story (lattice, ranked cards, penny/grid, latent spiral, data-center aisle) rendered locally with grain, vignette, cyan/amber."
+        }
+      ],
+      "selected": "numpy_stills",
+      "reason": "Keep the shot list; replace the blocked Hub files with generated stills so compose can proceed. Not a runtime swap.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    }
+  ]
+}

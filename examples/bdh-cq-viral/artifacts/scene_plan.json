@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "style_playbook": "flat-motion-graphics",
+  "scenes": [
+    {
+      "id": "sc1",
+      "type": "text_card",
+      "description": "Cyan neural lattice on navy. Giant 150 MILLION slam, then PARAMETERS, then THAT'S IT. Caption rail: 150 million parameters. That's it.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "script_section_id": "s1",
+      "framing": "center, 9:16, type in upper safe zone",
+      "movement": "slow Ken Burns zoom 1.00→1.12",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Hook type must be on screen by 0.5s. Caption at y=1480.",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "dolly_in",
+        "lens_mm": 50,
+        "lighting_key": "neon",
+        "depth_of_field": "shallow",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Pattern interrupt: a comically small network.",
+      "narrative_role": "introduce_subject",
+      "information_role": "The model is tiny.",
+      "hero_moment": true,
+      "texture_keywords": ["grain", "cyan glow", "low-key"],
+      "required_assets": [
+        {"type": "image", "description": "1080x1920 neural lattice still", "source": "generate"},
+        {"type": "subtitle", "description": "Hook ASS events 0–4s", "source": "generate"}
+      ]
+    },
+    {
+      "id": "sc2",
+      "type": "text_card",
+      "description": "Ranked holographic cards, top card amber. Type: #1 TRENDING PAPER / LAST 30 DAYS ON HUGGING FACE / BDH-CQ.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "script_section_id": "s2",
+      "framing": "center column of cards",
+      "movement": "Ken Burns zoom 1.00→1.10",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "BDH-CQ in Giant style at 6s.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "neon",
+        "depth_of_field": "medium",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Prove timeliness with the last-30-days Hub rank.",
+      "narrative_role": "establish_context",
+      "information_role": "This is the hottest paper of the month.",
+      "hero_moment": false,
+      "texture_keywords": ["amber hot card", "grain"],
+      "required_assets": [
+        {"type": "image", "description": "Ranked cards still", "source": "generate"}
+      ]
+    },
+    {
+      "id": "sc3",
+      "type": "diagram",
+      "description": "Copper penny + 3x3 holographic grid. Type: 29.5% / PASS@2 · ARC-AGI-1 / $0.0007 PER TASK.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "script_section_id": "s3",
+      "framing": "macro center",
+      "movement": "Ken Burns zoom 1.00→1.14",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Percentage is the hero; price is the wink.",
+      "shot_language": {
+        "shot_size": "extreme_close_up",
+        "camera_movement": "dolly_in",
+        "lens_mm": 85,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Deliver the two sourced numbers.",
+      "narrative_role": "deliver_payload",
+      "information_role": "Accuracy and cost in one beat.",
+      "hero_moment": true,
+      "texture_keywords": ["copper", "hologram grid"],
+      "required_assets": [
+        {"type": "image", "description": "Penny + grid still", "source": "generate"}
+      ]
+    },
+    {
+      "id": "sc4",
+      "type": "animation",
+      "description": "Latent-space spiral. Type: NO CHAIN OF THOUGHT / LATENT SPACE / THEN IT ANSWERS.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "script_section_id": "s4",
+      "framing": "centered vortex",
+      "movement": "Ken Burns zoom 1.00→1.16",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "No letters in the still — type is burned.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "zoom_in",
+        "lens_mm": 24,
+        "lighting_key": "volumetric",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Show thinking that is not a diary.",
+      "narrative_role": "evidence",
+      "information_role": "Mechanism in one line.",
+      "hero_moment": false,
+      "texture_keywords": ["particles", "god rays"],
+      "required_assets": [
+        {"type": "image", "description": "Spiral still", "source": "generate"}
+      ]
+    },
+    {
+      "id": "sc5",
+      "type": "text_card",
+      "description": "Vanishing GPU aisle, cyan spark at the far door. Type: THE GIANTS GOT / OUT-EFFICIENT / AUGUST 2026 / arxiv URL.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "script_section_id": "s5",
+      "framing": "central perspective aisle",
+      "movement": "Ken Burns zoom 1.00→1.10",
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_notes": "URL at 28.2s. Caption rail restates the line.",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "dolly_in",
+        "lens_mm": 24,
+        "lighting_key": "neon",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Land the contrast and give a readable CTA.",
+      "narrative_role": "call_to_action",
+      "information_role": "Giants lost the efficiency race this August.",
+      "hero_moment": false,
+      "texture_keywords": ["perspective", "cyan spark"],
+      "required_assets": [
+        {"type": "image", "description": "Aisle still", "source": "generate"},
+        {"type": "music", "description": "100 BPM dark bed through 30s", "source": "generate"}
+      ]
+    }
+  ],
+  "metadata": {
+    "aspect": "9:16",
+    "safe_zone": "900x1400 centered",
+    "scene_types_used": ["text_card", "diagram", "animation"]
+  }
+}

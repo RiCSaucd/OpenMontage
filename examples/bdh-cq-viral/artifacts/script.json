@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "title": "150 Million Parameters. That's It.",
+  "total_duration_seconds": 30,
+  "voice_performance": {
+    "performance_intent": "Captions ARE the voice. Slam, don't narrate. Each block is a punch, not a sentence scrolling past.",
+    "pacing_profile": "energetic",
+    "energy_curve": "Hook spike 0–2s, hold, stat spike 10s, mechanism 18s, smug land 24–30s",
+    "pause_policy": "Cut-point slams only. No empty frames without type after 0.5s.",
+    "sample_section_id": "s1"
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "Hook",
+      "text": "One hundred fifty million parameters. That's it.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "speaker_directions": "No VO. On-screen: 150 MILLION / PARAMETERS / THAT'S IT.",
+      "delivery_cues": {
+        "pace": "fast",
+        "energy": "interrupt",
+        "emphasis_words": ["150", "MILLION"],
+        "pause_after_seconds": 0.2,
+        "delivery_note": "Giant type in the first 0.5s."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "150 MILLION slam over cyan neural lattice",
+          "timestamp_seconds": 0
+        }
+      ],
+      "source_ref": "data_points: 150M-parameter claim"
+    },
+    {
+      "id": "s2",
+      "label": "Why now",
+      "text": "Hugging Face number-one trending paper of the last thirty days: BDH-CQ.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "speaker_directions": "On-screen: #1 TRENDING PAPER / LAST 30 DAYS / BDH-CQ / LATENT REASONING",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "authority",
+        "emphasis_words": ["BDH-CQ"],
+        "delivery_note": "Spell the name huge. Subline carries the Hub skill."
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "Ranked holographic cards, top card amber",
+          "timestamp_seconds": 4
+        }
+      ],
+      "source_ref": "hf_fs ls hf://papers/trending 2026-09-04"
+    },
+    {
+      "id": "s3",
+      "label": "The numbers",
+      "text": "Twenty-nine point five percent pass-at-two on public ARC-AGI-1. Cost: seven ten-thousandths of a dollar per task.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "speaker_directions": "On-screen: 29.5% / PASS@2 · ARC-AGI-1 / $0.0007 PER TASK / NEW COST FRONTIER",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "payload",
+        "emphasis_words": ["29.5%", "$0.0007"],
+        "delivery_note": "Giant percentage, then the price as the wink."
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "Penny + holographic 3x3 grid (cost vs puzzle)",
+          "timestamp_seconds": 10
+        }
+      ],
+      "source_ref": "arXiv 2608.09888 abstract"
+    },
+    {
+      "id": "s4",
+      "label": "Mechanism",
+      "text": "It does not dump a chain of thought. It thinks in latent space, then answers.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "speaker_directions": "On-screen: NO CHAIN OF THOUGHT / LATENT SPACE / THEN IT ANSWERS",
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "reveal",
+        "emphasis_words": ["LATENT SPACE"],
+        "delivery_note": "One idea. No equations."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Cyan/amber latent spiral, no letters in the still",
+          "timestamp_seconds": 18
+        }
+      ],
+      "source_ref": "BDH-CQ abstract: intermediate reasoning not decoded into language"
+    },
+    {
+      "id": "s5",
+      "label": "Land",
+      "text": "The giants got out-efficient. August twenty twenty-six.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "speaker_directions": "On-screen: THE GIANTS GOT / OUT-EFFICIENT / AUGUST 2026 / arxiv.org/abs/2608.09888",
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "smug close",
+        "emphasis_words": ["OUT-EFFICIENT"],
+        "pause_after_seconds": 0.4,
+        "delivery_note": "CTA is the arXiv URL, not a follow-for-part-two."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "Vanishing GPU aisle, tiny cyan spark at the far end",
+          "timestamp_seconds": 24
+        }
+      ],
+      "source_ref": "Pareto-frontier claim + publish date 2026-08-10"
+    }
+  ],
+  "metadata": {
+    "word_count": 71,
+    "target_words_30s": "70-80",
+    "platform": "tiktok/reels/shorts",
+    "caption_track": "examples/bdh-cq-viral/assets/captions.ass"
+  }
+}

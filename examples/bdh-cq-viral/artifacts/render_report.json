@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "examples/bdh-cq-viral/artifacts/bdh_cq_last30days_short.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 30,
+      "file_size_bytes": 37565044,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_time_seconds": 50,
+  "warnings": [
+    "Remotion runtime not available (empty remotion-composer/node_modules; npm TLS blocked).",
+    "HyperFrames runtime not available (npx registry unreachable).",
+    "Piper TTS not installed; captions are the voice.",
+    "Z-Image stills generated remotely but could not be downloaded (TLS reset to hf.space); procedural stills used instead."
+  ],
+  "verification_notes": [
+    "ffprobe: 1080x1920 yuv420p h264 High, 30 fps, 30.00s, AAC 44100 stereo.",
+    "Bitrate ~10.0 Mbps (within 8–15 Mbps Shorts spec).",
+    "Spot frames sampled at 0.3s, 12s, 20s, 27.5s — type readable, no black frames.",
+    "Caption rail at y=1480 sits above the 320px bottom dead zone (y=1600)."
+  ],
+  "render_grammar": "explainer-data",
+  "slideshow_risk_score": {
+    "average": 0.34,
+    "verdict": "acceptable"
+  },
+  "decision_log_ref": "examples/bdh-cq-viral/artifacts/decision_log.json",
+  "final_review_ref": "examples/bdh-cq-viral/artifacts/final_review.json",
+  "metadata": {
+    "render_runtime_used": "ffmpeg",
+    "compose_script": "examples/bdh-cq-viral/scripts/render_short.py"
+  }
+}
