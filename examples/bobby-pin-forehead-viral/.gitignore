@@ -1,0 +1,6 @@
+# Regenerable media — re-run scripts/render_short.py
+assets/
+artifacts/*.mp4
+artifacts/*.png
+artifacts/*.jpg
+artifacts/*.jpeg

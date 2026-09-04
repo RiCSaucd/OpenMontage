@@ -1,0 +1,176 @@
+{
+  "version": "1.0",
+  "style_playbook": "flat-motion-graphics",
+  "scenes": [
+    {
+      "id": "sc1",
+      "type": "text_card",
+      "description": "Cream paper, skin oval, brass bobby pin on the flat center. Slam: STICK THIS / ON YOUR FOREHEAD / TRY IT. Caption: A bobby pin. Dead center.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "script_section_id": "s1",
+      "framing": "Centered 9:16; pin in the 900x1400 safe zone",
+      "movement": "Ken Burns slow zoom 1.00→1.12",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "ASS Hook/Giant/Brass + Cap at y=1480",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "high_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Dare the viewer to try the experiment before explaining it",
+      "narrative_role": "introduce_subject",
+      "information_role": "Name the object and the placement",
+      "hero_moment": true,
+      "texture_keywords": ["paper grain", "brass glow", "cream"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Procedural bobby-pin still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc2",
+      "type": "diagram",
+      "description": "Two cream cards with coral X marks — no glue, no tape. Type: IT STAYS / NO GLUE / NO TAPE.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "script_section_id": "s2",
+      "framing": "Twin icons left/right of center, above caption rail",
+      "movement": "Ken Burns zoom 1.00→1.10",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Mint NO TAPE at 7s",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Prove there is no adhesive before the myth beat",
+      "narrative_role": "build_tension",
+      "information_role": "It stays without glue or tape; people escalate to forks",
+      "hero_moment": false,
+      "texture_keywords": ["graphic X", "mint wash"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Crossed-out glue/tape cards",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc3",
+      "type": "diagram",
+      "description": "Warm-navy wash, white eye, coral magnet bar, big X. Type: NOT YOUR / THIRD EYE / NOT A MAGNET.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "script_section_id": "s3",
+      "framing": "Centered myth glyph; captions stay in safe zone",
+      "movement": "Ken Burns zoom 1.00→1.14",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Coral NOT A MAGNET at 13.4s",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "medium",
+        "color_temperature": "mixed"
+      },
+      "shot_intent": "Kill the magnetic third-eye caption",
+      "narrative_role": "deliver_payload",
+      "information_role": "Brain EMF cannot hold a pin",
+      "hero_moment": true,
+      "texture_keywords": ["coral X", "navy wash"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Eye + magnet + X still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc4",
+      "type": "diagram",
+      "description": "Mint sebum droplet and brass surface-tension ring. Type: IT'S OIL / SEBUM / PLUS SURFACE TENSION.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "script_section_id": "s4",
+      "framing": "Centered droplet above caption rail",
+      "movement": "Ken Burns zoom 1.00→1.10",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Giant SEBUM at 19.4s",
+      "shot_language": {
+        "shot_size": "insert",
+        "camera_movement": "zoom_in",
+        "lens_mm": 85,
+        "lighting_key": "high_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Replace mysticism with mechanism",
+      "narrative_role": "evidence",
+      "information_role": "Sebum + surface tension; flatter center wins",
+      "hero_moment": false,
+      "texture_keywords": ["mint droplet", "brass ring"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Oil-drop still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc5",
+      "type": "text_card",
+      "description": "Navy field, cream rounded card, brass badge. Type: A PHYSICIST / SAID SO / SEPT 2026. Caption: Your forehead is just sticky.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "script_section_id": "s5",
+      "framing": "Card centered; no face; date in brass",
+      "movement": "Ken Burns zoom 1.00→1.12",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Brass SEPT 2026 at 27s",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Attribute the science to a named physicist this week",
+      "narrative_role": "resolution",
+      "information_role": "Authority + date + sticky closer",
+      "hero_moment": false,
+      "texture_keywords": ["navy", "cream card", "brass badge"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "Physicist card still",
+          "source": "generate"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "safe_zone": "900x1400",
+    "caption_rail_y": 1480,
+    "palette": "cream/brass/navy/mint/coral"
+  }
+}

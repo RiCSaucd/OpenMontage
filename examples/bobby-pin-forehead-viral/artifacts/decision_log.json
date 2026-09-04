@@ -1,0 +1,221 @@
+{
+  "version": "1.0",
+  "project_id": "bobby-pin-forehead-viral-2026-09-04",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "research",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline for a 30s trending short",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "animated-explainer",
+          "score": 0.94,
+          "reason": "Generated short from researched trend; research → proposal → kinetic compose."
+        },
+        {
+          "option_id": "cinematic",
+          "label": "cinematic",
+          "score": 0.25,
+          "reason": "Needs licensed footage of faces and trailers.",
+          "rejected_because": "No source footage."
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "User asked for another trending YouTube/TikTok short. Explainer + short-form.md.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Which live story is the A-story",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "It's oil, not a chakra (bobby pin forehead)",
+          "score": 0.93,
+          "reason": "This week's stitchable TikTok/YouTube experiment with a named physicist."
+        },
+        {
+          "option_id": "c2",
+          "label": "A trailer you can fight (Street Fighter Playables)",
+          "score": 0.62,
+          "reason": "Real YouTube product news Sep 1–2.",
+          "rejected_because": "Needs licensed trailer footage we cannot use."
+        },
+        {
+          "option_id": "c3",
+          "label": "Say gnocchi (Illiterate Boyfriend)",
+          "score": 0.4,
+          "reason": "Viral dating-discourse clips.",
+          "rejected_because": "Punching-down gender-war bait."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Works as mute-first stills, is actually stitching this week, and is not the ghost-creators story.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.88
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime for the 9:16 short",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React scene stack)",
+          "score": 0.48,
+          "reason": "Would own karaoke captions if installed.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/CSS/GSAP)",
+          "score": 0.64,
+          "reason": "Best kinetic type for STICK THIS / IT'S OIL.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg Ken Burns + ASS + generated bed",
+          "score": 0.86,
+          "reason": "ffmpeg 6.1.1 is present. Can ship 1080x1920 / 30s with no keys."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Both Remotion and HyperFrames were evaluated. Neither is on this machine. ffmpeg locked at proposal.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.93
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Templated vs atelier",
+      "options_considered": [
+        {
+          "option_id": "templated",
+          "label": "Templated ffmpeg kinetic type",
+          "score": 0.84,
+          "reason": "Locked ffmpeg runtime."
+        },
+        {
+          "option_id": "atelier",
+          "label": "Hand-authored Remotion/HyperFrames",
+          "score": 0.28,
+          "reason": "No JS runtime.",
+          "rejected_because": "Cannot render atelier without Remotion/HyperFrames."
+        }
+      ],
+      "selected": "templated",
+      "reason": "Runtime is ffmpeg.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "renderer_family_selection",
+      "subject": "Creative grammar",
+      "options_considered": [
+        {
+          "option_id": "explainer-data",
+          "label": "explainer-data",
+          "score": 0.88,
+          "reason": "Myth vs mechanism: third eye vs sebum."
+        },
+        {
+          "option_id": "explainer-teacher",
+          "label": "explainer-teacher",
+          "score": 0.32,
+          "reason": "No presenter.",
+          "rejected_because": "Wrong grammar for mute Shorts."
+        }
+      ],
+      "selected": "explainer-data",
+      "reason": "Stat/myth slams, not a chalkboard.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper local TTS",
+          "score": 0.32,
+          "reason": "Repo zero-key voice.",
+          "rejected_because": "Piper not installed."
+        },
+        {
+          "option_id": "captions_only",
+          "label": "Captions + music bed",
+          "score": 0.82,
+          "reason": "85% watch muted; honest given no TTS."
+        }
+      ],
+      "selected": "captions_only",
+      "reason": "No TTS on this machine. Captions are the voice.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.84
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pixabay",
+          "label": "Pixabay stock",
+          "score": 0.22,
+          "reason": "Usual zero-key bed.",
+          "rejected_because": "Stock hosts not reachable."
+        },
+        {
+          "option_id": "procedural",
+          "label": "100 BPM curious tick",
+          "score": 0.83,
+          "reason": "Lighter than the ghost-creators news bed. Starts at frame 0."
+        }
+      ],
+      "selected": "procedural",
+      "reason": "Need immediate bed; cannot download stock.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Style playbook",
+      "options_considered": [
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "Flat Motion Graphics (cream/brass science override)",
+          "score": 0.86,
+          "reason": "Social explainer playbook; palette swapped so it does not reuse red/ink or cyan."
+        }
+      ],
+      "selected": "flat-motion-graphics",
+      "reason": "Recommended social playbook with a documented cream/brass override.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.8
+    }
+  ]
+}

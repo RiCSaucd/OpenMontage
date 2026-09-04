@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "output_path": "examples/bobby-pin-forehead-viral/artifacts/bobby_pin_forehead_viral_short.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 30.0,
+      "resolution": "1080x1920",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 37745116,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 4,
+      "frame_paths": [
+        "examples/bobby-pin-forehead-viral/artifacts/frame_hook.png",
+        "examples/bobby-pin-forehead-viral/artifacts/frame_stick.png",
+        "examples/bobby-pin-forehead-viral/artifacts/frame_myth.png",
+        "examples/bobby-pin-forehead-viral/artifacts/frame_end.png"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": false,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": [
+        "No spoken VO — captions_only was locked at proposal because Piper is not installed."
+      ]
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "explainer-data",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "runtime_swap_check": "ok — proposal_packet.lock render_runtime=ffmpeg; compose ran ffmpeg; no silent swap",
+      "motion_ratio_actual": 0.35,
+      "silent_downgrade_detected": false,
+      "issues": []
+    },
+    "subtitle_check": {
+      "subtitles_expected": true,
+      "subtitles_present": true,
+      "coverage_ratio": 1.0,
+      "timing_drift_detected": false,
+      "issues": []
+    },
+    "transcript_comparison": {
+      "transcript_matches_script": null,
+      "word_accuracy": null,
+      "issues": [
+        "No ASR on this machine; captions were compared visually to script.json"
+      ]
+    }
+  },
+  "issues_found": [],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "reviewed_at": "2026-09-04T21:23:00Z"
+  }
+}

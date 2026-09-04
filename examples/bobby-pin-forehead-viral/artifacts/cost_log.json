@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "budget_total_usd": 0,
+  "budget_reserved_usd": 0,
+  "budget_spent_usd": 0,
+  "entries": [
+    {
+      "id": "c-001",
+      "tool": "numpy_stills",
+      "operation": "Five 1080x1920 procedural stills",
+      "status": "completed",
+      "estimated_usd": 0,
+      "reserved_usd": 0,
+      "actual_usd": 0,
+      "timestamp": "2026-09-04T21:20:00Z",
+      "details": "Local numpy; no FLUX/Grok"
+    },
+    {
+      "id": "c-002",
+      "tool": "procedural_music",
+      "operation": "100 BPM 30s stereo bed",
+      "status": "completed",
+      "estimated_usd": 0,
+      "reserved_usd": 0,
+      "actual_usd": 0,
+      "timestamp": "2026-09-04T21:20:10Z",
+      "details": "Generated WAV + loudnorm"
+    },
+    {
+      "id": "c-003",
+      "tool": "ffmpeg",
+      "operation": "Ken Burns concat + ASS + AAC mux",
+      "status": "completed",
+      "estimated_usd": 0,
+      "reserved_usd": 0,
+      "actual_usd": 0,
+      "timestamp": "2026-09-04T21:21:00Z",
+      "details": "ffmpeg 6.1.1 local"
+    }
+  ],
+  "metadata": {
+    "project_id": "bobby-pin-forehead-viral-2026-09-04"
+  }
+}
