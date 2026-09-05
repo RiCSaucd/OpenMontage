@@ -10,7 +10,7 @@
       "options_considered": [
         {
           "option_id": "netflix-documentary-coffee",
-          "label": "Netflix Documentary parody — Chapter One: The Pour",
+          "label": "Netflix Documentary parody \u2014 Chapter One: The Pour",
           "score": 0.92,
           "reason": "Matches July 2026 TikTok/Reels trend; strong hook; zero-cost motion-graphics cuts"
         },
@@ -112,6 +112,65 @@
       "user_visible": true,
       "user_approved": false,
       "confidence": 0.95
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "compose",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion templated explainer-data",
+          "score": 0.42,
+          "reason": "Preferred path when node_modules exist.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames GSAP composition",
+          "score": 0.28,
+          "reason": "Would own kinetic type.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg Ken Burns + ASS + generated bed",
+          "score": 0.88,
+          "reason": "ffmpeg 6.1.1 is present. Can ship 1080x1920 / 30s with no keys."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Remotion and HyperFrames were evaluated. Neither is installed here. ffmpeg locked.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.93
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "compose",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper en_US-lessac-medium (local)",
+          "score": 0.3,
+          "reason": "Script default.",
+          "rejected_because": "Piper binary and lessac model are not on this machine"
+        },
+        {
+          "option_id": "captions_only",
+          "label": "Captions + documentary bed",
+          "score": 0.82,
+          "reason": "Mute-first Shorts; honest given no TTS."
+        }
+      ],
+      "selected": "captions_only",
+      "reason": "No Piper. Burned-in captions are the voice.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.86
     }
   ]
 }
