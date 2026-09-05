@@ -216,6 +216,32 @@
       "user_visible": true,
       "user_approved": true,
       "confidence": 0.8
+    },
+    {
+      "decision_id": "d-009",
+      "stage": "edit",
+      "category": "motion_commitment",
+      "subject": "Short-form visual-change frequency",
+      "options_considered": [
+        {
+          "option_id": "five_holds",
+          "label": "Five 4–8s Ken Burns holds",
+          "score": 0.38,
+          "reason": "First pass. Readable, but static holds longer than short-form.md's 3s max.",
+          "rejected_because": "Average visual change ~6s; Shorts want 1–3s."
+        },
+        {
+          "option_id": "ten_cuts",
+          "label": "Ten hard cuts synced to caption pops",
+          "score": 0.9,
+          "reason": "2.0–3.5s cuts (one 4.5s magnet payoff). Hook type on frame 1. Mix to -14 LUFS."
+        }
+      ],
+      "selected": "ten_cuts",
+      "reason": "Continue-working quality pass against skills/creative/short-form.md pacing rules.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.86
     }
   ]
 }

@@ -17,23 +17,23 @@ Style: Cap,Inter,36,&H00FFFFFF,&H000000FF,&HAA1C2117,&H78000000,1,0,0,0,100,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:04.00,Giant,,0,0,0,,{\pos(540,600)\fad(70,120)\t(0,200,\fscx108\fscy108)}STICK THIS
-Dialogue: 0,0:00:00.70,0:00:04.00,Hook,,0,0,0,,{\pos(540,760)\fad(80,120)}ON YOUR FOREHEAD
-Dialogue: 0,0:00:02.00,0:00:04.00,Brass,,0,0,0,,{\pos(540,920)\fad(80,120)}TRY IT
-Dialogue: 0,0:00:00.00,0:00:04.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}A bobby pin. Dead center.
-Dialogue: 0,0:00:04.00,0:00:10.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}IT STAYS
-Dialogue: 0,0:00:05.00,0:00:10.00,Giant,,0,0,0,,{\pos(540,720)\fad(80,120)}NO GLUE
-Dialogue: 0,0:00:07.00,0:00:10.00,Mint,,0,0,0,,{\pos(540,900)\fad(80,120)}NO TAPE
-Dialogue: 0,0:00:04.00,0:00:10.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}People are using forks next.
-Dialogue: 0,0:00:10.00,0:00:18.00,Hook,,0,0,0,,{\pos(540,540)\fad(60,120)}NOT YOUR
-Dialogue: 0,0:00:11.00,0:00:18.00,Giant,,0,0,0,,{\pos(540,700)\fad(80,120)}THIRD EYE
-Dialogue: 0,0:00:13.40,0:00:18.00,Coral,,0,0,0,,{\pos(540,880)\fad(80,120)}NOT A MAGNET
-Dialogue: 0,0:00:10.00,0:00:18.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}Your brain field is way too weak.
-Dialogue: 0,0:00:18.00,0:00:24.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}IT'S OIL
-Dialogue: 0,0:00:19.40,0:00:24.00,Giant,,0,0,0,,{\pos(540,740)\fad(80,120)}SEBUM
-Dialogue: 0,0:00:21.20,0:00:24.00,Mint,,0,0,0,,{\pos(540,920)\fad(80,80)}PLUS SURFACE TENSION
-Dialogue: 0,0:00:18.00,0:00:24.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}The flat center of your forehead wins.
-Dialogue: 0,0:00:24.00,0:00:30.00,Hook,,0,0,0,,{\pos(540,560)\fad(60,120)}A PHYSICIST
-Dialogue: 0,0:00:25.20,0:00:30.00,Giant,,0,0,0,,{\pos(540,720)\fad(80,120)}SAID SO
-Dialogue: 0,0:00:27.00,0:00:30.00,Brass,,0,0,0,,{\pos(540,900)\fad(80,80)}SEPT 2026
-Dialogue: 0,0:00:24.00,0:00:30.00,Cap,,0,0,0,,{\pos(540,1480)\fad(80,80)}Your forehead is just sticky.
+Dialogue: 0,0:00:00.00,0:00:02.00,Giant,,0,0,0,,{\pos(540,600)\fad(40,80)\t(0,160,\fscx110\fscy110)}STICK THIS
+Dialogue: 0,0:00:00.00,0:00:02.00,Hook,,0,0,0,,{\pos(540,760)\fad(40,80)}ON YOUR FOREHEAD
+Dialogue: 0,0:00:00.00,0:00:04.00,Cap,,0,0,0,,{\pos(540,1480)\fad(40,80)}A bobby pin. Dead center.
+Dialogue: 0,0:00:02.00,0:00:04.00,Giant,,0,0,0,,{\pos(540,640)\fad(40,80)\t(0,160,\fscx110\fscy110)}TRY IT
+Dialogue: 0,0:00:04.00,0:00:07.00,Giant,,0,0,0,,{\pos(540,600)\fad(40,80)}IT STAYS
+Dialogue: 0,0:00:04.00,0:00:10.00,Cap,,0,0,0,,{\pos(540,1480)\fad(40,80)}People are using forks next.
+Dialogue: 0,0:00:07.00,0:00:10.00,Giant,,0,0,0,,{\pos(540,560)\fad(40,80)}NO GLUE
+Dialogue: 0,0:00:08.20,0:00:10.00,Mint,,0,0,0,,{\pos(540,900)\fad(40,80)}NO TAPE
+Dialogue: 0,0:00:10.00,0:00:13.50,Hook,,0,0,0,,{\pos(540,540)\fad(40,80)}NOT YOUR
+Dialogue: 0,0:00:10.80,0:00:13.50,Giant,,0,0,0,,{\pos(540,700)\fad(40,80)}THIRD EYE
+Dialogue: 0,0:00:10.00,0:00:18.00,Cap,,0,0,0,,{\pos(540,1480)\fad(40,80)}Your brain field is way too weak.
+Dialogue: 0,0:00:13.50,0:00:18.00,Coral,,0,0,0,,{\pos(540,700)\fad(40,80)\t(0,180,\fscx108\fscy108)}NOT A MAGNET
+Dialogue: 0,0:00:18.00,0:00:21.00,Giant,,0,0,0,,{\pos(540,600)\fad(40,80)}IT'S OIL
+Dialogue: 0,0:00:19.00,0:00:21.00,Mint,,0,0,0,,{\pos(540,760)\fad(40,80)}SEBUM
+Dialogue: 0,0:00:18.00,0:00:24.00,Cap,,0,0,0,,{\pos(540,1480)\fad(40,80)}The flat center of your forehead wins.
+Dialogue: 0,0:00:21.00,0:00:24.00,Mint,,0,0,0,,{\pos(540,720)\fad(40,80)}PLUS SURFACE TENSION
+Dialogue: 0,0:00:24.00,0:00:27.00,Hook,,0,0,0,,{\pos(540,560)\fad(40,80)}A PHYSICIST
+Dialogue: 0,0:00:24.80,0:00:27.00,Giant,,0,0,0,,{\pos(540,720)\fad(40,80)}SAID SO
+Dialogue: 0,0:00:24.00,0:00:30.00,Cap,,0,0,0,,{\pos(540,1480)\fad(40,80)}Your forehead is just sticky.
+Dialogue: 0,0:00:27.00,0:00:30.00,Brass,,0,0,0,,{\pos(540,720)\fad(40,80)\t(0,180,\fscx112\fscy112)}SEPT 2026

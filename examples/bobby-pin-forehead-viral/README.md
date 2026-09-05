@@ -12,6 +12,8 @@ Mute-first 9:16 myth-bust of this week's TikTok/YouTube challenge: stick a bobby
 
 Locked at proposal: **ffmpeg**. Remotion and HyperFrames were considered and are not on this machine. Captions are the voice.
 
+Quality pass: ten hard cuts (about every 2–3.5s), hook type on frame 1, mix at **-14 LUFS**.
+
 ```bash
 python3 examples/bobby-pin-forehead-viral/scripts/render_short.py
 ```

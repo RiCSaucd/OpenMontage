@@ -1,91 +1,16 @@
 {
   "version": "1.0",
   "cuts": [
-    {
-      "id": "cut-1",
-      "source": "img-pin",
-      "in_seconds": 0,
-      "out_seconds": 4,
-      "speed": 1.0,
-      "layer": "primary",
-      "transform": {
-        "scale": 1.0,
-        "position": "center",
-        "animation": "ken-burns-slow-zoom"
-      },
-      "transition_in": "cut",
-      "transition_out": "cut",
-      "transition_duration": 0,
-      "reason": "Hook still — pin on forehead"
-    },
-    {
-      "id": "cut-2",
-      "source": "img-stick",
-      "in_seconds": 0,
-      "out_seconds": 6,
-      "speed": 1.0,
-      "layer": "primary",
-      "transform": {
-        "scale": 1.0,
-        "position": "center",
-        "animation": "ken-burns-slow-zoom"
-      },
-      "transition_in": "cut",
-      "transition_out": "cut",
-      "transition_duration": 0,
-      "reason": "No-glue / no-tape proof"
-    },
-    {
-      "id": "cut-3",
-      "source": "img-myth",
-      "in_seconds": 0,
-      "out_seconds": 8,
-      "speed": 1.0,
-      "layer": "primary",
-      "transform": {
-        "scale": 1.0,
-        "position": "center",
-        "animation": "ken-burns-slow-zoom"
-      },
-      "transition_in": "cut",
-      "transition_out": "cut",
-      "transition_duration": 0,
-      "reason": "Third-eye / magnet bust"
-    },
-    {
-      "id": "cut-4",
-      "source": "img-oil",
-      "in_seconds": 0,
-      "out_seconds": 6,
-      "speed": 1.0,
-      "layer": "primary",
-      "transform": {
-        "scale": 1.0,
-        "position": "center",
-        "animation": "ken-burns-slow-zoom"
-      },
-      "transition_in": "cut",
-      "transition_out": "cut",
-      "transition_duration": 0,
-      "reason": "Sebum + surface tension reveal"
-    },
-    {
-      "id": "cut-5",
-      "source": "img-phys",
-      "in_seconds": 0,
-      "out_seconds": 6,
-      "speed": 1.0,
-      "layer": "primary",
-      "transform": {
-        "scale": 1.0,
-        "position": "center",
-        "animation": "ken-burns-slow-zoom"
-      },
-      "transition_in": "cut",
-      "transition_out": "cut",
-      "transition_duration": 0,
-      "reason": "Physicist closer, Sept 2026"
-    }
+    {"id": "cut-1", "source": "img-pin", "in_seconds": 0, "out_seconds": 2, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-punch-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Hook still"},
+    {"id": "cut-2", "source": "img-pin-tight", "in_seconds": 0, "out_seconds": 2, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-punch-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "TRY IT insert"},
+    {"id": "cut-3", "source": "img-fork", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Fork escalation"},
+    {"id": "cut-4", "source": "img-stick", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "No glue / no tape"},
+    {"id": "cut-5", "source": "img-eye", "in_seconds": 0, "out_seconds": 3.5, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-punch-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Third-eye bust"},
+    {"id": "cut-6", "source": "img-magnet", "in_seconds": 0, "out_seconds": 4.5, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Magnet bust payoff"},
+    {"id": "cut-7", "source": "img-oil", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Sebum reveal"},
+    {"id": "cut-8", "source": "img-tension", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Surface tension"},
+    {"id": "cut-9", "source": "img-phys", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Physicist card"},
+    {"id": "cut-10", "source": "img-date", "in_seconds": 0, "out_seconds": 3, "speed": 1.0, "layer": "primary", "transform": {"scale": 1.0, "position": "center", "animation": "ken-burns-slow-zoom"}, "transition_in": "cut", "transition_out": "cut", "transition_duration": 0, "reason": "Sept 2026 closer"}
   ],
   "overlays": [
     {
@@ -98,9 +23,7 @@
     }
   ],
   "audio": {
-    "narration": {
-      "segments": []
-    },
+    "narration": {"segments": []},
     "music": {
       "asset_id": "mus-bed",
       "volume": 0.82,
@@ -123,20 +46,27 @@
     "max_words_per_line": 8
   },
   "transitions": [
+    {"type": "cut", "at_seconds": 2, "duration_seconds": 0},
     {"type": "cut", "at_seconds": 4, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 7, "duration_seconds": 0},
     {"type": "cut", "at_seconds": 10, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 13.5, "duration_seconds": 0},
     {"type": "cut", "at_seconds": 18, "duration_seconds": 0},
-    {"type": "cut", "at_seconds": 24, "duration_seconds": 0}
+    {"type": "cut", "at_seconds": 21, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 24, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 27, "duration_seconds": 0}
   ],
   "renderer_family": "explainer-data",
   "render_runtime": "ffmpeg",
   "composition_mode": "templated",
   "slideshow_risk_score": {
-    "average": 0.42,
+    "average": 0.28,
     "verdict": "acceptable"
   },
   "metadata": {
     "ken_burns": true,
-    "captions_are_voice": true
+    "captions_are_voice": true,
+    "cuts": 10,
+    "target_lufs": -14
   }
 }

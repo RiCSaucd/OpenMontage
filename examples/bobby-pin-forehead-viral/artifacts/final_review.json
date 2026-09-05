@@ -10,15 +10,17 @@
       "fps": 30,
       "has_audio": true,
       "codec": "h264",
-      "file_size_bytes": 37745116,
+      "file_size_bytes": 37958125,
       "issues": []
     },
     "visual_spotcheck": {
-      "frames_sampled": 4,
+      "frames_sampled": 6,
       "frame_paths": [
         "examples/bobby-pin-forehead-viral/artifacts/frame_hook.png",
+        "examples/bobby-pin-forehead-viral/artifacts/frame_fork.png",
         "examples/bobby-pin-forehead-viral/artifacts/frame_stick.png",
         "examples/bobby-pin-forehead-viral/artifacts/frame_myth.png",
+        "examples/bobby-pin-forehead-viral/artifacts/frame_oil.png",
         "examples/bobby-pin-forehead-viral/artifacts/frame_end.png"
       ],
       "black_frames_detected": false,
@@ -34,7 +36,7 @@
       "clipping_detected": false,
       "mix_intelligible": true,
       "issues": [
-        "No spoken VO — captions_only was locked at proposal because Piper is not installed."
+        "No spoken VO — captions_only was locked at proposal because Piper is not installed. Integrated loudness -14.4 LUFS."
       ]
     },
     "promise_preservation": {
@@ -43,7 +45,7 @@
       "render_runtime_used": "ffmpeg",
       "runtime_swap_detected": false,
       "runtime_swap_check": "ok — proposal_packet.lock render_runtime=ffmpeg; compose ran ffmpeg; no silent swap",
-      "motion_ratio_actual": 0.35,
+      "motion_ratio_actual": 0.52,
       "silent_downgrade_detected": false,
       "issues": []
     },
@@ -65,6 +67,7 @@
   "issues_found": [],
   "recommended_action": "present_to_user",
   "metadata": {
-    "reviewed_at": "2026-09-04T21:23:00Z"
+    "reviewed_at": "2026-09-05T14:17:00Z",
+    "quality_pass": "ten_cuts_lufs14"
   }
 }

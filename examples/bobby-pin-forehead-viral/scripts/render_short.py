@@ -67,26 +67,66 @@ def rounded_rect_mask(cy: float, cx: float, h: float, w: float, radius: float) -
     return np.clip(1.0 - dist / 2.5, 0.0, 1.0).astype(np.float32)
 
 
+def _draw_pin(img: np.ndarray, cx: float, cy: float, scale: float) -> None:
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    half = 8.0 * scale
+    span = 95.0 * scale
+    gap = 22.0 * scale
+    bar = ((np.abs(xx - cx) < half) & (np.abs(yy - cy) < span)).astype(np.float32)
+    bar2 = ((np.abs(xx - (cx + gap)) < half) & (np.abs(yy - cy) < span)).astype(np.float32)
+    r_end = 14.0 * scale
+    d1 = np.sqrt((xx - cx) ** 2 + (yy - (cy - span)) ** 2)
+    d2 = np.sqrt((xx - (cx + gap)) ** 2 + (yy - (cy - span)) ** 2)
+    d3 = np.sqrt((xx - (cx + gap * 0.5)) ** 2 + (yy - (cy + span + 4 * scale)) ** 2)
+    ends = ((d1 < r_end) | (d2 < r_end) | (d3 < r_end + 2)).astype(np.float32)
+    pin = np.clip(bar + bar2 + ends, 0, 1)
+    img += pin[:, :, None] * (BRASS - img) * 0.92
+    add_glow(img, cy, cx + gap * 0.45, BRASS, 90.0 * scale, 0.28)
+
+
 def still_pin() -> np.ndarray:
     img = np.broadcast_to(CREAM, (H, W, 3)).copy()
     yy = np.arange(H, dtype=np.float32)[:, None]
     xx = np.arange(W, dtype=np.float32)[None, :]
-    # forehead oval
     face = np.exp(-(((yy - H * 0.52) / 420) ** 2 + ((xx - W * 0.5) / 280) ** 2))
     img += face[:, :, None] * (SKIN - CREAM) * 0.95
-    # pin: two parallel brass bars + rounded ends
-    cx, cy = W * 0.5, H * 0.46
-    bar = ((np.abs(xx - cx) < 8) & (np.abs(yy - cy) < 95)).astype(np.float32)
-    bar2 = ((np.abs(xx - (cx + 22)) < 8) & (np.abs(yy - cy) < 95)).astype(np.float32)
-    d1 = np.sqrt((xx - cx) ** 2 + (yy - (cy - 92)) ** 2)
-    d2 = np.sqrt((xx - (cx + 22)) ** 2 + (yy - (cy - 92)) ** 2)
-    d3 = np.sqrt((xx - (cx + 11)) ** 2 + (yy - (cy + 96)) ** 2)
-    ends = ((d1 < 14) | (d2 < 14) | (d3 < 16)).astype(np.float32)
-    pin = np.clip(bar + bar2 + ends, 0, 1)
-    img += pin[:, :, None] * (BRASS - img) * 0.92
-    add_glow(img, cy, cx + 10, BRASS, 90.0, 0.28)
+    _draw_pin(img, W * 0.5, H * 0.46, 1.0)
     img *= vignette()[:, :, None]
     img += grain(2)
+    return np.clip(img, 0, 1)
+
+
+def still_pin_tight() -> np.ndarray:
+    img = np.broadcast_to(CREAM * 0.96, (H, W, 3)).copy()
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    face = np.exp(-(((yy - H * 0.50) / 360) ** 2 + ((xx - W * 0.5) / 240) ** 2))
+    img += face[:, :, None] * (SKIN - CREAM) * 1.05
+    _draw_pin(img, W * 0.48, H * 0.44, 1.55)
+    img *= vignette()[:, :, None]
+    img += grain(5)
+    return np.clip(img, 0, 1)
+
+
+def still_fork() -> np.ndarray:
+    img = np.broadcast_to(CREAM * 0.94 + BRASS * 0.04, (H, W, 3)).copy()
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    cx, cy = W * 0.5, H * 0.50
+    handle = ((np.abs(xx - cx) < 16) & (yy > cy + 20) & (yy < cy + 260)).astype(np.float32)
+    neck = ((np.abs(xx - cx) < 28) & (np.abs(yy - (cy + 10)) < 28)).astype(np.float32)
+    tines = np.zeros((H, W), dtype=np.float32)
+    for dx in (-36, -12, 12, 36):
+        tines = np.maximum(
+            tines,
+            ((np.abs(xx - (cx + dx)) < 9) & (yy > cy - 210) & (yy < cy + 20)).astype(np.float32),
+        )
+    fork = np.clip(handle + neck + tines, 0, 1)
+    img += fork[:, :, None] * (BRASS - img) * 0.9
+    add_glow(img, cy - 40, cx, BRASS, 140.0, 0.22)
+    img *= vignette()[:, :, None]
+    img += grain(11)
     return np.clip(img, 0, 1)
 
 
@@ -114,41 +154,65 @@ def still_stick() -> np.ndarray:
     return np.clip(img, 0, 1)
 
 
-def still_myth() -> np.ndarray:
-    img = np.broadcast_to(NAVY * 0.35 + CREAM * 0.65, (H, W, 3)).copy()
+def _big_x(img: np.ndarray, cx: float, cy: float, span: float, thickness: float) -> None:
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    d1 = np.abs((yy - cy) - 0.85 * (xx - cx))
+    d2 = np.abs((yy - cy) + 0.85 * (xx - cx))
+    xmark = ((np.minimum(d1, d2) < thickness) & (np.abs(xx - cx) < span) & (np.abs(yy - cy) < span)).astype(np.float32)
+    img += xmark[:, :, None] * CORAL * 0.92
+
+
+def still_eye() -> np.ndarray:
+    img = np.broadcast_to(NAVY * 0.28 + CREAM * 0.72, (H, W, 3)).copy()
     yy = np.arange(H, dtype=np.float32)[:, None]
     xx = np.arange(W, dtype=np.float32)[None, :]
     cx, cy = W * 0.5, H * 0.48
     d = np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2)
-    # eye
-    eye = np.clip((160 - d) / 6.0, 0, 1)
-    pupil = np.clip((48 - d) / 3.0, 0, 1)
-    img += eye[:, :, None] * WHITE * 0.55
-    img += pupil[:, :, None] * NAVY * 0.85
-    # magnet U below
-    mag = rounded_rect_mask(H * 0.68, W * 0.5, 120, 220, 18)
-    img += mag[:, :, None] * CORAL * 0.35
-    # big X
-    d1 = np.abs((yy - cy) - 0.85 * (xx - cx))
-    d2 = np.abs((yy - cy) + 0.85 * (xx - cx))
-    xmark = ((np.minimum(d1, d2) < 10.0) & (np.abs(xx - cx) < 210) & (np.abs(yy - cy) < 210)).astype(np.float32)
-    img += xmark[:, :, None] * CORAL * 0.9
-    add_glow(img, cy, cx, CORAL, 160.0, 0.16)
+    eye = np.clip((170 - d) / 6.0, 0, 1)
+    pupil = np.clip((52 - d) / 3.0, 0, 1)
+    img += eye[:, :, None] * WHITE * 0.6
+    img += pupil[:, :, None] * NAVY * 0.88
+    _big_x(img, cx, cy, 200.0, 11.0)
+    add_glow(img, cy, cx, CORAL, 150.0, 0.14)
     img *= vignette()[:, :, None]
     img += grain(3)
     return np.clip(img, 0, 1)
+
+
+def still_magnet() -> np.ndarray:
+    img = np.broadcast_to(NAVY * 0.55 + CREAM * 0.45, (H, W, 3)).copy()
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    cx, cy = W * 0.5, H * 0.50
+    outer = rounded_rect_mask(cy, cx, 340, 280, 40)
+    inner = rounded_rect_mask(cy - 30, cx, 220, 140, 28)
+    mag = np.clip(outer - inner, 0, 1)
+    poles = (
+        ((np.abs(xx - (cx - 70)) < 40) & (np.abs(yy - (cy + 130)) < 36))
+        | ((np.abs(xx - (cx + 70)) < 40) & (np.abs(yy - (cy + 130)) < 36))
+    ).astype(np.float32)
+    img += mag[:, :, None] * (CORAL - img) * 0.72
+    img += poles[:, :, None] * (WHITE - img) * 0.55
+    _big_x(img, cx, cy, 230.0, 12.0)
+    add_glow(img, cy, cx, CORAL, 170.0, 0.18)
+    img *= vignette()[:, :, None]
+    img += grain(13)
+    return np.clip(img, 0, 1)
+
+
+def still_myth() -> np.ndarray:
+    return still_eye()
 
 
 def still_oil() -> np.ndarray:
     img = np.broadcast_to(CREAM, (H, W, 3)).copy()
     yy = np.arange(H, dtype=np.float32)[:, None]
     xx = np.arange(W, dtype=np.float32)[None, :]
-    # droplet
     drop = np.exp(-(((yy - H * 0.46) / 210) ** 2 + ((xx - W * 0.5) / 130) ** 2))
     img += drop[:, :, None] * (MINT - CREAM) * 0.55
     shine = np.exp(-(((yy - H * 0.40) / 40) ** 2 + ((xx - W * 0.46) / 22) ** 2))
     img += shine[:, :, None] * WHITE * 0.45
-    # film ring
     d = np.sqrt((xx - W * 0.5) ** 2 + (yy - H * 0.62) ** 2)
     ring = np.clip(1.0 - np.abs(d - 180) / 12.0, 0, 1)
     img += ring[:, :, None] * BRASS * 0.5
@@ -158,11 +222,27 @@ def still_oil() -> np.ndarray:
     return np.clip(img, 0, 1)
 
 
+def still_tension() -> np.ndarray:
+    img = np.broadcast_to(CREAM * 0.9 + MINT * 0.08, (H, W, 3)).copy()
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    d = np.sqrt((xx - W * 0.5) ** 2 + (yy - H * 0.50) ** 2)
+    ring = np.clip(1.0 - np.abs(d - 230) / 16.0, 0, 1)
+    ring2 = np.clip(1.0 - np.abs(d - 160) / 10.0, 0, 1)
+    drop = np.exp(-(((yy - H * 0.48) / 90) ** 2 + ((xx - W * 0.5) / 60) ** 2))
+    img += ring[:, :, None] * BRASS * 0.7
+    img += ring2[:, :, None] * MINT * 0.45
+    img += drop[:, :, None] * (MINT - img) * 0.5
+    add_glow(img, H * 0.50, W * 0.5, BRASS, 180.0, 0.16)
+    img *= vignette()[:, :, None]
+    img += grain(17)
+    return np.clip(img, 0, 1)
+
+
 def still_physicist() -> np.ndarray:
     img = np.broadcast_to(NAVY, (H, W, 3)).copy()
     card = rounded_rect_mask(H * 0.50, W * 0.5, 720, 780, 28)
     img += card[:, :, None] * (CREAM - NAVY) * 0.92
-    # small brass pin badge
     yy = np.arange(H, dtype=np.float32)[:, None]
     xx = np.arange(W, dtype=np.float32)[None, :]
     d = np.sqrt((xx - W * 0.5) ** 2 + (yy - H * 0.36) ** 2)
@@ -171,6 +251,17 @@ def still_physicist() -> np.ndarray:
     add_glow(img, H * 0.50, W * 0.5, BRASS, 180.0, 0.14)
     img *= vignette()[:, :, None]
     img += grain(2026)
+    return np.clip(img, 0, 1)
+
+
+def still_date() -> np.ndarray:
+    img = np.broadcast_to(NAVY * 1.05, (H, W, 3)).copy()
+    img = np.clip(img, 0, 1)
+    card = rounded_rect_mask(H * 0.52, W * 0.5, 420, 820, 22)
+    img += card[:, :, None] * (BRASS - img) * 0.28
+    add_glow(img, H * 0.48, W * 0.5, BRASS, 220.0, 0.22)
+    img *= vignette()[:, :, None]
+    img += grain(30)
     return np.clip(img, 0, 1)
 
 
@@ -198,13 +289,13 @@ def write_wav(path: Path) -> None:
         end = min(n, start + env.size)
         tick[start:end] += 0.05 * noise[start:end] * env[: end - start]
     accent = np.zeros(n, dtype=np.float32)
-    for s in (0.0, 4.0, 10.0, 18.0, 24.0):
+    for s in (0.0, 2.0, 4.0, 7.0, 10.0, 13.5, 18.0, 21.0, 24.0, 27.0):
         start = int(s * sr)
-        tt = np.arange(int(0.18 * sr), dtype=np.float32) / sr
-        env = np.exp(-tt / 0.05)
-        tone = np.sin(2 * math.pi * (220 * np.exp(-tt / 0.08)) * tt)
+        tt = np.arange(int(0.16 * sr), dtype=np.float32) / sr
+        env = np.exp(-tt / 0.045)
+        tone = np.sin(2 * math.pi * (240 * np.exp(-tt / 0.07)) * tt)
         end = min(n, start + tt.size)
-        accent[start:end] += 0.22 * env[: end - start] * tone[: end - start]
+        accent[start:end] += 0.24 * env[: end - start] * tone[: end - start]
     mix = bass + chime + tick + accent
     fade = int(0.5 * sr)
     mix[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)
@@ -239,26 +330,26 @@ Style: Cap,Inter,36,&H00FFFFFF,&H000000FF,&HAA1C2117,&H78000000,1,0,0,0,100,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:04.00,Giant,,0,0,0,,{\\pos(540,600)\\fad(70,120)\\t(0,200,\\fscx108\\fscy108)}STICK THIS
-Dialogue: 0,0:00:00.70,0:00:04.00,Hook,,0,0,0,,{\\pos(540,760)\\fad(80,120)}ON YOUR FOREHEAD
-Dialogue: 0,0:00:02.00,0:00:04.00,Brass,,0,0,0,,{\\pos(540,920)\\fad(80,120)}TRY IT
-Dialogue: 0,0:00:00.00,0:00:04.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}A bobby pin. Dead center.
-Dialogue: 0,0:00:04.00,0:00:10.00,Hook,,0,0,0,,{\\pos(540,560)\\fad(60,120)}IT STAYS
-Dialogue: 0,0:00:05.00,0:00:10.00,Giant,,0,0,0,,{\\pos(540,720)\\fad(80,120)}NO GLUE
-Dialogue: 0,0:00:07.00,0:00:10.00,Mint,,0,0,0,,{\\pos(540,900)\\fad(80,120)}NO TAPE
-Dialogue: 0,0:00:04.00,0:00:10.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}People are using forks next.
-Dialogue: 0,0:00:10.00,0:00:18.00,Hook,,0,0,0,,{\\pos(540,540)\\fad(60,120)}NOT YOUR
-Dialogue: 0,0:00:11.00,0:00:18.00,Giant,,0,0,0,,{\\pos(540,700)\\fad(80,120)}THIRD EYE
-Dialogue: 0,0:00:13.40,0:00:18.00,Coral,,0,0,0,,{\\pos(540,880)\\fad(80,120)}NOT A MAGNET
-Dialogue: 0,0:00:10.00,0:00:18.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}Your brain field is way too weak.
-Dialogue: 0,0:00:18.00,0:00:24.00,Hook,,0,0,0,,{\\pos(540,560)\\fad(60,120)}IT'S OIL
-Dialogue: 0,0:00:19.40,0:00:24.00,Giant,,0,0,0,,{\\pos(540,740)\\fad(80,120)}SEBUM
-Dialogue: 0,0:00:21.20,0:00:24.00,Mint,,0,0,0,,{\\pos(540,920)\\fad(80,80)}PLUS SURFACE TENSION
-Dialogue: 0,0:00:18.00,0:00:24.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}The flat center of your forehead wins.
-Dialogue: 0,0:00:24.00,0:00:30.00,Hook,,0,0,0,,{\\pos(540,560)\\fad(60,120)}A PHYSICIST
-Dialogue: 0,0:00:25.20,0:00:30.00,Giant,,0,0,0,,{\\pos(540,720)\\fad(80,120)}SAID SO
-Dialogue: 0,0:00:27.00,0:00:30.00,Brass,,0,0,0,,{\\pos(540,900)\\fad(80,80)}SEPT 2026
-Dialogue: 0,0:00:24.00,0:00:30.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}Your forehead is just sticky.
+Dialogue: 0,0:00:00.00,0:00:02.00,Giant,,0,0,0,,{\\pos(540,600)\\fad(40,80)\\t(0,160,\\fscx110\\fscy110)}STICK THIS
+Dialogue: 0,0:00:00.00,0:00:02.00,Hook,,0,0,0,,{\\pos(540,760)\\fad(40,80)}ON YOUR FOREHEAD
+Dialogue: 0,0:00:00.00,0:00:04.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(40,80)}A bobby pin. Dead center.
+Dialogue: 0,0:00:02.00,0:00:04.00,Giant,,0,0,0,,{\\pos(540,640)\\fad(40,80)\\t(0,160,\\fscx110\\fscy110)}TRY IT
+Dialogue: 0,0:00:04.00,0:00:07.00,Giant,,0,0,0,,{\\pos(540,600)\\fad(40,80)}IT STAYS
+Dialogue: 0,0:00:04.00,0:00:10.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(40,80)}People are using forks next.
+Dialogue: 0,0:00:07.00,0:00:10.00,Giant,,0,0,0,,{\\pos(540,560)\\fad(40,80)}NO GLUE
+Dialogue: 0,0:00:08.20,0:00:10.00,Mint,,0,0,0,,{\\pos(540,900)\\fad(40,80)}NO TAPE
+Dialogue: 0,0:00:10.00,0:00:13.50,Hook,,0,0,0,,{\\pos(540,540)\\fad(40,80)}NOT YOUR
+Dialogue: 0,0:00:10.80,0:00:13.50,Giant,,0,0,0,,{\\pos(540,700)\\fad(40,80)}THIRD EYE
+Dialogue: 0,0:00:10.00,0:00:18.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(40,80)}Your brain field is way too weak.
+Dialogue: 0,0:00:13.50,0:00:18.00,Coral,,0,0,0,,{\\pos(540,700)\\fad(40,80)\\t(0,180,\\fscx108\\fscy108)}NOT A MAGNET
+Dialogue: 0,0:00:18.00,0:00:21.00,Giant,,0,0,0,,{\\pos(540,600)\\fad(40,80)}IT'S OIL
+Dialogue: 0,0:00:19.00,0:00:21.00,Mint,,0,0,0,,{\\pos(540,760)\\fad(40,80)}SEBUM
+Dialogue: 0,0:00:18.00,0:00:24.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(40,80)}The flat center of your forehead wins.
+Dialogue: 0,0:00:21.00,0:00:24.00,Mint,,0,0,0,,{\\pos(540,720)\\fad(40,80)}PLUS SURFACE TENSION
+Dialogue: 0,0:00:24.00,0:00:27.00,Hook,,0,0,0,,{\\pos(540,560)\\fad(40,80)}A PHYSICIST
+Dialogue: 0,0:00:24.80,0:00:27.00,Giant,,0,0,0,,{\\pos(540,720)\\fad(40,80)}SAID SO
+Dialogue: 0,0:00:24.00,0:00:30.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(40,80)}Your forehead is just sticky.
+Dialogue: 0,0:00:27.00,0:00:30.00,Brass,,0,0,0,,{\\pos(540,720)\\fad(40,80)\\t(0,180,\\fscx112\\fscy112)}SEPT 2026
 """
     path.write_text(body, encoding="utf-8")
 
@@ -291,11 +382,16 @@ def main() -> int:
     ASSETS.mkdir(parents=True, exist_ok=True)
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
     stills = [
-        ("s1_pin", still_pin, 4.0, 1.12),
-        ("s2_stick", still_stick, 6.0, 1.10),
-        ("s3_myth", still_myth, 8.0, 1.14),
-        ("s4_oil", still_oil, 6.0, 1.10),
-        ("s5_phys", still_physicist, 6.0, 1.12),
+        ("s1_pin", still_pin, 2.0, 1.14),
+        ("s1b_tight", still_pin_tight, 2.0, 1.16),
+        ("s2a_fork", still_fork, 3.0, 1.14),
+        ("s2_stick", still_stick, 3.0, 1.12),
+        ("s3a_eye", still_eye, 3.5, 1.16),
+        ("s3b_magnet", still_magnet, 4.5, 1.14),
+        ("s4_oil", still_oil, 3.0, 1.14),
+        ("s4b_ring", still_tension, 3.0, 1.12),
+        ("s5_phys", still_physicist, 3.0, 1.14),
+        ("s5b_date", still_date, 3.0, 1.12),
     ]
     clips: list[Path] = []
     for name, fn, dur, zoom in stills:
@@ -317,7 +413,7 @@ def main() -> int:
     wav = ASSETS / "bed.wav"
     write_wav(wav)
     loud = ASSETS / "bed_loudnorm.wav"
-    run(["ffmpeg", "-y", "-i", str(wav), "-af", "loudnorm=I=-22:TP=-2:LRA=11", str(loud)])
+    run(["ffmpeg", "-y", "-i", str(wav), "-af", "loudnorm=I=-14:TP=-1:LRA=11", str(loud)])
 
     ass = ASSETS / "captions.ass"
     write_ass(ass)
@@ -334,7 +430,14 @@ def main() -> int:
             "-shortest", "-movflags", "+faststart", str(out),
         ]
     )
-    for t, name in [(0.4, "frame_hook"), (7.0, "frame_stick"), (14.5, "frame_myth"), (26.5, "frame_end")]:
+    for t, name in [
+        (0.3, "frame_hook"),
+        (5.2, "frame_fork"),
+        (8.4, "frame_stick"),
+        (11.6, "frame_myth"),
+        (19.2, "frame_oil"),
+        (27.6, "frame_end"),
+    ]:
         run(["ffmpeg", "-y", "-ss", str(t), "-i", str(out), "-frames:v", "1", str(ARTIFACTS / f"{name}.png")])
     print(f"wrote {out}", flush=True)
     return 0

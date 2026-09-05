@@ -5,15 +5,15 @@
     {
       "id": "sc1",
       "type": "text_card",
-      "description": "Cream paper, skin oval, brass bobby pin on the flat center. Slam: STICK THIS / ON YOUR FOREHEAD / TRY IT. Caption: A bobby pin. Dead center.",
+      "description": "Cream paper, skin oval, brass bobby pin. Slam: STICK THIS / ON YOUR FOREHEAD from frame 0.",
       "start_seconds": 0,
-      "end_seconds": 4,
+      "end_seconds": 2,
       "script_section_id": "s1",
       "framing": "Centered 9:16; pin in the 900x1400 safe zone",
-      "movement": "Ken Burns slow zoom 1.00→1.12",
+      "movement": "Ken Burns punch-zoom 1.00→1.14",
       "transition_in": "cut",
       "transition_out": "cut",
-      "overlay_notes": "ASS Hook/Giant/Brass + Cap at y=1480",
+      "overlay_notes": "Hook text on frame 1 — no 0.7s delay",
       "shot_language": {
         "shot_size": "close_up",
         "camera_movement": "zoom_in",
@@ -22,31 +22,52 @@
         "depth_of_field": "shallow",
         "color_temperature": "warm"
       },
-      "shot_intent": "Dare the viewer to try the experiment before explaining it",
+      "shot_intent": "Pattern interrupt in the first 0.5s",
       "narrative_role": "introduce_subject",
       "information_role": "Name the object and the placement",
       "hero_moment": true,
       "texture_keywords": ["paper grain", "brass glow", "cream"],
-      "required_assets": [
-        {
-          "type": "image",
-          "description": "Procedural bobby-pin still",
-          "source": "generate"
-        }
-      ]
+      "required_assets": [{"type": "image", "description": "Bobby-pin still", "source": "generate"}]
     },
     {
-      "id": "sc2",
-      "type": "diagram",
-      "description": "Two cream cards with coral X marks — no glue, no tape. Type: IT STAYS / NO GLUE / NO TAPE.",
-      "start_seconds": 4,
-      "end_seconds": 10,
-      "script_section_id": "s2",
-      "framing": "Twin icons left/right of center, above caption rail",
-      "movement": "Ken Burns zoom 1.00→1.10",
+      "id": "sc1b",
+      "type": "text_card",
+      "description": "Tighter pin insert. Slam: TRY IT.",
+      "start_seconds": 2,
+      "end_seconds": 4,
+      "script_section_id": "s1",
+      "framing": "Larger pin, less forehead",
+      "movement": "Ken Burns punch-zoom 1.00→1.16",
       "transition_in": "cut",
       "transition_out": "cut",
-      "overlay_notes": "Mint NO TAPE at 7s",
+      "overlay_notes": "Visual change at 2s",
+      "shot_language": {
+        "shot_size": "extreme_close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 85,
+        "lighting_key": "high_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Second beat of the hook — dare",
+      "narrative_role": "build_tension",
+      "information_role": "Try it now",
+      "hero_moment": false,
+      "texture_keywords": ["tight pin", "skin"],
+      "required_assets": [{"type": "image", "description": "Tight pin still", "source": "generate"}]
+    },
+    {
+      "id": "sc2a",
+      "type": "diagram",
+      "description": "Brass fork on cream. Type: IT STAYS. Caption: People are using forks next.",
+      "start_seconds": 4,
+      "end_seconds": 7,
+      "script_section_id": "s2",
+      "framing": "Centered fork",
+      "movement": "Ken Burns zoom 1.00→1.14",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Escalate the object",
       "shot_language": {
         "shot_size": "medium",
         "camera_movement": "zoom_in",
@@ -55,31 +76,52 @@
         "depth_of_field": "deep",
         "color_temperature": "warm"
       },
-      "shot_intent": "Prove there is no adhesive before the myth beat",
+      "shot_intent": "Show the fork escalation from Khaleej Times",
       "narrative_role": "build_tension",
-      "information_role": "It stays without glue or tape; people escalate to forks",
+      "information_role": "It stays even with a fork",
       "hero_moment": false,
-      "texture_keywords": ["graphic X", "mint wash"],
-      "required_assets": [
-        {
-          "type": "image",
-          "description": "Crossed-out glue/tape cards",
-          "source": "generate"
-        }
-      ]
+      "texture_keywords": ["brass fork"],
+      "required_assets": [{"type": "image", "description": "Fork still", "source": "generate"}]
     },
     {
-      "id": "sc3",
+      "id": "sc2",
       "type": "diagram",
-      "description": "Warm-navy wash, white eye, coral magnet bar, big X. Type: NOT YOUR / THIRD EYE / NOT A MAGNET.",
-      "start_seconds": 10,
-      "end_seconds": 18,
-      "script_section_id": "s3",
-      "framing": "Centered myth glyph; captions stay in safe zone",
-      "movement": "Ken Burns zoom 1.00→1.14",
+      "description": "Two cream cards with coral X — no glue, no tape.",
+      "start_seconds": 7,
+      "end_seconds": 10,
+      "script_section_id": "s2",
+      "framing": "Twin icons left/right of center",
+      "movement": "Ken Burns zoom 1.00→1.12",
       "transition_in": "cut",
       "transition_out": "cut",
-      "overlay_notes": "Coral NOT A MAGNET at 13.4s",
+      "overlay_notes": "NO GLUE / NO TAPE",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "high_key",
+        "depth_of_field": "deep",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Prove there is no adhesive",
+      "narrative_role": "evidence",
+      "information_role": "No glue, no tape",
+      "hero_moment": false,
+      "texture_keywords": ["graphic X", "mint wash"],
+      "required_assets": [{"type": "image", "description": "Crossed-out cards", "source": "generate"}]
+    },
+    {
+      "id": "sc3a",
+      "type": "diagram",
+      "description": "Eye glyph with coral X. Type: NOT YOUR / THIRD EYE.",
+      "start_seconds": 10,
+      "end_seconds": 13.5,
+      "script_section_id": "s3",
+      "framing": "Centered eye",
+      "movement": "Ken Burns zoom 1.00→1.16",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Kill the wellness caption",
       "shot_language": {
         "shot_size": "close_up",
         "camera_movement": "zoom_in",
@@ -88,31 +130,52 @@
         "depth_of_field": "medium",
         "color_temperature": "mixed"
       },
-      "shot_intent": "Kill the magnetic third-eye caption",
+      "shot_intent": "Bust the third-eye myth",
       "narrative_role": "deliver_payload",
-      "information_role": "Brain EMF cannot hold a pin",
+      "information_role": "Not a chakra",
       "hero_moment": true,
-      "texture_keywords": ["coral X", "navy wash"],
-      "required_assets": [
-        {
-          "type": "image",
-          "description": "Eye + magnet + X still",
-          "source": "generate"
-        }
-      ]
+      "texture_keywords": ["coral X", "eye"],
+      "required_assets": [{"type": "image", "description": "Eye + X", "source": "generate"}]
+    },
+    {
+      "id": "sc3b",
+      "type": "diagram",
+      "description": "U-magnet with coral X. Type: NOT A MAGNET.",
+      "start_seconds": 13.5,
+      "end_seconds": 18,
+      "script_section_id": "s3",
+      "framing": "Centered magnet",
+      "movement": "Ken Burns zoom 1.00→1.14",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Brain EMF too weak",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "medium",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Bust the magnet myth",
+      "narrative_role": "deliver_payload",
+      "information_role": "Brain field cannot hold metal",
+      "hero_moment": true,
+      "texture_keywords": ["coral magnet", "X"],
+      "required_assets": [{"type": "image", "description": "Magnet + X", "source": "generate"}]
     },
     {
       "id": "sc4",
       "type": "diagram",
-      "description": "Mint sebum droplet and brass surface-tension ring. Type: IT'S OIL / SEBUM / PLUS SURFACE TENSION.",
+      "description": "Mint sebum droplet. Type: IT'S OIL / SEBUM.",
       "start_seconds": 18,
-      "end_seconds": 24,
+      "end_seconds": 21,
       "script_section_id": "s4",
-      "framing": "Centered droplet above caption rail",
-      "movement": "Ken Burns zoom 1.00→1.10",
+      "framing": "Centered droplet",
+      "movement": "Ken Burns zoom 1.00→1.14",
       "transition_in": "cut",
       "transition_out": "cut",
-      "overlay_notes": "Giant SEBUM at 19.4s",
+      "overlay_notes": "Teach the word sebum",
       "shot_language": {
         "shot_size": "insert",
         "camera_movement": "zoom_in",
@@ -121,31 +184,52 @@
         "depth_of_field": "shallow",
         "color_temperature": "warm"
       },
-      "shot_intent": "Replace mysticism with mechanism",
+      "shot_intent": "Replace mysticism with oil",
       "narrative_role": "evidence",
-      "information_role": "Sebum + surface tension; flatter center wins",
+      "information_role": "Sebum",
       "hero_moment": false,
-      "texture_keywords": ["mint droplet", "brass ring"],
-      "required_assets": [
-        {
-          "type": "image",
-          "description": "Oil-drop still",
-          "source": "generate"
-        }
-      ]
+      "texture_keywords": ["mint droplet"],
+      "required_assets": [{"type": "image", "description": "Oil-drop still", "source": "generate"}]
+    },
+    {
+      "id": "sc4b",
+      "type": "diagram",
+      "description": "Brass + mint surface-tension rings. Type: PLUS SURFACE TENSION.",
+      "start_seconds": 21,
+      "end_seconds": 24,
+      "script_section_id": "s4",
+      "framing": "Centered rings",
+      "movement": "Ken Burns zoom 1.00→1.12",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Mechanism beat",
+      "shot_language": {
+        "shot_size": "insert",
+        "camera_movement": "zoom_in",
+        "lens_mm": 85,
+        "lighting_key": "high_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Show the film / tension",
+      "narrative_role": "evidence",
+      "information_role": "Surface tension + flat center",
+      "hero_moment": false,
+      "texture_keywords": ["brass ring", "mint"],
+      "required_assets": [{"type": "image", "description": "Tension rings", "source": "generate"}]
     },
     {
       "id": "sc5",
       "type": "text_card",
-      "description": "Navy field, cream rounded card, brass badge. Type: A PHYSICIST / SAID SO / SEPT 2026. Caption: Your forehead is just sticky.",
+      "description": "Navy field, cream card, brass badge. Type: A PHYSICIST / SAID SO.",
       "start_seconds": 24,
-      "end_seconds": 30,
+      "end_seconds": 27,
       "script_section_id": "s5",
-      "framing": "Card centered; no face; date in brass",
-      "movement": "Ken Burns zoom 1.00→1.12",
+      "framing": "Card centered; no face",
+      "movement": "Ken Burns zoom 1.00→1.14",
       "transition_in": "cut",
       "transition_out": "cut",
-      "overlay_notes": "Brass SEPT 2026 at 27s",
+      "overlay_notes": "Named-scientist beat",
       "shot_language": {
         "shot_size": "medium",
         "camera_movement": "zoom_in",
@@ -154,23 +238,45 @@
         "depth_of_field": "deep",
         "color_temperature": "cool"
       },
-      "shot_intent": "Attribute the science to a named physicist this week",
+      "shot_intent": "Attribute the science",
       "narrative_role": "resolution",
-      "information_role": "Authority + date + sticky closer",
+      "information_role": "A physicist said so",
       "hero_moment": false,
-      "texture_keywords": ["navy", "cream card", "brass badge"],
-      "required_assets": [
-        {
-          "type": "image",
-          "description": "Physicist card still",
-          "source": "generate"
-        }
-      ]
+      "texture_keywords": ["navy", "cream card"],
+      "required_assets": [{"type": "image", "description": "Physicist card", "source": "generate"}]
+    },
+    {
+      "id": "sc5b",
+      "type": "text_card",
+      "description": "Navy + brass date plate. Type: SEPT 2026. Caption: Your forehead is just sticky.",
+      "start_seconds": 27,
+      "end_seconds": 30,
+      "script_section_id": "s5",
+      "framing": "Date plate centered",
+      "movement": "Ken Burns zoom 1.00→1.12",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "Timeliness closer",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Date the claim to this week",
+      "narrative_role": "call_to_action",
+      "information_role": "Sept 2026 — sticky closer",
+      "hero_moment": false,
+      "texture_keywords": ["navy", "brass plate"],
+      "required_assets": [{"type": "image", "description": "Date plate", "source": "generate"}]
     }
   ],
   "metadata": {
     "safe_zone": "900x1400",
     "caption_rail_y": 1480,
-    "palette": "cream/brass/navy/mint/coral"
+    "palette": "cream/brass/navy/mint/coral",
+    "visual_change_seconds": "2.0–3.5 (magnet hold 4.5s as payoff)"
   }
 }
