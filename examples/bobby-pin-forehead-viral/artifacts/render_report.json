@@ -9,30 +9,31 @@
       "resolution": "1080x1920",
       "fps": 30,
       "duration_seconds": 30.0,
-      "file_size_bytes": 37745116,
+      "file_size_bytes": 37958125,
       "platform_target": "tiktok"
     }
   ],
-  "render_time_seconds": 41,
+  "render_time_seconds": 47,
   "warnings": [
     "Remotion and HyperFrames were evaluated and are not installed; ffmpeg Ken Burns + ASS is the locked runtime.",
-    "Piper is not installed; captions are the voice.",
-    "image2 single-frame extract warns about sequence patterns; frames still wrote."
+    "Piper is not installed; captions are the voice."
   ],
   "verification_notes": [
     "ffprobe: 30.000s, 1080x1920, 30 fps, 900 video frames, h264 High + aac LC 44100 stereo",
-    "Sampled frames at 0.4s, 7.0s, 14.5s, 26.5s — slam type readable, caption rail at y=1480",
-    "Stick scene X marks are coral and readable after the second still pass"
+    "ebur128 integrated loudness -14.4 LUFS (target -14)",
+    "Ten hard cuts; hook type STICK THIS / ON YOUR FOREHEAD on frame 1",
+    "Sampled 0.3s, 5.2s, 8.4s, 11.6s, 19.2s, 27.6s"
   ],
   "render_grammar": "explainer-data",
   "slideshow_risk_score": {
-    "average": 0.42,
+    "average": 0.28,
     "verdict": "acceptable"
   },
   "decision_log_ref": "examples/bobby-pin-forehead-viral/artifacts/decision_log.json",
   "final_review_ref": "examples/bobby-pin-forehead-viral/artifacts/final_review.json",
   "metadata": {
     "render_runtime_used": "ffmpeg",
-    "composition_mode": "templated"
+    "composition_mode": "templated",
+    "cut_count": 10
   }
 }
