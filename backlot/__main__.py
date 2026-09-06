@@ -80,10 +80,15 @@ def cmd_open(project_id: str | None) -> int:
 
 
 def cmd_serve(port: int) -> int:
-    import uvicorn
+    try:
+        import uvicorn
 
-    uvicorn.run("backlot.server:app", host="127.0.0.1", port=port, log_level="warning")
-    return 0
+        uvicorn.run("backlot.server:app", host="127.0.0.1", port=port, log_level="warning")
+        return 0
+    except ImportError:
+        from backlot.stdlib_server import serve
+
+        return serve(port=port)
 
 
 def main(argv: list[str] | None = None) -> int:

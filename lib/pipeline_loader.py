@@ -10,7 +10,11 @@ from pathlib import Path
 from typing import Any, Optional
 
 import yaml
-import jsonschema
+
+try:
+    import jsonschema
+except ImportError:  # pragma: no cover — Cloud VMs with PyPI blocked
+    jsonschema = None
 
 PIPELINE_DEFS_DIR = Path(__file__).resolve().parent.parent / "pipeline_defs"
 SCHEMA_PATH = (
@@ -64,8 +68,9 @@ def load_pipeline(name: str, defs_dir: Optional[Path] = None) -> dict[str, Any]:
     with open(path) as f:
         manifest = yaml.safe_load(f)
 
-    schema = _load_manifest_schema()
-    jsonschema.validate(instance=manifest, schema=schema)
+    if jsonschema is not None:
+        schema = _load_manifest_schema()
+        jsonschema.validate(instance=manifest, schema=schema)
 
     return manifest
 

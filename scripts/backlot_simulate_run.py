@@ -59,6 +59,94 @@ def artifacts_for(project_id: str) -> dict:
     return {"script": script, "scene_plan": scene_plan}
 
 
+def sample_research_brief(topic: str) -> dict:
+    """Schema-shaped research brief — kept here so the sim doesn't import pytest tests."""
+    return {
+        "version": "1.0",
+        "topic": topic,
+        "research_date": "2026-03-27",
+        "landscape": {
+            "existing_content": [
+                {"title": "Existing Video 1", "source": "youtube", "angle": "tutorial", "what_it_covers": "basics"},
+                {"title": "Existing Video 2", "source": "blog", "angle": "deep dive", "what_it_covers": "advanced"},
+                {"title": "Existing Video 3", "source": "youtube", "angle": "comparison", "what_it_covers": "alternatives"},
+            ],
+            "saturated_angles": ["basic tutorial"],
+            "underserved_gaps": ["misconceptions about topic"],
+        },
+        "data_points": [
+            {"claim": "73% of users prefer X", "source_url": "https://example.com/study", "credibility": "primary_source"},
+            {"claim": "Market grew 40% in 2025", "source_url": "https://example.com/report", "credibility": "secondary_source"},
+            {"claim": "Most experts agree on Y", "source_url": "https://example.com/survey", "credibility": "primary_source"},
+        ],
+        "audience_insights": {
+            "common_questions": ["What is X?", "How does X work?", "Why is X important?"],
+            "misconceptions": [{"myth": "X is slow", "reality": "X is fast"}],
+            "knowledge_level": "Beginner to intermediate",
+        },
+        "angles_discovered": [
+            {"name": "The Surprising Truth", "hook": "You think X is slow. It's not.", "type": "contrarian", "why_now": "New benchmark data", "grounded_in": ["data_point_1"]},
+            {"name": "X From Scratch", "hook": "Build X in 5 minutes.", "type": "evergreen", "why_now": "Audience demand", "grounded_in": ["audience_q1"]},
+            {"name": "Why X Matters Now", "hook": "X just changed everything.", "type": "trending", "why_now": "Recent announcement", "grounded_in": ["trending_1"]},
+        ],
+        "sources": [
+            {"url": "https://example.com/study", "title": "Study on X", "used_for": "data_points"},
+            {"url": "https://example.com/report", "title": "Market Report", "used_for": "data_points"},
+            {"url": "https://example.com/survey", "title": "Expert Survey", "used_for": "data_points"},
+            {"url": "https://example.com/reddit", "title": "Reddit Discussion", "used_for": "audience_insights"},
+            {"url": "https://example.com/blog", "title": "Tech Blog", "used_for": "landscape"},
+        ],
+    }
+
+
+def _font_path() -> str | None:
+    for candidate in (
+        "/usr/share/fonts/truetype/macos/Inter-Regular.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+    ):
+        if Path(candidate).is_file():
+            return candidate
+    return None
+
+
+def write_scene_still(path: Path, rgb: tuple[int, int, int], label: str) -> None:
+    """Write a 640x360 still. Pillow if present, otherwise ffmpeg."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        from PIL import Image, ImageDraw
+
+        img = Image.new("RGB", (640, 360), rgb)
+        draw = ImageDraw.Draw(img)
+        draw.text((20, 160), label, fill=(230, 225, 210))
+        img.save(path)
+        return
+    except ImportError:
+        pass
+    import subprocess
+
+    hex_color = f"0x{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
+    font = _font_path()
+    safe = label.replace("\\", "\\\\").replace(":", "\\:").replace("'", "")
+    vf = f"drawtext=text='{safe}':fontsize=22:fontcolor=0xe6e1d2:x=20:y=160"
+    if font:
+        vf += f":fontfile={font}"
+    result = subprocess.run(
+        ["ffmpeg", "-y", "-loglevel", "error",
+         "-f", "lavfi", "-i", f"color=c={hex_color}:s=640x360:d=1",
+         "-vf", vf, "-frames:v", "1", str(path)],
+        capture_output=True, timeout=20,
+    )
+    if result.returncode != 0 or not path.is_file():
+        # Color plate is enough for the filmstrip if drawtext is missing.
+        subprocess.run(
+            ["ffmpeg", "-y", "-loglevel", "error",
+             "-f", "lavfi", "-i", f"color=c={hex_color}:s=640x360:d=1",
+             "-frames:v", "1", str(path)],
+            check=True, timeout=20,
+        )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--project", default="backlot-demo-run")
@@ -87,11 +175,8 @@ def main() -> int:
         print(f"[sim] checkpoint {stage} -> {status}")
         time.sleep(wait)
 
-    # research auto-proceeds (schema-valid fixture from the contract tests)
     cp("research", "in_progress", {})
-    from tests.contracts.test_phase0_contracts import sample_artifact
-    brief = sample_artifact("research_brief")
-    brief["topic"] = "The Last Lighthouse"
+    brief = sample_research_brief("The Last Lighthouse")
     cp("research", "completed", {"research_brief": brief})
 
     # script gates: awaiting_human -> approved
@@ -114,17 +199,13 @@ def main() -> int:
     cp("assets", "in_progress", {})
     manifest = {"version": "1.0", "assets": [], "total_cost_usd": 0.0}
     done_ids = []
-    from PIL import Image, ImageDraw
     palette = [(24, 32, 48), (40, 30, 60), (60, 24, 24), (20, 48, 40)]
     for i, (sid, desc, _s0, _s1, _n) in enumerate(SCENES):
         emit_event(pdir, {"tool": "flux_image", "event": "start", "scene_id": sid})
         print(f"[sim] generating {sid}…")
         time.sleep(wait * 1.5)
         rel = f"assets/images/{sid}.png"
-        img = Image.new("RGB", (640, 360), palette[i % 4])
-        draw = ImageDraw.Draw(img)
-        draw.text((20, 160), f"{sid} — {desc[:40]}", fill=(230, 225, 210))
-        img.save(pdir / rel)
+        write_scene_still(pdir / rel, palette[i % 4], f"{sid} — {desc[:40]}")
         emit_event(pdir, {"tool": "flux_image", "event": "finish", "scene_id": sid,
                           "success": True, "cost_usd": 0.05, "duration_s": wait * 1.5,
                           "output_path": rel})
