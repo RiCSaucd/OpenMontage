@@ -1,0 +1,187 @@
+{
+  "version": "1.0",
+  "project_id": "how-neural-networks-learn",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline",
+      "options_considered": [
+        {
+          "option_id": "ae",
+          "label": "animated-explainer",
+          "score": 1.0,
+          "reason": "User asked for a 60s animated explainer."
+        },
+        {
+          "option_id": "cin",
+          "label": "cinematic",
+          "score": 0.2,
+          "reason": "Source-footage montage",
+          "rejected_because": "No footage; topic is pedagogical."
+        }
+      ],
+      "selected": "ae",
+      "reason": "Exact match to the user request."
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Explainer angle",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "Guess, number, nudge",
+          "score": 0.95,
+          "reason": "Shows the whole loop in 60s."
+        },
+        {
+          "option_id": "c2",
+          "label": "Loss is a compass",
+          "score": 0.7,
+          "reason": "Strong hook, weaker diagram",
+          "rejected_because": "Skips the network itself."
+        },
+        {
+          "option_id": "c3",
+          "label": "Chain-rule walk",
+          "score": 0.55,
+          "reason": "True but notation-heavy",
+          "rejected_because": "Too much calculus for a first minute."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Best 60-second teacher-explainer of the three researched angles."
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.9,
+          "reason": "Best for typed motion graphics",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.85,
+          "reason": "HTML/GSAP teacher boards",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "ffmpeg + numpy",
+          "score": 0.8,
+          "reason": "Only installed motion path"
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Remotion and HyperFrames are not installed; ffmpeg is present."
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier Remotion composition",
+          "score": 0.85,
+          "reason": "Hero work default",
+          "rejected_because": "Remotion atelier path unavailable"
+        },
+        {
+          "option_id": "templated",
+          "label": "Hand-authored ffmpeg animation",
+          "score": 0.8,
+          "reason": "One custom network diagram, not stock scene types"
+        }
+      ],
+      "selected": "templated",
+      "reason": "ffmpeg lock; animation is still project-local, not a reused Explainer template."
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper offline TTS",
+          "score": 0.7,
+          "reason": "Free VO",
+          "rejected_because": "Piper binary/model not installed"
+        },
+        {
+          "option_id": "eleven",
+          "label": "ElevenLabs",
+          "score": 0.9,
+          "reason": "Best VO",
+          "rejected_because": "No API egress"
+        },
+        {
+          "option_id": "captions",
+          "label": "captions_only",
+          "score": 0.75,
+          "reason": "Mute-first; captions are the voice"
+        }
+      ],
+      "selected": "captions",
+      "reason": "No TTS on this VM. Captions carry the script."
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Style playbook",
+      "options_considered": [
+        {
+          "option_id": "fmg",
+          "label": "flat-motion-graphics",
+          "score": 0.9,
+          "reason": "Recommended for animated-explainer"
+        },
+        {
+          "option_id": "cp",
+          "label": "clean-professional",
+          "score": 0.6,
+          "reason": "Too corporate"
+        }
+      ],
+      "selected": "fmg",
+      "reason": "Matches a teacher-explainer with hard graphic shapes."
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pixabay",
+          "label": "Pixabay bed",
+          "score": 0.7,
+          "reason": "Stock",
+          "rejected_because": "Host not allowlisted"
+        },
+        {
+          "option_id": "proc",
+          "label": "Procedural sine bed",
+          "score": 0.8,
+          "reason": "Local, quiet, no license risk"
+        }
+      ],
+      "selected": "proc",
+      "reason": "Only music path that works offline."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "renders/how-neural-networks-learn.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1920x1080",
+      "fps": 15,
+      "duration_seconds": 60.0,
+      "file_size_bytes": 7595675,
+      "platform_target": "youtube"
+    }
+  ],
+  "render_grammar": "explainer-teacher",
+  "slideshow_risk_score": {
+    "average": 0.22,
+    "verdict": "strong"
+  },
+  "decision_log_ref": "/workspace/projects/how-neural-networks-learn/artifacts/decision_log.json",
+  "verification_notes": [
+    "ffprobe valid 1920x1080 h264+aac",
+    "Duration locked to 60s",
+    "Captions are the voice"
+  ],
+  "warnings": [
+    "Remotion/HyperFrames/Piper unavailable; ffmpeg locked"
+  ]
+}

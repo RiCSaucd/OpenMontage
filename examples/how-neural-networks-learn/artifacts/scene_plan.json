@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "style_playbook": "flat-motion-graphics",
+  "scenes": [
+    {
+      "id": "sc1",
+      "type": "text_card",
+      "description": "IT DOES NOT MEMORIZE \u2014 A neural network does not memorize answers. It guesses, measures how wrong it is, and nudges millions of tiny knobs.",
+      "start_seconds": 0.0,
+      "end_seconds": 8.0,
+      "script_section_id": "s1",
+      "hero_moment": false,
+      "narrative_role": "introduce_subject",
+      "information_role": "A neural network does not memorize answers. It guesses, measures how wrong it is, and nudges millions of tiny knobs.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s1",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc2",
+      "type": "diagram",
+      "description": "WEIGHTS ARE THE KNOBS \u2014 Those knobs are weights. Each connection multiplies a signal. Stack enough of them and you get a guess.",
+      "start_seconds": 8.0,
+      "end_seconds": 18.0,
+      "script_section_id": "s2",
+      "hero_moment": false,
+      "narrative_role": "evidence",
+      "information_role": "Those knobs are weights. Each connection multiplies a signal. Stack enough of them and you get a guess.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s2",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc3",
+      "type": "animation",
+      "description": "FORWARD PASS \u2014 First the signal runs forward. Pixels in, scores out. That is the forward pass.",
+      "start_seconds": 18.0,
+      "end_seconds": 30.0,
+      "script_section_id": "s3",
+      "hero_moment": false,
+      "narrative_role": "evidence",
+      "information_role": "First the signal runs forward. Pixels in, scores out. That is the forward pass.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s3",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc4",
+      "type": "diagram",
+      "description": "LOSS IS A NUMBER \u2014 Then a loss function scores the miss. If the label is cat and the network said dog, the error is a number \u2014 not a lecture.",
+      "start_seconds": 30.0,
+      "end_seconds": 42.0,
+      "script_section_id": "s4",
+      "hero_moment": false,
+      "narrative_role": "evidence",
+      "information_role": "Then a loss function scores the miss. If the label is cat and the network said dog, the error is a number \u2014 not a lecture.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s4",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc5",
+      "type": "animation",
+      "description": "THE ERROR WALKS BACK \u2014 Backpropagation sends that error backward. Every weight gets a tiny update: a little more this way, a little less that way.",
+      "start_seconds": 42.0,
+      "end_seconds": 54.0,
+      "script_section_id": "s5",
+      "hero_moment": true,
+      "narrative_role": "deliver_payload",
+      "information_role": "Backpropagation sends that error backward. Every weight gets a tiny update: a little more this way, a little less that way.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s5",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc6",
+      "type": "text_card",
+      "description": "THAT IS LEARNING \u2014 Do that millions of times, and the guesses get less wrong. That is learning.",
+      "start_seconds": 54.0,
+      "end_seconds": 60.0,
+      "script_section_id": "s6",
+      "hero_moment": false,
+      "narrative_role": "resolution",
+      "information_role": "Do that millions of times, and the guesses get less wrong. That is learning.",
+      "required_assets": [
+        {
+          "type": "animation",
+          "description": "Network phase s6",
+          "source": "generate"
+        }
+      ]
+    }
+  ]
+}

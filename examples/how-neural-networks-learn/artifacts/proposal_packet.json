@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "Guess, number, nudge",
+      "hook": "It does not memorize. It guesses, then turns the miss into a number.",
+      "narrative_structure": "tutorial",
+      "visual_approach": "One indigo network that pulses forward, then walks error back while weights thicken.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "Curious general YouTube viewers, first-year CS",
+      "target_platform": "youtube",
+      "target_duration_seconds": 60,
+      "key_points": [
+        "Weights are knobs, not memories.",
+        "Loss is a number with a direction.",
+        "Backprop walks that number backward so every knob can move a little."
+      ],
+      "core_message": "Learning is repeated, tiny, numbered nudges \u2014 not understanding.",
+      "cta": "Watch the loop once more: forward, loss, back, update.",
+      "tone": "calm teacher, no hype",
+      "grounded_in": [
+        "angles_discovered.guess_number_nudge",
+        "data_point_1"
+      ],
+      "why_this_works": "Fills the 60s gap left by hour-long calculus lessons and saturated brain metaphors."
+    },
+    {
+      "id": "c2",
+      "title": "Loss is a compass",
+      "hook": "The network never hears 'wrong.' It only gets a number with a direction.",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "A compass needle on a loss surface; skip the network diagram.",
+      "suggested_playbook": "minimalist-diagram",
+      "target_audience": "People stuck on 'does it understand?'",
+      "target_platform": "youtube",
+      "target_duration_seconds": 60,
+      "key_points": [
+        "No verbal feedback exists inside training.",
+        "Gradient is the compass needle."
+      ],
+      "core_message": "Training is navigation on a number, not a conversation.",
+      "cta": "Next time you hear 'the model learned,' picture a compass.",
+      "tone": "contrarian, dry",
+      "grounded_in": [
+        "angles_discovered.loss_compass"
+      ],
+      "why_this_works": "Hits the most common misconception, but skips showing the network itself."
+    },
+    {
+      "id": "c3",
+      "title": "Chain-rule walk",
+      "hook": "Error does not jump. It walks back, gate by gate.",
+      "narrative_structure": "journey",
+      "visual_approach": "A single path highlighted through four gates.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "Viewers ready for calculus vocabulary",
+      "target_platform": "youtube",
+      "target_duration_seconds": 60,
+      "key_points": [
+        "Local gradient times upstream gradient.",
+        "Multiple paths sum."
+      ],
+      "core_message": "The chain rule is a walk, not a jump.",
+      "cta": "Open CS231n notes after this.",
+      "tone": "technical",
+      "grounded_in": [
+        "angles_discovered.chain_rule_walk"
+      ],
+      "why_this_works": "True to CS231n, but too much notation for a first 60 seconds."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "User asked for a 60-second animated explainer. C1 is the only option that shows the full training loop in motion without requiring calculus on screen. Cloud production request treated as full-run authorization.",
+    "modifications": [
+      "Lock 60.00s / 1920x1080",
+      "Captions are the voice (Piper unavailable)"
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "flat-motion-graphics",
+    "stages": [
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "ffmpeg_numpy_animator",
+            "role": "Hand-authored network animation frames",
+            "provider": "local_ffmpeg",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Only motion path available on this machine"
+          }
+        ],
+        "approach": "One continuous 3-layer network; phase the animation to the script.",
+        "fallback_if_unavailable": "None \u2014 ffmpeg is required."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "video_compose",
+            "role": "Encode 1080p + ASS + bed",
+            "provider": "ffmpeg",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Remotion and HyperFrames are not installed"
+          }
+        ],
+        "approach": "Pipe raw frames to ffmpeg, burn ASS, mix procedural bed, loudnorm.",
+        "fallback_if_unavailable": "Cannot deliver."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "Remotion springs + Piper VO vs ffmpeg animation + captions-as-voice",
+        "recommendation": "Proceed with ffmpeg; say so on screen via captions.",
+        "quality_impact": "No spoken VO; motion is real (weights and pulses change every frame)."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Remotion atelier + ElevenLabs when keys and Node modules exist",
+        "total_cost_usd": 1.5,
+        "quality_level": "premium",
+        "what_changes": "Spoken VO, spring typography, HyperFrames or Remotion runtime."
+      },
+      {
+        "description": "This Cloud VM path: numpy + ffmpeg + ASS",
+        "total_cost_usd": 0,
+        "quality_level": "presentable",
+        "what_changes": "Captions are the voice; procedural bed."
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "teacher_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "educational",
+      "quality_floor": "presentable",
+      "approved_fallback": "animatic"
+    },
+    "renderer_family": "explainer-teacher",
+    "render_runtime": "ffmpeg",
+    "composition_mode": "templated",
+    "art_direction": "Indigo night #0B1020, lime #C8F542, paper #F4F1EA, violet pulses, coral loss. One network stays on screen the whole minute. No brain metaphor. No Netflix red, no cyan lab, no cream/brass leftover looks.",
+    "taste_profile": {
+      "design_read": "Calm chalkboard teacher: one diagram, changing state, lime captions.",
+      "visual_variance": 3,
+      "motion_intensity": 6,
+      "information_density": 5,
+      "palette_discipline": "One background, two accents (lime / coral), paper type.",
+      "layout_variation": "Network center, caption band, one title word at a time.",
+      "anti_patterns": [
+        "brain clipart",
+        "purple AI gradient",
+        "stock robot face"
+      ],
+      "quality_gates": [
+        "A muted viewer can still read the loop: forward, loss, back, update."
+      ]
+    },
+    "music_source": {
+      "source_type": "ai_generated",
+      "provider": "procedural_sine_bed",
+      "mood_direction": "soft 72-BPM fifths, documentary-quiet",
+      "estimated_cost_usd": 0
+    },
+    "voice_selection": {
+      "provider": "captions_only",
+      "voice_id": "ass_lime",
+      "rationale": "Piper and cloud TTS are unavailable on this VM.",
+      "estimated_cost_usd": 0,
+      "delivery_style": "short slam captions; script is the voice",
+      "pacing_policy": "One phrase per 2-4 seconds; hook on frame 1.",
+      "sample_approval_required": false
+    }
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0,
+    "line_items": [
+      {
+        "tool": "ffmpeg_numpy_animator",
+        "operation": "60s 1080p network animation",
+        "quantity": 1,
+        "estimated_usd": 0,
+        "notes": "local CPU"
+      },
+      {
+        "tool": "captions_only",
+        "operation": "ASS burn-in",
+        "quantity": 1,
+        "estimated_usd": 0
+      }
+    ],
+    "budget_cap_usd": 2.0,
+    "budget_verdict": "within_budget",
+    "savings_options": [
+      "Already $0"
+    ]
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "User production request: Make a 60-second animated explainer about how neural networks learn. Recorded as full-run authorization on a Cloud VM where Remotion/HyperFrames/Piper are unavailable; ffmpeg locked.",
+    "approved_budget_usd": 0
+  }
+}

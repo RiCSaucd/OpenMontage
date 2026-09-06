@@ -1,0 +1,84 @@
+{
+  "version": "1.0",
+  "render_runtime": "ffmpeg",
+  "renderer_family": "explainer-teacher",
+  "composition_mode": "templated",
+  "cuts": [
+    {
+      "id": "cut-1",
+      "source": "anim_loop",
+      "in_seconds": 0.0,
+      "out_seconds": 8.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "IT DOES NOT MEMORIZE"
+    },
+    {
+      "id": "cut-2",
+      "source": "anim_loop",
+      "in_seconds": 8.0,
+      "out_seconds": 18.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "WEIGHTS ARE THE KNOBS"
+    },
+    {
+      "id": "cut-3",
+      "source": "anim_loop",
+      "in_seconds": 18.0,
+      "out_seconds": 30.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "FORWARD PASS"
+    },
+    {
+      "id": "cut-4",
+      "source": "anim_loop",
+      "in_seconds": 30.0,
+      "out_seconds": 42.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "LOSS IS A NUMBER"
+    },
+    {
+      "id": "cut-5",
+      "source": "anim_loop",
+      "in_seconds": 42.0,
+      "out_seconds": 54.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "THE ERROR WALKS BACK"
+    },
+    {
+      "id": "cut-6",
+      "source": "anim_loop",
+      "in_seconds": 54.0,
+      "out_seconds": 60.0,
+      "layer": "primary",
+      "transition_in": "cut",
+      "reason": "THAT IS LEARNING"
+    }
+  ],
+  "audio": {
+    "music": {
+      "asset_id": "bed",
+      "volume": 0.22,
+      "fade_in_seconds": 1.0,
+      "fade_out_seconds": 1.4,
+      "ducking": false
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "sentence",
+    "source": "subs",
+    "font": "DejaVu Sans",
+    "font_size": 46,
+    "color": "#F4F1EA",
+    "position": "bottom-center"
+  },
+  "slideshow_risk_score": {
+    "average": 0.22,
+    "verdict": "strong"
+  }
+}

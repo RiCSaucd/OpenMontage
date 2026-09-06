@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "total_cost_usd": 0.0,
+  "assets": [
+    {
+      "id": "anim_loop",
+      "type": "animation",
+      "path": "assets/video/network_loop.mp4",
+      "source_tool": "ffmpeg_numpy_animator",
+      "scene_id": "sc1",
+      "duration_seconds": 60.0,
+      "resolution": "1920x1080",
+      "format": "mp4",
+      "cost_usd": 0,
+      "provider": "local_ffmpeg",
+      "generation_summary": "15fps numpy network with forward/back pulses"
+    },
+    {
+      "id": "bed",
+      "type": "music",
+      "path": "assets/music/bed.wav",
+      "source_tool": "procedural_sine_bed",
+      "scene_id": "sc1",
+      "duration_seconds": 60.0,
+      "cost_usd": 0,
+      "provider": "local"
+    },
+    {
+      "id": "subs",
+      "type": "subtitle",
+      "path": "assets/subtitles.ass",
+      "source_tool": "ass_writer",
+      "scene_id": "sc1",
+      "cost_usd": 0
+    }
+  ]
+}

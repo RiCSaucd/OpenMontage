@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "output_path": "renders/how-neural-networks-learn.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 60.0,
+      "resolution": "1920x1080",
+      "fps": 15,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 7595675,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 6,
+      "notes": "Hook / weights / forward / loss / backprop / landing sampled."
+    },
+    "audio_spotcheck": {
+      "has_music": true,
+      "has_narration": false,
+      "notes": "Captions-only VO; procedural bed loudnorm I=-16."
+    },
+    "promise_preservation": {
+      "promise_type": "teacher_explainer",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "motion_required": true,
+      "notes": "Network pulses and weight updates are per-frame, not Ken Burns on stills."
+    },
+    "subtitle_check": {
+      "present": true,
+      "readable": true,
+      "notes": "ASS title + body captions for all six sections."
+    }
+  }
+}
