@@ -1,7 +1,7 @@
 """Backlot CLI.
 
     python -m backlot open [project-id]   # start server if needed, open browser
-    python -m backlot serve [--port N]    # run the server in the foreground
+    python -m backlot serve [--port N]    # FastAPI if installed, else stdlib HTTP
 
 ``open`` is idempotent and non-fatal by design: agents call it at pipeline
 initialization and must continue the production even if it fails.
