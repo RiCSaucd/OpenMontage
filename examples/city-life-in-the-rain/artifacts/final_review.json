@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "output_path": "renders/city-life-in-the-rain.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 75.0,
+      "resolution": "1920x1080",
+      "fps": 24,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 92163042,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 8,
+      "notes": "Open / drops / street / lightning / cars / dusk / return / end-tag."
+    },
+    "audio_spotcheck": {
+      "has_music": true,
+      "has_narration": false,
+      "notes": "Procedural bed, loudnorm I=-16, no VO."
+    },
+    "promise_preservation": {
+      "promise_type": "documentary_montage",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": true,
+      "motion_required": true,
+      "notes": "Real footage, dissolves, overlay tag. Remotion swap was logged, not silent."
+    },
+    "subtitle_check": {
+      "present": true,
+      "readable": true,
+      "notes": "End-tag only; no narration captions."
+    }
+  }
+}

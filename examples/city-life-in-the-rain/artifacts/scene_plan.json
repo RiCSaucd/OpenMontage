@@ -1,0 +1,577 @@
+{
+  "version": "1.0",
+  "style_playbook": "premium-minimalist",
+  "scenes": [
+    {
+      "id": "s1",
+      "type": "broll",
+      "description": "city skyline through a rain-beaded window, parking lot below, overcast late light",
+      "start_seconds": 0.0,
+      "end_seconds": 7.0,
+      "framing": "extreme_wide",
+      "movement": "static",
+      "transition_in": "fade",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Open on the city seen from inside the weather.",
+      "narrative_role": "establish_context",
+      "hero_moment": true,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "city skyline through a rain-beaded window, parking lot below, overcast late light",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "type": "broll",
+      "description": "raindrops hitting a dark wet surface, crown splash, overcast, close up",
+      "start_seconds": 7.0,
+      "end_seconds": 12.2,
+      "framing": "extreme_close_up",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "extreme_close_up",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "shallow",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Cut to the grain of the rain itself.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "raindrops hitting a dark wet surface, crown splash, overcast, close up",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "broll",
+      "description": "empty London street at night after rain, wet pavement reflections, shop lights, bus",
+      "start_seconds": 12.2,
+      "end_seconds": 19.4,
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Hero: the city keeping vigil on wet stone.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": true,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "empty London street at night after rain, wet pavement reflections, shop lights, bus",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "broll",
+      "description": "lightning bolt across a night sky, building silhouette, storm clouds",
+      "start_seconds": 19.4,
+      "end_seconds": 23.4,
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "The weather speaks once, then we return to the street.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "lightning bolt across a night sky, building silhouette, storm clouds",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "type": "broll",
+      "description": "palm trees bent in storm wind against a heavy grey sky, low angle",
+      "start_seconds": 23.4,
+      "end_seconds": 29.6,
+      "framing": "medium_wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "medium_wide",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Pressure on the city's edge \u2014 weather as weight.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "palm trees bent in storm wind against a heavy grey sky, low angle",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "broll",
+      "description": "rows of wet cars under a storm sky, rain on the glass, distant towers",
+      "start_seconds": 29.6,
+      "end_seconds": 35.8,
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Everyone parked and waited the weather out.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "rows of wet cars under a storm sky, rain on the glass, distant towers",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "broll",
+      "description": "later rain on the same dark surface, slower crowns, wooden fence soft in back",
+      "start_seconds": 35.8,
+      "end_seconds": 41.4,
+      "framing": "close_up",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "shallow",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Return to texture so the wide shots keep their weather.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "later rain on the same dark surface, slower crowns, wooden fence soft in back",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "type": "broll",
+      "description": "city silhouette at dusk, magenta streaked cloud, church spires, a few warm windows",
+      "start_seconds": 41.4,
+      "end_seconds": 48.4,
+      "framing": "extreme_wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "The city as a dark line under weather that has already passed through.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "city silhouette at dusk, magenta streaked cloud, church spires, a few warm windows",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "broll",
+      "description": "palm canopy still driving sideways, greyer sky, low angle",
+      "start_seconds": 48.4,
+      "end_seconds": 54.6,
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "The weather has not finished with the afternoon.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "palm canopy still driving sideways, greyer sky, low angle",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "type": "broll",
+      "description": "brighter break in the storm cloud over the towers, rain still on the glass",
+      "start_seconds": 54.6,
+      "end_seconds": 60.6,
+      "framing": "extreme_wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "A little light, still rain \u2014 the city does not dry.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "brighter break in the storm cloud over the towers, rain still on the glass",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "type": "broll",
+      "description": "final close rain, fewer crowns, water sheet on dark metal",
+      "start_seconds": 60.6,
+      "end_seconds": 67.0,
+      "framing": "extreme_close_up",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "shot_language": {
+        "shot_size": "extreme_close_up",
+        "camera_movement": "static",
+        "lighting_key": "overcast_soft",
+        "depth_of_field": "shallow",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Quiet the rain before we go back to the street.",
+      "narrative_role": "emotional_beat",
+      "hero_moment": false,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "final close rain, fewer crowns, water sheet on dark metal",
+          "source": "source"
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "type": "broll",
+      "description": "the same wet London street, later in the take, bus further on, reflections holding",
+      "start_seconds": 67.0,
+      "end_seconds": 75.0,
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "dissolve",
+      "transition_out": "fade",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Close on the vigil. End-tag overlays here.",
+      "narrative_role": "resolution",
+      "hero_moment": true,
+      "texture_keywords": [
+        "wet",
+        "grain",
+        "reflections",
+        "muted"
+      ],
+      "required_assets": [
+        {
+          "type": "video",
+          "description": "the same wet London street, later in the take, bus further on, reflections holding",
+          "source": "source"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "tone": "elegiac",
+    "slots": [
+      {
+        "id": "s1",
+        "description": "city skyline through a rain-beaded window, parking lot below, overcast late light",
+        "queries": [
+          "rainy city skyline through window",
+          "wet glass city parking lot overcast"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": true,
+        "target_hold_seconds": 7.0
+      },
+      {
+        "id": "s2",
+        "description": "raindrops hitting a dark wet surface, crown splash, overcast, close up",
+        "queries": [
+          "raindrop splash close up wet metal",
+          "macro rain hitting dark surface"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 5.2
+      },
+      {
+        "id": "s3",
+        "description": "empty London street at night after rain, wet pavement reflections, shop lights, bus",
+        "queries": [
+          "empty london street rainy night reflections",
+          "wet pavement shop lights double decker"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": true,
+        "target_hold_seconds": 7.2
+      },
+      {
+        "id": "s4",
+        "description": "lightning bolt across a night sky, building silhouette, storm clouds",
+        "queries": [
+          "lightning night storm city silhouette",
+          "thunder flash dark sky"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 4.0
+      },
+      {
+        "id": "s5",
+        "description": "palm trees bent in storm wind against a heavy grey sky, low angle",
+        "queries": [
+          "palm trees storm wind overcast",
+          "trees bending heavy rain sky"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 6.2
+      },
+      {
+        "id": "s6",
+        "description": "rows of wet cars under a storm sky, rain on the glass, distant towers",
+        "queries": [
+          "rainy parking lot city skyline",
+          "wet cars overcast downtown"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 6.2
+      },
+      {
+        "id": "s7",
+        "description": "later rain on the same dark surface, slower crowns, wooden fence soft in back",
+        "queries": [
+          "rain splash later storm close",
+          "wet surface droplets overcast"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 5.6
+      },
+      {
+        "id": "s8",
+        "description": "city silhouette at dusk, magenta streaked cloud, church spires, a few warm windows",
+        "queries": [
+          "city silhouette dusk magenta clouds",
+          "twilight skyline church spires"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 7.0
+      },
+      {
+        "id": "s9",
+        "description": "palm canopy still driving sideways, greyer sky, low angle",
+        "queries": [
+          "storm palms grey sky low angle",
+          "windy trees overcast"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 6.2
+      },
+      {
+        "id": "s10",
+        "description": "brighter break in the storm cloud over the towers, rain still on the glass",
+        "queries": [
+          "storm break over city skyline rain window",
+          "overcast towers crane rainy day"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 6.0
+      },
+      {
+        "id": "s11",
+        "description": "final close rain, fewer crowns, water sheet on dark metal",
+        "queries": [
+          "rain calming close up wet metal",
+          "last raindrops dark surface"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": false,
+        "target_hold_seconds": 6.4
+      },
+      {
+        "id": "s12",
+        "description": "the same wet London street, later in the take, bus further on, reflections holding",
+        "queries": [
+          "london rainy night street later take",
+          "wet pavement reflections empty shops"
+        ],
+        "preferred_sources": [
+          "pexels"
+        ],
+        "hero": true,
+        "target_hold_seconds": 8.0
+      }
+    ],
+    "era_mix": "modern",
+    "hold_sum": 75.0
+  }
+}

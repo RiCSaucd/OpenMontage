@@ -1,0 +1,173 @@
+{
+  "version": "1.0",
+  "render_runtime": "ffmpeg",
+  "renderer_family": "documentary-montage",
+  "cuts": [
+    {
+      "id": "cut-s1",
+      "source": "clip-s1",
+      "in_seconds": 1.2,
+      "out_seconds": 8.8,
+      "layer": "primary",
+      "transition_in": "fade",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Open on the city seen from inside the weather."
+    },
+    {
+      "id": "cut-s2",
+      "source": "clip-s2",
+      "in_seconds": 3.5,
+      "out_seconds": 9.3,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Cut to the grain of the rain itself."
+    },
+    {
+      "id": "cut-s3",
+      "source": "clip-s3",
+      "in_seconds": 0.4,
+      "out_seconds": 8.2,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Hero: the city keeping vigil on wet stone."
+    },
+    {
+      "id": "cut-s4",
+      "source": "clip-s4",
+      "in_seconds": 0.05,
+      "out_seconds": 4.65,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "The weather speaks once, then we return to the street."
+    },
+    {
+      "id": "cut-s5",
+      "source": "clip-s5",
+      "in_seconds": 8.0,
+      "out_seconds": 14.8,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Pressure on the city's edge \u2014 weather as weight."
+    },
+    {
+      "id": "cut-s6",
+      "source": "clip-s6",
+      "in_seconds": 8.5,
+      "out_seconds": 15.3,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Everyone parked and waited the weather out."
+    },
+    {
+      "id": "cut-s7",
+      "source": "clip-s7",
+      "in_seconds": 20.0,
+      "out_seconds": 26.2,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Return to texture so the wide shots keep their weather."
+    },
+    {
+      "id": "cut-s8",
+      "source": "clip-s8",
+      "in_seconds": 4.0,
+      "out_seconds": 11.6,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "The city as a dark line under weather that has already passed through."
+    },
+    {
+      "id": "cut-s9",
+      "source": "clip-s9",
+      "in_seconds": 28.0,
+      "out_seconds": 34.8,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "The weather has not finished with the afternoon."
+    },
+    {
+      "id": "cut-s10",
+      "source": "clip-s10",
+      "in_seconds": 14.0,
+      "out_seconds": 20.6,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "A little light, still rain \u2014 the city does not dry."
+    },
+    {
+      "id": "cut-s11",
+      "source": "clip-s11",
+      "in_seconds": 34.0,
+      "out_seconds": 41.0,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "dissolve",
+      "transition_duration": 0.6,
+      "reason": "Quiet the rain before we go back to the street."
+    },
+    {
+      "id": "cut-s12",
+      "source": "clip-s12",
+      "in_seconds": 3.4,
+      "out_seconds": 11.4,
+      "layer": "primary",
+      "transition_in": "dissolve",
+      "transition_out": "fade",
+      "transition_duration": 0.6,
+      "reason": "Close on the vigil. End-tag overlays here."
+    }
+  ],
+  "audio": {
+    "music": {
+      "asset_id": "bed",
+      "volume": 0.28,
+      "fade_in_seconds": 3.2,
+      "fade_out_seconds": 4.0,
+      "ducking": false
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "end_tag_only",
+    "source": "endtag",
+    "font": "DejaVu Sans",
+    "font_size": 52,
+    "color": "#E8E0D4",
+    "position": "center"
+  },
+  "metadata": {
+    "renderer_family": "documentary-montage",
+    "composition_mode": "edit-native",
+    "end_tag": {
+      "offset_seconds": 68.5,
+      "mode": "overlay",
+      "text": "THE CITY KEEPS ITS OWN VIGIL."
+    },
+    "total_duration_seconds": 75.0,
+    "transition_vocabulary": [
+      "fade",
+      "dissolve",
+      "cut"
+    ],
+    "runtime_note": "Remotion locked by pipeline but unavailable; ffmpeg used with logged render_runtime_selection."
+  }
+}

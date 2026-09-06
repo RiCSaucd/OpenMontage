@@ -10,7 +10,6 @@ and Remotion/HyperFrames are unreachable on this Cloud VM.
 from __future__ import annotations
 
 import json
-import math
 import shutil
 import subprocess
 import sys
