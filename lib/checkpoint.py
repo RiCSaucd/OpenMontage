@@ -12,7 +12,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
-import jsonschema
+try:
+    import jsonschema
+except ImportError:  # pragma: no cover - Cloud images without PyPI
+    jsonschema = None  # type: ignore[assignment]
 
 from schemas.artifacts import ARTIFACT_NAMES, validate_artifact
 
@@ -156,6 +159,8 @@ def validate_checkpoint(checkpoint: dict[str, Any]) -> None:
 
     _validate_artifacts_for_stage(stage, status, artifacts)
 
+    if jsonschema is None:
+        return
     try:
         jsonschema.validate(instance=checkpoint, schema=_load_checkpoint_schema())
     except jsonschema.ValidationError as exc:
