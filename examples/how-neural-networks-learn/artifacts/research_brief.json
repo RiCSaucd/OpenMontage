@@ -1,0 +1,211 @@
+{
+  "version": "1.0",
+  "topic": "How neural networks learn",
+  "research_date": "2026-09-06",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "What is backpropagation really doing? | Deep Learning Chapter 3",
+        "url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+        "source": "youtube",
+        "angle": "visual calculus of nudges",
+        "what_it_covers": "Grant Sanderson walks through how one training example wants to nudge weights to reduce cost, then mini-batch SGD.",
+        "what_it_misses": "A 60-second first-watch path for people who will bounce before minute four.",
+        "engagement_signal": "Canonical 3Blue1Brown series; still the default recommendation in 2026."
+      },
+      {
+        "title": "Backpropagation calculus | Deep Learning Chapter 4",
+        "url": "https://www.3blue1brown.com/lessons/backpropagation-calculus/",
+        "source": "blog",
+        "angle": "chain-rule derivation",
+        "what_it_covers": "\u2202C/\u2202w as a product of three sensitivities; why the error walks backward.",
+        "what_it_misses": "A non-calculus hook that still refuses the 'it's a brain' metaphor."
+      },
+      {
+        "title": "CS231n Lecture notes: Backpropagation",
+        "url": "https://cs231n.github.io/optimization-2/",
+        "source": "blog",
+        "angle": "computational-graph teaching notes",
+        "what_it_covers": "Stanford course notes: local gradients, chain rule on a graph, practical tips.",
+        "what_it_misses": "Motion \u2014 the notes are static diagrams."
+      }
+    ],
+    "saturated_angles": [
+      "Neural networks are like the brain",
+      "Just stack layers and magic happens",
+      "Hour-long calculus derivations as the first lesson"
+    ],
+    "underserved_gaps": [
+      "A 60-second loop that treats learning as guess \u2192 number \u2192 nudge, without claiming the network understands",
+      "Showing loss as a compass instead of a scolding teacher"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "3Blue1Brown Chapter 3 remains the default 'how they learn' explainer",
+        "url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+        "date": "2017-11-03",
+        "relevance": "The landscape is evergreen and math-heavy; a short teacher-explainer still has a gap."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "reddit",
+        "topic_or_url": "https://www.reddit.com/r/MachineLearning/",
+        "sentiment": "confusion about whether backprop 'understands' vs just computing a gradient",
+        "key_quotes": [
+          "People keep asking if the network knows why it was wrong."
+        ]
+      }
+    ],
+    "timeliness_window": "evergreen"
+  },
+  "data_points": [
+    {
+      "claim": "Backpropagation computes the gradient of the cost with respect to every weight \u2014 the relative size of each nudge \u2014 not a verbal explanation of the mistake.",
+      "source_url": "https://www.3blue1brown.com/lessons/backpropagation-calculus/",
+      "source_name": "3Blue1Brown, Backpropagation calculus",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "One training example produces a list of desired weight changes; SGD averages those across a mini-batch because full-batch gradients are too slow.",
+      "source_url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      "source_name": "3Blue1Brown, Deep Learning Chapter 3",
+      "credibility": "secondary_source",
+      "surprise_factor": "expected",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "On a computational graph, each gate multiplies its local gradient by the upstream gradient \u2014 the chain rule is just walking the graph backward.",
+      "source_url": "https://cs231n.github.io/optimization-2/",
+      "source_name": "Stanford CS231n Optimization-2",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "diagram"
+    },
+    {
+      "claim": "The size of \u2202C/\u2202a is proportional to how far the output is from the label, so a big miss produces a bigger first nudge.",
+      "source_url": "https://www.3blue1brown.com/lessons/backpropagation-calculus/",
+      "source_name": "3Blue1Brown chain-rule walkthrough",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "stat_card"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Is a neural network just memorizing the training set?",
+      "What is a loss function actually measuring?",
+      "Does backpropagation tell the network *why* it was wrong?",
+      "What is a weight, in one sentence?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "The network understands the mistake the way a student does.",
+        "reality": "It only receives a number (loss) and a direction for each knob (the gradient).",
+        "source": "3Blue1Brown Ch.3 + CS231n notes"
+      },
+      {
+        "myth": "Learning means storing examples.",
+        "reality": "Learning means changing weights so future guesses are less wrong.",
+        "source": "CS231n / Nielsen Neural Networks and Deep Learning"
+      }
+    ],
+    "knowledge_level": "Curious general audience; may have heard 'AI' and 'training' but not forward pass vs backprop.",
+    "pain_points": [
+      "First explainers jump to calculus before the loop is visible.",
+      "Brain metaphors hide the actual algorithm."
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "Grant Sanderson",
+      "title_or_affiliation": "3Blue1Brown",
+      "position": "Learning is finding weights that minimize a cost; backprop is the algorithm that computes that gradient.",
+      "source_url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      "contrarian": false
+    },
+    {
+      "name": "Andrej Karpathy",
+      "title_or_affiliation": "Neural Networks: Zero to Hero",
+      "position": "You want to see the loss go down as the only honest proof the network is learning.",
+      "source_url": "https://karpathy.ai/zero-to-hero.html",
+      "contrarian": false
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "Guess, number, nudge",
+      "hook": "It does not memorize. It guesses, then turns the miss into a number.",
+      "type": "evergreen",
+      "why_now": "Saturated brain metaphors leave a 60s gap for the actual training loop.",
+      "grounded_in": [
+        "data_point_1",
+        "audience_q1",
+        "misconception_memorize"
+      ]
+    },
+    {
+      "name": "Loss is a compass, not a scolding",
+      "hook": "The network never hears 'wrong.' It only gets a number with a direction.",
+      "type": "contrarian",
+      "why_now": "Forum threads still ask if the model 'knows why' it failed.",
+      "grounded_in": [
+        "data_point_4",
+        "audience_q3"
+      ]
+    },
+    {
+      "name": "The chain rule as a walk backward",
+      "hook": "Error does not jump to the first layer. It walks back, gate by gate.",
+      "type": "narrative",
+      "why_now": "CS231n already teaches this; motion is what the notes cannot do.",
+      "grounded_in": [
+        "data_point_3"
+      ]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "3Blue1Brown neuron layers with glowing activations and weight thickness",
+      "url": "https://www.3blue1brown.com/lessons/backpropagation-calculus/",
+      "what_works": "One consistent diagram that changes state instead of cutting to new metaphors."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      "title": "3Blue1Brown \u2014 Backpropagation, intuitively",
+      "used_for": "landscape + data_points",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.3blue1brown.com/lessons/backpropagation-calculus/",
+      "title": "3Blue1Brown \u2014 Backpropagation calculus",
+      "used_for": "data_points + visual_references",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://cs231n.github.io/optimization-2/",
+      "title": "CS231n Optimization-2 (Backprop)",
+      "used_for": "data_points + misconceptions",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://karpathy.ai/zero-to-hero.html",
+      "title": "Andrej Karpathy \u2014 Neural Networks: Zero to Hero",
+      "used_for": "expert_voices",
+      "reliability": "secondary"
+    },
+    {
+      "url": "http://neuralnetworksanddeeplearning.com/chap2.html",
+      "title": "Michael Nielsen \u2014 How the backpropagation algorithm works",
+      "used_for": "misconceptions",
+      "reliability": "primary"
+    }
+  ],
+  "research_summary": "The best explainers already exist as long math lessons. The gap is a 60-second teacher-explainer that refuses the brain metaphor and shows one loop: guess, score the miss as a number, walk the error backward, nudge the weights."
+}

@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "title": "How Neural Networks Learn",
+  "total_duration_seconds": 60.0,
+  "voice_performance": {
+    "performance_intent": "Calm teacher. Captions carry the voice.",
+    "pacing_profile": "technical",
+    "energy_curve": "hook curiosity, mid explanation, landing certainty",
+    "pause_policy": "Beat after 'number' and before 'That is learning.'",
+    "sample_section_id": "s1"
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "Hook",
+      "text": "A neural network does not memorize answers. It guesses, measures how wrong it is, and nudges millions of tiny knobs.",
+      "start_seconds": 0.0,
+      "end_seconds": 8.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "IT DOES NOT MEMORIZE",
+        "provider_text": "A neural network does not memorize answers. It guesses, measures how wrong it is, and nudges millions of tiny knobs."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "IT DOES NOT MEMORIZE",
+          "timestamp_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "Weights",
+      "text": "Those knobs are weights. Each connection multiplies a signal. Stack enough of them and you get a guess.",
+      "start_seconds": 8.0,
+      "end_seconds": 18.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "WEIGHTS ARE THE KNOBS",
+        "provider_text": "Those knobs are weights. Each connection multiplies a signal. Stack enough of them and you get a guess."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "WEIGHTS ARE THE KNOBS",
+          "timestamp_seconds": 8.0
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "Forward",
+      "text": "First the signal runs forward. Pixels in, scores out. That is the forward pass.",
+      "start_seconds": 18.0,
+      "end_seconds": 30.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "FORWARD PASS",
+        "provider_text": "First the signal runs forward. Pixels in, scores out. That is the forward pass."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "FORWARD PASS",
+          "timestamp_seconds": 18.0
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "Loss",
+      "text": "Then a loss function scores the miss. If the label is cat and the network said dog, the error is a number \u2014 not a lecture.",
+      "start_seconds": 30.0,
+      "end_seconds": 42.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "LOSS IS A NUMBER",
+        "provider_text": "Then a loss function scores the miss. If the label is cat and the network said dog, the error is a number \u2014 not a lecture."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "LOSS IS A NUMBER",
+          "timestamp_seconds": 30.0
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "Backprop",
+      "text": "Backpropagation sends that error backward. Every weight gets a tiny update: a little more this way, a little less that way.",
+      "start_seconds": 42.0,
+      "end_seconds": 54.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "THE ERROR WALKS BACK",
+        "provider_text": "Backpropagation sends that error backward. Every weight gets a tiny update: a little more this way, a little less that way."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "THE ERROR WALKS BACK",
+          "timestamp_seconds": 42.0
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "Landing",
+      "text": "Do that millions of times, and the guesses get less wrong. That is learning.",
+      "start_seconds": 54.0,
+      "end_seconds": 60.0,
+      "speaker_directions": "Even, unhurried.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused",
+        "emphasis_words": [],
+        "delivery_note": "THAT IS LEARNING",
+        "provider_text": "Do that millions of times, and the guesses get less wrong. That is learning."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "THAT IS LEARNING",
+          "timestamp_seconds": 54.0
+        }
+      ]
+    }
+  ]
+}

@@ -869,17 +869,19 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         events.append(
             f"Dialogue: 0,{ass_time(s['start_seconds'])},{ass_time(s['end_seconds'])},Title,,0,0,0,,{s['caption']}"
         )
-        # phrase the body into two caption lines max
+        # One stacked pair per section — never two overlapping Cap events.
         words = s["text"].split()
         mid = max(1, len(words) // 2)
-        span = s["end_seconds"] - s["start_seconds"]
+        # Prefer a punctuation break so the wrap reads as two sentences.
+        for i, w in enumerate(words[:-1]):
+            if w.endswith((".", ",", "—")) and 3 <= i <= len(words) - 3:
+                mid = i + 1
+                break
         a = " ".join(words[:mid])
         b = " ".join(words[mid:])
+        body = f"{a}\\N{b}" if b else a
         events.append(
-            f"Dialogue: 0,{ass_time(s['start_seconds'])},{ass_time(s['start_seconds'] + span * 0.52)},Cap,,0,0,0,,{a}"
-        )
-        events.append(
-            f"Dialogue: 0,{ass_time(s['start_seconds'] + span * 0.48)},{ass_time(s['end_seconds'])},Cap,,0,0,0,,{b}"
+            f"Dialogue: 0,{ass_time(s['start_seconds'])},{ass_time(s['end_seconds'])},Cap,,0,0,0,,{body}"
         )
     path.write_text(header + "\n".join(events) + "\n", encoding="utf-8")
 
