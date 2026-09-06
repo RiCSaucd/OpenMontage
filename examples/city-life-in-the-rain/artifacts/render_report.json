@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "renders/city-life-in-the-rain.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1920x1080",
+      "fps": 24,
+      "duration_seconds": 75.0,
+      "file_size_bytes": 92163042,
+      "platform_target": "youtube"
+    }
+  ],
+  "render_grammar": "documentary-montage",
+  "slideshow_risk_score": {
+    "average": 0.28,
+    "verdict": "strong"
+  },
+  "decision_log_ref": "/workspace/projects/city-life-in-the-rain/artifacts/decision_log.json",
+  "metadata": {
+    "end_tag_rendered": true,
+    "end_tag_mode": "overlay",
+    "music_mixed": true
+  },
+  "verification_notes": [
+    "ffprobe 1920x1080 h264+aac",
+    "Duration 75.000s (target 75)",
+    "End-tag over final street, not a black card",
+    "No narration"
+  ],
+  "warnings": [
+    "Remotion/HyperFrames unavailable; ffmpeg xfade used after logged runtime decision",
+    "Live stock APIs blocked; footage is Pexels via GitHub vendor pack"
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "version": "1.0",
+  "project_id": "city-life-in-the-rain",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "idea",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline",
+      "options_considered": [
+        {
+          "option_id": "documentary-montage",
+          "label": "Documentary montage",
+          "score": 0.96,
+          "reason": "User asked for a real-footage montage, no narration, elegiac, with music."
+        },
+        {
+          "option_id": "cinematic",
+          "label": "Cinematic",
+          "score": 0.45,
+          "reason": "Mood-led, but retrieval-first documentary is the named pipeline.",
+          "rejected_because": "Wrong contract for stock-corpus montage."
+        },
+        {
+          "option_id": "animated-explainer",
+          "label": "Animated explainer",
+          "score": 0.05,
+          "reason": "Would invent images.",
+          "rejected_because": "User locked real footage only."
+        }
+      ],
+      "selected": "documentary-montage",
+      "reason": "Exact match: retrieval-first tone poem, 30-180s, image + music."
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "idea",
+      "category": "concept_selection",
+      "subject": "Thematic angle",
+      "options_considered": [
+        {
+          "option_id": "vigil",
+          "label": "The vigil",
+          "score": 0.9,
+          "reason": "Empty wet streets; city as witness."
+        },
+        {
+          "option_id": "waiting",
+          "label": "Everyone waiting",
+          "score": 0.7,
+          "reason": "Cars and glass, but less street."
+        },
+        {
+          "option_id": "ground",
+          "label": "The ground speaks",
+          "score": 0.65,
+          "reason": "Strong texture, weaker city."
+        }
+      ],
+      "selected": "vigil",
+      "reason": "Best fit for the London wet-street hero we actually have."
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion CinematicRenderer + EndTag",
+          "score": 0.2,
+          "reason": "Pipeline prefers this for overlay end-tag.",
+          "rejected_because": "runtime not available on this machine (no remotion-composer/node_modules; npm registry blocked)"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.1,
+          "reason": "Not valid on this pipeline in Phase 1.",
+          "rejected_because": "CinematicRenderer + end-tag overlay parity deferred; also not installed"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg xfade + ASS overlay",
+          "score": 0.86,
+          "reason": "Only working engine. Can dissolve real clips and overlay the end-tag on live footage."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Remotion and HyperFrames are not on this machine. End-tag still overlays the final street, not a black card."
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "idea",
+      "category": "composition_mode",
+      "subject": "Authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier Remotion composition",
+          "score": 0.2,
+          "reason": "Would be right if Remotion ran.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "templated",
+          "label": "Stock Explainer templates",
+          "score": 0.1,
+          "reason": "Wrong grammar for a documentary.",
+          "rejected_because": "Would look like an explainer."
+        },
+        {
+          "option_id": "edit-native",
+          "label": "Native footage edit",
+          "score": 0.92,
+          "reason": "Cuts, dissolves, grade, music, overlay tag."
+        }
+      ],
+      "selected": "edit-native",
+      "reason": "The piece is an edit of real clips, not a designed composition."
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "idea",
+      "category": "voice_selection",
+      "subject": "Narration",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "No narration",
+          "score": 0.99,
+          "reason": "User locked no narration."
+        },
+        {
+          "option_id": "tts",
+          "label": "TTS voice-over",
+          "score": 0.05,
+          "reason": "Would violate the brief.",
+          "rejected_because": "User said no narration."
+        }
+      ],
+      "selected": "none",
+      "reason": "Image + music + one end-tag line."
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "idea",
+      "category": "music_source",
+      "subject": "Score bed",
+      "options_considered": [
+        {
+          "option_id": "library",
+          "label": "music_library/",
+          "score": 0.0,
+          "reason": "Folder empty.",
+          "rejected_because": "No tracks on disk."
+        },
+        {
+          "option_id": "elevenlabs",
+          "label": "ElevenLabs music_gen",
+          "score": 0.15,
+          "reason": "Would match the register.",
+          "rejected_because": "No key; host blocked."
+        },
+        {
+          "option_id": "procedural",
+          "label": "Local A-minor sine bed",
+          "score": 0.7,
+          "reason": "Available, quiet, no percussion."
+        }
+      ],
+      "selected": "procedural",
+      "reason": "Music is mandatory; this is the only source that can actually render."
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "assets",
+      "category": "fallback_decision",
+      "subject": "Footage source path",
+      "options_considered": [
+        {
+          "option_id": "direct_clip_search",
+          "label": "Pexels/Archive live search",
+          "score": 0.2,
+          "reason": "Pipeline fast path.",
+          "rejected_because": "Egress allowlist is GitHub-only; Pexels/Archive TLS fails."
+        },
+        {
+          "option_id": "github_vendor",
+          "label": "Pexels clips vendored on GitHub",
+          "score": 0.88,
+          "reason": "Real footage, original Pexels URLs in credits.txt, cloneable."
+        }
+      ],
+      "selected": "github_vendor",
+      "reason": "Only reachable real-footage corpus. Still Pexels-licensed clips, not generated B-roll."
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "idea",
+      "category": "fallback_decision",
+      "subject": "Full-run authorization on Cloud Agent",
+      "options_considered": [
+        {
+          "option_id": "pause-gates",
+          "label": "Stop at every human gate",
+          "score": 0.2,
+          "reason": "Manifest default.",
+          "rejected_because": "Cloud production request is a complete brief: 75s, real footage, no VO, elegiac, with music."
+        },
+        {
+          "option_id": "full-run",
+          "label": "Proceed through gated stages",
+          "score": 0.9,
+          "reason": "User specified every locked creative choice."
+        }
+      ],
+      "selected": "full-run",
+      "reason": "Treat the request as full-run authorization; still write awaiting_human then completed with human_approved=True."
+    }
+  ]
+}

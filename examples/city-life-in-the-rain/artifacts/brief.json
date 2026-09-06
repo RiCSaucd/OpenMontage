@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "title": "City Life in the Rain",
+  "hook": "A city does not stop for rain. It just gets quieter, and the ground starts to speak.",
+  "key_points": [
+    "Rain turns pavement into a second set of lights.",
+    "Most of a rainy city is waiting \u2014 parked, empty, watching through glass.",
+    "The weather is the only thing that moves at the city's true speed."
+  ],
+  "core_message": "Rain does not empty a city. It shows you who was only passing through.",
+  "tone": "elegiac",
+  "style": "documentary-montage, muted grade, long dissolves, no type until the end-tag",
+  "target_audience": "Viewers who want a tone poem, not a weather report",
+  "target_platform": "youtube",
+  "target_duration_seconds": 75.0,
+  "angle_options": [
+    {
+      "name": "The vigil",
+      "description": "Empty wet streets and windows; the city keeps watch."
+    },
+    {
+      "name": "Everyone waiting",
+      "description": "Parked cars, closed shops, rain doing the moving."
+    },
+    {
+      "name": "The ground speaks",
+      "description": "Reflections and droplets as the city's other voice."
+    }
+  ],
+  "selected_angle": "The vigil",
+  "metadata": {
+    "thematic_question": "What does rain show you about a city?",
+    "shape": "list",
+    "era_mix": "modern",
+    "sources_allowed": [
+      "pexels"
+    ],
+    "generated_clips_allowed": false,
+    "narration": "none",
+    "music_plan": {
+      "source": "procedural",
+      "provider": "local_sine_bed",
+      "prompt_seed": "slow A-minor drone, sparse fifths, no percussion, Max Richter register, 75s",
+      "opt_out_reason": null,
+      "fallback_note": "ElevenLabs/ACE-Step unreachable; no music_library tracks on disk."
+    },
+    "end_tag_plan": {
+      "text": "THE CITY KEEPS ITS OWN VIGIL.",
+      "palette": "warm_ivory_on_picture",
+      "duration_seconds": 6.5,
+      "render_engine": "ffmpeg",
+      "component": "ASS overlay",
+      "mode": "overlay",
+      "alternatives": [
+        "THE RAIN DOES NOT ASK WHO YOU ARE.",
+        "EVERY WINDOW HOLDS A DIFFERENT NIGHT."
+      ]
+    },
+    "end_tag_options_rejected": "Separated black card (concat) \u2014 user asked for a montage, not a title card."
+  }
+}
