@@ -9,6 +9,7 @@ Design contract (see internal/design/LIVING_STORYBOARD.md):
   already writes. Agents never update the UI.
 - Never block, never break: malformed or missing state degrades gracefully.
 - The agent's only duty: ``python -m backlot open <project>`` at pipeline init.
+- ``serve`` uses FastAPI when installed, otherwise a stdlib HTTP fallback.
 """
 
 __version__ = "0.1.0"
