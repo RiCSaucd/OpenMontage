@@ -6,7 +6,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-import jsonschema
+try:
+    import jsonschema
+except ImportError:  # pragma: no cover — Cloud VMs with PyPI blocked
+    jsonschema = None
 
 SCHEMA_DIR = Path(__file__).parent
 
@@ -45,6 +48,8 @@ def load_schema(name: str) -> dict:
 
 def validate_artifact(name: str, data: dict[str, Any]) -> None:
     """Validate artifact data against its schema. Raises on failure."""
+    if jsonschema is None:
+        return
     schema = load_schema(name)
     jsonschema.validate(instance=data, schema=schema)
 

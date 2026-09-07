@@ -11,6 +11,10 @@ python -m backlot open                # library view (all projects)
 python -m backlot serve --port 4750   # run the server in the foreground
 ```
 
+If FastAPI/uvicorn are missing (PyPI blocked), `serve` / `open` fall back to a
+stdlib HTTP server with the same routes. The board still updates via a
+directory poll when `watchfiles` is not installed.
+
 ## How it stays live
 
 No agent involvement. A `watchfiles` watcher on `projects/` publishes change

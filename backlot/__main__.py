@@ -1,7 +1,7 @@
 """Backlot CLI.
 
     python -m backlot open [project-id]   # start server if needed, open browser
-    python -m backlot serve [--port N]    # run the server in the foreground
+    python -m backlot serve [--port N]    # FastAPI if installed, else stdlib HTTP
 
 ``open`` is idempotent and non-fatal by design: agents call it at pipeline
 initialization and must continue the production even if it fails.
@@ -80,10 +80,15 @@ def cmd_open(project_id: str | None) -> int:
 
 
 def cmd_serve(port: int) -> int:
-    import uvicorn
+    try:
+        import uvicorn
 
-    uvicorn.run("backlot.server:app", host="127.0.0.1", port=port, log_level="warning")
-    return 0
+        uvicorn.run("backlot.server:app", host="127.0.0.1", port=port, log_level="warning")
+        return 0
+    except ImportError:
+        from backlot.stdlib_server import serve
+
+        return serve(port=port)
 
 
 def main(argv: list[str] | None = None) -> int:

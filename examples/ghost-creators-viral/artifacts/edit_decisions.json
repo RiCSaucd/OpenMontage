@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "cuts": [
+    {
+      "id": "cut-1",
+      "source": "img-cash",
+      "in_seconds": 0,
+      "out_seconds": 4,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.2,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Hook: $26 on screen at 0:00"
+    },
+    {
+      "id": "cut-2",
+      "source": "img-views",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.2,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Actors / scripts / 45M views"
+    },
+    {
+      "id": "cut-3",
+      "source": "img-lens",
+      "in_seconds": 0,
+      "out_seconds": 8,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.2,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "Detector loophole payload"
+    },
+    {
+      "id": "cut-4",
+      "source": "img-takedown",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.2,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "20 channels / spam not lies"
+    },
+    {
+      "id": "cut-5",
+      "source": "img-phones",
+      "in_seconds": 0,
+      "out_seconds": 6,
+      "speed": 1.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.2,
+        "position": "center",
+        "animation": "ken-burns-slow-zoom"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0,
+      "reason": "TikTok leftover + sting line"
+    }
+  ],
+  "overlays": [],
+  "audio": {
+    "music": {
+      "asset_id": "mus-bed",
+      "volume": 0.55,
+      "fade_in_seconds": 0.0,
+      "fade_out_seconds": 0.4,
+      "ducking": false
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "sentence",
+    "source": "sub-ass",
+    "font": "Inter",
+    "font_size": 36,
+    "color": "#FFFFFF",
+    "outline_color": "#000000",
+    "background": "#00000078",
+    "position": "bottom-center",
+    "max_words_per_line": 8
+  },
+  "transitions": [
+    {"type": "cut", "at_seconds": 4, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 10, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 18, "duration_seconds": 0},
+    {"type": "cut", "at_seconds": 24, "duration_seconds": 0}
+  ],
+  "renderer_family": "explainer-data",
+  "render_runtime": "ffmpeg",
+  "composition_mode": "templated",
+  "slideshow_risk_score": {
+    "average": 0.42,
+    "verdict": "acceptable"
+  },
+  "metadata": {
+    "caption_rail_y": 1480,
+    "locked_runtime_note": "render_runtime carried from proposal_packet unchanged"
+  }
+}
