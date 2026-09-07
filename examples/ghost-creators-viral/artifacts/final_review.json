@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "output_path": "examples/ghost-creators-viral/artifacts/ghost_creators_viral_short.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 30.0,
+      "resolution": "1080x1920",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 38779251,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 4,
+      "frame_paths": [
+        "examples/ghost-creators-viral/artifacts/frame_hook.png",
+        "examples/ghost-creators-viral/artifacts/frame_views.png",
+        "examples/ghost-creators-viral/artifacts/frame_loophole.png",
+        "examples/ghost-creators-viral/artifacts/frame_end.png"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": false,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": [
+        "No spoken VO by design (captions_only). Bed starts at 0:00."
+      ]
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "explainer-data",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "runtime_swap_check": "ok — proposal locked ffmpeg; compose ran ffmpeg. Remotion and HyperFrames were logged as unavailable, not swapped in later.",
+      "motion_ratio_actual": 0.35,
+      "silent_downgrade_detected": false,
+      "issues": []
+    },
+    "subtitle_check": {
+      "subtitles_expected": true,
+      "subtitles_present": true,
+      "coverage_ratio": 1.0,
+      "timing_drift_detected": false,
+      "issues": []
+    },
+    "transcript_comparison": {
+      "transcript_matches_script": null,
+      "word_accuracy": null,
+      "issues": [
+        "No Whisper/ASR on this machine; compared burned ASS events to script.json by eye."
+      ]
+    }
+  },
+  "issues_found": [
+    "Spoken narration absent by locked captions_only decision — not a defect."
+  ],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "reviewed_at": "2026-09-04T20:52:00Z"
+  }
+}

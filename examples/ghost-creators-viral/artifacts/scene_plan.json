@@ -1,0 +1,176 @@
+{
+  "version": "1.0",
+  "style_playbook": "flat-motion-graphics",
+  "scenes": [
+    {
+      "id": "sc1",
+      "type": "text_card",
+      "description": "Stacked olive bills + amber coin on ink grain. Giant $26.",
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "script_section_id": "s1",
+      "framing": "Center stack in the 900x1400 safe zone",
+      "movement": "Ken Burns slow zoom 12%",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "ASS Giant/Hook/Amber + Cap at y=1480",
+      "shot_language": {
+        "shot_size": "close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "low_key",
+        "depth_of_field": "shallow",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Pattern-interrupt with the gig rate before the viewer scrolls",
+      "narrative_role": "introduce_subject",
+      "information_role": "The job paid about $26 a video",
+      "hero_moment": true,
+      "texture_keywords": ["grain", "ink", "amber"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "s1_cash still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc2",
+      "type": "text_card",
+      "description": "Vertical stack of dark cards with red live dots. 45 MILLION glows.",
+      "start_seconds": 4,
+      "end_seconds": 10,
+      "script_section_id": "s2",
+      "framing": "Centered card stack",
+      "movement": "Ken Burns zoom 10%",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "REAL ACTORS / AI SCRIPTS / 45 MILLION / YOUTUBE VIEWS",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Prove the machine scaled",
+      "narrative_role": "evidence",
+      "information_role": "45 million YouTube views, millions more on TikTok",
+      "hero_moment": false,
+      "texture_keywords": ["grain", "red", "cards"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "s2_views still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc3",
+      "type": "diagram",
+      "description": "Camera-lens / detector eye with concentric rings.",
+      "start_seconds": 10,
+      "end_seconds": 18,
+      "script_section_id": "s3",
+      "framing": "Center lens, type above",
+      "movement": "Ken Burns zoom 14%",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "THE DETECTOR / HUNTS FAKE FACES / SO THEY HIRED / REAL ONES",
+      "shot_language": {
+        "shot_size": "extreme_close_up",
+        "camera_movement": "zoom_in",
+        "lens_mm": 85,
+        "lighting_key": "rim_lit",
+        "depth_of_field": "shallow",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "Make the loophole visual: detectors look for fake faces",
+      "narrative_role": "deliver_payload",
+      "information_role": "A hired person beats a fake-face classifier",
+      "hero_moment": true,
+      "texture_keywords": ["grain", "lens", "red core"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "s3_lens still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc4",
+      "type": "text_card",
+      "description": "4×5 grid of channel tiles with red X marks.",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "script_section_id": "s4",
+      "framing": "Grid in mid-frame",
+      "movement": "Ken Burns zoom 10%",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "SEMAFOR PUBLISHED / 20 CHANNELS / GONE / FOR SPAM. NOT LIES.",
+      "shot_language": {
+        "shot_size": "medium_wide",
+        "camera_movement": "zoom_in",
+        "lens_mm": 35,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "neutral"
+      },
+      "shot_intent": "Show enforcement without claiming a truth ruling",
+      "narrative_role": "build_tension",
+      "information_role": "20 channels terminated for spam this week",
+      "hero_moment": false,
+      "texture_keywords": ["grain", "grid", "red X"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "s4_takedown still",
+          "source": "generate"
+        }
+      ]
+    },
+    {
+      "id": "sc5",
+      "type": "text_card",
+      "description": "Three overlapping phone rectangles; center glows amber-red.",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "script_section_id": "s5",
+      "framing": "Phone stack center",
+      "movement": "Ken Burns zoom 12%",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_notes": "THE CLIPS / STILL LIVE / ON TIKTOK / SEPT 2026. Cap: The loophole was a person.",
+      "shot_language": {
+        "shot_size": "medium",
+        "camera_movement": "zoom_in",
+        "lens_mm": 50,
+        "lighting_key": "neon",
+        "depth_of_field": "medium",
+        "color_temperature": "warm"
+      },
+      "shot_intent": "Unfinished ending: takedown is not deletion",
+      "narrative_role": "resolution",
+      "information_role": "Clips still circulate on TikTok in September 2026",
+      "hero_moment": false,
+      "texture_keywords": ["grain", "phones", "amber"],
+      "required_assets": [
+        {
+          "type": "image",
+          "description": "s5_phones still",
+          "source": "generate"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "aspect_ratio": "9:16",
+    "safe_zone": "900x1400 centered",
+    "caption_rail_y": 1480
+  }
+}

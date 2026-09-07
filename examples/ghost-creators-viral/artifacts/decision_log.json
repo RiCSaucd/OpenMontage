@@ -1,0 +1,221 @@
+{
+  "version": "1.0",
+  "project_id": "ghost-creators-viral-2026-09-04",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "research",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline for a 30s news/viral short",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "animated-explainer",
+          "score": 0.93,
+          "reason": "Generated short from researched news; research → proposal → kinetic compose."
+        },
+        {
+          "option_id": "cinematic",
+          "label": "cinematic",
+          "score": 0.3,
+          "reason": "Wrong grammar for a mute-first news slam.",
+          "rejected_because": "Needs footage-led cinematic motion."
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "User asked for a 30s viral video about news / YouTube / TikTok. Explainer + short-form.md.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Which live story is the A-story",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "The $26 loophole (ghost creators)",
+          "score": 0.94,
+          "reason": "This week's YouTube + TikTok news: 45M views, $26 actors, 20-channel takedown, detector bypass."
+        },
+        {
+          "option_id": "c2",
+          "label": "Jisoo CLICK same-day MV",
+          "score": 0.55,
+          "reason": "1.7M views in four hours, real today.",
+          "rejected_because": "Fandom drop, not news about the platforms."
+        },
+        {
+          "option_id": "c3",
+          "label": "Spam, not lies (60s civic cut)",
+          "score": 0.7,
+          "reason": "Stronger civic frame, slower hook.",
+          "rejected_because": "User asked for 30s viral."
+        }
+      ],
+      "selected": "c1",
+      "reason": "Matches 'in the news' AND 'viral on YouTube and TikTok' without restaging the political attack videos.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.88
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime for the 9:16 short",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React scene stack)",
+          "score": 0.5,
+          "reason": "Would own karaoke captions if installed. Explainer stock comps are 16:9.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/CSS/GSAP)",
+          "score": 0.62,
+          "reason": "Best kinetic type for this brief.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg Ken Burns + ASS + generated bed",
+          "score": 0.85,
+          "reason": "ffmpeg 6.1.1 is present. Can ship 1080x1920 / 30s / burned captions with no keys."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Both Remotion and HyperFrames were evaluated. Neither is on this machine. ffmpeg locked at proposal.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.93
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Templated vs atelier",
+      "options_considered": [
+        {
+          "option_id": "templated",
+          "label": "Templated ffmpeg kinetic type",
+          "score": 0.82,
+          "reason": "Locked ffmpeg runtime."
+        },
+        {
+          "option_id": "atelier",
+          "label": "Hand-authored Remotion/HyperFrames",
+          "score": 0.3,
+          "reason": "No JS runtime.",
+          "rejected_because": "Cannot render atelier without Remotion/HyperFrames."
+        }
+      ],
+      "selected": "templated",
+      "reason": "Runtime is ffmpeg.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "renderer_family_selection",
+      "subject": "Creative grammar",
+      "options_considered": [
+        {
+          "option_id": "explainer-data",
+          "label": "explainer-data",
+          "score": 0.9,
+          "reason": "Three numbers and a loophole."
+        },
+        {
+          "option_id": "explainer-teacher",
+          "label": "explainer-teacher",
+          "score": 0.3,
+          "reason": "No presenter.",
+          "rejected_because": "Wrong grammar for mute Shorts."
+        }
+      ],
+      "selected": "explainer-data",
+      "reason": "Stat slams, not a chalkboard.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.86
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper local TTS",
+          "score": 0.35,
+          "reason": "Repo zero-key voice.",
+          "rejected_because": "Piper not installed."
+        },
+        {
+          "option_id": "captions_only",
+          "label": "Captions + music bed",
+          "score": 0.8,
+          "reason": "85% watch muted; honest given no TTS."
+        }
+      ],
+      "selected": "captions_only",
+      "reason": "No TTS on this machine. Captions are the voice.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.82
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pixabay",
+          "label": "Pixabay stock",
+          "score": 0.25,
+          "reason": "Usual zero-key bed.",
+          "rejected_because": "Stock hosts not reachable."
+        },
+        {
+          "option_id": "procedural",
+          "label": "108 BPM dark news bed",
+          "score": 0.84,
+          "reason": "Starts at frame 0, slams on cuts."
+        }
+      ],
+      "selected": "procedural",
+      "reason": "Need immediate bed; cannot download stock.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Style playbook",
+      "options_considered": [
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "Flat Motion Graphics (red/black news override)",
+          "score": 0.87,
+          "reason": "Social explainer playbook; palette swapped to red/amber/ink so it does not reuse the cyan BDH-CQ look."
+        }
+      ],
+      "selected": "flat-motion-graphics",
+      "reason": "Recommended social playbook with a documented news-red override.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.8
+    }
+  ]
+}
