@@ -252,6 +252,7 @@ If the folder has tracks, the proposal and asset stages should present them as o
 | `podcast-repurpose` | Podcast highlights and derivatives | beta |
 | `cinematic` | Trailer, teaser, and mood-led edits | production |
 | `cinematic-intro` | ~30s AI-filmed channel intro (Seedance 2.0, character sheet, beat map) | beta |
+| `nexus-true-crime-short` | Brand-compliant Mafia/true-crime vertical Shorts (Nexus) | beta |
 | `animation` | Motion-graphics and animation-first videos | production |
 | `character-animation` | Local rigged cartoon characters and reusable character acting | beta |
 | `hybrid` | Source footage plus support visuals | production |
@@ -688,6 +689,7 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 - Picking an animation runtime? → `skills/meta/animation-runtime-selector.md` routes between Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.
 - Picking a screen-recording mode (real capture vs synthetic terminal)? → `pipeline_defs/screen-demo.yaml` + `skills/pipelines/screen-demo/idea-director.md`.
 - Building a **~30s hyper-real channel intro** with likeness photos, beat-mapped Seedance footage, board approval, and separate VO? → `pipeline_defs/cinematic-intro.yaml` + `skills/creative/cinematic-intro-engine.md` (not `cinematic` — that pipeline is source-footage / mood-led montage).
+- Nexus Mafia / organized-crime true-crime Short? → `pipeline_defs/nexus-true-crime-short.yaml` + `skills/brand/respected-historian-tone.md` + `skills/brand/mafia-true-crime-guidelines.md`. HTTP/MCP intake: `servers/nexus_openmontage.py` (writes `AGENT_INSTRUCTION.md`).
 
 ## Quick Lookup
 
