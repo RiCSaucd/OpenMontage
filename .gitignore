@@ -61,6 +61,7 @@ internal/
 # Local agent config (user-specific)
 .claude/memory/
 .claude/settings.local.json
+.cursor/mcp.json
 
 # Agent skills lock (local install tracking)
 skills-lock.json
@@ -97,3 +98,9 @@ venv/
 
 # Backlot local cache (thumbnails)
 .backlot/
+
+# Regenerable BDH-CQ short media (rebuild via examples/bdh-cq-viral/scripts/render_short.py)
+examples/bdh-cq-viral/assets/
+examples/bdh-cq-viral/artifacts/*.mp4
+examples/bdh-cq-viral/artifacts/*.png
+examples/bdh-cq-viral/artifacts/*.jpg

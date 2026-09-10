@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "platform": "local_export",
+      "status": "exported",
+      "export_path": "examples/bdh-cq-viral/artifacts/bdh_cq_last30days_short.mp4",
+      "timestamp": "2026-09-04T12:20:00Z",
+      "visibility": "unlisted",
+      "metadata_used": {
+        "title": "150 Million Parameters. That's It. | BDH-CQ",
+        "description": "Hugging Face #1 trending paper of the last 30 days (observed 2026-09-04): BDH-CQ — a 150M latent reasoner that hits 29.5% pass@2 on public ARC-AGI-1 at $0.0007/task. It does not dump a chain of thought. Paper: https://arxiv.org/abs/2608.09888",
+        "hashtags": [
+          "BDHCQ",
+          "ARCAGI",
+          "AI",
+          "HuggingFace",
+          "Shorts",
+          "MachineLearning"
+        ],
+        "chapters": [
+          {"start": 0, "title": "150 million parameters"},
+          {"start": 4, "title": "#1 trending paper"},
+          {"start": 10, "title": "29.5% at $0.0007"},
+          {"start": 18, "title": "Latent space"},
+          {"start": 24, "title": "Out-efficient"}
+        ]
+      }
+    },
+    {
+      "platform": "tiktok",
+      "status": "draft",
+      "timestamp": "2026-09-04T12:20:00Z",
+      "visibility": "unlisted",
+      "metadata_used": {
+        "title": "150 million parameters. That's it.",
+        "description": "Hottest HF paper of the last 30 days. BDH-CQ. 29.5% ARC-AGI-1. $0.0007/task.",
+        "hashtags": ["AI", "ARCAGI", "tech"]
+      }
+    }
+  ],
+  "metadata": {
+    "not_uploaded": "No social publish APIs in this environment. Package is a local 9:16 MP4 + metadata."
+  }
+}

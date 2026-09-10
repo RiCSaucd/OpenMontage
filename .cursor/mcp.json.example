@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "vidIQ": {
+      "url": "https://mcp.vidiq.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:VIDIQ_API_KEY}"
+      }
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "version": "1.0",
+  "topic": "Something trending right now (last 30 days on Hugging Face Hub)",
+  "research_date": "2026-09-04",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+        "url": "https://huggingface.co/papers/2608.09888",
+        "source": "huggingface_papers",
+        "angle": "Primary paper page — architecture + ARC-AGI-1 cost/accuracy claim",
+        "what_it_covers": "150M-parameter recurrent latent reasoner; 29.5% pass@2 on public ARC-AGI-1 at $0.0007/task; no verbalized chain-of-thought.",
+        "what_it_misses": "No short-form packaging. Does not contrast the paper against the models people are actually starring this month (Qwen 3.8, GLM-5.3).",
+        "engagement_signal": "772 upvotes; #1 on Hugging Face papers/trending as of 2026-09-04"
+      },
+      {
+        "title": "Qwen3.8-27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "source": "huggingface_models",
+        "angle": "Giant-model hype — likes30d leaderboard, not a paper",
+        "what_it_covers": "27B multimodal Qwen 3.8 release; the Hub's last-30-days likes champion.",
+        "what_it_misses": "Does not explain why a 150M reasoner is the actual #1 trending paper while everyone stars 27B weights.",
+        "engagement_signal": "13,878 likes, 5.7M downloads; #1 on search hf://models --sort likes30d"
+      },
+      {
+        "title": "ARC-AGI-1 public evaluation / cost–accuracy frontier",
+        "url": "https://arxiv.org/abs/2608.09888",
+        "source": "arxiv",
+        "angle": "Benchmark-first technical report",
+        "what_it_covers": "Abstract states the 150M config breaks the previously reported ARC-AGI-1 cost–accuracy Pareto frontier.",
+        "what_it_misses": "Dense equations; not scannable on mute in the first second.",
+        "engagement_signal": "Published 2026-08-10; still #1 trending 25 days later"
+      },
+      {
+        "title": "GLM-5.3",
+        "url": "https://huggingface.co/zai-org/GLM-5.3",
+        "source": "huggingface_models",
+        "angle": "Today's hottest live model drop",
+        "what_it_covers": "Fresh zai-org text-generation weights, updated 2026-09-04.",
+        "what_it_misses": "A model drop is a popularity story; it is not a new reasoning regime.",
+        "engagement_signal": "#1 on hf://models/trending (trendingScore) on 2026-09-04"
+      }
+    ],
+    "saturated_angles": [
+      "Another 20B+ open-weight drop is beating the Hub likes chart",
+      "Generic 'AI is getting smarter' without a single sourced number",
+      "Chain-of-thought as the only way models reason"
+    ],
+    "underserved_gaps": [
+      "The #1 last-30-days paper is a 150M model, not a 27B one — almost nobody is packing that contrast for Shorts",
+      "Latent recurrent reasoning vs verbal CoT, explained in under 10 words on screen",
+      "ARC-AGI cost ($0.0007/task) as a mute-friendly stat slam"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "BDH-CQ is #1 on Hugging Face papers/trending with 772 upvotes",
+        "url": "https://huggingface.co/papers/2608.09888",
+        "date": "2026-09-04",
+        "relevance": "Live Hub ranking via hf_fs ls hf://papers/trending — this is the last-30-days pulse, not a guessed topic."
+      },
+      {
+        "headline": "Qwen3.8-27B leads Hub models by likes in the last 30 days (13,878 likes)",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "date": "2026-09-04",
+        "relevance": "Contrast beat: the crowd stars giants; the paper chart crowns a 150M reasoner."
+      },
+      {
+        "headline": "GLM-5.3 tops models/trending after a 2026-09-04 update",
+        "url": "https://huggingface.co/zai-org/GLM-5.3",
+        "date": "2026-09-04",
+        "relevance": "Same-day model heat; useful as 'everyone is watching giants' B-story, not the A-story."
+      },
+      {
+        "headline": "Daily papers 2026-09-04 led by Terminal-Universe (115 upvotes)",
+        "url": "https://huggingface.co/papers/2609.04148",
+        "date": "2026-09-04",
+        "relevance": "Today's daily feed is agent-trajectory work; BDH-CQ is the 30-day stickier trend."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "huggingface",
+        "topic_or_url": "https://huggingface.co/papers/2608.09888",
+        "sentiment": "Excitement at a new ARC-AGI cost–accuracy point from a tiny model; curiosity about latent (non-verbal) reasoning.",
+        "key_quotes": [
+          "A 150M-parameter reasoning model using recurrent latent reasoning and in-context learning achieves a new cost-accuracy frontier on ARC-AGI-1."
+        ]
+      },
+      {
+        "platform": "huggingface",
+        "topic_or_url": "search hf://models --sort likes30d",
+        "sentiment": "Popularity split: Qwen 3.8 / GLM-5.3 / LTX-2.5 soak likes while the paper chart tells a different story.",
+        "key_quotes": [
+          "Qwen/Qwen3.8-27B — 13,878 likes, 5.7M downloads"
+        ]
+      }
+    ],
+    "timeliness_window": "days"
+  },
+  "data_points": [
+    {
+      "claim": "BDH-CQ is a 150M-parameter reasoning model.",
+      "source_url": "https://arxiv.org/abs/2608.09888",
+      "source_name": "BDH-CQ paper abstract (arXiv 2608.09888)",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "On public ARC-AGI-1 it reaches 29.5% pass@2.",
+      "source_url": "https://arxiv.org/abs/2608.09888",
+      "source_name": "BDH-CQ paper abstract",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Computed inference cost is $0.0007 per task — less than one-tenth of a cent.",
+      "source_url": "https://arxiv.org/abs/2608.09888",
+      "source_name": "BDH-CQ paper abstract",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "The paper says this operating point breaks the previously reported ARC-AGI-1 cost–accuracy Pareto frontier.",
+      "source_url": "https://huggingface.co/papers/2608.09888",
+      "source_name": "Hugging Face paper card / arXiv HTML abstract",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "closing_punch"
+    },
+    {
+      "claim": "Intermediate reasoning is not decoded into language; computation happens in a recurrent latent workspace.",
+      "source_url": "https://arxiv.org/html/2608.09888",
+      "source_name": "BDH-CQ paper §§1, 3.3",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "As of 2026-09-04, BDH-CQ is #1 on Hugging Face papers/trending (772 upvotes, published 2026-08-10).",
+      "source_url": "https://huggingface.co/papers/2608.09888",
+      "source_name": "hf_fs ls hf://papers/trending (observed 2026-09-04T12:15Z)",
+      "credibility": "primary_source",
+      "surprise_factor": "expected",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Qwen3.8-27B is the Hub likes30d leader (13,878 likes, 5.7M downloads) — the popularity chart the paper is punching through.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "source_name": "hf_fs search hf://models --sort likes30d",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "How can 150 million parameters be interesting when Qwen 3.8 is 27B?",
+      "What is latent reasoning if it is not chain-of-thought?",
+      "Is 29.5% on ARC-AGI-1 actually good, or just cheap?",
+      "Did they train on the evaluation tasks?",
+      "Where do I read the paper?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "Bigger parameter counts are the only trending AI story this month.",
+        "reality": "Hub likes30d is dominated by 20B+ weights, but papers/trending #1 is a 150M latent reasoner.",
+        "source": "hf_fs papers/trending vs models --sort likes30d, 2026-09-04"
+      },
+      {
+        "myth": "Reasoning models have to dump a chain of thought you can read.",
+        "reality": "BDH-CQ updates recurrent memory from demonstrations, then iterates in latent space and decodes only the answer.",
+        "source": "arXiv 2608.09888 abstract"
+      },
+      {
+        "myth": "ARC-AGI progress only counts as giant pass rates.",
+        "reality": "The paper's claim is a new cost–accuracy Pareto point ($0.0007/task at 29.5% pass@2), not a raw SOTA score race.",
+        "source": "arXiv 2608.09888 abstract"
+      }
+    ],
+    "knowledge_level": "Shorts audience knows 'parameters' and 'ChatGPT thinks in text'. They do not know ARC-AGI scoring or latent recurrent workspaces. One number + one contrast is the ceiling.",
+    "pain_points": [
+      "Paper PDFs are unwatchable on mute",
+      "Model launches drown out research that actually changes the cost curve",
+      "CoT traces feel like the only visible 'thinking'"
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "BDH-CQ authors (Pathway Research / BDH line)",
+      "title_or_affiliation": "arXiv 2608.09888",
+      "position": "In-context demonstrations update recurrent memory; queries are solved by iterative latent computation without verbalizing intermediates.",
+      "source_url": "https://arxiv.org/abs/2608.09888",
+      "contrarian": true
+    },
+    {
+      "name": "François Chollet",
+      "title_or_affiliation": "ARC / ARC-AGI designer",
+      "position": "ARC measures skill-acquisition efficiency from sparse demonstrations — the substrate BDH-CQ uses as a controlled testbed.",
+      "source_url": "https://arxiv.org/abs/2608.09888",
+      "contrarian": false
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "The 150M underdog",
+      "hook": "150 million parameters. That's it.",
+      "type": "trending",
+      "why_now": "Hugging Face papers/trending #1 on 2026-09-04, 25 days after publish, while likes30d belongs to 27B Qwen.",
+      "grounded_in": ["150M parameter claim", "papers/trending rank", "Qwen likes30d contrast"]
+    },
+    {
+      "name": "Reasoning without a diary",
+      "hook": "It never writes a chain of thought. It still scores on ARC-AGI.",
+      "type": "contrarian",
+      "why_now": "CoT traces are the default story of 2025–26 reasoning models; BDH-CQ's abstract is a direct counter.",
+      "grounded_in": ["latent workspace claim", "29.5% pass@2"]
+    },
+    {
+      "name": "Seven-hundredths of a cent",
+      "hook": "29.5% on ARC-AGI-1 for $0.0007 a task.",
+      "type": "data_driven",
+      "why_now": "The paper's own headline is a Pareto-frontier break, which slams as two on-screen numbers.",
+      "grounded_in": ["29.5% pass@2", "$0.0007/task", "Pareto frontier claim"]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Mute-first kinetic type on dark 9:16, number slams, 1–3s visual change",
+      "what_works": "Short-form viewers decide in 1.7s; text in frame 1 survives mute."
+    },
+    {
+      "description": "Cyan neural lattice vs amber 'top card' vs vanishing data-center aisle",
+      "what_works": "One signature color (cyan) + one punch color (amber) keeps the 30s coherent without stock footage."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://huggingface.co/papers/2608.09888",
+      "title": "BDH-CQ on Hugging Face Papers",
+      "used_for": "trending rank, upvote count, paper card summary",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.09888",
+      "title": "arXiv 2608.09888",
+      "used_for": "canonical paper identity and abstract stats",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://arxiv.org/html/2608.09888",
+      "title": "BDH-CQ HTML full text (abstract + intro + §3)",
+      "used_for": "latent vs CoT mechanism, BDH provenance, no eval-task training claim",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "title": "Qwen3.8-27B model card",
+      "used_for": "likes30d contrast",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://huggingface.co/zai-org/GLM-5.3",
+      "title": "GLM-5.3 model card",
+      "used_for": "same-day models/trending contrast",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://huggingface.co/papers/2609.04148",
+      "title": "Terminal-Universe (daily papers 2026-09-04)",
+      "used_for": "separating today's daily feed from the 30-day trend",
+      "reliability": "primary"
+    }
+  ],
+  "research_summary": "The last-30-days Hub pulse (hf_fs likes30d + papers/trending, 2026-09-04) splits in two: the crowd stars giant weights (Qwen3.8-27B, GLM-5.3), but the #1 trending paper is BDH-CQ — a 150M recurrent latent reasoner that hits 29.5% pass@2 on public ARC-AGI-1 at $0.0007/task and never dumps a chain of thought. That contrast is the viral short.",
+  "metadata": {
+    "skill_used": "Huggingface-skills hf_fs (SORT likes30d + ls hf://papers/trending + ls hf://papers/daily/latest)",
+    "observed_at": "2026-09-04T12:15:16.271Z",
+    "pipeline": "animated-explainer"
+  }
+}

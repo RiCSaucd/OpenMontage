@@ -1,0 +1,272 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "c1",
+      "title": "150 Million Parameters. That's It.",
+      "hook": "150 million parameters. That's it.",
+      "narrative_structure": "data_narrative",
+      "visual_approach": "9:16 mute-first kinetic type over dark cyan/amber stills: neural lattice, ranked paper cards, penny+grid, latent spiral, vanishing GPU aisle. Number slams every 2–4s inside the 900x1400 safe zone.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "AI-curious Shorts/Reels/TikTok viewers who know 'parameters' but not ARC-AGI",
+      "target_platform": "tiktok",
+      "target_duration_seconds": 30,
+      "key_points": [
+        "BDH-CQ is 150M parameters and #1 on Hugging Face papers/trending (last 30 days).",
+        "29.5% pass@2 on public ARC-AGI-1 at $0.0007/task — a new cost–accuracy point.",
+        "It reasons in latent space instead of dumping a chain of thought."
+      ],
+      "core_message": "The hottest paper of the last 30 days is a tiny model that out-efficient'd the giants.",
+      "cta": "Read arxiv.org/abs/2608.09888",
+      "tone": "Urgent, dry, slightly smug — tech-bro interrupt without the hype adjectives",
+      "grounded_in": ["150M parameter claim", "papers/trending #1", "29.5% / $0.0007", "latent vs CoT"],
+      "why_this_works": "Frame 1 is a pattern interrupt. The Hub last-30-days skill supplies a live rank, not a guessed topic. Two sourced numbers carry the middle. The latent-vs-CoT line is the only mechanism beat."
+    },
+    {
+      "id": "c2",
+      "title": "Reasoning Without a Diary",
+      "hook": "This model never writes a chain of thought.",
+      "narrative_structure": "myth_busting",
+      "visual_approach": "16:9 diagram-led: CoT token stream on the left dying out, latent workspace iterating on the right.",
+      "suggested_playbook": "clean-professional",
+      "target_audience": "ML practitioners on YouTube",
+      "target_platform": "youtube",
+      "target_duration_seconds": 60,
+      "key_points": [
+        "CoT couples reasoning to serial narration and token cost.",
+        "BDH-CQ binds demonstrations into recurrent memory, then iterates in H_r.",
+        "ARC-AGI is used as a controlled, verifiable testbed."
+      ],
+      "core_message": "You can reason without narrating every step.",
+      "cta": "Read section 3 of the paper",
+      "tone": "Teacher, slightly contrarian",
+      "grounded_in": ["latent workspace claim", "CoT cost critique in §1"],
+      "why_this_works": "Attacks the biggest misconception. Wrong container for 'viral right now'."
+    },
+    {
+      "id": "c3",
+      "title": "What the Hub Is Starring vs What It Is Reading",
+      "hook": "13,878 likes on a 27B. The #1 paper has 150 million weights.",
+      "narrative_structure": "comparison",
+      "visual_approach": "Split-screen likes30d leaderboard vs papers/trending #1.",
+      "suggested_playbook": "flat-motion-graphics",
+      "target_audience": "Hub regulars on LinkedIn/X",
+      "target_platform": "linkedin",
+      "target_duration_seconds": 45,
+      "key_points": [
+        "likes30d is Qwen3.8-27B.",
+        "papers/trending is BDH-CQ.",
+        "Popularity and research heat diverged this month."
+      ],
+      "core_message": "The Hub has two leaderboards. Only one is a new reasoning regime.",
+      "cta": "Open papers/trending",
+      "tone": "Observational, slightly needling",
+      "grounded_in": ["Qwen likes30d", "BDH-CQ trending rank"],
+      "why_this_works": "True, but it makes Qwen the co-star. Viral A-story should be the paper."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "c1",
+    "rationale": "The user asked for a viral video about something trending right now using the last-30-days Hub skill. c1 is the mute-first 30s packaging of papers/trending #1.",
+    "modifications": [
+      "Lock 9:16 / 30s even though Explainer stock comps are 16:9",
+      "Captions-only VO because Piper/cloud TTS are unavailable"
+    ]
+  },
+  "production_plan": {
+    "pipeline": "animated-explainer",
+    "playbook": "flat-motion-graphics",
+    "stages": [
+      {
+        "stage": "research",
+        "tools": [
+          {
+            "tool_name": "hf_fs",
+            "role": "Last-30-days Hub pulse: papers/trending, models/trending, search --sort likes30d, papers/daily/latest, cat paper.md",
+            "provider": "huggingface",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "User asked to use the last-30-days skill; likes30d and papers/trending are that skill."
+          }
+        ],
+        "approach": "Lock the A-story from live Hub rankings, then read the BDH-CQ abstract for sourced numbers.",
+        "fallback_if_unavailable": "Do not invent a trend; stop."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "gr1_z_image_turbo_generate",
+            "role": "Attempt 9:16 stills",
+            "provider": "huggingface_z_image",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Only reachable image generator in this environment."
+          },
+          {
+            "tool_name": "numpy_stills",
+            "role": "Procedural 1080x1920 stills when Hub file download is TLS-blocked",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Disk-local; matches the five-scene shot list."
+          }
+        ],
+        "approach": "Five stills, one per beat. No talking-head, no stock crawl.",
+        "fallback_if_unavailable": "ffmpeg color+geq cards"
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "video_compose",
+            "role": "Would route Remotion/HyperFrames if engines were installed",
+            "provider": "openmontage",
+            "available": false,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Python venv/jsonschema missing; engines not installed."
+          },
+          {
+            "tool_name": "ffmpeg",
+            "role": "Ken Burns + ASS burn + AAC bed, 1080x1920 H.264 High",
+            "provider": "local_ffmpeg",
+            "available": true,
+            "estimated_cost_usd": 0,
+            "why_this_provider": "Only composition runtime actually on the machine."
+          }
+        ],
+        "approach": "Lock ffmpeg at proposal. 30s, 30fps, ~10 Mbps, captions burned, music from frame 0.",
+        "fallback_if_unavailable": "None — ffmpeg is the floor."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "HyperFrames kinetic type (unavailable) vs ffmpeg ASS slams (available)",
+        "recommendation": "Ship ffmpeg now; rebuild in HyperFrames when npx works.",
+        "quality_impact": "Less springy type, still a readable mute-first Short."
+      },
+      {
+        "tradeoff": "Piper/OpenAI VO vs captions-only",
+        "recommendation": "Captions-only. 85% watch muted anyway.",
+        "quality_impact": "Sound-on autoplay has a bed and slams, not a host."
+      },
+      {
+        "tradeoff": "Z-Image photoreal stills vs numpy geometry",
+        "recommendation": "Numpy, because Hub image URLs cannot be downloaded here.",
+        "quality_impact": "More graphic, less photographic. Coherent palette."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Remotion Explainer 16:9 with word-level captions (needs node_modules + 16:9 crop later)",
+        "total_cost_usd": 0,
+        "quality_level": "standard",
+        "what_changes": "Wrong aspect unless a vertical composition is authored."
+      },
+      {
+        "description": "HyperFrames kinetic-type 9:16 (needs npx hyperframes)",
+        "total_cost_usd": 0,
+        "quality_level": "premium",
+        "what_changes": "Springier type, registry motion. Same script."
+      },
+      {
+        "description": "This ffmpeg path",
+        "total_cost_usd": 0,
+        "quality_level": "budget",
+        "what_changes": "Ships today with zero keys."
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "playful",
+      "quality_floor": "presentable",
+      "approved_fallback": "animatic"
+    },
+    "renderer_family": "explainer-data",
+    "render_runtime": "ffmpeg",
+    "composition_mode": "templated",
+    "taste_profile": {
+      "design_read": "Mute-first research interrupt: navy void, cyan lattice, amber as the 'hot' card. Type is the picture.",
+      "visual_variance": 6,
+      "motion_intensity": 7,
+      "information_density": 5,
+      "palette_discipline": "Cyan #00E5FF, amber #FFB020, white type, navy #05080F. No third accent.",
+      "layout_variation": "Center-locked slams; caption rail at y=1480 inside the universal safe zone.",
+      "reference_strategy": "Short-form.md safe zones and 1-second hook — not another product's Explainer template.",
+      "anti_patterns": [
+        "Purple startup gradient",
+        "Logo intro",
+        "Wall of paper-abstract text",
+        "16:9 letterbox on a Short"
+      ],
+      "quality_gates": [
+        "Text in frame 1",
+        "Visual change every scene (4/6/8/6/6s with Ken Burns inside)",
+        "No critical type below y=1600",
+        "Duration 30s ±5%"
+      ]
+    },
+    "music_source": {
+      "source_type": "bring_your_own",
+      "track_path": "examples/bdh-cq-viral/assets/bed_loudnorm.wav",
+      "mood_direction": "100 BPM dark drone with percussive slams on cuts",
+      "estimated_cost_usd": 0
+    },
+    "voice_selection": {
+      "provider": "captions_only",
+      "voice_id": "ass_inter_bold",
+      "rationale": "No TTS on this machine; captions are the voice.",
+      "estimated_cost_usd": 0,
+      "delivery_style": "Slam, not conversational. 3–5 words per block.",
+      "pacing_policy": "New block every 1–3s; no dead air on screen.",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "examples/bdh-cq-viral/artifacts/decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0,
+    "line_items": [
+      {
+        "tool": "hf_fs",
+        "operation": "Last-30-days trending scan + paper.md cat",
+        "quantity": 2,
+        "estimated_usd": 0,
+        "notes": "Hugging Face Hub MCP"
+      },
+      {
+        "tool": "gr1_z_image_turbo_generate",
+        "operation": "Five 9:16 still attempts (not landed on disk)",
+        "quantity": 5,
+        "estimated_usd": 0,
+        "notes": "Space is free; download blocked"
+      },
+      {
+        "tool": "ffmpeg",
+        "operation": "Ken Burns + ASS + AAC 30s 1080x1920",
+        "quantity": 1,
+        "estimated_usd": 0,
+        "notes": "Local"
+      }
+    ],
+    "budget_cap_usd": 2,
+    "budget_verdict": "within_budget",
+    "savings_options": ["Already $0"]
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Production request 'Create a viral video about something trending right now using the last 30 days skill' is treated as concept + runtime approval for this cloud run. Remotion and HyperFrames were presented in the decision log; both unavailable, ffmpeg locked.",
+    "approved_budget_usd": 0
+  },
+  "metadata": {
+    "capability_menu": {
+      "ffmpeg": true,
+      "remotion": false,
+      "hyperframes": false,
+      "piper": false,
+      "cloud_image_download": false,
+      "note": "Python venv missing; registry preflight could not run. Envelope inferred from binaries on PATH."
+    }
+  }
+}

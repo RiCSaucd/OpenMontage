@@ -86,6 +86,13 @@ Key capability families to look for in the output:
 | Subtitle Sync | `core/subtitle-sync.md` | Subtitle timing and alignment | `remotion-best-practices` |
 | Color Grading | `core/color-grading.md` | FFmpeg color profiles, LUT workflow, accessibility | `ffmpeg` |
 
+## Brand Skills
+
+| Skill | File | Trigger |
+|-------|------|---------|
+| Respected Historian Tone | `brand/respected-historian-tone.md` | Nexus true-crime Shorts — measured, sourced voice |
+| Mafia True-Crime Guidelines | `brand/mafia-true-crime-guidelines.md` | Nexus organized-crime content boundaries + archival-first visuals |
+
 ## Creative Skills
 
 | Skill | File | Trigger | Agent Skills (Layer 3) |
@@ -203,6 +210,21 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Edit Director | `pipelines/podcast-repurpose/edit-director.md` | `edit` | Hook-led podcast clips, quote hold time, companion simplicity |
 | Compose Director | `pipelines/podcast-repurpose/compose-director.md` | `compose` | Audio-first rendering, deliverable prioritization |
 | Publish Director | `pipelines/podcast-repurpose/publish-director.md` | `publish` | Episode cross-linking, guest attribution, staggered release logic |
+
+### Nexus True Crime Short (`pipelines/nexus-true-crime-short/`) — v1.0
+
+Brand-compliant vertical Shorts for Nexus AI Media. Intake server: `servers/nexus_openmontage.py`. Brand skills: `brand/respected-historian-tone`, `brand/mafia-true-crime-guidelines`.
+
+| Skill | File | Stage | Key Capabilities |
+|-------|------|-------|-----------------|
+| **Executive Producer** | `pipelines/nexus-true-crime-short/executive-producer.md` | `all` | Research-first orchestration, brand gates, user-VO plan |
+| Research Director | `pipelines/nexus-true-crime-short/research-director.md` | `research` | Fact/myth separation, citations, human-cost beat |
+| Proposal Director | `pipelines/nexus-true-crime-short/proposal-director.md` | `proposal` | 2–3 historian-tone concepts, approval stop |
+| Script Director | `pipelines/nexus-true-crime-short/script-director.md` | `script` | Timing cues for user VO, measured language |
+| Scene Director | `pipelines/nexus-true-crime-short/scene-director.md` | `scene_plan` | Archival-first slots, no hero-weapon framing |
+| Asset Director | `pipelines/nexus-true-crime-short/asset-director.md` | `assets` | Stock/archival prefer, sparse music, scratch TTS only |
+| Edit Director | `pipelines/nexus-true-crime-short/edit-director.md` | `edit` | Comprehension pacing, VO layover windows |
+| Compose Director | `pipelines/nexus-true-crime-short/compose-director.md` | `compose` | final.mp4 + optional CapCut/Drive distribution manifest |
 
 ### Cinematic Pipeline (`pipelines/cinematic/`) — v2.0
 
