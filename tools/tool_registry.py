@@ -58,6 +58,10 @@ class ToolRegistry:
     def __init__(self) -> None:
         self._tools: dict[str, BaseTool] = {}
         self._discovered_packages: set[str] = set()
+        # module dotted-name -> "ErrorType: message" for modules that failed
+        # to import during discovery. A missing optional dependency in one
+        # tool module must not blind the agent to every other tool.
+        self._discovery_errors: dict[str, str] = {}
 
     def register(self, tool: BaseTool) -> None:
         """Register a tool instance."""
@@ -69,6 +73,7 @@ class ToolRegistry:
         """Clear registered tools and discovery state."""
         self._tools.clear()
         self._discovered_packages.clear()
+        self._discovery_errors.clear()
 
     def register_module(self, module: ModuleType) -> list[str]:
         """Register all concrete BaseTool subclasses defined in a module."""
@@ -127,7 +132,16 @@ class ToolRegistry:
         for module_info in pkgutil.walk_packages(package_paths, f"{package.__name__}."):
             if module_info.name.endswith(".base_tool") or module_info.name.endswith(".tool_registry"):
                 continue
-            module = importlib.import_module(module_info.name)
+            try:
+                module = importlib.import_module(module_info.name)
+            except Exception as exc:  # noqa: BLE001 — resilience is the point
+                # A single tool module that fails to import (usually a missing
+                # optional dependency imported at module top level) must not
+                # abort discovery for the whole tree. Record it so preflight can
+                # surface it via provider_menu_summary()["runtime_warnings"]
+                # instead of the agent silently never seeing the other tools.
+                self._discovery_errors[module_info.name] = f"{type(exc).__name__}: {exc}"
+                continue
             discovered.extend(self.register_module(module))
 
         self._discovered_packages.add(package_name)
@@ -137,6 +151,15 @@ class ToolRegistry:
         """Load tool modules once before reporting capabilities."""
         if package_name not in self._discovered_packages:
             self.discover(package_name)
+
+    def discovery_errors(self) -> dict[str, str]:
+        """Return {module_name: error} for modules that failed to import.
+
+        Populated by discover(). A non-empty result means some tools could not
+        be registered (typically a missing optional dependency) and are silently
+        absent from every capability listing — preflight surfaces these.
+        """
+        return dict(self._discovery_errors)
 
     def get(self, name: str) -> Optional[BaseTool]:
         """Get a tool by name."""
@@ -361,6 +384,13 @@ class ToolRegistry:
         # they're the signal the runtime-selection contract depends on.
         comp_runtimes: dict[str, bool] = {}
         runtime_warnings: list[str] = []
+        # Tool modules that failed to import are invisible to every capability
+        # listing below — surface them first so the "looks unavailable but is
+        # actually broken" case is never silent.
+        for module_name, error in sorted(self._discovery_errors.items()):
+            runtime_warnings.append(
+                f"discovery: tool module {module_name!r} failed to import ({error})"
+            )
         vc = self._tools.get("video_compose")
         if vc is not None:
             info = vc.get_info()

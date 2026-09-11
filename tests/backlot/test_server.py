@@ -20,6 +20,22 @@ from backlot import server as server_mod
 from backlot import state as state_mod
 
 
+def _coverage_active() -> bool:
+    """True when the suite is running under coverage instrumentation.
+
+    coverage.py's line/branch tracer adds per-line overhead that makes
+    wall-clock latency assertions meaningless (a cold scan that takes ~1s
+    normally can exceed 2s while traced). The perf-budget tests skip
+    themselves in that case; they still run under plain `make test`.
+    """
+    try:
+        import coverage
+
+        return coverage.Coverage.current() is not None
+    except Exception:
+        return False
+
+
 @pytest.fixture
 def projects_root(tmp_path, monkeypatch):
     root = tmp_path / "projects"
@@ -154,6 +170,11 @@ class TestBacklotServerApi:
 
 
 class TestBacklotPerformanceBudgets:
+    @pytest.fixture(autouse=True)
+    def _skip_under_coverage(self):
+        if _coverage_active():
+            pytest.skip("wall-clock budgets are unreliable under coverage instrumentation")
+
     def test_projects_and_state_stay_within_loose_budgets(self, client, projects_root):
         for i in range(25):
             project = _make_project(projects_root, f"film-{i:02d}")
