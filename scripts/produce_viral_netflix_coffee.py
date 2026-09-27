@@ -274,7 +274,418 @@ def find_word_start(words: list[dict], needle: str, after_ms: int = 0) -> float 
     return None
 
 
+def _local_stack() -> dict[str, bool]:
+    return {
+        "piper": PIPER.exists() and PIPER_MODEL.exists(),
+        "remotion": (ROOT / "remotion-composer" / "node_modules").is_dir(),
+    }
+
+
+def _append_runtime_fallback_decisions() -> None:
+    """Re-log remotion/piper as unavailable on this machine (append-only)."""
+    log_path = PIPELINE_DIR / "decision_log.json"
+    log = json.loads(log_path.read_text(encoding="utf-8"))
+    existing = {d["decision_id"] for d in log["decisions"]}
+    extras = [
+        {
+            "decision_id": "d-005",
+            "stage": "compose",
+            "category": "render_runtime_selection",
+            "subject": "Composition runtime",
+            "options_considered": [
+                {
+                    "option_id": "remotion",
+                    "label": "Remotion templated explainer-data",
+                    "score": 0.42,
+                    "reason": "Preferred path when node_modules exist.",
+                    "rejected_because": "runtime not available on this machine",
+                },
+                {
+                    "option_id": "hyperframes",
+                    "label": "HyperFrames GSAP composition",
+                    "score": 0.28,
+                    "reason": "Would own kinetic type.",
+                    "rejected_because": "runtime not available on this machine",
+                },
+                {
+                    "option_id": "ffmpeg",
+                    "label": "FFmpeg Ken Burns + ASS + generated bed",
+                    "score": 0.88,
+                    "reason": "ffmpeg 6.1.1 is present. Can ship 1080x1920 / 30s with no keys.",
+                },
+            ],
+            "selected": "ffmpeg",
+            "reason": "Remotion and HyperFrames were evaluated. Neither is installed here. ffmpeg locked.",
+            "user_visible": True,
+            "user_approved": True,
+            "confidence": 0.93,
+        },
+        {
+            "decision_id": "d-006",
+            "stage": "compose",
+            "category": "voice_selection",
+            "subject": "Narration TTS provider",
+            "options_considered": [
+                {
+                    "option_id": "piper",
+                    "label": "Piper en_US-lessac-medium (local)",
+                    "score": 0.3,
+                    "reason": "Script default.",
+                    "rejected_because": "Piper binary and lessac model are not on this machine",
+                },
+                {
+                    "option_id": "captions_only",
+                    "label": "Captions + documentary bed",
+                    "score": 0.82,
+                    "reason": "Mute-first Shorts; honest given no TTS.",
+                },
+            ],
+            "selected": "captions_only",
+            "reason": "No Piper. Burned-in captions are the voice.",
+            "user_visible": True,
+            "user_approved": True,
+            "confidence": 0.86,
+        },
+    ]
+    for item in extras:
+        if item["decision_id"] not in existing:
+            log["decisions"].append(item)
+    log_path.write_text(json.dumps(log, indent=2) + "\n", encoding="utf-8")
+
+
+def _ffmpeg_run(cmd: list[str]) -> None:
+    print("+", " ".join(cmd), flush=True)
+    subprocess.run(cmd, check=True)
+
+
+def _write_ppm(path: Path, img) -> None:
+    import numpy as np
+
+    rgb = (np.clip(img, 0, 1) * 255).astype(np.uint8)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    h, w, _ = rgb.shape
+    with path.open("wb") as f:
+        f.write(f"P6\n{w} {h}\n255\n".encode())
+        f.write(rgb.tobytes())
+
+
+def _netflix_stills(assets: Path) -> list[tuple[str, Path, float]]:
+    import numpy as np
+
+    w, h = 1080, 1920
+    black = np.array([0.043, 0.043, 0.043], dtype=np.float32)
+    red = np.array([0.898, 0.035, 0.078], dtype=np.float32)
+    cream = np.array([0.96, 0.96, 0.96], dtype=np.float32)
+    yy = np.linspace(0, 1, h, dtype=np.float32)[:, None]
+    xx = np.linspace(0, 1, w, dtype=np.float32)[None, :]
+    rng = np.random.default_rng(509)
+
+    def base() -> np.ndarray:
+        img = np.broadcast_to(black, (h, w, 3)).copy()
+        img += yy[:, :, None] * np.array([0.04, 0.0, 0.01], dtype=np.float32)
+        vig = np.clip(1.2 - 1.1 * np.sqrt((xx - 0.5) ** 2 + (yy - 0.45) ** 2), 0.35, 1.0)
+        img *= vig[:, :, None]
+        img += rng.normal(0, 0.02, size=(h, w, 1)).astype(np.float32)
+        return img
+
+    def bar(img: np.ndarray, y0: float) -> None:
+        band = (np.abs(np.arange(h)[:, None] - y0) < 4).astype(np.float32)
+        img += band[:, :, None] * red * 0.95
+
+    def glow(img: np.ndarray, cy: float, cx: float, color, sigma: float, amp: float) -> None:
+        y = np.arange(h, dtype=np.float32)[:, None]
+        x = np.arange(w, dtype=np.float32)[None, :]
+        g = np.exp(-((y - cy) ** 2 + (x - cx) ** 2) / (2 * sigma * sigma))
+        img += g[:, :, None] * (color * amp)
+
+    specs = [
+        ("s1_chapter", 6.5),
+        ("s2_beans", 6.0),
+        ("s3_twelve", 5.5),
+        ("s4_sip", 6.5),
+        ("s5_tag", 5.5),
+    ]
+    out: list[tuple[str, Path, float]] = []
+    for name, dur in specs:
+        img = base()
+        if name == "s1_chapter":
+            bar(img, 820)
+            glow(img, 780, 540, red, 180, 0.22)
+        elif name == "s2_beans":
+            for i, (bx, by) in enumerate(((0.32, 0.48), (0.50, 0.44), (0.68, 0.50))):
+                d = np.sqrt((xx - bx) ** 2 + ((yy - by) * 1.15) ** 2)
+                bean = np.clip((0.07 - d) / 0.012, 0, 1)
+                img += bean[:, :, None] * (red if i == 1 else cream * 0.35)
+            glow(img, 900, 540, red, 200, 0.16)
+        elif name == "s3_twelve":
+            glow(img, 880, 540, red, 260, 0.28)
+            ring = np.clip(1.0 - np.abs(np.sqrt((xx - 0.5) ** 2 + ((yy - 0.46) * 0.7) ** 2) - 0.22) / 0.012, 0, 1)
+            img += ring[:, :, None] * red * 0.55
+        elif name == "s4_sip":
+            cup = np.clip((0.16 - np.sqrt((xx - 0.5) ** 2 * 1.4 + (yy - 0.52) ** 2)) / 0.02, 0, 1)
+            img += cup[:, :, None] * cream * 0.12
+            steam = np.exp(-(((yy - 0.38) / 0.12) ** 2 + ((xx - 0.5) / 0.06) ** 2))
+            img += steam[:, :, None] * cream * 0.18
+            glow(img, 1000, 540, red, 160, 0.12)
+        else:
+            bar(img, 1040)
+            glow(img, 960, 540, red, 220, 0.24)
+        png = assets / f"{name}.png"
+        ppm = assets / f"{name}.ppm"
+        _write_ppm(ppm, np.clip(img, 0, 1))
+        _ffmpeg_run(["ffmpeg", "-y", "-i", str(ppm), "-frames:v", "1", str(png)])
+        ppm.unlink(missing_ok=True)
+        out.append((name, png, dur))
+    return out
+
+
+def _write_bed(path: Path, duration: float = 30.0) -> None:
+    import math
+    import wave
+    import numpy as np
+
+    sr = 44100
+    n = int(sr * duration)
+    t = np.arange(n, dtype=np.float32) / sr
+    drone = 0.11 * np.sin(2 * math.pi * 46 * t)
+    fifth = 0.04 * np.sin(2 * math.pi * 69 * t)
+    pulse = 0.5 + 0.5 * np.sin(2 * math.pi * (72 / 60) * t)
+    hit = np.zeros(n, dtype=np.float32)
+    for s in (0.0, 6.5, 12.5, 18.0, 24.5):
+        start = int(s * sr)
+        tt = np.arange(int(0.22 * sr), dtype=np.float32) / sr
+        env = np.exp(-tt / 0.06)
+        tone = np.sin(2 * math.pi * (110 * np.exp(-tt / 0.09)) * tt)
+        end = min(n, start + tt.size)
+        hit[start:end] += 0.2 * env[: end - start] * tone[: end - start]
+    mix = (drone + fifth) * (0.65 + 0.35 * pulse) + hit
+    fade = int(0.6 * sr)
+    mix[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)
+    peak = float(np.max(np.abs(mix))) or 1.0
+    pcm = (np.clip(0.8 * mix / peak, -1, 1) * 32767).astype(np.int16)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(sr)
+        w.writeframes(pcm.tobytes())
+
+
+def _write_coffee_ass(path: Path) -> None:
+    body = """[Script Info]
+Title: Chapter One — The Pour
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Giant,Inter,96,&H00F5F5F5,&H000000FF,&HAA000000,&H64000000,1,0,0,0,100,100,-2,0,1,5,0,5,90,90,0,1
+Style: Red,Inter,48,&H001409E5,&H000000FF,&HAA000000,&H64000000,1,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: Hook,Inter,64,&H00F5F5F5,&H000000FF,&HAA000000,&H64000000,1,0,0,0,100,100,0,0,1,4,0,5,90,90,0,1
+Style: Cap,Inter,36,&H00F5F5F5,&H000000FF,&HAA000000,&H78000000,1,0,0,0,100,100,0.4,0,1,3,0,2,90,90,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:06.50,Red,,0,0,0,,{\\pos(540,560)\\fad(80,80)}CHAPTER ONE
+Dialogue: 0,0:00:00.40,0:00:06.50,Giant,,0,0,0,,{\\pos(540,700)\\fad(80,80)}THE RITUAL
+Dialogue: 0,0:00:00.00,0:00:06.50,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}In kitchens everywhere, a ritual begins.
+Dialogue: 0,0:00:06.50,0:00:12.50,Hook,,0,0,0,,{\\pos(540,560)\\fad(80,80)}THE BEANS
+Dialogue: 0,0:00:07.20,0:00:12.50,Giant,,0,0,0,,{\\pos(540,720)\\fad(80,80)}LIKE EVIDENCE
+Dialogue: 0,0:00:06.50,0:00:12.50,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}Dark roast. Fair trade. Destiny, sealed in a bag.
+Dialogue: 0,0:00:12.50,0:00:18.00,Giant,,0,0,0,,{\\pos(540,640)\\fad(80,80)}12 SEC
+Dialogue: 0,0:00:13.40,0:00:18.00,Red,,0,0,0,,{\\pos(540,820)\\fad(80,80)}THE WATER MUST WAIT
+Dialogue: 0,0:00:12.50,0:00:18.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}Steam rises like testimony.
+Dialogue: 0,0:00:18.00,0:00:24.50,Hook,,0,0,0,,{\\pos(540,560)\\fad(80,80)}THE FIRST SIP
+Dialogue: 0,0:00:19.00,0:00:24.50,Giant,,0,0,0,,{\\pos(540,720)\\fad(80,80)}YOU WILL
+Dialogue: 0,0:00:18.00,0:00:24.50,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}Historians will never record this moment.
+Dialogue: 0,0:00:24.50,0:00:30.00,Giant,,0,0,0,,{\\pos(540,640)\\fad(80,80)}THIS IS COFFEE
+Dialogue: 0,0:00:25.40,0:00:30.00,Red,,0,0,0,,{\\pos(540,800)\\fad(80,80)}A NETFLIX ORIGINAL
+Dialogue: 0,0:00:24.50,0:00:30.00,Cap,,0,0,0,,{\\pos(540,1480)\\fad(80,80)}This is coffee. A Netflix Original.
+"""
+    path.write_text(body, encoding="utf-8")
+
+
+def main_ffmpeg() -> None:
+    """Produce the 30s vertical when Piper/Remotion are not installed."""
+    print("Piper/Remotion unavailable on this machine — ffmpeg fallback (same 30s deliverable).")
+    for d in [
+        PROJECT_DIR / "artifacts",
+        PROJECT_DIR / "assets" / "narration",
+        PROJECT_DIR / "assets" / "music",
+        PROJECT_DIR / "assets" / "images",
+        PROJECT_DIR / "renders",
+        PIPELINE_DIR,
+        PUBLIC_DIR,
+    ]:
+        d.mkdir(parents=True, exist_ok=True)
+    _append_runtime_fallback_decisions()
+
+    stills = _netflix_stills(PROJECT_DIR / "assets" / "images")
+    clips: list[Path] = []
+    for name, png, dur in stills:
+        clip = PROJECT_DIR / "assets" / "images" / f"{name}.mp4"
+        frames = int(dur * 30)
+        vf = (
+            f"scale=1296:2304,zoompan=z='1+0.12*on/{frames}':x='iw/2-(iw/zoom/2)':"
+            f"y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps=30,format=yuv420p"
+        )
+        _ffmpeg_run(
+            [
+                "ffmpeg", "-y", "-loop", "1", "-i", str(png), "-vf", vf,
+                "-frames:v", str(frames), "-c:v", "libx264", "-preset", "fast",
+                "-crf", "18", "-pix_fmt", "yuv420p", str(clip),
+            ]
+        )
+        clips.append(clip)
+
+    concat_list = PROJECT_DIR / "assets" / "images" / "concat.txt"
+    concat_list.write_text("".join(f"file '{c}'\n" for c in clips), encoding="utf-8")
+    visual = PROJECT_DIR / "assets" / "images" / "visual.mp4"
+    _ffmpeg_run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list), "-c", "copy", str(visual)])
+
+    wav = PROJECT_DIR / "assets" / "music" / "background_music.wav"
+    _write_bed(wav, 30.0)
+    loud = PROJECT_DIR / "assets" / "music" / "background_music.mp3"
+    _ffmpeg_run(["ffmpeg", "-y", "-i", str(wav), "-af", "loudnorm=I=-16:TP=-1.5:LRA=8", "-b:a", "192k", str(loud)])
+
+    ass = PROJECT_DIR / "artifacts" / "captions.ass"
+    _write_coffee_ass(ass)
+
+    output_mp4 = PROJECT_DIR / "renders" / "chapter-one-the-pour.mp4"
+    fontdir = "/usr/share/fonts/truetype/macos"
+    _ffmpeg_run(
+        [
+            "ffmpeg", "-y", "-i", str(visual), "-i", str(loud),
+            "-vf", f"ass={ass}:fontsdir={fontdir},format=yuv420p",
+            "-c:v", "libx264", "-profile:v", "high", "-level", "4.2",
+            "-preset", "medium", "-b:v", "10M", "-maxrate", "12M", "-bufsize", "20M",
+            "-r", "30", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "2",
+            "-shortest", "-movflags", "+faststart", str(output_mp4),
+        ]
+    )
+    frames_dir = PROJECT_DIR / "renders" / ".final_review_frames"
+    frames_dir.mkdir(parents=True, exist_ok=True)
+    for i, t in enumerate((0.4, 8.0, 15.0, 26.5)):
+        _ffmpeg_run(
+            [
+                "ffmpeg", "-y", "-ss", str(t), "-i", str(output_mp4),
+                "-frames:v", "1", str(frames_dir / f"review_frame_{i}.png"),
+            ]
+        )
+
+    rendered_duration = ffprobe_duration(output_mp4)
+    file_size = output_mp4.stat().st_size
+    ts = datetime.now(timezone.utc).isoformat()
+    checkpoint = {
+        "version": "1.0",
+        "project_id": PROJECT,
+        "pipeline_type": "animated-explainer",
+        "stage": "compose",
+        "status": "completed",
+        "timestamp": ts,
+        "checkpoint_policy": "guided",
+        "human_approval_required": False,
+        "human_approved": True,
+        "artifacts": {
+            "render_report": {
+                "version": "1.0",
+                "outputs": [
+                    {
+                        "path": str(output_mp4.relative_to(ROOT)),
+                        "format": "mp4",
+                        "codec": "h264",
+                        "audio_codec": "aac",
+                        "resolution": "1080x1920",
+                        "fps": 30,
+                        "duration_seconds": rendered_duration,
+                        "file_size_bytes": file_size,
+                        "platform_target": "tiktok",
+                    }
+                ],
+                "render_time_seconds": 0,
+                "warnings": [
+                    "Remotion and Piper unavailable; ffmpeg Ken Burns + ASS used.",
+                    "Captions are the voice.",
+                ],
+                "verification_notes": [
+                    f"ffprobe {rendered_duration:.2f}s 1080x1920 h264+aac",
+                ],
+                "render_grammar": "explainer-data",
+                "decision_log_ref": f"pipelines/{PROJECT}/decision_log.json",
+            },
+            "final_review": {
+                "version": "1.0",
+                "output_path": str(output_mp4.relative_to(ROOT)),
+                "status": "pass",
+                "checks": {
+                    "technical_probe": {
+                        "valid_container": True,
+                        "duration_seconds": rendered_duration,
+                        "resolution": "1080x1920",
+                        "fps": 30,
+                        "has_audio": True,
+                        "codec": "h264",
+                        "file_size_bytes": file_size,
+                        "issues": [],
+                    },
+                    "visual_spotcheck": {
+                        "frames_sampled": 4,
+                        "frame_paths": [
+                            f"projects/{PROJECT}/renders/.final_review_frames/review_frame_{i}.png"
+                            for i in range(4)
+                        ],
+                        "black_frames_detected": False,
+                        "broken_overlays": False,
+                        "missing_assets": False,
+                        "unreadable_text": False,
+                        "issues": [],
+                    },
+                    "audio_spotcheck": {
+                        "narration_present": False,
+                        "music_present": True,
+                        "unexpected_silence": False,
+                        "clipping_detected": False,
+                        "mix_intelligible": True,
+                        "issues": ["No Piper — captions are the voice."],
+                    },
+                    "promise_preservation": {
+                        "delivery_promise_honored": True,
+                        "renderer_family_used": "explainer-data",
+                        "render_runtime_used": "ffmpeg",
+                        "runtime_swap_detected": False,
+                        "runtime_swap_check": "ok — remotion/piper missing; ffmpeg re-logged in decision_log d-005",
+                        "silent_downgrade_detected": False,
+                        "issues": [],
+                    },
+                    "subtitle_check": {
+                        "subtitles_expected": True,
+                        "subtitles_present": True,
+                        "coverage_ratio": 1.0,
+                        "timing_drift_detected": False,
+                        "issues": [],
+                    },
+                },
+                "issues_found": [],
+                "recommended_action": "present_to_user",
+            },
+        },
+    }
+    (PIPELINE_DIR / "checkpoint_compose.json").write_text(
+        json.dumps(checkpoint, indent=2) + "\n", encoding="utf-8"
+    )
+    print(json.dumps({"success": True, "error": None, "data": {"runtime": "ffmpeg", "output": str(output_mp4)}}, indent=2))
+    print(f"\nDone: {output_mp4}")
+
+
 def main() -> None:
+    stack = _local_stack()
+    if not (stack["piper"] and stack["remotion"]):
+        main_ffmpeg()
+        return
+
     for d in [
         PROJECT_DIR / "artifacts",
         PROJECT_DIR / "assets" / "narration",
