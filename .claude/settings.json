@@ -1,0 +1,13 @@
+{
+    "extraKnownMarketplaces": {
+        "last30days-skill": {
+            "source": {
+                "source": "github",
+                "repo": "mvanhorn/last30days-skill"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "last30days@last30days-skill": true
+    }
+}
