@@ -1,0 +1,182 @@
+{
+  "version": "1.0",
+  "topic": "What trended on X in late September 2026: Claude Sonnet 5.5 versus GPT-6 Astra",
+  "research_date": "2026-10-01",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Introducing Claude Sonnet 5.5",
+        "url": "https://www.anthropic.com/claude-sonnet-5-5",
+        "source": "blog",
+        "angle": "Vendor launch: faster, cheaper workhorse next to Opus 5.5",
+        "what_it_covers": "Sept 28 2026 launch, 30%+ faster than Sonnet 5, up to 30% less per task, Terminal-Bench 4.0 70.6%",
+        "what_it_misses": "Does not explain why the name hit the X trend list or the per-task invoice flip"
+      },
+      {
+        "title": "Claude Sonnet 5.5 vs GPT-6 Astra: where Sonnet wins",
+        "url": "https://www.theneuron.ai/news/claude-sonnet-5-5-vs-gpt-6-astra-where-sonnet-wins/",
+        "source": "blog",
+        "angle": "Benchmark horse race at one-fifth the token price",
+        "what_it_covers": "Astra launched Sept 3; Sonnet 70.6% vs Astra 57.9% on Terminal-Bench 4.0; $2/$10 vs $10/$50",
+        "what_it_misses": "The cases where Astra's shorter answers make the expensive model cheaper to run"
+      },
+      {
+        "title": "Claude Sonnet 5.5 vs GPT-6 Astra: 5x Rate, Half Cost",
+        "url": "https://www.orcarouter.ai/blog/claude-sonnet-5-5-vs-gpt-6-astra",
+        "source": "blog",
+        "angle": "Rate card versus completed-task cost",
+        "what_it_covers": "About $3.26 per Intelligence Index task for Astra vs about $7.60 for Sonnet 5.5, driven by output-token volume",
+        "what_it_misses": "The X trend context that made the comparison public"
+      }
+    ],
+    "saturated_angles": [
+      "Which lab is winning the benchmark table",
+      "Cybersecurity capability threshold recaps"
+    ],
+    "underserved_gaps": [
+      "A 48-second read of why the name trended: the invoice, not the leaderboard"
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "Sonnet 5.5 appears on the worldwide X trend list",
+        "url": "https://twitter-trends.snaplytics.io/2026-09-28/",
+        "date": "2026-09-28",
+        "relevance": "Primary reason this topic is the film"
+      },
+      {
+        "headline": "Anthropic introduces Claude Sonnet 5.5",
+        "url": "https://www.anthropic.com/claude-sonnet-5-5",
+        "date": "2026-09-28",
+        "relevance": "Launch day matches the trend snapshot"
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "twitter",
+        "topic_or_url": "https://twitter-trends.snaplytics.io/2026-09-28/",
+        "sentiment": "A model name sat on the worldwide list beside sports and politics, under 10k posts in the captured hour",
+        "key_quotes": []
+      }
+    ],
+    "timeliness_window": "days"
+  },
+  "data_points": [
+    {
+      "claim": "On 28 Sep 2026 Sonnet 5.5 was on the worldwide X trend list, logged under 10k posts in that hour.",
+      "source_url": "https://twitter-trends.snaplytics.io/2026-09-28/",
+      "source_name": "Snaplytics worldwide X trend archive",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Anthropic introduced Claude Sonnet 5.5 on 28 Sep 2026: 30%+ faster than Sonnet 5 and up to 30% less per task for most work. Terminal-Bench 4.0 is listed at 70.6%.",
+      "source_url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "source_name": "Anthropic",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "GPT-6 Astra launched 3 Sep 2026. The Neuron reports Terminal-Bench 4.0 at 57.9% for Astra and token prices of $10/$50 versus Sonnet 5.5 at $2/$10.",
+      "source_url": "https://www.theneuron.ai/news/claude-sonnet-5-5-vs-gpt-6-astra-where-sonnet-wins/",
+      "source_name": "The Neuron",
+      "credibility": "secondary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "OrcaRouter measured about $3.26 per completed Intelligence Index task for GPT-6 Astra versus about $7.60 for Claude Sonnet 5.5, because Sonnet emitted far more output tokens.",
+      "source_url": "https://www.orcarouter.ai/blog/claude-sonnet-5-5-vs-gpt-6-astra",
+      "source_name": "OrcaRouter",
+      "credibility": "secondary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "closing_punch"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Is Sonnet 5.5 actually cheaper than GPT-6 Astra?",
+      "Who won Terminal-Bench?",
+      "Why did a model name trend on X?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "The model with the lower token price is the cheaper one to run.",
+        "reality": "A routing lab found Astra finishing an Intelligence Index task for less money because it wrote fewer tokens.",
+        "source": "https://www.orcarouter.ai/blog/claude-sonnet-5-5-vs-gpt-6-astra"
+      }
+    ],
+    "knowledge_level": "People who saw the name on X know a launch happened. They do not have the two prices and the invoice flip in one place.",
+    "pain_points": [
+      "Benchmark threads collapse price, speed, and task cost into one winner."
+    ]
+  },
+  "angles_discovered": [
+    {
+      "name": "The trend was the invoice",
+      "hook": "X trended a model name. The useful argument was which bill you can defend.",
+      "type": "data_driven",
+      "why_now": "Sonnet 5.5 launched and hit the worldwide list on 28 Sep 2026, 25 days after Astra.",
+      "grounded_in": [
+        "Snaplytics trend row",
+        "Anthropic prices and speed",
+        "OrcaRouter per-task cost"
+      ]
+    },
+    {
+      "name": "The cheaper bench is not the cheaper run",
+      "hook": "Sonnet leads Terminal-Bench and still can cost more per finished task.",
+      "type": "contrarian",
+      "why_now": "Both numbers are public in the same week the name trended.",
+      "grounded_in": [
+        "Terminal-Bench 70.6 vs 57.9",
+        "OrcaRouter $3.26 vs $7.60"
+      ]
+    },
+    {
+      "name": "Twenty-five days between flagships",
+      "hook": "Astra on the 3rd. Sonnet on the 28th. The timeline is the story.",
+      "type": "narrative",
+      "why_now": "The gap is short enough to say in one sentence.",
+      "grounded_in": [
+        "Astra 3 Sep",
+        "Sonnet 28 Sep"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://twitter-trends.snaplytics.io/2026-09-28/",
+      "title": "Worldwide Twitter Trends on Sep 28, 2026",
+      "used_for": "X trend evidence",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "title": "Introducing Claude Sonnet 5.5",
+      "used_for": "Launch date, speed, Terminal-Bench 70.6%",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.theneuron.ai/news/claude-sonnet-5-5-vs-gpt-6-astra-where-sonnet-wins/",
+      "title": "Claude Sonnet 5.5 vs GPT-6 Astra: where Sonnet wins",
+      "used_for": "Astra date, prices, Terminal-Bench 57.9%",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.orcarouter.ai/blog/claude-sonnet-5-5-vs-gpt-6-astra",
+      "title": "Claude Sonnet 5.5 vs GPT-6 Astra: 5x Rate, Half Cost",
+      "used_for": "Per-task cost flip",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://docsbot.ai/models/compare/claude-sonnet-5-5/gpt-6-astra",
+      "title": "Claude Sonnet 5.5 vs GPT-6 Astra",
+      "used_for": "Release-date cross-check, 3 Sep vs 28 Sep",
+      "reliability": "secondary"
+    }
+  ]
+}
