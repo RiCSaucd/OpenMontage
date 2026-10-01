@@ -11,27 +11,9 @@ import json
 import math
 import subprocess
 import sys
-import types
 import wave
 from datetime import datetime, timezone
 from pathlib import Path
-
-# jsonschema is not installed and PyPI is blocked. Gate checks still run;
-# schema validation is a no-op so checkpoints can be written offline.
-_js = types.ModuleType("jsonschema")
-
-
-class _ValidationError(Exception):
-    pass
-
-
-def _validate(*_a, **_k):
-    return None
-
-
-_js.ValidationError = _ValidationError
-_js.validate = _validate
-sys.modules["jsonschema"] = _js
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -563,7 +545,7 @@ def build_artifacts() -> dict:
                 "id": "c1",
                 "title": "The trend was the invoice",
                 "hook": "A model name trended on X. The argument worth keeping is which bill you can defend.",
-                "narrative_structure": "Trend name, Astra's rate, Sonnet's rate, the bench, the invoice flip, one-line landing.",
+                "narrative_structure": "data_narrative",
                 "visual_approach": "Six full-frame type plates. Clay for Sonnet, ice for Astra, lime rule for the kicker.",
                 "target_duration_seconds": 48,
                 "why_this_works": "Four sourced numbers, one twist, no footage required.",
@@ -572,7 +554,7 @@ def build_artifacts() -> dict:
                 "id": "c2",
                 "title": "Benchmark horse race",
                 "hook": "Who scored higher.",
-                "narrative_structure": "Table of benches.",
+                "narrative_structure": "comparison",
                 "visual_approach": "Chart dump.",
                 "target_duration_seconds": 45,
                 "why_this_works": "Familiar, and already published.",
@@ -581,7 +563,7 @@ def build_artifacts() -> dict:
                 "id": "c3",
                 "title": "Twenty-five days",
                 "hook": "Astra on the 3rd, Sonnet on the 28th.",
-                "narrative_structure": "Calendar only.",
+                "narrative_structure": "timeline",
                 "visual_approach": "Date cards.",
                 "target_duration_seconds": 30,
                 "why_this_works": "Clear, but it never says why anyone should care.",
@@ -788,8 +770,6 @@ def main() -> int:
         ],
         "total_cost_usd": 0.0,
     }
-    # asset schema requires type loosely; subtitle may not be an enum. Keep music and video only if schema is strict later.
-    manifest["assets"] = [a for a in manifest["assets"] if a["type"] in ("video", "audio", "music", "image")]
     save(project, "asset_manifest", manifest)
     cp("assets", "completed", {"asset_manifest": manifest}, cost_snapshot=zero)
 
@@ -865,9 +845,9 @@ def main() -> int:
         "entries": [
             {
                 "platform": "local",
-                "status": "rendered",
+                "status": "exported",
+                "export_path": str(out.relative_to(ROOT)),
                 "timestamp": datetime.now(timezone.utc).isoformat(),
-                "notes": "Not uploaded. File is the project render.",
             }
         ],
     }
