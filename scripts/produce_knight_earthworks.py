@@ -12,25 +12,9 @@ import json
 import math
 import subprocess
 import sys
-import types
 import wave
 from datetime import datetime, timezone
 from pathlib import Path
-
-_js = types.ModuleType("jsonschema")
-
-
-class _ValidationError(Exception):
-    pass
-
-
-def _validate(*_a, **_k):
-    return None
-
-
-_js.ValidationError = _ValidationError
-_js.validate = _validate
-sys.modules["jsonschema"] = _js
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -45,10 +29,11 @@ W, H, FPS = 1920, 1080, 24
 HOLD = 6.0
 DURATION = HOLD * 6
 
-ASSETS = Path("/home/ubuntu/.cursor/projects/workspace/assets")
-LOGO_SRC = ASSETS / "3801B8B5-3FC5-45DD-8B00-0530113E04BC_L0_001.jpg"
-PAGE_LATE = ASSETS / "01a0f840-59de-70bb-9970-96ed22e964a7.jpg"
-PAGE_EARLY = ASSETS / "BA741AE3-37B6-463E-B6CD-3FC5A15D1CA0_L0_001.jpg"
+BRAND = ROOT / "examples" / "knight-earthworks" / "brand-kit"
+LOGO_SRC = BRAND / "logo.jpg"
+GRANITE_SRC = BRAND / "granite.jpg"
+WALK_SRC = BRAND / "walk.jpg"
+PATIO_SRC = BRAND / "patio.jpg"
 
 FONT_B = "/usr/share/fonts/truetype/macos/Inter-Bold.ttf"
 FONT_S = "/usr/share/fonts/truetype/macos/Inter-SemiBold.ttf"
@@ -158,11 +143,10 @@ def build_visuals(project: Path) -> Path:
     txt.mkdir(parents=True, exist_ok=True)
     frames = int(HOLD * FPS)
 
-    crop(LOGO_SRC, img / "logo.jpg", 926, 1006, 82, 210)
-    # Drop the website caption bar on the bottom of the gallery tiles.
-    crop(PAGE_LATE, img / "granite.jpg", 584, 440, 50, 3050)
-    crop(PAGE_EARLY, img / "walk.jpg", 584, 390, 50, 3078)
-    crop(PAGE_EARLY, img / "patio.jpg", 584, 280, 646, 4588)
+    crop(LOGO_SRC, img / "logo.jpg", 760, 826, 0, 0)
+    crop(GRANITE_SRC, img / "granite.jpg", 860, 760, 0, 0)
+    crop(WALK_SRC, img / "walk.jpg", 760, 516, 0, 0)
+    crop(PATIO_SRC, img / "patio.jpg", 1040, 616, 0, 0)
 
     zoom_clip(img / "granite.jpg", vid / "granite.mp4", 860, 760, frames)
     zoom_clip(img / "walk.jpg", vid / "walk.mp4", 760, 520, frames)
@@ -519,6 +503,8 @@ def artifacts() -> tuple[dict, dict, dict, dict, dict]:
         "audience_insights": {
             "common_questions": [
                 "Who do I call for a patio or drainage job in southern Maine?",
+                "Is Knight Earthworks based in Limerick or Biddeford Pool?",
+                "What has to be done under a patio before the stone is set?",
             ],
             "misconceptions": [
                 {
@@ -687,7 +673,7 @@ def artifacts() -> tuple[dict, dict, dict, dict, dict]:
                 "id": "c1",
                 "title": "The part you don't see",
                 "hook": "A bucket sets a granite step. The line says the base is the job.",
-                "narrative_structure": "Logo, tagline, unseen work, three services, the owner, the number.",
+                "narrative_structure": "story",
                 "visual_approach": "Forest #16241C, gold #D08E38, cream #FAF9F6. The supplied wordmark. Three real job photos in windows, not full-bleed upscales.",
                 "target_duration_seconds": 36,
                 "why_this_works": "It uses the copy and the photos already in the kit.",
@@ -696,7 +682,7 @@ def artifacts() -> tuple[dict, dict, dict, dict, dict]:
                 "id": "c2",
                 "title": "Logo and phone",
                 "hook": "Name, then the number.",
-                "narrative_structure": "Lockup and a call.",
+                "narrative_structure": "story",
                 "visual_approach": "Logo card only.",
                 "target_duration_seconds": 15,
                 "why_this_works": "Short, and it leaves the work out.",
@@ -705,7 +691,7 @@ def artifacts() -> tuple[dict, dict, dict, dict, dict]:
                 "id": "c3",
                 "title": "Scroll the mock",
                 "hook": "The website is the video.",
-                "narrative_structure": "A page scroll.",
+                "narrative_structure": "journey",
                 "visual_approach": "Screenshot pan.",
                 "target_duration_seconds": 40,
                 "why_this_works": "It shows the design comps and not the company.",
