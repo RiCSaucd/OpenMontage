@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "topic": "Knight Earthworks brand spot from the supplied logo and website comps",
+  "research_date": "2026-10-01",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "Shield wordmark",
+        "url": "file://brand-kit/knight-earthworks-logo.jpg",
+        "source": "provided",
+        "angle": "Illustrated mini-excavator, pine, and the spelled-right wordmark",
+        "what_it_covers": "KNIGHT EARTHWORKS, Maine excavation, precision digging, versatile attachments",
+        "what_it_misses": "It does not name the town or the phone"
+      },
+      {
+        "title": "Later website hero",
+        "url": "file://brand-kit/limerick-hero.jpg",
+        "source": "provided",
+        "angle": "Forest field, gold button, job photo of granite being set",
+        "what_it_covers": "Limerick, Maine, York County and southern Maine since 2013, Will Knight, (207) 699-6340",
+        "what_it_misses": "Earlier comps in the same set say Biddeford Pool instead of Limerick"
+      },
+      {
+        "title": "Job-site gallery",
+        "url": "file://brand-kit/job-site-gallery.jpg",
+        "source": "provided",
+        "angle": "Real photos of base prep, pavers, and a lived-in patio",
+        "what_it_covers": "Granite steps on crushed stone, paver walk, porcelain pool deck, finished patio",
+        "what_it_misses": "The tiles are small inside a page screenshot"
+      }
+    ],
+    "saturated_angles": [
+      "Generic excavator stock with a phone number slapped on",
+      "Using the circular badge that spells the name knlight"
+    ],
+    "underserved_gaps": [
+      "A short spot that uses the real job photos and the spelled-right wordmark"
+    ]
+  },
+  "data_points": [
+    {
+      "claim": "The latest comps say Knight Earthworks LLC, Limerick, Maine, serving York County and southern Maine since 2013.",
+      "source_url": "file://brand-kit/limerick-hero.jpg",
+      "source_name": "Supplied website comp",
+      "credibility": "primary_source",
+      "surprise_factor": "expected",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "The line used across the comps is Built right from the ground up, with granite and paver hardscapes, drainage, and excavation.",
+      "source_url": "file://brand-kit/limerick-hero.jpg",
+      "source_name": "Supplied website comp",
+      "credibility": "primary_source",
+      "surprise_factor": "expected",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Will Knight is named as the owner-operator. Hours on the comps are Mon\u2013Fri, 8am\u20134pm. The phone is (207) 699-6340.",
+      "source_url": "file://brand-kit/limerick-hero.jpg",
+      "source_name": "Supplied website comp",
+      "credibility": "primary_source",
+      "surprise_factor": "expected",
+      "usable_as": "call_to_action"
+    },
+    {
+      "claim": "Earlier comps in the same set say Biddeford Pool instead of Limerick. Both cannot be the on-screen town.",
+      "source_url": "file://brand-kit/biddeford-hero.jpg",
+      "source_name": "Earlier supplied website comp",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "caveat"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Who do I call for a patio or drainage job in southern Maine?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "The finished patio is the whole job.",
+        "reality": "The comps say the base prep and drainage are what keep patios, walls, and steps from settling."
+      }
+    ],
+    "knowledge_level": "A homeowner who already has the brand kit in front of them.",
+    "pain_points": [
+      "Settling patios and steps when the base was skipped."
+    ]
+  },
+  "angles_discovered": [
+    {
+      "name": "The part you don't see",
+      "hook": "Show the bucket setting granite, then say the base is the job.",
+      "type": "narrative",
+      "why_now": "That sentence is already the site's own argument.",
+      "grounded_in": [
+        "Built right from the ground up",
+        "crushed-stone base photo"
+      ]
+    },
+    {
+      "name": "Town and phone only",
+      "hook": "Logo, town, number.",
+      "type": "evergreen",
+      "why_now": "It is a complete ad, and it throws away the job photos.",
+      "grounded_in": [
+        "phone",
+        "Limerick lockup"
+      ]
+    },
+    {
+      "name": "Page scroll as the video",
+      "hook": "Film the website mock.",
+      "type": "trending",
+      "why_now": "The comps exist, but a scroll of a mock is not a spot.",
+      "grounded_in": [
+        "full-page comp"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "file://brand-kit/knight-earthworks-logo.jpg",
+      "title": "Shield wordmark supplied with the request",
+      "used_for": "Name spelling and the illustrated mark",
+      "reliability": "primary"
+    },
+    {
+      "url": "file://brand-kit/limerick-hero.jpg",
+      "title": "Later desktop and mobile comps",
+      "used_for": "Town, service area, phone, hours, tagline, owner",
+      "reliability": "primary"
+    },
+    {
+      "url": "file://brand-kit/job-site-gallery.jpg",
+      "title": "Job-site photos inside the comps",
+      "used_for": "Granite base, paver walk, lived-in patio",
+      "reliability": "primary"
+    },
+    {
+      "url": "file://brand-kit/biddeford-hero.jpg",
+      "title": "Earlier Biddeford Pool comps",
+      "used_for": "The conflicting town line, which is not put on screen",
+      "reliability": "primary"
+    },
+    {
+      "url": "file://brand-kit/circular-badge.jpg",
+      "title": "Circular badge",
+      "used_for": "Rejected. It spells the name knlight.",
+      "reliability": "primary"
+    }
+  ]
+}
